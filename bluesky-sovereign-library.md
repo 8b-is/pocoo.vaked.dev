@@ -1,13 +1,18 @@
 # BlueSky multipost — the sovereign library (draft)
 
-Thread from the 8b-is constellation. Images from the tape; alt text on every
-card; proper links throughout. Ready to post once the account is set.
+Thread from the 8b-is constellation. Alt text on every card; proper links
+throughout. Post text and links are final; the image attachments are not.
+
+**image status** — only post 1 has a file (`taiko-01-protocol-demo/assets/hero.svg`).
+Posts 2, 3 and 4 describe cards that do not exist yet; author them (or drop
+the attachment) before posting. Do not post with a broken link or a missing
+image: the thread's whole point is that nothing is asserted without evidence.
 
 ---
 
 ## Post 1 — the hook
 
-**image:** `crush-love-dev/assets/hero.svg` (the ultralovegod hero)
+**image:** `taiko-01-protocol-demo/assets/hero.svg` (PROVE IT. DON'T ASSERT IT.)
 **alt:** "0/1 in high-contrast pink on a dark purple-black background, over
 the words PROVE IT. DON'T ASSERT IT."
 
@@ -53,7 +58,7 @@ truth, dedicated to Omni"
 > Dedicated to Omni, and to all the women and all who helped.
 > Twenty minutes, wherever the truth is being built.
 >
-> → pocoo.vaked.dev/book/the-sovereign-library.html
+> → pocoo.vaked.dev/demos/book/the-sovereign-library.html
 
 ---
 
