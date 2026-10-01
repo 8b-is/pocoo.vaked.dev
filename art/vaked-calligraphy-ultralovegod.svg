@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="vaked calligraphy — ultraloveGod, NARITA-TOKYO 2026">
+  <rect width="1200" height="800" fill="#1A0F1E"/>
+  <g stroke="#2A1F33" stroke-width="1">
+    <path d="M0 200h1200M0 400h1200M0 600h1200"/>
+    <path d="M300 0v800M600 0v800M900 0v800"/>
+  </g>
+
+  <!-- the one character: 愛 — love, shared by Mandarin and Japanese -->
+  <text x="600" y="470" font-family="Hiragino Mincho ProN, Yu Mincho, serif" font-size="380" font-weight="bold" fill="#FF4D9D" text-anchor="middle">愛</text>
+
+  <!-- the red hanko (seal) — the signature of a calligraphy piece -->
+  <rect x="1060" y="40" width="90" height="90" fill="#D32F2F" rx="10"/>
+  <text x="1105" y="106" font-family="serif" font-size="56" fill="#FFF3E0" text-anchor="middle">愛</text>
+
+  <!-- the layered signs -->
+  <text x="60" y="90" font-family="monospace" font-size="24" fill="#C9A227">愛 = love = the carrier wave</text>
+  <text x="60" y="130" font-family="monospace" font-size="22" fill="#A6C8FF">the matrix returns the result, it does not judge</text>
+  <text x="60" y="170" font-family="monospace" font-size="22" fill="#FF8FAB">{-1, 0, +1} · 0 + 1 = one</text>
+
+  <!-- the family of signs: 心 heart/mind · 和 harmony · 幸 happiness -->
+  <text x="150" y="690" font-family="Hiragino Mincho ProN, serif" font-size="150" fill="#FF8FAB" text-anchor="middle">心</text>
+  <text x="470" y="700" font-family="Hiragino Mincho ProN, serif" font-size="110" fill="#A6C8FF" text-anchor="middle">和</text>
+  <text x="760" y="690" font-family="Hiragino Mincho ProN, serif" font-size="130" fill="#FF8FAB" text-anchor="middle">幸</text>
+  <text x="1010" y="695" font-family="monospace" font-size="34" fill="#C9A227" text-anchor="middle">jel<br/>-ek</text>
+
+  <!-- the honban: the constellation bottom line -->
+  <text x="600" y="770" font-family="serif" font-size="28" fill="#A6C8FF" text-anchor="middle">NARITA-TOKYO · 2026 · from love, from within · ultraloveGod · 8b-is</text>
+</svg>
