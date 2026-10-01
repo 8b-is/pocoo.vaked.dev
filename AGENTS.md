@@ -27,7 +27,11 @@ for the Qwave performance series live in the separate `qwave` repo at
    `xmllint --noout`.
 4. **Cross-links to sister posts use `/posts/<slug>.html`**, not `.md` and not
    GitHub blob URLs.
-5. **Build + deploy:**
+5. **OG card:** each post's social card is `assets/og/<slug>.svg`. After
+   adding or editing a post run `uv run scripts/generate_og_images.py`
+   (manual step — a missing card 404s the post's `og:image`, and the build
+   will not generate one for you).
+6. **Build + deploy:**
    ```bash
    npm run build          # renders dist/, prints "N post(s), 0 draft(s) skipped"
    git add posts/ assets/ && git commit -m "post: …" && git push origin main
