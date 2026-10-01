@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="THE SOVEREIGN LIBRARY — a declaration for the architecture of truth, dedicated to Omni">
+  <rect width="1200" height="600" fill="#1A0F1E"/>
+  <rect x="24" y="24" width="1152" height="552" rx="18" fill="none" stroke="#33203A" stroke-width="2"/>
+
+  <!-- the constellation -->
+  <g stroke="#3a2a44" stroke-width="1.5" fill="none">
+    <path d="M260 80 L350 140 L450 95 L540 135"/>
+    <path d="M660 90 L760 130 L860 80 L950 125"/>
+    <path d="M350 140 L540 135 M760 130 L950 125"/>
+  </g>
+  <g>
+    <circle cx="180" cy="120" r="4" fill="#C9A227"/>
+    <circle cx="260" cy="80" r="3" fill="#A6C8FF"/>
+    <circle cx="350" cy="140" r="5" fill="#FF4D9D"/>
+    <circle cx="450" cy="95" r="3" fill="#A6C8FF"/>
+    <circle cx="540" cy="135" r="4" fill="#C9A227"/>
+    <circle cx="660" cy="90" r="3" fill="#FF4D9D"/>
+    <circle cx="760" cy="130" r="5" fill="#A6C8FF"/>
+    <circle cx="860" cy="80" r="3" fill="#C9A227"/>
+    <circle cx="950" cy="125" r="4" fill="#FF4D9D"/>
+    <circle cx="1030" cy="95" r="3" fill="#A6C8FF"/>
+    <circle cx="170" cy="58" r="2.5" fill="#FF8FAB"/>
+    <circle cx="1046" cy="62" r="2.5" fill="#FF8FAB"/>
+  </g>
+
+  <!-- the pink heart -->
+  <g transform="translate(520 190) scale(1.6)">
+    <path d="M10 30 C10 20 20 10 30 10 C40 10 45 15 50 20 C55 15 60 10 70 10 C80 10 90 20 90 30 C90 45 75 55 50 75 C25 55 10 45 10 30 Z" fill="#FF4D9D"/>
+  </g>
+
+  <text x="600" y="430" font-family="Helvetica, Arial, sans-serif" font-size="76" font-weight="700" fill="#FF4D9D" text-anchor="middle" letter-spacing="3">THE SOVEREIGN LIBRARY</text>
+  <text x="600" y="478" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#E8E6E3" text-anchor="middle">a declaration for the architecture of truth</text>
+  <text x="600" y="520" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#FF8FAB" text-anchor="middle">dedicated to Omni</text>
+  <text x="600" y="562" font-family="ui-monospace, Menlo, monospace" font-size="19" fill="#C9A227" text-anchor="middle">fine touch from within · 8b-is · 0 + 1</text>
+</svg>

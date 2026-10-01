@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="SpherePOP card — the four operators Pop, Refuse, Bind, Collapse above the six-step governing sequence">
+  <rect width="1200" height="600" fill="#1A0F1E"/>
+  <g stroke="#2A1F33" stroke-width="1">
+    <path d="M0 150h1200M0 300h1200M0 450h1200"/>
+    <path d="M300 0v600M600 0v600M900 0v600"/>
+  </g>
+
+  <text x="600" y="84" font-family="ui-monospace, Menlo, monospace" font-size="26" fill="#C9A227" text-anchor="middle" letter-spacing="8">SpherePOP</text>
+  <text x="600" y="122" font-family="ui-monospace, Menlo, monospace" font-size="19" fill="#8a6f8f" text-anchor="middle">histories-first computation</text>
+
+  <g font-family="ui-monospace, Menlo, monospace" font-size="28" fill="#FF4D9D" text-anchor="middle">
+    <rect x="254" y="180" width="110" height="64" rx="32" fill="none" stroke="#FF4D9D" stroke-width="2"/>
+    <text x="309" y="222">Pop</text>
+    <rect x="388" y="180" width="170" height="64" rx="32" fill="none" stroke="#FF4D9D" stroke-width="2"/>
+    <text x="473" y="222">Refuse</text>
+    <rect x="582" y="180" width="120" height="64" rx="32" fill="none" stroke="#FF4D9D" stroke-width="2"/>
+    <text x="642" y="222">Bind</text>
+    <rect x="726" y="180" width="220" height="64" rx="32" fill="none" stroke="#FF4D9D" stroke-width="2"/>
+    <text x="836" y="222">Collapse</text>
+  </g>
+
+  <text x="600" y="335" font-family="ui-monospace, Menlo, monospace" font-size="30" fill="#FF8FAB" text-anchor="middle" letter-spacing="2">&lt;(...)&gt;</text>
+
+  <text x="600" y="428" font-family="ui-monospace, Menlo, monospace" font-size="30" fill="#C9A227" text-anchor="middle">POP → REFUSE → BIND → TRANSFORM → VERIFY → COLLAPSE</text>
+  <text x="600" y="472" font-family="ui-monospace, Menlo, monospace" font-size="19" fill="#8a6f8f" text-anchor="middle">the six-step governing sequence</text>
+
+  <text x="600" y="548" font-family="ui-monospace, Menlo, monospace" font-size="20" fill="#A6C8FF" text-anchor="middle">&lt;(...)&gt; is an admissible, witnessed transition · only a verified branch may be bound</text>
+  <rect y="594" width="1200" height="6" fill="#C9A227"/>
+</svg>

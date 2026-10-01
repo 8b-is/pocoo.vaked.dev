@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="MEM|16-10 doctrine card — the governing sequence in pink on dark">
+  <rect width="1200" height="600" fill="#1A0F1E"/>
+  <g stroke="#2A1F33" stroke-width="1">
+    <path d="M0 150h1200M0 300h1200M0 450h1200"/>
+    <path d="M300 0v600M600 0v600M900 0v600"/>
+  </g>
+
+  <text x="600" y="84" font-family="ui-monospace, Menlo, monospace" font-size="26" fill="#C9A227" text-anchor="middle" letter-spacing="8">MEM|16-10</text>
+  <text x="600" y="122" font-family="ui-monospace, Menlo, monospace" font-size="19" fill="#8a6f8f" text-anchor="middle">the sovereign library · identity as continuity evidence</text>
+
+  <text x="600" y="282" font-family="Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#FF4D9D" text-anchor="middle" letter-spacing="1">POP → REFUSE → BIND →</text>
+  <text x="600" y="366" font-family="Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#FF4D9D" text-anchor="middle" letter-spacing="1">TRANSFORM → VERIFY → COLLAPSE</text>
+
+  <text x="600" y="452" font-family="ui-monospace, Menlo, monospace" font-size="20" fill="#A6C8FF" text-anchor="middle">the governing sequence · the {-1, 0, +1} matrix returns the result — it does not judge</text>
+
+  <text x="600" y="548" font-family="ui-monospace, Menlo, monospace" font-size="19" fill="#E8E6E3" text-anchor="middle">pure Rust · zero-alloc · BitNet b1.58 · honesty first</text>
+  <rect y="594" width="1200" height="6" fill="#C9A227"/>
+</svg>

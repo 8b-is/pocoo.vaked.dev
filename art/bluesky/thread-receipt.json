@@ -1,0 +1,42 @@
+{
+  "thread": {
+    "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mwsnmtocs222",
+    "cid": "bafyreiainkx5ltoee5pzypoxwpad2kd3hmzuht2rdhyf3lblm6bwqx3ysy"
+  },
+  "handle": "0xp3t3rl.bsky.social",
+  "postedAt": "2026-10-01T10:30:00.840Z",
+  "posts": [
+    {
+      "n": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mwsnmtocs222",
+      "cid": "bafyreiainkx5ltoee5pzypoxwpad2kd3hmzuht2rdhyf3lblm6bwqx3ysy",
+      "image": "prove-it.png",
+      "sha256": "0c37214d30ce3dfc6358674fd6e919b975f02c2b27ad91505d8a34a3253ea5a5",
+      "alt": "0/1 in high-contrast red-pink on a dark background, over the words PROVE IT. DON'T ASSERT IT."
+    },
+    {
+      "n": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mwsnmva2lk22",
+      "cid": "bafyreicklxx4667tnsvcfqhrub2vdg6bonp2pwfjpnp5vvkellyfrzo3u4",
+      "image": "mem-16-10.png",
+      "sha256": "3a2e5e6f88a6f3f49e3b8bf074614e4ce49922094e229a496c8fc64a3fc733c2",
+      "alt": "MEM|16-10 doctrine card — POP → REFUSE → BIND → TRANSFORM → VERIFY → COLLAPSE in pink on dark"
+    },
+    {
+      "n": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mwsnmwkydh2n",
+      "cid": "bafyreifiy7yei4pjc6m4fjza6dknlcapk7wndylhrjofshkrtaltykssbu",
+      "image": "spherepop.png",
+      "sha256": "177e261d10b619e9b59465e17ec5faee7a5a648605032f683ba13a8b8aaf2a17",
+      "alt": "SpherePOP — the four operators Pop, Refuse, Bind, Collapse above the six-step governing sequence"
+    },
+    {
+      "n": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mwsnmxsvkb2r",
+      "cid": "bafyreiakbzzxgqseg7z2myq3xsxswi2ctmqhpyk3jqghptv5kujsxn5gvq",
+      "image": "sovereign-library.png",
+      "sha256": "119fe8f1b4218f2f6be91e6844dbf50f8475b8a5abb25c2e8307a7c140015452",
+      "alt": "THE SOVEREIGN LIBRARY — a declaration for the architecture of truth, dedicated to Omni, beneath a pink heart and a constellation"
+    }
+  ]
+}
