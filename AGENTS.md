@@ -64,6 +64,25 @@ global `entheai-bridge` skill ("Image / SVG generation") for the working
 endpoint, the `deepseek/deepseek-v3.2` model choice, and the recurring
 Google-Fonts `@import` XML-invalidity fix. Hand-polish layout after generation.
 
+## Library catalog (demos/book) — generated, never hand-edited
+
+`demos/book/index.html` is produced by `scripts/gen-catalog.mjs`: it scans
+every `demos/book/*.html`, pulls title + seal, appends `html`/`pdf`/`epub`
+links (siblings ≤20 MB — the Pages cap `build.mjs` enforces), and renders the
+card head through `scripts/gen-catalog.wasm` (`render_book`).
+
+- **Layout rule**: title/seal/entry/out are fixed scratch regions, reused per
+  book. Nothing may advance with the book count — advancing buffers collided
+  and corrupted titles (mojibake, template fragments) past the first few rows.
+- Titles are HTML-escaped and cleaned (entities decoded, controls stripped,
+  NFC, whitespace collapsed); fallback chain `<title>` → `<h1>` → filename.
+- Rebuild the WASM after editing the `.wat`:
+  `npx -y -p wabt wat2wasm scripts/gen-catalog.wat -o scripts/gen-catalog.wasm`
+- `build.mjs` runs the generator **before** copying `demos/` to `dist/` —
+  never reorder that pair, or dist ships a stale catalog.
+- Skin: the constellation ink (`--pink #FF4D9D` on `--bg #1A0F1E`, mono,
+  sha256 ledger rows), with a start-here link to the declaration.
+
 ## Conventions
 
 - `markdown-it` is configured with `html: false` — no raw HTML in posts; use
