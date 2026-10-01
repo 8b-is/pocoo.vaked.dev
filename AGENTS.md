@@ -35,6 +35,28 @@ for the Qwave performance series live in the separate `qwave` repo at
    Cloudflare Pages rebuilds on push to `main` (~20–30 s). Verify each
    `/posts/<slug>.html` returns 200.
 
+## Remotes — push to BOTH, or the site silently 404s
+
+This repo has two remotes and they drift:
+
+| Remote | URL | Role |
+|--------|-----|------|
+| `origin` | `https://github.com/peterlodri-sec/pocoo.vaked.dev.git` | **Cloudflare Pages builds from this one.** |
+| `upstream` | `git@github-peterlodri-sec:8b-is/pocoo.vaked.dev.git` | org mirror (tracking branch for local `main`). |
+
+Because local `main` tracks `upstream`, a plain `git push` goes to the mirror
+and **the live site does not update** — Pages keeps serving the stale
+`origin/main` tree. New pages 404 even though they are committed, built, and
+present in `dist/`.
+
+```bash
+git push origin main && git push upstream main
+```
+
+Diagnose with `git log --oneline origin/main..main` — a non-empty list means the
+live site is behind. The Cloudflare `_redirects` splat rules are *not* the
+cause of book 404s; confirm deploy state before touching them.
+
 ## Illustrations (entheai)
 
 Generated SVGs come from the entheai engine via the `vaked` provider — see the
