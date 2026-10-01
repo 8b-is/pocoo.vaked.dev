@@ -5,7 +5,7 @@
   (memory (export "memory") 1)
   (data (i32.const 0) "<div class=\"work\" data-title=\"")
   (data (i32.const 30) "\"><h3>")
-  (data (i32.const 40) "\c2\b7 ")
+  (data (i32.const 40) " \c2\b7 ")
   (data (i32.const 50) "</h3>")
   (func $copy (param $dst i32) (param $src i32) (param $n i32) (result i32)
     (local $i i32)
@@ -38,6 +38,6 @@
     (local.set $out (call $copy_str (local.get $out) (local.get $tptr) (local.get $tlen)))
     (if (i32.gt_u (local.get $slen) (i32.const 0))
       (then
-        (local.set $out (call $copy (local.get $out) (i32.const 40) (i32.const 3)))
+        (local.set $out (call $copy (local.get $out) (i32.const 40) (i32.const 4)))
         (local.set $out (call $copy_str (local.get $out) (local.get $sptr) (local.get $slen)))))
     (call $copy (local.get $out) (i32.const 50) (i32.const 5))))

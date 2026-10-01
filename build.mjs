@@ -937,6 +937,9 @@ ${postLines}
   if (existsSync(path.join(ROOT, "_redirects"))) {
     await cp(path.join(ROOT, "_redirects"), path.join(DIST_DIR, "_redirects"));
   }
+  // SOTA: auto-generate the book catalog (WASM ternary search) from demos/book/*.html
+  // (before the demos copy, so dist/ always receives the fresh index)
+  execSync(`node ${path.join(ROOT, "scripts", "gen-catalog.mjs")}`, { stdio: "inherit" });
   // Copy demos (filter out heavy weights >20MB so Cloudflare Pages 25MB limit is respected)
   if (existsSync(path.join(ROOT, "demos"))) {
     await cp(path.join(ROOT, "demos"), path.join(DIST_DIR, "demos"), {
@@ -972,8 +975,6 @@ ${postLines}
     await cp(path.join(ROOT, ".well-known"), path.join(DIST_DIR, ".well-known"), { recursive: true });
   }
   console.log("copy: assets, _headers, demos, silicon-world, robots.txt, .well-known -> dist/");
-  // SOTA: auto-generate the book catalog (WASM ternary search) from demos/book/*.html
-  execSync(`node ${path.join(ROOT, "scripts", "gen-catalog.mjs")}`, { stdio: "inherit" });
   console.log(`\ndone: ${posts.length} post(s), ${skipped} draft(s) skipped.`);
 }
 

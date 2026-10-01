@@ -1,34 +1,80 @@
 // pocoo.vaked.dev — catalog generator, WASM-powered
 // The per-book markup (title + seal) is rendered by WebAssembly
 // (gen-catalog.wasm); the host appends links + meta and assembles the page.
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+//
+// layout rule: title/seal/entry/out are fixed scratch regions reused per
+// book — nothing advances with the book count, so buffers can never collide.
+import { readdirSync, readFileSync, writeFileSync, statSync } from "node:fs";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const BOOK_DIR = path.join(ROOT, "demos", "book");
+const MAX_SHARED_BYTES = 20 * 1024 * 1024; // build.mjs keeps dist under the CF Pages limit
 
-function titleFrom(html) {
-  const m = html.match(/<title>([^<]*)<\/title>/);
-  if (!m) return "Untitled";
-  return m[1].replace(/\s*·\s*Vének Tanácsa.*$/i, "").trim();
+function decodeEntities(s) {
+  return s.replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (m, e) =>
+    ({ amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'", nbsp: " " }[e]));
+}
+function clean(s) {
+  return decodeEntities(s.replace(/<[^>]*>/g, ""))
+    .normalize("NFC")
+    .replace(/[\u0000-\u001f\u007f\uFFFD]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+function esc(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function byteCap(s, max) {
+  const enc = new TextEncoder();
+  while (enc.encode(s).length > max && s.length > 0) s = s.slice(0, -8);
+  return s.trim();
+}
+function titleFrom(html, fallback) {
+  const m = html.match(/<title>([\s\S]*?)<\/title>/i);
+  let t = m ? clean(m[1]) : "";
+  if (!t || /^untitled$/i.test(t)) {
+    const h = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+    t = h ? clean(h[1]) : "";
+  }
+  if (!t) t = fallback;
+  return byteCap(t.replace(/\s*·\s*Vének Tanácsa.*$/i, "").trim(), 380);
 }
 function sealFrom(html) {
   const m = html.match(/class="sigil">([^<]+)</);
-  return m ? m[1].trim() : "";
+  return byteCap(m ? clean(m[1]) : "", 90);
 }
 function sha256(buf) { return createHash("sha256").update(buf).digest("hex"); }
 
-const files = readdirSync(BOOK_DIR)
+const allFiles = readdirSync(BOOK_DIR);
+const byLower = new Map(allFiles.map((f) => [f.toLowerCase(), f]));
+const files = allFiles
   .filter((f) => f.endsWith(".html") && f !== "index.html")
   .sort((a, b) => a.localeCompare(b, "hu"));
 
 const books = files.map((f) => {
   const buf = readFileSync(path.join(BOOK_DIR, f));
   const html = buf.toString("utf8");
-  return { file: f.replace(/\.html$/, ""), title: titleFrom(html), seal: sealFrom(html),
-    hash: sha256(buf).slice(0, 12), size: (buf.length / 1024).toFixed(0) };
+  const slug = f.replace(/\.html$/, "");
+  const extras = [];
+  for (const ext of ["pdf", "epub"]) {
+    const sibling = byLower.get(`${slug.toLowerCase()}.${ext}`);
+    if (!sibling) continue;
+    try {
+      if (statSync(path.join(BOOK_DIR, sibling)).size > MAX_SHARED_BYTES) continue;
+    } catch (e) { continue; }
+    extras.push({ ext, href: encodeURI(sibling) });
+  }
+  return {
+    file: slug,
+    title: titleFrom(html, slug),
+    seal: sealFrom(html),
+    hash: sha256(buf).slice(0, 12),
+    size: (buf.length / 1024).toFixed(0),
+    extras,
+  };
 });
 
 const wasmBin = readFileSync(path.join(ROOT, "scripts", "gen-catalog.wasm"));
@@ -36,48 +82,70 @@ const { instance } = await WebAssembly.instantiate(wasmBin, {});
 const { render_book, memory } = instance.exports;
 const mem = new Uint8Array(memory.buffer);
 
-const ENTRY = 2000, TITLE = 1000, SEAL = 1100, OUT = 3000;
-const entries = new Int32Array(memory.buffer, ENTRY, books.length * 4);
-let titlePtr = TITLE, sealPtr = SEAL, outPtr = OUT;
+// fixed scratch regions — reused for every book (see layout rule above)
+const TITLE = 1000, SEAL = 1600, ENTRY = 2000, OUT = 3000;
 const rendered = [];
 for (let i = 0; i < books.length; i++) {
   const b = books[i];
-  const tb = Buffer.from(b.title, "utf8");
-  const sb = Buffer.from(b.seal, "utf8");
-  mem.set(tb, titlePtr); mem.set(sb, sealPtr);
-  entries[i * 4] = titlePtr; entries[i * 4 + 1] = tb.length;
-  entries[i * 4 + 2] = sealPtr; entries[i * 4 + 3] = sb.length;
-  titlePtr += 256; sealPtr += 64;
-  const end = render_book(outPtr, ENTRY + i * 16);
-  const head = Buffer.from(mem.slice(outPtr, end)).toString("utf8");
-  const tail = `<div class="links"><a href="${b.file}">html</a></div><div class="meta">${b.size} KB · sha256 ${b.hash}…</div></div>`;
+  const tb = Buffer.from(byteCap(esc(b.title), 560), "utf8");
+  const sb = Buffer.from(byteCap(esc(b.seal), 240), "utf8");
+  mem.set(tb, TITLE); mem.set(sb, SEAL);
+  const entry = new Int32Array(memory.buffer, ENTRY, 4);
+  entry[0] = TITLE; entry[1] = tb.length;
+  entry[2] = SEAL; entry[3] = sb.length;
+  const end = render_book(OUT, ENTRY);
+  const head = Buffer.from(mem.slice(OUT, end)).toString("utf8");
+  const links = [
+    `<a href="${b.file}">html</a>`,
+    ...b.extras.map((x) => `<a href="${x.href}">${x.ext}</a>`),
+  ].join("");
+  const tail = `<div class="links">${links}</div><div class="meta">${b.size} KB · sha256 ${b.hash}…</div></div>`;
   rendered.push(head + tail);
-  outPtr = end;
 }
 
 const html = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>peter's soul — books · poems · philosophy</title>
+<title>The Sovereign Library — pocoo.vaked.dev/demos/book</title>
+<meta name="description" content="The Sovereign Library — ${books.length} free works: books, poems, philosophy. Wasm-ternary search, sha256-ledgered.">
+<meta property="og:title" content="The Sovereign Library — pocoo.vaked.dev/demos/book">
+<meta property="og:description" content="${books.length} free works from the constellation. Fine touch from within.">
+<meta property="og:image" content="/assets/og-default.png">
 <style>
-  body { background:#160b2e; color:#e8e8ff; font-family:Georgia,serif; margin:0; padding:48px 24px; }
-  h1 { text-align:center; font-weight:600; letter-spacing:4px; color:#ffd15c; font-size:1.6rem; }
-  .sub { text-align:center; color:#9a9ac8; font-family:monospace; margin:4px 0 24px; }
-  .search { display:block; width:100%; max-width:500px; margin:0 auto 32px; padding:12px 16px;
-    background:#0d0d16; border:1px solid #2b2b45; border-radius:12px; color:#e8e8ff;
-    font-family:monospace; font-size:0.95rem; }
-  .search:focus { outline:none; border-color:#00d4ff; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; max-width:1100px; margin:0 auto; }
-  .work { border:1px solid #2b2b45; border-radius:12px; padding:16px 18px; background:#0d0d16; }
-  .work.hidden { display:none; }
-  .work h3 { margin:0 0 8px; font-size:1.05rem; color:#c9c9e8; }
-  .links a { color:#00d4ff; text-decoration:none; margin-right:10px; font-family:monospace; font-size:0.9rem; }
-  .links a:hover { text-decoration:underline; }
-  .meta { color:#6a6a9a; font-family:monospace; font-size:0.75rem; margin-top:8px; }
-  footer { text-align:center; color:#4a4a72; font-family:monospace; margin-top:48px; }
+  :root{--bg:#1A0F1E;--card:#221430;--line:#33203A;--pink:#FF4D9D;--pink2:#FF8FAB;--gold:#C9A227;--blue:#A6C8FF;--ink:#E8E6E3;--dim:#8a6f8f}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:ui-monospace,Menlo,monospace;margin:0;padding:48px 20px 64px;
+    background-image:linear-gradient(rgba(51,32,58,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(51,32,58,.35) 1px,transparent 1px);
+    background-size:120px 120px}
+  header{max-width:1100px;margin:0 auto 26px;text-align:center}
+  .eyebrow{color:var(--gold);letter-spacing:6px;font-size:.72rem;text-transform:uppercase}
+  h1{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--pink);letter-spacing:4px;
+    font-size:clamp(1.6rem,4vw,2.4rem);margin:10px 0 8px}
+  .sub{color:var(--dim);font-size:.8rem;letter-spacing:1px}
+  .start{margin:14px auto 0;font-size:.85rem;color:var(--dim)}
+  .start a{color:var(--pink2);text-decoration:none;border-bottom:1px dotted var(--pink2)}
+  .start a:hover{color:var(--pink)}
+  .search{display:block;width:100%;max-width:500px;margin:26px auto 30px;padding:12px 16px;
+    background:#120a16;border:1px solid var(--line);border-radius:12px;color:var(--ink);
+    font-family:inherit;font-size:.95rem}
+  .search:focus{outline:none;border-color:var(--pink)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;max-width:1100px;margin:0 auto}
+  .work{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--card);transition:border-color .15s}
+  .work:hover{border-color:#4a2f52}
+  .work.hidden{display:none}
+  .work h3{margin:0 0 8px;font-size:1.02rem;color:var(--ink);font-weight:600;line-height:1.35}
+  .links a{color:var(--pink);text-decoration:none;margin-right:10px;font-size:.85rem}
+  .links a:hover{text-decoration:underline}
+  .meta{color:#6a5580;font-size:.72rem;margin-top:8px}
+  footer{text-align:center;color:#5a4570;margin-top:52px;font-size:.78rem;line-height:1.9}
+  footer .heart{color:var(--pink)}
 </style></head>
 <body>
-  <h1>peter's soul</h1>
-  <div class="sub">books · poems · philosophy · ${books.length} works · wasm-rendered catalog</div>
+  <header>
+    <div class="eyebrow">⟦ pocoo · vaked.dev ⟧</div>
+    <h1>THE SOVEREIGN LIBRARY</h1>
+    <div class="sub">books · poems · philosophy · ${books.length} works · wasm-ternary search · sha256-ledgered</div>
+    <div class="start">start here <span class="heart">♥</span> → <a href="ultralovegod-magnet">THE SOVEREIGN LIBRARY — a declaration for the architecture of truth</a></div>
+  </header>
   <input class="search" id="q" type="text" placeholder="search the library… (ternary-quant core)">
   <div class="grid" id="grid">
 ${rendered.join("\n")}
