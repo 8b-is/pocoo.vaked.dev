@@ -185,7 +185,7 @@
   <main>
     <section class="hero">
       <h1>In-Browser <span>Proof-of-Work</span> Engine</h1>
-      <p class="subtitle">Multi-threaded Keccak-256 solver for EIP-918 VAKED Presence Attestation on Polygon</p>
+      <p class="subtitle">Multi-threaded Keccak-256 solver for EIP-918 VAKED Presence Attestation — <span id="net-label">Polygon mainnet</span></p>
     </section>
 
     <div class="dashboard-grid">
@@ -218,7 +218,17 @@
 
     <div class="control-panel">
       <div class="form-group">
-        <label for="miner-addr">Beneficiary Miner Address (Polygon / EVM)</label>
+        <label for="net-select">Network</label>
+        <select id="net-select" class="form-control"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="contract-input">VAKED Contract Address (auto-filled per network; paste after deploying)</label>
+        <input type="text" id="contract-input" class="form-control" placeholder="0x... — see nft/DEPLOY-MONAD.md or nft/DEPLOY-BASE.md to deploy on a new chain">
+      </div>
+
+      <div class="form-group">
+        <label for="miner-addr">Beneficiary Miner Address (EVM)</label>
         <input type="text" id="miner-addr" class="form-control" placeholder="0x... (Connect MetaMask or paste address)" value="0x71C8366420A0926718E2A31727a2482266CC5833">
       </div>
 
@@ -246,7 +256,7 @@
     </div>
 
     <div class="solutions-box" id="solutions-container" style="display:none;">
-      <h3>Found Solutions (Ready for Polygon Mint)</h3>
+      <h3>Found Solutions (Ready to Mint)</h3>
       <div id="solutions-list"></div>
     </div>
 
@@ -282,12 +292,18 @@
   const yourBalanceEl = document.getElementById('your-balance');
   const yourAddrEl = document.getElementById('your-addr');
   const btnFetch = document.getElementById('btn-fetch');
+  const netSelect = document.getElementById('net-select');
+  const contractInput = document.getElementById('contract-input');
+  const netLabel = document.getElementById('net-label');
 
-  // ── VAKED on Polygon mainnet — live reads via eth_call, real mint via wallet ──
-  const VAKED_CONTRACT = '0x2Ae7DA713A2c8527AF70825C0F79632AF2e2ae4A';
-  const POLYGON_CHAIN_ID = '0x89';
-  const PUBLIC_RPC = 'https://polygon.drpc.org';
-  const EXPLORER = 'https://polygonscan.com';
+  // ── VAKED — multi-network: live reads via eth_call, real mint via wallet ────
+  const NETWORKS = {
+    polygon:      { label: 'Polygon mainnet', chainId: 137,   chainIdHex: '0x89',    rpc: 'https://polygon.drpc.org',      explorer: 'https://polygonscan.com',           currency: { name: 'POL', symbol: 'POL' }, vaked: '0x2Ae7DA713A2c8527AF70825C0F79632AF2e2ae4A' },
+    monad:        { label: 'Monad mainnet',   chainId: 143,   chainIdHex: '0x8f',    rpc: 'https://rpc.monad.xyz',         explorer: 'https://monadscan.com',             currency: { name: 'MON', symbol: 'MON' }, vaked: '' },
+    monadTestnet: { label: 'Monad Testnet',   chainId: 10143, chainIdHex: '0x279f',  rpc: 'https://testnet-rpc.monad.xyz', explorer: 'https://testnet.monadexplorer.com', currency: { name: 'MON', symbol: 'MON' }, vaked: '' },
+    base:         { label: 'Base mainnet',    chainId: 8453,  chainIdHex: '0x2105',  rpc: 'https://mainnet.base.org',      explorer: 'https://basescan.org',              currency: { name: 'ETH', symbol: 'ETH' }, vaked: '' },
+    baseSepolia:  { label: 'Base Sepolia',    chainId: 84532, chainIdHex: '0x14a34', rpc: 'https://sepolia.base.org',      explorer: 'https://sepolia.basescan.org',      currency: { name: 'ETH', symbol: 'ETH' }, vaked: '' },
+  };
   const SEL = {
     challenge: '0x4ef37628',   // getChallengeNumber()
     target:    '0x8a769d35',   // miningTarget()
@@ -298,6 +314,17 @@
     balance:   '0x70a08231',   // balanceOf(address)
     mint:      '0xa0712d68'    // mint(uint256) — the only mint
   };
+
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  let netKey = lsGet('vaked.net') || 'polygon';
+  let net = NETWORKS[netKey] || NETWORKS.polygon;
+  let contract = '';
+  function loadContract() {
+    contract = (lsGet('vaked.contract.' + netKey) || net.vaked || '').toLowerCase();
+    contractInput.value = contract;
+  }
 
   let liveRewardLabel = '50 VAKED';
   let currentChallenge = null;
@@ -322,10 +349,10 @@
     if (window.ethereum) {
       try {
         const chainHex = await window.ethereum.request({ method: 'eth_chainId' });
-        if (chainHex === POLYGON_CHAIN_ID) return await window.ethereum.request({ method, params });
+        if (parseInt(chainHex, 16) === net.chainId) return await window.ethereum.request({ method, params });
       } catch (e) { /* fall through to the public RPC */ }
     }
-    const res = await fetch(PUBLIC_RPC, {
+    const res = await fetch(net.rpc, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }),
@@ -336,11 +363,16 @@
   }
 
   async function ethCall(selector, argHex) {
+    if (!contract) throw new Error('no VAKED contract set for ' + net.label);
     const data = argHex ? selector + pad32(argHex) : selector;
-    return await rpcRequest('eth_call', [{ to: VAKED_CONTRACT, data }, 'latest']);
+    return await rpcRequest('eth_call', [{ to: contract, data }, 'latest']);
   }
 
   async function fetchLiveState() {
+    if (!contract) {
+      log(`No VAKED contract set for ${net.label} — deploy first (nft/DEPLOY-MONAD.md for Monad, nft/DEPLOY-BASE.md for Base), then paste the address above.`, 'warn');
+      return;
+    }
     try {
       const [challenge, target, rewardHex, epochHex, supplyHex] = await Promise.all([
         ethCall(SEL.challenge), ethCall(SEL.target), ethCall(SEL.reward), ethCall(SEL.epoch), ethCall(SEL.supply),
@@ -353,7 +385,7 @@
       const epoch = BigInt(epochHex);
       epochStatEl.textContent = `epoch ${epoch} · ${fmtVAKED(supplyHex)} minted · adjusts every 1,024 mints`;
       diffBitsEl.textContent = target.slice(0, 12) + '…';
-      log(`Live state from Polygon: epoch ${epoch}, supply ${fmtVAKED(supplyHex)} VAKED, reward ${liveRewardLabel}, target ${target.slice(0, 12)}…`, 'info');
+      log(`Live state from ${net.label}: epoch ${epoch}, supply ${fmtVAKED(supplyHex)} VAKED, reward ${liveRewardLabel}, target ${target.slice(0, 12)}…`, 'info');
     } catch (e) {
       log(`Live state fetch failed: ${e.message}`, 'warn');
     }
@@ -363,27 +395,27 @@
     if (!address) return;
     try {
       yourBalanceEl.textContent = fmtVAKED(await ethCall(SEL.balance, address));
-      yourAddrEl.textContent = address.slice(0, 6) + '…' + address.slice(-4) + ' · Polygon';
+      yourAddrEl.textContent = address.slice(0, 6) + '…' + address.slice(-4) + ' · ' + net.label;
     } catch (e) {
       yourBalanceEl.textContent = '?';
     }
   }
 
-  async function ensurePolygon() {
+  async function ensureChain() {
     const chainHex = await window.ethereum.request({ method: 'eth_chainId' });
-    if (chainHex === POLYGON_CHAIN_ID) return;
+    if (parseInt(chainHex, 16) === net.chainId) return;
     try {
-      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: POLYGON_CHAIN_ID }] });
+      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: net.chainIdHex }] });
     } catch (e) {
       if (e && (e.code === 4902 || e.code === -32603)) {
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
           params: [{
-            chainId: POLYGON_CHAIN_ID,
-            chainName: 'Polygon',
-            nativeCurrency: { name: 'POL', symbol: 'POL', decimals: 18 },
-            rpcUrls: ['https://polygon-rpc.com'],
-            blockExplorerUrls: [EXPLORER],
+            chainId: net.chainIdHex,
+            chainName: net.label,
+            nativeCurrency: { name: net.currency.name, symbol: net.currency.symbol, decimals: 18 },
+            rpcUrls: [net.rpc],
+            blockExplorerUrls: [net.explorer],
           }],
         });
       } else {
@@ -488,9 +520,14 @@
       return;
     }
 
+    if (!contract) {
+      log(`No VAKED contract set for ${net.label}. Deploy one first (nft/DEPLOY-MONAD.md or nft/DEPLOY-BASE.md) and paste the address above.`, 'warn');
+      return;
+    }
+
     try {
       if (BigInt(challenge) === 0n || BigInt(target) === 0n) {
-        log('Challenge/target not loaded — fetching the live round from Polygon…', 'warn');
+        log(`Challenge/target not loaded — fetching the live round from ${net.label}…`, 'warn');
         await fetchLiveState();
         challenge = challengeInput.value.trim();
         target = targetInput.value.trim();
@@ -627,15 +664,15 @@
         log('Solution no longer verifies against the live target. Fetch live state and mine again.', 'warn');
         return;
       }
-      await ensurePolygon();
+      await ensureChain();
       btn.disabled = true;
       btn.textContent = '⏳ submitting…';
-      log(`Submitting mint(nonce) from ${from} to VAKED on Polygon…`, 'info');
+      log(`Submitting mint(nonce) from ${from} to VAKED on ${net.label}…`, 'info');
       const txHash = await window.ethereum.request({
         method: 'eth_sendTransaction',
-        params: [{ from, to: VAKED_CONTRACT, value: '0x0', data: SEL.mint + nonce.replace(/^0x/, '').toLowerCase() }],
+        params: [{ from, to: contract, value: '0x0', data: SEL.mint + nonce.replace(/^0x/, '').toLowerCase() }],
       });
-      log(`tx sent: ${EXPLORER}/tx/${txHash} — waiting for inclusion…`, 'info');
+      log(`tx sent: ${net.explorer}/tx/${txHash} — waiting for inclusion…`, 'info');
       let receipt = null;
       for (let i = 0; i < 80 && !receipt; i++) {
         await sleep(3000);
@@ -643,13 +680,13 @@
       }
       if (receipt && receipt.status === '0x1') {
         btn.textContent = '✓ minted — ' + liveRewardLabel;
-        log(`✓ MINTED — ${liveRewardLabel} to ${from} · ${EXPLORER}/tx/${txHash}`, 'success');
+        log(`✓ MINTED — ${liveRewardLabel} to ${from} · ${net.explorer}/tx/${txHash}`, 'success');
       } else if (receipt) {
         btn.disabled = false;
         btn.textContent = '⛏ retry mint(nonce)';
-        log(`✗ transaction reverted (${EXPLORER}/tx/${txHash}).`, 'warn');
+        log(`✗ transaction reverted (${net.explorer}/tx/${txHash}).`, 'warn');
       } else {
-        log(`tx not mined yet — check ${EXPLORER}/tx/${txHash}`, 'warn');
+        log(`tx not mined yet — check ${net.explorer}/tx/${txHash}`, 'warn');
       }
       await fetchLiveState();
       await refreshBalance(from);
@@ -668,7 +705,7 @@
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         if (accounts.length > 0) {
           minerInput.value = accounts[0];
-          log(`Connected to Polygon Web3 account: ${accounts[0]}`, 'success');
+          log(`Connected: ${accounts[0]}`, 'success');
           await refreshBalance(accounts[0]);
           await fetchLiveState();
         }
@@ -676,12 +713,35 @@
         log(`Wallet connection rejected: ${e.message}`, 'warn');
       }
     } else {
-      alert('MetaMask / Web3 provider not found. Paste your Polygon address manually.');
+      alert('MetaMask / Web3 provider not found. Paste your EVM address manually.');
     }
   });
 
+  netSelect.innerHTML = Object.entries(NETWORKS).map(([k, n]) => `<option value="${k}">${n.label}</option>`).join('');
+  netSelect.value = netKey;
+  loadContract();
+  netLabel.textContent = net.label;
+  netSelect.addEventListener('change', async () => {
+    netKey = netSelect.value;
+    net = NETWORKS[netKey] || NETWORKS.polygon;
+    lsSet('vaked.net', netKey);
+    loadContract();
+    netLabel.textContent = net.label;
+    log(`Network: ${net.label} (chain ${net.chainId}).`, 'info');
+    await fetchLiveState();
+    if (window.ethereum && window.ethereum.request) {
+      window.ethereum.request({ method: 'eth_accounts' })
+        .then(a => { if (a && a[0]) refreshBalance(a[0]); })
+        .catch(() => {});
+    }
+  });
+  contractInput.addEventListener('input', () => {
+    contract = contractInput.value.trim().toLowerCase();
+    lsSet('vaked.contract.' + netKey, contract);
+  });
+
   // boot: pull the live round + balance (read-only — works before any connection)
-  log(`VAKED contract: ${VAKED_CONTRACT} · Polygon mainnet · reads via ${PUBLIC_RPC}`, 'info');
+  log(`VAKED miner ready · ${net.label} · reads via ${net.rpc}`, 'info');
   fetchLiveState();
   if (window.ethereum && window.ethereum.request) {
     window.ethereum.request({ method: 'eth_accounts' })

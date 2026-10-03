@@ -153,3 +153,18 @@ Fetches `getChallengeNumber()` + `miningTarget()` from the contract, mines a
 nonce for your address, then submits `mint(nonce)` and prints the `Mint`
 event. Because the challenge persists until the next mint, submit promptly —
 if someone else mints first, the challenge rotates and your nonce goes stale.
+
+## Any EVM chain
+
+The miner is chain-agnostic — point `--rpc` at the chain where a VAKED
+contract lives (deploy first: `nft/DEPLOY.md`, `nft/DEPLOY-BASE.md`,
+`nft/DEPLOY-MONAD.md`). Live targets as of 2026-10-03:
+
+```bash
+node mine.js --rpc https://polygon.drpc.org       --contract 0x2Ae7DA713A2c8527AF70825C0F79632AF2e2ae4A --key 0x...   # Polygon mainnet (live)
+node mine.js --rpc https://rpc.monad.xyz          --contract 0x<MONAD_VAKED>   --key 0x...                              # Monad mainnet (chain 143)
+node mine.js --rpc https://testnet-rpc.monad.xyz  --contract 0x<TESTNET_VAKED> --key 0x...                              # Monad Testnet (10143, faucet MON makes it free)
+```
+
+The browser page at `https://pocoo.vaked.dev/demos/miner` carries the same
+multi-network switcher, with a per-network contract field.

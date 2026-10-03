@@ -4,9 +4,10 @@ Zero-dependency runbook — no Hardhat, no Foundry, no heavy frameworks in the s
 site. Everything below is dev-time tooling (`node` + `solc`) run in a scratch
 directory; the browser site (`art/` & `demos/`) never loads any of it.
 
-> **Deploying to Base (Coinbase L2)?** See [`DEPLOY-BASE.md`](./DEPLOY-BASE.md) —
-> the same contracts and tooling with `CHAIN_ID=8453` (Base mainnet) or
-> `84532` (Base Sepolia).
+> **Deploying to Base (Coinbase L2) or Monad?** See
+> [`DEPLOY-BASE.md`](./DEPLOY-BASE.md) (`CHAIN_ID=8453` Base mainnet, `84532`
+> Base Sepolia) and [`DEPLOY-MONAD.md`](./DEPLOY-MONAD.md) (`CHAIN_ID=143`
+> Monad mainnet, `10143` Monad Testnet — the free rehearsal path).
 
 ---
 

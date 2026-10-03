@@ -24,7 +24,8 @@
 //   TREASURY        initialTreasury constructor arg (default: constellation
 //                   payment wallet 0x4f584F6fd3a0a8C807aF2F00571c172603600578)
 //   CHAIN_ID        target chain: 137 = Polygon (default), 8453 = Base mainnet,
-//                   84532 = Base Sepolia
+//                   84532 = Base Sepolia, 143 = Monad mainnet,
+//                   10143 = Monad Testnet
 //   RPC_URL         RPC override (default: chain-appropriate public RPC)
 //   EXPLORER        explorer base URL override (defaults per chain)
 //   BYTECODE        creation bytecode as hex, OR a path to a .bin file
@@ -49,10 +50,12 @@ const RPC_DEFAULT = {
   137: chain.POLYGON_RPC,
   8453: 'https://mainnet.base.org',
   84532: 'https://sepolia.base.org',
+  143: 'https://rpc.monad.xyz',
+  10143: 'https://testnet-rpc.monad.xyz',
 };
 const RPC_URL = process.env.RPC_URL || RPC_DEFAULT[CHAIN_ID] || chain.POLYGON_RPC;
-const NETWORK_NAME = { 137: 'Polygon mainnet', 8453: 'Base mainnet', 84532: 'Base Sepolia' }[CHAIN_ID] || ('chain ' + CHAIN_ID);
-const EXPLORER = process.env.EXPLORER || ({ 137: 'https://polygonscan.com', 8453: 'https://basescan.org', 84532: 'https://sepolia.basescan.org' }[CHAIN_ID] || 'https://basescan.org');
+const NETWORK_NAME = { 137: 'Polygon mainnet', 8453: 'Base mainnet', 84532: 'Base Sepolia', 143: 'Monad mainnet', 10143: 'Monad Testnet' }[CHAIN_ID] || ('chain ' + CHAIN_ID);
+const EXPLORER = process.env.EXPLORER || ({ 137: 'https://polygonscan.com', 8453: 'https://basescan.org', 84532: 'https://sepolia.basescan.org', 143: 'https://monadscan.com', 10143: 'https://testnet.monadexplorer.com' }[CHAIN_ID] || 'https://basescan.org');
 
 // ---- tiny JSON-RPC helper (single named endpoint, matches POLYGON_RPC) ----
 async function rpc(method, params) {
@@ -139,7 +142,7 @@ function parseWeiHex(v, label) {
 function usage() {
   console.log(
     'usage: PRIVATE_KEY=0x... node nft/deploy.js [--contract PFS|VAKED] [--vaked] [--broadcast] [--bytecode <hex|file>] [--help]\n' +
-    'env: TREASURY, CHAIN_ID (137 Polygon | 8453 Base | 84532 Base Sepolia), RPC_URL, EXPLORER, BYTECODE, NONCE, GAS_PRICE_WEI, GAS_LIMIT_MULT'
+    'env: TREASURY, CHAIN_ID (137 Polygon | 8453 Base | 84532 Base Sepolia | 143 Monad | 10143 Monad Testnet), RPC_URL, EXPLORER, BYTECODE, NONCE, GAS_PRICE_WEI, GAS_LIMIT_MULT'
   );
 }
 
