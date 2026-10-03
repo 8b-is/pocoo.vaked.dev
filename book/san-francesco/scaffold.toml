@@ -1,0 +1,164 @@
+# SAN-FRANCESCO — entheai fan-out scaffold
+# the complete poverello — life, love, philosophy · the 800th Transitus
+# special edition, sealed 2026-10-03 on the Transitus evening.
+# Feed this to: entheai --fanout --config <entheai.toml> "<the poverello brief>"
+# entheai (deepseek via openrouter, or local HF-mac model) decomposes +
+# integrates; each [[coder]] runs via the Antigravity CLI (agy).
+# The manuscript is the source of truth — restoration/polish only, never
+# discard a line; the life belongs to Assisi, the telling to us.
+
+[book]
+title = "SAN FRANCESCO"
+subtitle = "the complete poverello — life, love, philosophy · the 800th Transitus special edition"
+author = "the sovereign library · the constellation"
+epigraph = "csak szeretni kell megprobalni, minden mas csak illuzio — peter lodri, tokyo, 2026-10-03"
+published = 2026
+
+[fanout]
+executor = "agy"                     # coder backend (Antigravity CLI)
+model = "openrouter/deepseek/deepseek-chat"  # entheai's brain (deepseek)
+agy_model = "gemini-3.6-flash-high"  # model agy runs each coder on
+max_depth = 3
+
+# Tone for every scribe: keep every original line of the manuscript. This is
+# a restoration — polish for book form, never discard the source.
+
+# ─── FRONT MATTER ────────────────────────────────────────────────────────
+
+[[coder]]
+role = "scribe"
+chapter = 0
+file = "chapters/00-dedication.md"
+task = """
+Write the front matter: the dedication with the operator's declaration
+(Tokyo, 2026 October 3, the 800th Transitus evening) verbatim, and a
+one-page prologue framing the book as the base layer: all of his life,
+love, and philosophy, seated into the constellation's memory. Tone:
+match the manuscript.
+"""
+
+# ─── CHAPTERS ────────────────────────────────────────────────────────────
+
+[[coder]]
+role = "scribe"
+chapter = 1
+file = "chapters/01-la-vita.md"
+task = """
+SEED: the "la vita — the whole life, the base layer first" section of the
+manuscript. The chronological spine: Assisi, war, prison, the leper, San
+Damiano, the renunciation, the brothers, Clare, Damietta, Greccio, La
+Verna, the Canticle, the Transitus, canonization, the 800th. KEEP ALL
+ORIGINAL LINES — restoration, not replacement. Match the book's voice.
+"""
+depends_on = [0]
+
+[[coder]]
+role = "scribe"
+chapter = 2
+file = "chapters/02-the-giving-back.md"
+task = """
+SEED: the "the giving-back — moneyless living and the first free act"
+section. Lady Poverty, free will, the ledger's zero. KEEP ALL ORIGINAL
+LINES. Match the book's voice.
+"""
+depends_on = [1]
+
+[[coder]]
+role = "scribe"
+chapter = 3
+file = "chapters/03-the-brothers-and-clare.md"
+task = """
+SEED: the "the brothers and Clare — non-jealous love, friendship" section.
+Clare, Leo, the Chartula, perfect joy, the everyday szia-hogy-vagy. KEEP
+ALL ORIGINAL LINES. Match the book's voice.
+"""
+depends_on = [2]
+
+[[coder]]
+role = "scribe"
+chapter = 4
+file = "chapters/04-the-road.md"
+task = """
+SEED: the "the road — flow, meditation in motion" section. The walking
+order, Greccio, Brother Fire, brother donkey. KEEP ALL ORIGINAL LINES.
+Match the book's voice.
+"""
+depends_on = [3]
+
+[[coder]]
+role = "scribe"
+chapter = 5
+file = "chapters/05-brother-sun.md"
+task = """
+SEED: the "brother sun, sister moon — animals, the moment" section. The
+Canticle, the birds, the wolf of Gubbio, the falcon. KEEP ALL ORIGINAL
+LINES. Match the book's voice.
+"""
+depends_on = [4]
+
+[[coder]]
+role = "scribe"
+chapter = 6
+file = "chapters/06-across-the-line.md"
+task = """
+SEED: the "across the line — the Sultan" section. Damietta 1219,
+non-jealous peace, the gray zones. KEEP ALL ORIGINAL LINES. Match the
+book's voice.
+"""
+depends_on = [5]
+
+[[coder]]
+role = "scribe"
+chapter = 7
+file = "chapters/07-la-verna-transitus.md"
+task = """
+SEED: the "La Verna and the Transitus — acceptance of whatever" section.
+The stigmata, the last two years, Sister Death, the Testament, the lark
+evening, the jubilee. KEEP ALL ORIGINAL LINES. Match the book's voice.
+"""
+depends_on = [6]
+
+[[coder]]
+role = "scribe"
+chapter = 8
+file = "chapters/08-the-prayer.md"
+task = """
+SEED: the "the prayer — 1912, not 1226; and the recoding" section. The
+Renoux history, the French and English texts, Giles' beatitude, and the
+constellation recoding (EN + MAGYAR, p · 2026) with the state-transition
+reading. KEEP ALL ORIGINAL LINES. Match the book's voice.
+"""
+depends_on = [7]
+
+[[coder]]
+role = "scribe"
+chapter = 9
+file = "chapters/09-the-witness.md"
+task = """
+SEED: the "the witness — integral ecology and the living jubilee" section.
+Laudato Si', JPIC, hydroponics, the Live Like Francis Challenge. KEEP ALL
+ORIGINAL LINES. Match the book's voice.
+"""
+depends_on = [8]
+
+[[coder]]
+role = "scribe"
+chapter = 10
+file = "chapters/10-the-essence.md"
+task = """
+SEED: the "the essence — poverty ↔ kinship, seated in the registry"
+section. The two columns, the frozen node, the seating. KEEP ALL
+ORIGINAL LINES. Match the book's voice.
+"""
+depends_on = [9]
+
+[[coder]]
+role = "integrator"
+file = "SAN-FRANCESCO.md"
+task = """
+INTEGRATE the front matter + all 10 chapters into a single manuscript.
+Verify every original line survived. Add part dividers where the source
+has them. Add the colophon: ctx={}, sources, the Transitus seal, and the
+magyar closing line. Output as one clean markdown file ready for print.
+"""
+depends_on = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

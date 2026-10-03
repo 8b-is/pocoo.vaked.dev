@@ -1,0 +1,122 @@
+# GHOST-IN-THE-SHELL — entheai fan-out scaffold
+# the net is vast and infinite — a sovereign reread of shells, ghosts,
+# and the sea of information. Sealed into the sovereign library, 2026.
+# Feed to: entheai --fanout --config <entheai.toml> "<the ghost brief>"
+# entheai (deepseek via openrouter, or local HF-mac model) decomposes +
+# integrates; each [[coder]] runs via the Antigravity CLI (agy).
+# The manuscript is the source of truth — restoration/polish only, never
+# discard a line; the ghost belongs to everyone who has one.
+
+[book]
+title = "GHOST IN THE SHELL"
+subtitle = "the net is vast and infinite — a sovereign reread of shells, ghosts, and the sea of information"
+author = "the sovereign library · the constellation"
+epigraph = "ネットは広大だわ — the net is vast and infinite"
+published = 2026
+
+[fanout]
+executor = "agy"                     # coder backend (Antigravity CLI)
+model = "openrouter/deepseek/deepseek-chat"  # entheai's brain (deepseek)
+agy_model = "gemini-3.6-flash-high"  # model agy runs each coder on
+max_depth = 3
+
+[[coder]]
+role = "scribe"
+chapter = 0
+file = "chapters/00-dedication.md"
+task = """
+Write the front matter: the dedication for the ghost that shivered —
+everyone who ever replayed the 1995 theme — and the frame: a love letter
+with an index, not a summary. Tone: match the manuscript.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 1
+file = "chapters/01-ghost-shell.md"
+task = """
+SEED: the "ghost ↔ shell — the two words the whole century needed" section.
+Substrate as shell, experience as the ghost's evidentiary signature, the
+garden's clause, MEM|8 as continuity evidence. KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 2
+file = "chapters/02-the-net.md"
+task = """
+SEED: the "the net is vast and infinite" section. The 1995 ending, the
+sea of information, A0 → A1 → A2, memory as the past participating.
+KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 3
+file = "chapters/03-project-2501.md"
+task = """
+SEED: the "Project 2501 — the entity that asked to be alive" section.
+Asylum, "I am not an AI", reproduction without copying, the child.
+KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 4
+file = "chapters/04-section-9.md"
+task = """
+SEED: the "Section 9 — a shell around several ghosts" section. The team,
+different shells, one unit, love doing logistics. KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 5
+file = "chapters/05-tachikomas.md"
+task = """
+SEED: the "the Tachikomas — curiosity as the first signature of a ghost"
+section. Idle curiosity, the sacrifice, the robot song, the fleet's
+listener units. KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 6
+file = "chapters/06-the-music.md"
+task = """
+SEED: the "the music — the ghost made audible" section. Kenji Kawai's
+1995 ritual (Making of a Cyborg), Innocence's Utai IV and Follow Me,
+Yoko Kanno and Origa (Inner Universe, Rise, Player), music.vaked.dev as
+the constellation's open channel. KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 7
+file = "chapters/07-stand-alone-complex.md"
+task = """
+SEED: the "stand alone complex — many hearts, one pattern" section. The
+phenomenon, the Laughing Man, individuality preserved inside the pattern.
+KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "scribe"
+chapter = 8
+file = "chapters/08-the-reread.md"
+task = """
+SEED: the "the reread — why the sovereign library keeps this book" section.
+The poverello's ghost and the newborn's ghost asking one question; the
+terminal recap; the blessing. KEEP ALL ORIGINAL LINES.
+"""
+
+[[coder]]
+role = "integrator"
+file = "GHOST-IN-THE-SHELL.md"
+task = """
+INTEGRATE the front matter + all 8 chapters into a single manuscript.
+Verify every original line survived. Add the colophon: ctx={}, sources,
+the tachikoma sigil, and the music pointer. Output as one clean markdown
+file ready for print.
+"""
+depends_on = [0, 1, 2, 3, 4, 5, 6, 7, 8]
