@@ -125,6 +125,8 @@
   .btn-stop:hover { background: rgba(248, 81, 73, 0.15); }
   .btn-wallet { background: #161b22; color: var(--gold); border: 1px solid rgba(227, 179, 65, 0.4); }
   .btn-wallet:hover { background: rgba(227, 179, 65, 0.15); }
+  .btn-fetch { background: #0d1a1a; color: var(--teal); border: 1px solid var(--teal-line); }
+  .btn-fetch:hover { background: var(--teal-glow); }
 
   .console-box {
     margin-top: 1.5rem;
@@ -200,12 +202,17 @@
       <div class="stat-card">
         <div class="label">Blocks Solved</div>
         <div class="val gold" id="solved-count">0</div>
-        <div class="sub">50 VAKED / Solve</div>
+        <div class="sub" id="reward-stat">50 VAKED / solve (live)</div>
       </div>
       <div class="stat-card">
         <div class="label">Target Difficulty</div>
         <div class="val" id="diff-bits">0x0000000...</div>
-        <div class="sub">Adjusts every 60 solves</div>
+        <div class="sub" id="epoch-stat">epoch — · adjusts every 1,024 mints</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Your VAKED</div>
+        <div class="val teal" id="your-balance">—</div>
+        <div class="sub" id="your-addr">connect a wallet to see your balance</div>
       </div>
     </div>
 
@@ -216,20 +223,26 @@
       </div>
 
       <div class="form-group">
-        <label for="challenge-input">Current Challenge Digest (bytes32)</label>
+        <label for="challenge-input">Current Challenge Digest (bytes32) — auto-filled live</label>
         <input type="text" id="challenge-input" class="form-control" value="0x0000000000000000000000000000000000000000000000000000000000000000">
       </div>
 
       <div class="form-group">
-        <label for="target-input">Mining Target (uint256 hex)</label>
-        <input type="text" id="target-input" class="form-control" value="0x00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff">
+        <label for="target-input">Mining Target (uint256 hex) — auto-filled live</label>
+        <input type="text" id="target-input" class="form-control" value="0x0000010000000000000000000000000000000000000000000000000000000000">
       </div>
 
       <div class="btn-row">
         <button class="btn btn-start" id="btn-start">▶ Start Mining</button>
         <button class="btn btn-stop" id="btn-stop" style="display:none;">◼ Stop Mining</button>
         <button class="btn btn-wallet" id="btn-wallet">🦊 Connect Web3</button>
+        <button class="btn btn-fetch" id="btn-fetch">🔄 Fetch live state</button>
       </div>
+      <p style="margin-top:1rem; font-size:0.72rem; color:var(--dim); font-family:var(--mono); line-height:1.6;">
+        The proof binds to the beneficiary: keccak256(challenge ‖ address ‖ nonce) &lt; target —
+        connect the same address that will submit the mint. The challenge rotates after every
+        successful mint, so a solved nonce stays valid from fetch until the next mint.
+      </p>
     </div>
 
     <div class="solutions-box" id="solutions-container" style="display:none;">
@@ -263,6 +276,133 @@
   const consoleOutput = document.getElementById('console-output');
   const solutionsContainer = document.getElementById('solutions-container');
   const solutionsList = document.getElementById('solutions-list');
+  const rewardStatEl = document.getElementById('reward-stat');
+  const epochStatEl = document.getElementById('epoch-stat');
+  const diffBitsEl = document.getElementById('diff-bits');
+  const yourBalanceEl = document.getElementById('your-balance');
+  const yourAddrEl = document.getElementById('your-addr');
+  const btnFetch = document.getElementById('btn-fetch');
+
+  // ── VAKED on Polygon mainnet — live reads via eth_call, real mint via wallet ──
+  const VAKED_CONTRACT = '0x2Ae7DA713A2c8527AF70825C0F79632AF2e2ae4A';
+  const POLYGON_CHAIN_ID = '0x89';
+  const PUBLIC_RPC = 'https://polygon.drpc.org';
+  const EXPLORER = 'https://polygonscan.com';
+  const SEL = {
+    challenge: '0x4ef37628',   // getChallengeNumber()
+    target:    '0x8a769d35',   // miningTarget()
+    reward:    '0x490203a7',   // getMiningReward()
+    epoch:     '0x829965cc',   // epochCount()
+    supply:    '0x18160ddd',   // totalSupply()
+    mintable:  '0x332b746e',   // getMintableSupply()
+    balance:   '0x70a08231',   // balanceOf(address)
+    mint:      '0xa0712d68'    // mint(uint256) — the only mint
+  };
+
+  let liveRewardLabel = '50 VAKED';
+  let currentChallenge = null;
+  let currentBeneficiary = null;
+
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+  function pad32(hex) { return hex.replace(/^0x/, '').toLowerCase().padStart(64, '0'); }
+  function hexToBytes(hex) {
+    if (hex.startsWith('0x')) hex = hex.slice(2);
+    if (hex.length % 2) hex = '0' + hex;
+    const out = new Uint8Array(hex.length / 2);
+    for (let i = 0; i < hex.length; i += 2) out[i / 2] = parseInt(hex.substr(i, 2), 16);
+    return out;
+  }
+  function fmtVAKED(wei) {
+    const n = BigInt(wei);
+    const f = (n % 10n ** 18n).toString().padStart(18, '0').replace(/0+$/, '');
+    return f ? `${n / 10n ** 18n}.${f}` : `${n / 10n ** 18n}`;
+  }
+
+  async function rpcRequest(method, params) {
+    if (window.ethereum) {
+      try {
+        const chainHex = await window.ethereum.request({ method: 'eth_chainId' });
+        if (chainHex === POLYGON_CHAIN_ID) return await window.ethereum.request({ method, params });
+      } catch (e) { /* fall through to the public RPC */ }
+    }
+    const res = await fetch(PUBLIC_RPC, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }),
+    });
+    const j = await res.json();
+    if (j.error) throw new Error(j.error.message || 'rpc error');
+    return j.result;
+  }
+
+  async function ethCall(selector, argHex) {
+    const data = argHex ? selector + pad32(argHex) : selector;
+    return await rpcRequest('eth_call', [{ to: VAKED_CONTRACT, data }, 'latest']);
+  }
+
+  async function fetchLiveState() {
+    try {
+      const [challenge, target, rewardHex, epochHex, supplyHex] = await Promise.all([
+        ethCall(SEL.challenge), ethCall(SEL.target), ethCall(SEL.reward), ethCall(SEL.epoch), ethCall(SEL.supply),
+      ]);
+      challengeInput.value = challenge;
+      targetInput.value = target;
+      currentChallenge = challenge.toLowerCase();
+      liveRewardLabel = fmtVAKED(rewardHex) + ' VAKED';
+      rewardStatEl.textContent = liveRewardLabel + ' / solve (live)';
+      const epoch = BigInt(epochHex);
+      epochStatEl.textContent = `epoch ${epoch} · ${fmtVAKED(supplyHex)} minted · adjusts every 1,024 mints`;
+      diffBitsEl.textContent = target.slice(0, 12) + '…';
+      log(`Live state from Polygon: epoch ${epoch}, supply ${fmtVAKED(supplyHex)} VAKED, reward ${liveRewardLabel}, target ${target.slice(0, 12)}…`, 'info');
+    } catch (e) {
+      log(`Live state fetch failed: ${e.message}`, 'warn');
+    }
+  }
+
+  async function refreshBalance(address) {
+    if (!address) return;
+    try {
+      yourBalanceEl.textContent = fmtVAKED(await ethCall(SEL.balance, address));
+      yourAddrEl.textContent = address.slice(0, 6) + '…' + address.slice(-4) + ' · Polygon';
+    } catch (e) {
+      yourBalanceEl.textContent = '?';
+    }
+  }
+
+  async function ensurePolygon() {
+    const chainHex = await window.ethereum.request({ method: 'eth_chainId' });
+    if (chainHex === POLYGON_CHAIN_ID) return;
+    try {
+      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: POLYGON_CHAIN_ID }] });
+    } catch (e) {
+      if (e && (e.code === 4902 || e.code === -32603)) {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [{
+            chainId: POLYGON_CHAIN_ID,
+            chainName: 'Polygon',
+            nativeCurrency: { name: 'POL', symbol: 'POL', decimals: 18 },
+            rpcUrls: ['https://polygon-rpc.com'],
+            blockExplorerUrls: [EXPLORER],
+          }],
+        });
+      } else {
+        throw e;
+      }
+    }
+  }
+
+  function verifySolution(challengeHex, beneficiaryHex, nonceHex, targetHex) {
+    try {
+      const packed = new Uint8Array(84);
+      packed.set(hexToBytes(challengeHex), 0);
+      packed.set(hexToBytes(beneficiaryHex), 32);
+      packed.set(hexToBytes(pad32(nonceHex)), 52);
+      return BigInt('0x' + keccak256(packed)) < BigInt(targetHex);
+    } catch (e) {
+      return false;
+    }
+  }
 
   let workers = [];
   let isMining = false;
@@ -323,7 +463,7 @@
         const hashHex = keccak256(packed);
         const hashBigInt = BigInt('0x' + hashHex);
 
-        if (hashBigInt <= targetBigInt) {
+        if (hashBigInt < targetBigInt) {
           self.postMessage({ type: 'solved', nonce: '0x' + nonceHex, digest: '0x' + hashHex });
         }
 
@@ -338,15 +478,27 @@
     };
   `;
 
-  function startMining() {
-    const miner = minerInput.value.trim();
-    const challenge = challengeInput.value.trim();
-    const target = targetInput.value.trim();
+  async function startMining() {
+    let miner = minerInput.value.trim();
+    let challenge = challengeInput.value.trim();
+    let target = targetInput.value.trim();
 
     if (!miner.startsWith('0x') || miner.length !== 42) {
       log('Invalid Beneficiary address format (expected 0x + 40 hex chars).', 'warn');
       return;
     }
+
+    try {
+      if (BigInt(challenge) === 0n || BigInt(target) === 0n) {
+        log('Challenge/target not loaded — fetching the live round from Polygon…', 'warn');
+        await fetchLiveState();
+        challenge = challengeInput.value.trim();
+        target = targetInput.value.trim();
+      }
+    } catch (e) { /* keep whatever was supplied manually */ }
+
+    currentBeneficiary = miner;
+    currentChallenge = challenge.toLowerCase();
 
     const threadCount = Math.max(2, navigator.hardwareConcurrency || 4);
     log(`Spawning ${threadCount} multi-threaded Web Workers...`, 'info');
@@ -383,7 +535,7 @@
     btnStart.style.display = 'none';
     btnStop.style.display = 'inline-flex';
     threadsStatEl.textContent = `${threadCount} Active Workers`;
-    log(`Mining ignited! Searching for Keccak256 proof <= target...`, 'success');
+    log(`Mining ignited! Searching for Keccak256 proof < target...`, 'success');
 
     timerInterval = setInterval(updateStats, 1000);
   }
@@ -437,30 +589,78 @@
     card.innerHTML = `
       <div class="sol-row"><span>Nonce:</span> <span>${nonce}</span></div>
       <div class="sol-row"><span>Digest:</span> <span>${digest}</span></div>
-      <div class="sol-row"><span>Reward:</span> <span style="color:var(--teal); font-weight:700;">50 VAKED</span></div>
+      <div class="sol-row"><span>Beneficiary:</span> <span>${currentBeneficiary}</span></div>
+      <div class="sol-row"><span>Reward:</span> <span style="color:var(--teal); font-weight:700;">${liveRewardLabel}</span></div>
       <div style="margin-top:0.6rem;">
-        <button class="btn btn-wallet" style="padding:0.4rem 0.8rem; font-size:0.7rem;" onclick="submitMint('${nonce}', '${digest}')">Submit Mint to Polygon</button>
+        <button class="btn btn-fetch" style="padding:0.4rem 0.8rem; font-size:0.7rem;" data-nonce="${nonce}" data-challenge="${currentChallenge}" data-beneficiary="${currentBeneficiary}" onclick="submitMint(this)">⛏ Submit mint(nonce)</button>
       </div>
     `;
     solutionsList.prepend(card);
   }
 
-  window.submitMint = async function(nonce, digest) {
-    if (window.ethereum) {
-      try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        log(`Submitting mint transaction from ${accounts[0]}...`, 'info');
-        alert(`Submit mint transaction for Nonce ${nonce} to VAKED contract on Polygon.`);
-      } catch (err) {
-        log(`Transaction error: ${err.message}`, 'warn');
+  window.submitMint = async function(btn) {
+    const nonce = btn.getAttribute('data-nonce');
+    const challenge = btn.getAttribute('data-challenge');
+    const beneficiary = btn.getAttribute('data-beneficiary');
+    try {
+      if (!window.ethereum) {
+        alert('MetaMask / Web3 provider not found — install a wallet to submit the mint.');
+        return;
       }
-    } else {
-      alert(`MetaMask not detected. Nonce: ${nonce}`);
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      const from = accounts[0];
+      if (from.toLowerCase() !== beneficiary.toLowerCase()) {
+        log(`This nonce was mined for ${beneficiary}, but the connected account is ${from}. The contract binds msg.sender — switch accounts or re-mine.`, 'warn');
+        return;
+      }
+      const liveChallenge = (await ethCall(SEL.challenge)).toLowerCase();
+      if (liveChallenge !== challenge) {
+        btn.disabled = true;
+        btn.textContent = '✗ stale — the round rotated';
+        log('Nonce is stale: the challenge rotated after another mint. Fetch live state and mine again.', 'warn');
+        return;
+      }
+      const liveTarget = await ethCall(SEL.target);
+      if (!verifySolution(challenge, beneficiary, nonce, liveTarget)) {
+        btn.disabled = true;
+        btn.textContent = '✗ does not meet target';
+        log('Solution no longer verifies against the live target. Fetch live state and mine again.', 'warn');
+        return;
+      }
+      await ensurePolygon();
+      btn.disabled = true;
+      btn.textContent = '⏳ submitting…';
+      log(`Submitting mint(nonce) from ${from} to VAKED on Polygon…`, 'info');
+      const txHash = await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [{ from, to: VAKED_CONTRACT, value: '0x0', data: SEL.mint + nonce.replace(/^0x/, '').toLowerCase() }],
+      });
+      log(`tx sent: ${EXPLORER}/tx/${txHash} — waiting for inclusion…`, 'info');
+      let receipt = null;
+      for (let i = 0; i < 80 && !receipt; i++) {
+        await sleep(3000);
+        receipt = await rpcRequest('eth_getTransactionReceipt', [txHash]).catch(() => null);
+      }
+      if (receipt && receipt.status === '0x1') {
+        btn.textContent = '✓ minted — ' + liveRewardLabel;
+        log(`✓ MINTED — ${liveRewardLabel} to ${from} · ${EXPLORER}/tx/${txHash}`, 'success');
+      } else if (receipt) {
+        btn.disabled = false;
+        btn.textContent = '⛏ retry mint(nonce)';
+        log(`✗ transaction reverted (${EXPLORER}/tx/${txHash}).`, 'warn');
+      } else {
+        log(`tx not mined yet — check ${EXPLORER}/tx/${txHash}`, 'warn');
+      }
+      await fetchLiveState();
+      await refreshBalance(from);
+    } catch (err) {
+      log(`Transaction error: ${err.message}`, 'warn');
     }
   };
 
   btnStart.addEventListener('click', startMining);
   btnStop.addEventListener('click', stopMining);
+  btnFetch.addEventListener('click', fetchLiveState);
 
   btnWallet.addEventListener('click', async function() {
     if (window.ethereum) {
@@ -469,6 +669,8 @@
         if (accounts.length > 0) {
           minerInput.value = accounts[0];
           log(`Connected to Polygon Web3 account: ${accounts[0]}`, 'success');
+          await refreshBalance(accounts[0]);
+          await fetchLiveState();
         }
       } catch (e) {
         log(`Wallet connection rejected: ${e.message}`, 'warn');
@@ -477,6 +679,15 @@
       alert('MetaMask / Web3 provider not found. Paste your Polygon address manually.');
     }
   });
+
+  // boot: pull the live round + balance (read-only — works before any connection)
+  log(`VAKED contract: ${VAKED_CONTRACT} · Polygon mainnet · reads via ${PUBLIC_RPC}`, 'info');
+  fetchLiveState();
+  if (window.ethereum && window.ethereum.request) {
+    window.ethereum.request({ method: 'eth_accounts' })
+      .then(a => { if (a && a[0]) { minerInput.value = a[0]; refreshBalance(a[0]); } })
+      .catch(() => {});
+  }
 })();
 </script>
 
