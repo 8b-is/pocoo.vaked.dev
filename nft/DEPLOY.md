@@ -4,6 +4,10 @@ Zero-dependency runbook — no Hardhat, no Foundry, no heavy frameworks in the s
 site. Everything below is dev-time tooling (`node` + `solc`) run in a scratch
 directory; the browser site (`art/` & `demos/`) never loads any of it.
 
+> **Deploying to Base (Coinbase L2)?** See [`DEPLOY-BASE.md`](./DEPLOY-BASE.md) —
+> the same contracts and tooling with `CHAIN_ID=8453` (Base mainnet) or
+> `84532` (Base Sepolia).
+
 ---
 
 ## Contract Inventory & Network
@@ -117,8 +121,8 @@ import('./art/chain.js').then(async ({ chain }) => {
   console.log('Name:       ', await chain.call(addr, '0x06fdde03')); // name()
   console.log('Symbol:     ', await chain.call(addr, '0x95d89b41')); // symbol()
   console.log('MaxSupply:  ', await chain.call(addr, '0xd5abeb01')); // maxSupply()
-  console.log('Challenge:  ', await chain.call(addr, '0x3b66bc94')); // getChallengeNumber()
-  console.log('Difficulty: ', await chain.call(addr, '0x2f9435b6')); // getMiningDifficulty()
+  console.log('Challenge:  ', await chain.call(addr, '0x4ef37628')); // getChallengeNumber()
+  console.log('Difficulty: ', await chain.call(addr, '0x17da485f')); // getMiningDifficulty()
 });"
 ```
 

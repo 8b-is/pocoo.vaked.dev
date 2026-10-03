@@ -246,7 +246,7 @@ async function rpc(method, params) {
  */
 
 /** @param {LegacyTxFields} fields @returns {string} */
-function signLegacyTx({ nonce, gasPrice, gasLimit, to, value, data, priv }) {
+function signLegacyTx({ nonce, gasPrice, gasLimit, to, value, data, priv, chainId }) {
   // RLP canonical form: zero encodes as the EMPTY byte string (0x80), not a
   // single 0x00 byte (which nodes reject as "non-canonical integer"). The
   // first tx of a fresh wallet (nonce 0) hits this, so special-case zero.
@@ -256,13 +256,14 @@ function signLegacyTx({ nonce, gasPrice, gasLimit, to, value, data, priv }) {
   const valueBytes = valueBig === 0n ? new Uint8Array(0) : bigintToBytes(valueBig);
   const fields = [nonceBytes, hexToBytes(gasPrice), hexToBytes(gasLimit), hexToBytes(to), valueBytes, hexToBytes(data)];
   const empty = new Uint8Array(0);
-  const unsigned = rlpList([...fields, bigintToBytes(BigInt(CHAIN_ID)), empty, empty]);
+  const cid = chainId === undefined ? BigInt(CHAIN_ID) : BigInt(chainId);
+  const unsigned = rlpList([...fields, bigintToBytes(cid), empty, empty]);
   const hash = hexToBytes(keccak_256(unsigned));
   const sig = secp256k1.sign(hash, hexToBytes(priv), { format: 'recovered', prehash: false });
   let r = BigInt('0x' + bytesToHex(sig.slice(1, 33)));
   let s = BigInt('0x' + bytesToHex(sig.slice(33, 65)));
   const rec = sig[0] & 1;
-  const v = BigInt(CHAIN_ID) * 2n + 35n + BigInt(rec);
+  const v = cid * 2n + 35n + BigInt(rec);
   const signed = rlpList([...fields, hexToBytes(v.toString(16)), bigintToBytes(r), bigintToBytes(s)]);
   return '0x' + bytesToHex(signed);
 }

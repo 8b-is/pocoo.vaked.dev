@@ -2,7 +2,9 @@
 // nft/deploy.js — zero-dependency deploy runner for PaintingsForSecrets.
 //
 // Builds + signs + broadcasts the constructor transaction for the
-// PaintingsForSecrets ERC-721 contract on Polygon mainnet (chain id 137),
+// PaintingsForSecrets ERC-721 / VAKED mineable ERC-20 — default target Polygon
+// mainnet (chain id 137), with Base (8453) and Base Sepolia (84532) selectable
+// via CHAIN_ID (see nft/DEPLOY-BASE.md).
 // reusing the repo's own hand-rolled EIP-155 signing (art/chain.js →
 // art/vendor/chain-crypto.js: noble-curves secp256k1 + js-sha3 keccak).
 // No ethers, no hardhat/foundry, nothing loaded by the browser site.
@@ -15,12 +17,16 @@
 //   PRIVATE_KEY=0x... node nft/deploy.js --broadcast     # broadcast the constructor tx
 //   PRIVATE_KEY=0x... TREASURY=0x... node nft/deploy.js --broadcast
 //   RPC_URL=https://... PRIVATE_KEY=0x... node nft/deploy.js --broadcast   # override RPC
+//   CHAIN_ID=8453 PRIVATE_KEY=0x... node nft/deploy.js --vaked --broadcast   # Base (Coinbase L2)
 //
 // ENV:
 //   PRIVATE_KEY     hex private key of the deploying account (required)
 //   TREASURY        initialTreasury constructor arg (default: constellation
 //                   payment wallet 0x4f584F6fd3a0a8C807aF2F00571c172603600578)
-//   RPC_URL         RPC override (default: POLYGON_RPC in art/chain.js)
+//   CHAIN_ID        target chain: 137 = Polygon (default), 8453 = Base mainnet,
+//                   84532 = Base Sepolia
+//   RPC_URL         RPC override (default: chain-appropriate public RPC)
+//   EXPLORER        explorer base URL override (defaults per chain)
 //   BYTECODE        creation bytecode as hex, OR a path to a .bin file
 //                   (default: nft/PaintingsForSecrets.bin)
 //   NONCE           optional explicit nonce (hex), default: from chain
@@ -38,7 +44,15 @@ const BROADCAST = process.argv.includes('--broadcast');
 const DRY_RUN = !BROADCAST;
 const IS_VAKED = process.argv.includes('--vaked') || (process.argv.includes('--contract') && process.argv[process.argv.indexOf('--contract') + 1]?.toUpperCase() === 'VAKED');
 
-const RPC_URL = process.env.RPC_URL || chain.POLYGON_RPC;
+const CHAIN_ID = process.env.CHAIN_ID ? Number(process.env.CHAIN_ID) : chain.CHAIN_ID;
+const RPC_DEFAULT = {
+  137: chain.POLYGON_RPC,
+  8453: 'https://mainnet.base.org',
+  84532: 'https://sepolia.base.org',
+};
+const RPC_URL = process.env.RPC_URL || RPC_DEFAULT[CHAIN_ID] || chain.POLYGON_RPC;
+const NETWORK_NAME = { 137: 'Polygon mainnet', 8453: 'Base mainnet', 84532: 'Base Sepolia' }[CHAIN_ID] || ('chain ' + CHAIN_ID);
+const EXPLORER = process.env.EXPLORER || ({ 137: 'https://polygonscan.com', 8453: 'https://basescan.org', 84532: 'https://sepolia.basescan.org' }[CHAIN_ID] || 'https://basescan.org');
 
 // ---- tiny JSON-RPC helper (single named endpoint, matches POLYGON_RPC) ----
 async function rpc(method, params) {
@@ -125,7 +139,7 @@ function parseWeiHex(v, label) {
 function usage() {
   console.log(
     'usage: PRIVATE_KEY=0x... node nft/deploy.js [--contract PFS|VAKED] [--vaked] [--broadcast] [--bytecode <hex|file>] [--help]\n' +
-    'env: TREASURY, RPC_URL, BYTECODE, NONCE, GAS_PRICE_WEI, GAS_LIMIT_MULT'
+    'env: TREASURY, CHAIN_ID (137 Polygon | 8453 Base | 84532 Base Sepolia), RPC_URL, EXPLORER, BYTECODE, NONCE, GAS_PRICE_WEI, GAS_LIMIT_MULT'
   );
 }
 
@@ -166,10 +180,11 @@ export async function main() {
     value: '0x0',
     data,
     priv,
+    chainId: CHAIN_ID,
   });
 
   const targetName = IS_VAKED ? 'VAKED (Mineable ERC-20)' : 'PaintingsForSecrets (ERC-721)';
-  console.log('=== ' + targetName + ' deployment (Polygon mainnet, chain id ' + chain.CHAIN_ID + ') ===');
+  console.log('=== ' + targetName + ' deployment (' + NETWORK_NAME + ', chain id ' + CHAIN_ID + ') ===');
   console.log('from:            ' + from);
   if (!IS_VAKED) {
     console.log('treasury:        ' + treasury + (treasury === DEFAULT_TREASURY ? ' (default — override with TREASURY=... if needed)' : ''));
@@ -191,8 +206,8 @@ export async function main() {
 
   const txHash = await rpc('eth_sendRawTransaction', [signed]);
   console.log('broadcast!       tx: ' + txHash);
-  console.log('polygonscan:     https://polygonscan.com/tx/' + txHash);
-  console.log('contract:        https://polygonscan.com/address/' + predicted);
+  console.log('explorer:        ' + EXPLORER + '/tx/' + txHash);
+  console.log('contract:        ' + EXPLORER + '/address/' + predicted);
   return { dryRun: false, txHash, predicted, from };
 }
 
