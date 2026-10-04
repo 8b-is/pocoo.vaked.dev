@@ -875,7 +875,7 @@ ${postLines}
   // Render citations.bib (BibTeX for all articles)
   const bibEntries = posts.map(p => {
     const key = (p.slug || "post").replace(/[^a-zA-Z0-9]/g, "_");
-    const dStr = String(p.date || "2026-08-15");
+    const dStr = String(p.meta.date || "2026-08-15");
     const parts = dStr.split("-");
     const year = parts[0] || "2026";
     const month = parts[1] || "08";
@@ -883,7 +883,7 @@ ${postLines}
     const mStr = months[parseInt(month, 10) - 1] || "aug";
     return `@article{lodri_${key},
   author = {Peter Lodri},
-  title = {${p.title}},
+  title = {${p.meta.title}},
   year = {${year}},
   month = {${mStr}},
   url = {https://pocoo.vaked.dev/posts/${p.slug}.html},
@@ -910,9 +910,9 @@ ${postLines}
     },
     "works": posts.map(p => ({
       "@type": "ScholarlyArticle",
-      "headline": p.title,
-      "datePublished": p.date,
-      "description": p.description || "",
+      "headline": p.meta.title,
+      "datePublished": p.meta.date,
+      "description": p.meta.description || "",
       "url": `https://pocoo.vaked.dev/posts/${p.slug}.html`,
       "author": {
         "@type": "Person",
