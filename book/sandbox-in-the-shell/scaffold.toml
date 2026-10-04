@@ -1,0 +1,75 @@
+# SANDBOX-IN-THE-SHELL — entheai fan-out scaffold
+# episode one: the dissonant frequencies — a techno-buddhist cyberpunk.
+# the studio's first book (8b-is-sciFinime-studio), seated 2026-10-04.
+# Feed this to: entheai --fanout --config <entheai.toml> "<the sandbox brief>"
+# entheai (deepseek via openrouter, or local HF-mac model) decomposes +
+# integrates; each [[coder]] runs via the Antigravity CLI (agy).
+# The manuscript is the source of truth — restoration/polish only, never
+# discard a line.
+
+[book]
+title = "SANDBOX IN THE SHELL"
+subtitle = "episode one: the dissonant frequencies — a techno-buddhist cyberpunk"
+author = "Peter Lodri · 𝓼𝓬𝓲𝓕𝓲𝓷𝓲𝓶𝓮 studio"
+epigraph = "healing is the ultimate root privilege"
+published = 2026
+
+[fanout]
+executor = "agy"                     # coder backend (Antigravity CLI)
+model = "openrouter/deepseek/deepseek-chat"  # entheai's brain (deepseek)
+agy_model = "gemini-3.6-flash-high"  # model agy runs each coder on
+max_depth = 3
+
+# Tone for every scribe: keep every original line of the manuscript. This is
+# a continuation — polish for book form, never discard the source.
+
+# ─── FRONT MATTER ────────────────────────────────────────────────────────
+
+[[coder]]
+role = "scribe"
+chapter = 0
+file = "chapters/00-front.md"
+task = """
+Write the front matter: the dedication ("for everyone who still has a creek
+they can return to — and for every mind that was ever told it was broken,
+by noise that could not parse it") and the studio note: the shell was the
+body, the sandbox is the mind that builds one; healing is the ultimate root
+privilege. Tone: match the manuscript.
+"""
+
+# ─── CHAPTERS ────────────────────────────────────────────────────────────
+
+[[coder]]
+role = "scribe"
+chapter = 1
+file = "chapters/01-the-dissonant-frequencies.md"
+task = """
+SEED: chapter one of the manuscript — Shinjuku on four-four, the night
+tank, the ocean of waves, Blurryface, the house and the creek, the whine,
+the Child's fear, the Architect's quarantine, the lotus, the burst, the
+bridge. KEEP ALL ORIGINAL LINES — restoration, not replacement. Match the
+book's voice (low-level systems architecture + Techno-Buddhism).
+"""
+depends_on = [0]
+
+[[coder]]
+role = "scribe"
+chapter = 2
+file = "chapters/02-the-pilot.md"
+task = """
+SEED: the anime pilot direction section of the manuscript (cold open, acts
+one-three, tag; sound; look). KEEP ALL ORIGINAL LINES. Match the book's
+voice.
+"""
+depends_on = [1]
+
+[[coder]]
+role = "integrator"
+file = "SANDBOX-IN-THE-SHELL.md"
+task = """
+INTEGRATE the front matter + chapter one + the pilot direction into a
+single manuscript. Verify every original line survived. Add the colophon:
+the sources, the ULTRA-CREATE note, the quant state, and "healing is the
+ultimate root privilege". Output as one clean markdown file ready for print.
+"""
+depends_on = [0, 1, 2]
