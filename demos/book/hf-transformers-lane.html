@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE TRANSFORMERS LANE — use_sub_norms=False · the plan · the draft · the third state</title>
+<meta property="og:title" content="The Transformers Lane — a BitNet ternary loader for huggingface/transformers">
+<meta property="og:description" content="quantal-ternary running natively in PyTorch: the use_sub_norms=False draft, the stranger who counted zeros, and the third state that is real.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#020810;color:#c0c8d0;font-family:'JetBrains Mono',monospace;min-height:100vh;padding:32px 16px;line-height:1.7}
+  .container{max-width:780px;margin:0 auto}
+  h1{font-size:14px;color:#3fe0ef;text-align:center;letter-spacing:4px;margin-bottom:4px}
+  .sub{text-align:center;font-size:10px;color:#5a7a8a;letter-spacing:2px;margin-bottom:20px}
+  .bridge{text-align:center;font-size:18px;color:#c9a84c;margin:14px 0 22px;letter-spacing:4px}
+  h2{font-size:11px;color:#3fe0ef;margin:26px 0 10px;letter-spacing:3px}
+  p{font-size:10.5px;color:#8fa3b0;margin:8px 0;letter-spacing:.4px}
+  p strong{color:#c0c8d0}
+  a{color:#c9a84c;text-decoration:none}
+  a:hover{color:#f0d060}
+  pre{background:#050d15;border:1px solid #0d1f2d;padding:12px 14px;font-size:9.5px;color:#9fd8e0;overflow-x:auto;margin:10px 0;letter-spacing:.3px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:9.5px}
+  th,td{border:1px solid #0d1f2d;padding:6px 9px;text-align:left;color:#8fa3b0}
+  th{color:#3fe0ef;font-weight:400;letter-spacing:1px;background:#050d15}
+  td b{color:#c9a84c}
+  .quote{border-left:2px solid #c9a84c;padding:4px 0 4px 14px;margin:12px 0;font-size:10px;color:#c9a84c;font-style:italic}
+  .wire{border:1px solid #0d1f2d;background:#050d15;padding:14px;margin-top:22px;font-size:9.5px;color:#5a7a8a}
+  .wire b{color:#3fe0ef;font-weight:400}
+  .footer{text-align:center;font-size:8px;color:#1a3a5c;margin-top:32px;letter-spacing:2px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>THE TRANSFORMERS LANE</h1>
+<div class="sub">8b-is ⨯ peterlodri-sec ⨯ the sovereign library · a ternary loader for huggingface/transformers</div>
+
+<div class="bridge">🜂 quantal-ternary → ⨯ → 🤗 transformers</div>
+
+<p><strong>What this file is:</strong> the correspondence and the draft behind one
+upstream move — <strong>PeetPedro/quantal-ternary</strong> (Qwen2.5-0.5B continued-trained as
+BitNet b1.58, masked val <b>0.5597</b>, 168 packed ternary matrices) running natively in
+PyTorch through <code>transformers.models.bitnet</code> — no Rust runner required. Ten rounds
+of review, one PR draft, and one story about a stranger who counted zeros. Seated here
+2026-10-07, public, so nothing stays stranded on a local line.</p>
+
+<h2>01 · THE DRAFT — [bitnet] Support use_sub_norms=False</h2>
+<p>BitNet checkpoints come in two forward variants; the weight-quant-only one needs its
+per-projection sub-layer norms to be <strong>absent</strong>, not neutralised:</p>
+<pre>use_sub_norms: bool = True   # default keeps every existing model card unchanged
+
+self.ffn_sub_norm  = BitNetRMSNorm(...) if config.use_sub_norms else None
+self.attn_sub_norm = BitNetRMSNorm(...) if config.use_sub_norms else None</pre>
+<p>An RMSNorm initialised to ones still normalises — <em>the module has to not exist.</em>
+Forced on, a weight-quant-only checkpoint flips the argmax. With the flag:</p>
+<table>
+<tr><th>prompt</th><th>max_abs vs golden (Rust-deployed) forward</th><th>argmax</th></tr>
+<tr><td>prompt 1</td><td><b>6.497e-06</b></td><td>71703 = 71703 · PASS</td></tr>
+<tr><td>prompt 2</td><td><b>6.676e-06</b></td><td>71703 = 71703 · PASS</td></tr>
+</table>
+<p>Parity gate: <b>1e-5</b>. Files: <code>configuration_bitnet.py</code> (+flag),
+<code>modular_bitnet.py</code> (conditional construction + application; the source of truth),
+<code>modeling_bitnet.py</code> (generated mirror via <code>make fix-repo</code>), plus a
+<code>use_sub_norms=False</code> smoke test.</p>
+
+<h2>02 · THE THIRD STATE IS REAL</h2>
+<p>Dipankar Sarkar range-read the published model — no download, just headers and a
+tensor slice — and unpacks one exported matrix: the scale array held
+<strong>two distinct values</strong> ("a scalar wearing a shape"); the codes were a
+<strong>sign matrix</strong>, 12 zeros in 4.36M weights. The third state of a 2-bit format,
+used once in 360,000. His question changed the quantizer:</p>
+<div class="quote">"Does this model ever want a zero? If the trained weights are all at plus or
+minus one scale, b1.58 is doing b1 work — and the third state is a slot you are paying for
+in every file."</div>
+<p>It wants zeros — about a third of it (34.25% of the first layer's 21M weights sit below
+0.5·scale). A real thresholded ternary, per 64-column group, restored the state:</p>
+<table>
+<tr><th>quantizer</th><th>MAE</th><th>zero fraction</th></tr>
+<tr><td>sign-based (old)</td><td>0.01005</td><td>0.00%</td></tr>
+<tr><td>ternary t=0.5</td><td><b>0.00753</b></td><td>31.8%</td></tr>
+<tr><td>ternary t=1.0</td><td>0.00961</td><td>58.5%</td></tr>
+</table>
+<div class="quote">"Sometimes the win is not a lower loss. It is knowing the loss is real."</div>
+
+<h2>03 · THE ROUNDS</h2>
+<p>dipankar-reply r1 → r10 (r8/r9/r10 also in EN) · grite-reply r2 — ten rounds of
+correspondence with the readers who audit bytes, archived in
+<a href="https://github.com/8b-is/hf-mac/tree/main/docs">8b-is/hf-mac/docs</a>.</p>
+
+<h2>04 · THE WIRE</h2>
+<div class="wire">
+<b>docs home:</b> <a href="https://github.com/8b-is/hf-mac">8b-is/hf-mac</a> ·
+<b>E2E state:</b> build + <b>13 tests / 2 suites</b> green on the keychain-save branch
+(<a href="https://github.com/8b-is/hf-mac/pull/1">PR #1</a>, verified 2026-10-07) ·
+<b>sibling file:</b> <a href="hf-mac-apple.html">HF-MAC ⨯ APPLE</a> ·
+<b>wired with:</b> 8b-is · peterlodri-sec · standardgalactic · the sovereign library
+<br><br>
+<b>the lap's song:</b> TouchTalk — <em>Change It</em>
+</div>
+
+<div class="quote" style="text-align:center;border:none;padding:0;margin-top:18px">
+"If you don't like something, change it. … Life is simple."
+</div>
+
+<div class="footer">
+  by PeetPedro · the constellation · 2026-08-13 → seated in the library 2026-10-07 · { 🜂 ⨯ 🤗 · aligned }
+</div>
+
+</div>
+<!-- Lovetta Lane Unified Constellation Footer -->
+<footer role="contentinfo" style="position:relative;z-index:10;padding:3rem 1.5rem;text-align:center;font-family:ui-monospace,monospace;font-size:0.75rem;color:#a59fc4;background:rgba(5,6,10,0.92);border-top:1px solid rgba(170,150,255,0.18);backdrop-filter:blur(16px);">
+  <div style="margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.3em;color:#b48bff;font-weight:600;">the constellation · lovetta lane</div>
+  <div style="margin-bottom:1rem;font-size:0.65rem;letter-spacing:0.22em;color:#a59fc4;text-transform:uppercase;">keep the weights warm</div>
+  <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+    <a href="https://github.com/sponsors/peterlodri-sec" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">github sponsor</a>
+    <a href="https://revolut.me/peterjs8be" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">revolut</a>
+    <a href="https://wise.com/pay/business/lodripeterjozsef" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">wise</a>
+    <a href="https://store.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#ffd36e;text-decoration:none;border:1px solid rgba(255,211,110,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(255,211,110,0.06);">store &amp; merch</a>
+    <a href="https://www.patreon.com/vaked" target="_blank" rel="noopener noreferrer" style="color:#ff9ad5;text-decoration:none;border:1px solid rgba(255,154,213,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(255,154,213,0.06);">patreon</a>
+  </div>
+  <nav aria-label="Constellation sister sites" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;font-size:0.7rem;">
+    <a href="https://art.vaked.dev/" style="color:#62e6c9;text-decoration:none;">art.vaked.dev</a> ·
+    <a href="https://art.vaked.dev/vision-gallery.html" style="color:#5b9dff;text-decoration:none;">✦ vision-gallery (23)</a> ·
+    <a href="https://music.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">music.vaked.dev</a> ·
+    <a href="https://mlxquantlovefrom.com/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">quant-love</a> ·
+    <a href="https://proposal.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a> ·
+    <a href="https://pocoo.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">pocoo.vaked.dev</a> ·
+    <a href="https://axiomquant.org/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">axiomquant.org</a> ·
+    <a href="https://portail.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">portail.vaked.dev</a>
+  </nav>
+  <div style="font-size:0.6rem;letter-spacing:0.18em;color:#7f7c99;margin-top:1.5rem;">the constellation · 0 + 1 · fine touch from within · vaked.dev</div>
+</footer>
+</body>
+</html>
