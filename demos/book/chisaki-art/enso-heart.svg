@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="enso circle around a heart written in zeros and ones">
+  <defs>
+    <filter id="rough" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="67" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="roughfine" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="67" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <path id="heartPath" d="M300 402 C246 348 182 306 182 242 C182 190 244 168 276 204 C290 220 296 232 300 244 C304 232 310 220 324 204 C356 168 418 190 418 242 C418 306 354 348 300 402 Z"/>
+  </defs>
+
+  <ellipse cx="300" cy="300" rx="256" ry="250" fill="#efe4cd" opacity="0.5"/>
+
+  <path d="M338 96 A208 208 0 1 1 232 104" fill="none" stroke="#1c140e" stroke-width="25" stroke-linecap="round" opacity="0.9" filter="url(#rough)"/>
+  <path d="M338 96 A208 208 0 1 1 232 104" fill="none" stroke="#1c140e" stroke-width="10" stroke-linecap="round" opacity="0.25" transform="translate(9 7)" filter="url(#rough)"/>
+
+  <use href="#heartPath" fill="none" stroke="#b23a2b" stroke-width="2.4" opacity="0.85"/>
+  <text font-family="ui-monospace,Menlo,monospace" font-size="15" fill="#b23a2b" opacity="0.9" letter-spacing="1">
+    <textPath href="#heartPath" startOffset="1%">1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0</textPath>
+  </text>
+
+  <text x="300" y="252" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="15" letter-spacing="3" fill="#8f2a20" opacity="0.75">1bit</text>
+  <text x="300" y="288" text-anchor="middle" font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif" font-size="24" letter-spacing="6" fill="#241a12" opacity="0.8">心</text>
+
+  <g transform="translate(502 494)">
+    <rect x="-27" y="-27" width="54" height="54" rx="7" fill="#b23a2b" filter="url(#roughfine)"/>
+    <text x="0" y="3" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif"
+          font-size="36" fill="#f6f0e4">永</text>
+  </g>
+</svg>

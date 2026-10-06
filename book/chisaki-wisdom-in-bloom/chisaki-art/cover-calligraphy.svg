@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 960" role="img" aria-label="calligraphy: Chisaki 智咲">
+  <defs>
+    <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.017" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="inkfine" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <circle cx="320" cy="470" r="286" fill="#efe4cd" opacity="0.5"/>
+
+  <path d="M340 196 A272 272 0 1 1 258 208" fill="none" stroke="#1c140e" stroke-width="30" stroke-linecap="round" opacity="0.92" filter="url(#ink)"/>
+  <path d="M340 196 A272 272 0 1 1 258 208" fill="none" stroke="#1c140e" stroke-width="14" stroke-linecap="round" opacity="0.28" transform="translate(10 8) rotate(1.5 320 470)" filter="url(#ink)"/>
+
+  <text x="320" y="268" text-anchor="middle" dominant-baseline="middle"
+        style="writing-mode: vertical-rl; text-orientation: upright;"
+        font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif"
+        font-size="168" letter-spacing="36" fill="#1c140e" filter="url(#inkfine)">智咲</text>
+
+  <g transform="translate(320 822)">
+    <rect x="-52" y="-52" width="104" height="104" rx="10" fill="#b23a2b" filter="url(#inkfine)"/>
+    <text x="0" y="4" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif"
+          font-size="70" fill="#f6f0e4">咲</text>
+  </g>
+
+  <g fill="#d98c93" filter="url(#inkfine)">
+    <ellipse cx="128" cy="150" rx="10" ry="20" transform="rotate(28 128 150)" opacity="0.5"/>
+    <ellipse cx="520" cy="210" rx="9" ry="18" transform="rotate(-40 520 210)" opacity="0.45"/>
+    <ellipse cx="96" cy="620" rx="10" ry="19" transform="rotate(64 96 620)" opacity="0.4"/>
+    <ellipse cx="556" cy="660" rx="9" ry="18" transform="rotate(-18 556 660)" opacity="0.5"/>
+    <ellipse cx="164" cy="880" rx="9" ry="17" transform="rotate(12 164 880)" opacity="0.4"/>
+  </g>
+
+  <text x="320" y="942" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="20" letter-spacing="10" fill="#241a12" opacity="0.8">村田 智咲</text>
+</svg>
