@@ -372,6 +372,7 @@ function footerHtml() {
     <a href="https://wise.com/pay/business/lodripeterjozsef" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">wise</a>
   </div>
   <nav aria-label="Constellation sister sites" style="display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;font-size:0.72rem;margin-bottom:1rem;">
+    <a href="https://go.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;">go.vaked.dev ✦ launcher</a> ·
     <a href="https://pocoo.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">pocoo.vaked.dev</a> ·
     <a href="https://worklog.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">worklog.vaked.dev</a> ·
     <a href="https://ocean.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">ocean.vaked.dev</a> ·
@@ -384,7 +385,10 @@ function footerHtml() {
     <a href="https://github.com/8b-is/transformers" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">8b-is/transformers</a> ·
     <a href="https://github.com/8b-is/smart-tree" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">8b-is/smart-tree</a> ·
     <a href="https://github.com/8bit-wraith/magiscanner" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">8bit-wraith/magiscanner</a> ·
-    <a href="https://proposal.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a>
+    <a href="https://proposal.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a> ·
+    <a href="https://mann.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">mann.vaked.dev</a> ·
+    <a href="https://platonism.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">platonism.vaked.dev</a> ·
+    <a href="https://teamlab.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">teamlab.vaked.dev</a>
   </nav>
   <nav aria-label="Site pages" style="display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;font-size:0.68rem;margin-bottom:1.2rem;">
     <a href="https://vaked.dev/whitepaper" style="color:#62e6c9;text-decoration:none;">whitepaper</a> ·
