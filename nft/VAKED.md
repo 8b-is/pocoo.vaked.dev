@@ -8,6 +8,9 @@ challenge, mint a block reward, and let an on-chain difficulty adjustment
 converge the mint cadence toward a fixed block interval. It is **not**
 staking-marketing, not an NFT, and not an investment (see disclosure below).
 
+**Mint it in the browser:** <https://pocoo.vaked.dev/demos/miner> — solve the
+keccak256 challenge, call `mint(nonce)`, receive 50 VAKED (gas only).
+
 ## Token
 
 | Field | Value |
