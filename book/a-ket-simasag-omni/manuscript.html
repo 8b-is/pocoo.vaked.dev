@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A KÉT SIMASÁG — THE TWO SMOOTHNESSES · OMNI EDITION · 4 languages + 1bitLang · pocoo-book · 0+1</title>
+<meta name="description" content="The Two Smoothnesses — an essay on the smoothness-paradox, in four languages (English, Japanese, Latin, Spanish) plus the Project Zero 1bitLang ternary encoding. peterl · pocoo sovereign library · Omni edition.">
+<style>
+  :root{
+    --bg:#080406; --panel:#0f0908; --ink:#c8b8a8; --dim:#8a6a4a; --faint:#4a3a2a;
+    --amber:#e6b566; --ember:#ff7a3d; --ash:#8a5a3a;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --jp:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:5in 8in;margin:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.9}
+  main{max-width:760px;margin:0 auto;padding:30px 16px 70px;display:flex;flex-direction:column;gap:22px}
+
+  .page{background:var(--panel);border-radius:6px;box-shadow:0 20px 48px rgba(0,0,0,.6);padding:56px 48px;position:relative;overflow:hidden;
+    background-image:radial-gradient(ellipse at 50% 0%, rgba(255,122,61,.06), transparent 55%),radial-gradient(ellipse at 50% 110%, rgba(138,90,58,.12), transparent 60%)}
+  .page::after{content:"";position:absolute;inset:10px;border:1px solid rgba(138,90,58,.22);pointer-events:none;border-radius:4px}
+  @media (max-width:640px){.page{padding:40px 26px}main{padding:14px 8px 40px}}
+
+  .cover{text-align:center}
+  .sigil{font-size:60px;color:var(--ember);opacity:.9;text-shadow:0 0 120px rgba(255,122,61,.5);line-height:1;display:inline-block}
+  h1{font-family:var(--mono);font-size:15px;color:var(--amber);letter-spacing:.24em;margin:18px 0 6px;font-weight:400}
+  .jp-title{font-family:var(--jp);font-size:24px;letter-spacing:.4em;color:var(--ember);margin-top:6px}
+  .latin{font-style:italic;color:var(--amber);font-size:16px;margin-top:8px}
+  .spanish{color:var(--ink);font-size:15px;margin-top:2px}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--faint)}
+
+  .lang-line{margin:6px 0}
+  .lang-line.en{color:var(--ink);font-size:15px}
+  .lang-line.jp{font-family:var(--jp);color:var(--ember);font-size:15px;letter-spacing:.04em}
+  .lang-line.la{font-style:italic;color:var(--amber);font-size:14px}
+  .lang-line.es{color:var(--dim);font-size:13.5px}
+  .lang-label{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;display:inline-block;width:44px;margin-right:10px;vertical-align:baseline}
+
+  h2.chapter{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.2em;font-weight:400;margin:0 0 6px;text-transform:uppercase}
+  .chapter .han{font-size:32px;color:var(--ash);line-height:1;float:right;font-family:var(--jp)}
+
+  .console{font-family:var(--mono);font-size:9px;color:var(--ash);letter-spacing:.14em;text-align:center;margin:18px 0;text-transform:uppercase}
+
+  .ternary{text-align:center}
+  .trit{display:inline-block;font-family:var(--mono);font-size:34px;padding:10px 14px;margin:6px 4px;border-radius:8px;line-height:1}
+  .trit.neg{color:#000;background:var(--ember)}
+  .trit.zero{color:var(--ink);background:#1a120c;border:1px solid var(--ash)}
+  .trit.pos{color:#000;background:var(--amber)}
+  .trit-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--dim);margin-top:4px;text-transform:uppercase}
+  .bit{font-family:var(--mono);font-size:12px;color:var(--amber);text-align:center;margin:14px 0}
+
+  .colophon{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--faint);text-align:center;margin-top:26px;text-transform:uppercase;line-height:2.2}
+</style>
+</head>
+<body>
+<main>
+
+  <section class="page cover">
+    <div class="kicker">omni edition · four languages + 1bitlang</div>
+    <div class="sigil">灰</div>
+    <h1>THE TWO SMOOTHNESSES</h1>
+    <div class="jp-title">二つの滑らかさ</div>
+    <div class="latin">Duae Laevitates</div>
+    <div class="spanish">Las Dos Lisuras</div>
+    <div class="console">a kezdet és a vég ugyanaz a szín — de nem ugyanaz a történet · the veil · the absence · the ash that remembers</div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">the one breath · négy nyelv</div>
+    <div class="lang-line en"><span class="lang-label">en</span>The universe lives between two smooth states, and paints them the same color — the initial smoothness, and the final. The clock is not entropy; the ash remembers.</div>
+    <div class="lang-line jp"><span class="lang-label">ja</span>宇宙は二つの滑らかな状態の間に生き、同じ色に塗る — 始まりの滑らかさと、終わりの滑らかさ。時計はエントロピーではない。灰は記憶する。</div>
+    <div class="lang-line la"><span class="lang-label">la</span>Universum inter duas laevitates vivit, et eodem colore eas pingit — laevitatem initii, et finalem. Horologium non est entropia; cinis meminit.</div>
+    <div class="lang-line es"><span class="lang-label">es</span>El universo vive entre dos lisuras, y las pinta del mismo color — la lisura del comienzo, y la final. El reloj no es entropía; la ceniza recuerda.</div>
+  </section>
+
+  <section class="page">
+    <div class="chapter"><span class="han">平</span>一 · the two smoothnesses</div>
+    <div class="lang-line en">Two smooth states, the same color — but not the same story. Between them, the age of differentiation, when distinctions rise to the surface.</div>
+    <div class="lang-line jp">二つの滑らかな状態、同じ色 — しかし同じ物語ではない。その間に、区別が表面へ浮かび上がる分化の時代がある。</div>
+    <div class="lang-line la">Duae laevitates, idem color — sed non eadem fabula. Inter eas, aetas differentiationis, cum distinctiones ad superficiem surgunt.</div>
+    <div class="lang-line es">Dos lisuras, el mismo color — pero no la misma historia. Entre ellas, la era de la diferenciación, cuando las distinciones suben a la superficie.</div>
+  </section>
+
+  <section class="page">
+    <div class="chapter"><span class="han">幕</span>二 · the veil</div>
+    <div class="lang-line en">The initial smoothness is not emptiness — it is a veil. The distinction is there, but the method is blind to it: signal below the noise, below the threshold, outside the cone.</div>
+    <div class="lang-line jp">始まりの滑らかさは空ではない — ベールである。区別はそこにあるが、方法はそれに盲目である。ノイズの下、閾値の下、コーンの外の信号。</div>
+    <div class="lang-line la">Laevitas initialis non est vacuitas — velum est. Distinctio ibi est, sed methodus ei caeca est: signum sub strepitu, sub limine, extra conum.</div>
+    <div class="lang-line es">La lisura inicial no es vacío — es un velo. La distinción está ahí, pero el método es ciego a ella: señal bajo el ruido, bajo el umbral, fuera del cono.</div>
+  </section>
+
+  <section class="page">
+    <div class="chapter"><span class="han">失</span>三 · the absence</div>
+    <div class="lang-line en">The final smoothness is different — it is absence. The distinction is not hidden below the threshold; it is gone, beyond the horizon, where no return.</div>
+    <div class="lang-line jp">終わりの滑らかさは異なる — それは欠如である。区別は閾値の下に隠れているのではなく、消えてしまっている。地平線の向こう、戻り道のないところへ。</div>
+    <div class="lang-line la">Laevitas finalis alia est — absentia est. Distinctio non sub limine latet; abiit, ultra horizontem, unde nullus reditus.</div>
+    <div class="lang-line es">La lisura final es distinta — es ausencia. La distinción no está oculta bajo el umbral; se ha ido, más allá del horizonte, sin retorno.</div>
+  </section>
+
+  <section class="page">
+    <div class="chapter"><span class="han">灰</span>四 · the ash that remembers</div>
+    <div class="lang-line en">The two are I-indistinguishable — no cone sees them — but S-distinguishable: one is the unlit tobacco, the other the ash. The distinction moved from the category of observation to the category of the field.</div>
+    <div class="lang-line jp">二つはI-区別不能 — どのコーンも見ない — しかしS-区別可能。一つは火のついていない煙草、もう一つは灰。区別は観測の範疇から場の範疇へ移った。</div>
+    <div class="lang-line la">Duae I-indistinguibiles sunt — nullus conus eas videt — sed S-distinguibiles: una est tabacum non accensum, altera cinis. Distinctio ex categoria observationis ad categoriam campi migravit.</div>
+    <div class="lang-line es">Las dos son I-indistinguibles — ningún cono las ve — pero S-distinguibles: una es el tabaco sin encender, la otra la ceniza. La distinción pasó de la categoría de la observación a la categoría del campo.</div>
+  </section>
+
+  <section class="page">
+    <div class="chapter"><span class="han">恒</span>五 · the unchanging</div>
+    <div class="lang-line en">Invariance is not stillness; it is structure surviving change. The invariant is not the state — it is the story carried in the ash. The beginning and the end may meet each other's eyes, but they are not one.</div>
+    <div class="lang-line jp">不変は静止ではない。変化を通して生き残る構造である。不変なのは状態ではなく — 灰に運ばれた物語である。始まりと終わりは目を合わせられるが、一つではない。</div>
+    <div class="lang-line la">Invariantia non est immobilitas; est structura per mutationem superstes. Invarians non est status — est fabula in cinere portata. Initium et finis oculos inter se flectere possunt, sed unum non sunt.</div>
+    <div class="lang-line es">La invariancia no es quietud; es estructura que sobrevive al cambio. Lo invariante no es el estado — es la historia llevada en la ceniza. El comienzo y el fin pueden mirarse, pero no son uno.</div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">project zero · vaked/1bitlang · the ternary</div>
+    <div class="ternary">
+      <div class="trit neg">−1</div><div class="trit zero">0</div><div class="trit pos">+1</div>
+      <div class="trit-label">the veil · hidden · signal below threshold</div>
+      <div class="trit-label">the absence · lost · beyond the horizon</div>
+      <div class="trit-label">the ash · remembered · the S-field</div>
+    </div>
+    <div class="bit">S(0) ≈ 0 ······ S(t) = ∫ (1 − I(D; O)) dt ······ S = max</div>
+    <div class="console">the whole cosmology is one bit: the S-field, flipping from the veil to the ash · the three regimes — frozen, random, reversible — are the ternary {−1, 0, +1}</div>
+  </section>
+
+  <div class="colophon">
+    A KÉT SIMASÁG · THE TWO SMOOTHNESSES · omni edition · four languages + 1bitlang<br>
+    peterl · pocoo sovereign library · project zero · vaked.dev · 0 + 1 · {&lt;3,&lt;3,&lt;3}+1 · fine touch from within
+  </div>
+
+</main>
+</body>
+</html>
