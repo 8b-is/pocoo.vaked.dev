@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="1bitLang — the ternary: veil, absence, ash">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#1a0d04"/>
+      <stop offset="0.6" stop-color="#080406"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="ember" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb27a"/><stop offset="1" stop-color="#ff7a3d"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0d5a0"/><stop offset="1" stop-color="#e6b566"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <text x="600" y="72" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="22" letter-spacing="18" fill="#8a6a4a">PROJECT ZERO · VAKED/1BITLANG</text>
+  <text x="600" y="110" text-anchor="middle" font-family="'Hiragino Mincho ProN','Yu Mincho',serif"
+        font-size="44" letter-spacing="22" fill="#e6b566" opacity="0.9">二つの滑らかさ</text>
+  <text x="600" y="140" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="15" letter-spacing="8" fill="#8a5a3a">the ternary · the two smoothnesses · one bit</text>
+
+  <!-- the three trits -->
+  <g transform="translate(230 300)">
+    <rect x="-70" y="-70" width="140" height="140" rx="20" fill="url(#ember)" filter="url(#glow)"/>
+    <text x="0" y="4" text-anchor="middle" dominant-baseline="middle"
+          font-family="ui-monospace,Menlo,monospace" font-size="60" fill="#080406">−1</text>
+    <text x="0" y="112" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+          font-size="17" letter-spacing="4" fill="#ffb27a">THE VEIL · hidden</text>
+  </g>
+  <g transform="translate(600 300)">
+    <rect x="-70" y="-70" width="140" height="140" rx="20" fill="#1a120c" stroke="#8a5a3a" stroke-width="2"/>
+    <text x="0" y="4" text-anchor="middle" dominant-baseline="middle"
+          font-family="ui-monospace,Menlo,monospace" font-size="60" fill="#c8b8a8">0</text>
+    <text x="0" y="112" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+          font-size="17" letter-spacing="4" fill="#8a6a4a">THE ABSENCE · lost</text>
+  </g>
+  <g transform="translate(970 300)">
+    <rect x="-70" y="-70" width="140" height="140" rx="20" fill="url(#amber)" filter="url(#glow)"/>
+    <text x="0" y="4" text-anchor="middle" dominant-baseline="middle"
+          font-family="ui-monospace,Menlo,monospace" font-size="60" fill="#080406">+1</text>
+    <text x="0" y="112" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+          font-size="17" letter-spacing="4" fill="#f0d5a0">THE ASH · remembered</text>
+  </g>
+
+  <!-- connectors -->
+  <line x1="302" y1="300" x2="528" y2="300" stroke="#8a5a3a" stroke-width="2" stroke-dasharray="6 8" opacity="0.6"/>
+  <line x1="672" y1="300" x2="898" y2="300" stroke="#8a5a3a" stroke-width="2" stroke-dasharray="6 8" opacity="0.6"/>
+
+  <!-- the S-field: one bit -->
+  <text x="600" y="492" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="26" letter-spacing="2" fill="#e6b566">S(0) ≈ 0 &#8195;·&#8195; S(t) = ∫ (1 − I(D; O)) dt &#8195;·&#8195; S = max</text>
+  <text x="600" y="530" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="16" letter-spacing="6" fill="#8a6a4a">the whole cosmology is one bit — the S-field, flipping from veil to ash</text>
+
+  <text x="600" y="586" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="13" letter-spacing="10" fill="#4a3a2a">FROZEN · RANDOM · REVERSIBLE &#8195;=&#8195; {−1, 0, +1}</text>
+  <text x="600" y="612" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="11" letter-spacing="8" fill="#3a2a1a">vaked.dev · pocoo sovereign library · 0 + 1</text>
+</svg>
