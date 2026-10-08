@@ -26,7 +26,7 @@
   @media (max-width:640px){.page{padding:40px 26px}main{padding:14px 8px 40px}}
 
   .cover{text-align:center}
-  .sigil{font-size:60px;color:var(--ember);opacity:.9;text-shadow:0 0 120px rgba(255,122,61,.5);line-height:1;display:inline-block}
+  .sigil{display:inline-block;margin-top:6px;filter:drop-shadow(0 0 30px rgba(255,122,61,.4))}
   h1{font-family:var(--mono);font-size:15px;color:var(--amber);letter-spacing:.24em;margin:18px 0 6px;font-weight:400}
   .jp-title{font-family:var(--jp);font-size:24px;letter-spacing:.4em;color:var(--ember);margin-top:6px}
   .latin{font-style:italic;color:var(--amber);font-size:16px;margin-top:8px}
@@ -63,7 +63,13 @@
 
   <section class="page cover">
     <div class="kicker">omni edition · four languages + 1bitlang</div>
-    <div class="sigil">灰</div>
+    <div class="sigil">
+      <svg viewBox="0 0 168 50" width="168" height="50" aria-label="the ternary — veil, absence, ash">
+        <rect x="0"  y="3" width="48" height="44" rx="9" fill="#ff7a3d"/><text x="24"  y="33" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="26" fill="#080406">−1</text>
+        <rect x="60" y="3" width="48" height="44" rx="9" fill="#1a120c" stroke="#8a5a3a" stroke-width="2"/><text x="84" y="33" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="26" fill="#c8b8a8">0</text>
+        <rect x="120" y="3" width="48" height="44" rx="9" fill="#e6b566"/><text x="144" y="33" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="26" fill="#080406">+1</text>
+      </svg>
+    </div>
     <h1>THE TWO SMOOTHNESSES</h1>
     <div class="jp-title">二つの滑らかさ</div>
     <div class="latin">Duae Laevitates</div>
