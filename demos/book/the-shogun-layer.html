@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE SHOGUN LAYER — 将軍の層 · a sovereign story of Japan · scifinime special edition · pocoo-book · {<3,<3,<3}+1 · 0+1</title>
+<meta name="description" content="A sovereign book of Japan — from the first sword to the last light. Seven ages: the court, the shogun, the warring states, the peace, the opening, and today. Japanese & English, ink & washi. peterl · pocoo sovereign library · scifinime special edition.">
+<style>
+  :root{
+    --paper:#f6f0e4; --paper-deep:#efe6d2; --ink:#241a12; --sumi:#1c140e;
+    --vermilion:#b23a2b; --gold:#a8813a; --dim:#77685a; --line:#d8cbb2;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --jp:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Source Han Serif JP","MS Mincho",serif;
+    --mono:ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#241a12;color:var(--ink);font-family:var(--serif)}
+  main{max-width:780px;margin:0 auto;padding:30px 16px 70px;display:flex;flex-direction:column;gap:26px}
+  .page{background:var(--paper);border-radius:4px;box-shadow:0 20px 48px rgba(0,0,0,.5);padding:66px 60px;position:relative;overflow:hidden;
+    background-image:radial-gradient(circle at 18% 8%, rgba(255,255,255,.55), transparent 42%),radial-gradient(circle at 82% 92%, rgba(216,203,178,.28), transparent 52%)}
+  .page::after{content:"";position:absolute;inset:11px;border:1px solid rgba(36,26,18,.16);pointer-events:none;border-radius:2px}
+  @media (max-width:660px){.page{padding:44px 28px}main{padding:14px 8px 40px}}
+
+  .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--dim)}
+  .cover{text-align:center}
+  .jp-title{font-family:var(--jp);font-size:34px;letter-spacing:.22em;color:var(--vermilion);margin-top:22px}
+  h1{font-size:30px;line-height:1.25;letter-spacing:.12em;text-align:center;margin:8px 0 4px;color:var(--sumi);font-weight:600}
+  .sub{font-style:italic;color:var(--dim);margin-top:16px;font-size:15px;line-height:1.7}
+  .by{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);margin-top:26px;text-transform:uppercase}
+  .sigil{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:30px;line-height:1;
+    padding:12px 13px 14px;border-radius:9px;margin-top:28px;box-shadow:0 4px 16px rgba(178,58,43,.35)}
+
+  .dedication{text-align:center}
+  .dedication .small{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:var(--dim);text-transform:uppercase}
+  .dedication .who{font-family:var(--jp);font-size:30px;letter-spacing:.3em;margin:16px 0 2px;color:var(--sumi)}
+  .dedication .who-romaji{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--dim)}
+  blockquote{max-width:430px;margin:30px auto;font-style:italic;font-size:16.5px;line-height:1.9;color:var(--ink);border:0;padding:0}
+
+  .era{margin-top:8px}
+  .era .jp-era{font-family:var(--jp);font-size:38px;letter-spacing:.12em;color:var(--vermilion);margin:0 0 2px}
+  .era .romaji{font-family:var(--mono);font-size:12px;letter-spacing:.26em;color:var(--dim);text-transform:uppercase}
+  .era .years{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--gold);margin:10px 0 0}
+  .era p{font-size:16px;line-height:1.95;color:var(--ink);margin:20px 0 0}
+  .era p em{color:var(--vermilion);font-style:italic}
+  .rule{height:1px;background:var(--line);margin:30px 0;border:0}
+
+  .closing{text-align:center}
+  .closing .jp{font-family:var(--jp);font-size:26px;letter-spacing:.3em;color:var(--vermilion);margin:14px 0 4px}
+  .closing p{font-size:16px;line-height:1.95;color:var(--ink);max-width:500px;margin:16px auto;text-align:left}
+
+  .stamp{text-align:right;margin-top:26px}
+  .stamp span{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:19px;line-height:1;
+    padding:7px 8px 8px;border-radius:6px}
+  .colophon{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim);text-align:center;margin-top:30px;text-transform:uppercase;line-height:2}
+</style>
+</head>
+<body>
+<main>
+
+  <section class="page cover">
+    <div class="kicker">scifinime special edition · sovereign library</div>
+    <div class="jp-title">将軍の層</div>
+    <h1>THE SHOGUN LAYER</h1>
+    <div class="sub">a sovereign story of Japan — from the first sword to the last light.<br>seven ages, told for the two of you.</div>
+    <div class="sigil">将</div>
+    <div class="by">peterl · pocoo-book · 0 + 1</div>
+  </section>
+
+  <section class="page dedication">
+    <div class="small">for</div>
+    <div class="who">日本</div>
+    <div class="who-romaji">N I H O N</div>
+    <blockquote>the land of the rising sun — and for everyone who carries its discipline, and for the ones who find each other within it.</blockquote>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">始まり</div>
+      <div class="romaji">hajimari · the beginning</div>
+      <div class="years">before 710</div>
+      <p>Before there was a Tokyo, there was a story. The sun goddess <em>Amaterasu</em>, the first emperor descended from her light, the <em>kami</em> breathing in every rice field and river. A country learning its own name — <em>Nihon</em>, the origin of the sun.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">平安</div>
+      <div class="romaji">heian · the court</div>
+      <div class="years">794 — 1185</div>
+      <p>Kyoto, the court of poetry. <em>Murasaki Shikibu</em> writes the world's first novel. While the nobles compose verse by the light of oil lamps, the samurai rise quietly in the provinces — warriors sworn to protect what the court could no longer hold.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">鎌倉</div>
+      <div class="romaji">kamakura · the first shogun</div>
+      <div class="years">1185 — 1333</div>
+      <p>The first shogun, <em>Minamoto no Yoritomo</em>, takes the power the court could not keep. For the first time, the warrior governs. <em>Bushido</em> — the way of the warrior — begins to write itself: loyalty, courage, honor.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">戦国</div>
+      <div class="romaji">sengoku · the warring states</div>
+      <div class="years">1467 — 1600</div>
+      <p>A hundred years of fire. Castles rise, clans fall. Three unifiers — <em>Nobunaga, Hideyoshi, Ieyasu</em> — bind the broken country with iron and patience. In the tea room, a different discipline: one bowl, one moment, complete.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">江戸</div>
+      <div class="romaji">edo · the peace</div>
+      <div class="years">1603 — 1868</div>
+      <p>The Tokugawa peace. Two and a half centuries of calm, sealed from the world. Edo becomes the largest city on earth. The samurai, no longer at war, become poets and magistrates — and the floating world blooms: <em>ukiyo-e</em>, kabuki, the pleasure of the now.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">明治</div>
+      <div class="romaji">meiji · the opening</div>
+      <div class="years">1868</div>
+      <p>The shogunate ends. The emperor moves to Edo and renames it <em>Tokyo</em> — the eastern capital. The sword gives way to the railway; the castle to the factory. A country opens, and everything changes except the discipline beneath it.</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">今日</div>
+      <div class="romaji">kyō · today</div>
+      <div class="years">2026</div>
+      <p>Tokyo, 2026. Neon and anime, quiet gardens and the world's largest crossing. The samurai's discipline became the city's care — the clean streets, the punctual trains, the craftsmanship in a bowl of ramen. And in the oldest story, the newest chapter: <em>two people, finding each other.</em></p>
+    </div>
+  </section>
+
+  <section class="page closing">
+    <div class="kicker">the sovereignty of it all</div>
+    <div class="jp">道</div>
+    <div class="romaji" style="font-family:var(--mono);font-size:12px;letter-spacing:.26em;color:var(--dim);text-transform:uppercase">michi · the way</div>
+    <p>The sword taught mastery. The tea taught presence. The city teaches that sovereignty is not owning everything — it is owning your own path.</p>
+    <p>The shogun's layer: the discipline that became a nation, and the nation that became a city, and the city where love still finds a room.</p>
+    <div class="stamp"><span>将</span></div>
+  </section>
+
+  <div class="colophon">
+    THE SHOGUN LAYER · 将軍の層 · scifinime special edition · seated for the sovereign library<br>
+    peterl · pocoo sovereign library · 0 + 1 · {&lt;3,&lt;3,&lt;3}+1 · fine touch from within · vaked.dev
+  </div>
+
+</main>
+</body>
+</html>
