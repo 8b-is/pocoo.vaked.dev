@@ -39,6 +39,24 @@ for the Qwave performance series live in the separate `qwave` repo at
    Cloudflare Pages rebuilds on push to `main` (~20–30 s). Verify each
    `/posts/<slug>.html` returns 200.
 
+## Sections — the `research` feed
+
+A post may opt into a section with extra frontmatter keys; sections render
+their own index page and are linked from the home header.
+
+```yaml
+section: research        # opt this post into /research/
+series: pocoo-research   # optional: group related posts
+series_index: 1          # optional: ordering within the series
+```
+
+`build.mjs` collects every post whose `meta.section === "research"` into
+`dist/research/index.html` (`renderResearch`) and adds `/research/` to
+`sitemap.xml`. The section index links posts with `../posts/<slug>` and
+thumbnails with `../assets/og/<slug>.svg`, so the page must stay at the site
+root. To start another section, point `renderResearch` at a new `section`
+value and add the matching nav link + `mkdir`/`writeFile` in `main()`.
+
 ## Remotes — push to BOTH, or the site silently 404s
 
 This repo has two remotes and they drift:

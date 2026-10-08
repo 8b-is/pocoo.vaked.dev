@@ -13,3 +13,6 @@ demos/quantal/norms.f32
 demos/entheai/releases/
 
 .slim/deepwork/
+
+# Wrangler local cache (account id/name) — machine-local, never commit.
+.wrangler/
