@@ -16,6 +16,7 @@
   *{box-sizing:border-box}
   html,body{margin:0}
   html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:5in 8in;margin:0}
   body{background:#241a12;color:var(--ink);font-family:var(--serif)}
   main{max-width:780px;margin:0 auto;padding:30px 16px 70px;display:flex;flex-direction:column;gap:26px}
   .page{background:var(--paper);border-radius:4px;box-shadow:0 20px 48px rgba(0,0,0,.5);padding:66px 60px;position:relative;overflow:hidden;
@@ -31,6 +32,11 @@
   .by{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);margin-top:26px;text-transform:uppercase}
   .sigil{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:30px;line-height:1;
     padding:12px 13px 14px;border-radius:9px;margin-top:28px;box-shadow:0 4px 16px rgba(178,58,43,.35)}
+
+  .cover-vert{text-align:center}
+  .vert-title{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--jp);font-size:54px;letter-spacing:.16em;
+    color:var(--vermilion);margin:16px auto;height:340px;line-height:1.5;display:inline-block}
+  .vert-en{font-family:var(--mono);font-size:11px;letter-spacing:.5em;color:var(--dim);text-transform:uppercase;margin-top:14px}
 
   .dedication{text-align:center}
   .dedication .small{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:var(--dim);text-transform:uppercase}
@@ -65,6 +71,13 @@
     <h1>THE SHOGUN LAYER</h1>
     <div class="sub">a sovereign story of Japan — from the first sword to the last light.<br>seven ages, told for the two of you.</div>
     <div class="sigil">将</div>
+    <div class="by">peterl · pocoo-book · 0 + 1</div>
+  </section>
+
+  <section class="page cover cover-vert">
+    <div class="kicker">tategaki · 縦書き · the vertical title</div>
+    <div class="vert-title">将軍の層</div>
+    <div class="vert-en">the shogun layer</div>
     <div class="by">peterl · pocoo-book · 0 + 1</div>
   </section>
 
