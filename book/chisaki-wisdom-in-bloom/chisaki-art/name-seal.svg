@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="name seal: Murata Chisaki 村田智咲">
+  <defs>
+    <filter id="rough" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.02" numOctaves="3" seed="41" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="carve" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="41" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="300" cy="310" rx="252" ry="248" fill="#efe4cd" opacity="0.5"/>
+
+  <rect x="104" y="104" width="392" height="392" rx="26" fill="#b23a2b" filter="url(#rough)"/>
+  <rect x="132" y="132" width="336" height="336" rx="12" fill="none" stroke="#f6f0e4" stroke-width="5" opacity="0.75" filter="url(#roughfine)"/>
+
+  <g font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif" font-size="128" text-anchor="middle" dominant-baseline="middle">
+    <g fill="#8f2a20" opacity="0.55" transform="translate(3 3)">
+      <text x="401" y="211">村</text>
+      <text x="401" y="401">田</text>
+      <text x="205" y="211">智</text>
+      <text x="205" y="401">咲</text>
+    </g>
+    <g fill="#f6f0e4" filter="url(#carve)">
+      <text x="399" y="208">村</text>
+      <text x="399" y="398">田</text>
+      <text x="203" y="208">智</text>
+      <text x="203" y="398">咲</text>
+    </g>
+  </g>
+
+  <text x="300" y="70" text-anchor="middle" font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif"
+        font-size="30" fill="#241a12" letter-spacing="10">むらた ちさき</text>
+  <text x="300" y="560" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="19" letter-spacing="7" fill="#241a12" opacity="0.85">MURATA CHISAKI</text>
+  <text x="300" y="586" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="12" letter-spacing="3" fill="#8a7a68">read right to left · 村田 智咲</text>
+</svg>

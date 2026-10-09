@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="The Shogun Layer — seven ages, the sigil 将">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0" stop-color="#241a10"/><stop offset="0.6" stop-color="#0d0905"/><stop offset="1" stop-color="#050302"/>
+    </radialGradient>
+    <linearGradient id="verm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0684a"/><stop offset="1" stop-color="#b23a2b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8c87e"/><stop offset="1" stop-color="#a8813a"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <text x="600" y="74" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="22" letter-spacing="18" fill="#8a5a3a">THE SHOGUN LAYER · SCIFINIME</text>
+  <text x="600" y="118" text-anchor="middle" font-family="'Hiragino Mincho ProN','Yu Mincho',serif"
+        font-size="48" letter-spacing="20" fill="#e0684a">将軍の層</text>
+  <text x="600" y="150" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="15" letter-spacing="8" fill="#8a6a4a">seven ages · from the first sword to the last light</text>
+
+  <!-- the seven ages, as a circle of seals -->
+  <g font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="30" text-anchor="middle" fill="#e0684a">
+    <circle cx="600" cy="300" r="150" fill="none" stroke="#8a5a3a" stroke-width="1" opacity="0.5"/>
+    <circle cx="600" cy="300" r="150" fill="none" stroke="#8a5a3a" stroke-width="1" opacity="0.3" transform="rotate(51.4 600 300)"/>
+    <text x="600" y="150">始</text>
+    <text x="706" y="193">平</text>
+    <text x="750" y="300">鎌</text>
+    <text x="706" y="407">戦</text>
+    <text x="600" y="450">江</text>
+    <text x="494" y="407">明</text>
+    <text x="450" y="300">今</text>
+  </g>
+
+  <!-- the sigil -->
+  <g transform="translate(600 300)">
+    <rect x="-38" y="-38" width="76" height="76" rx="16" fill="url(#verm)" filter="url(#glow)"/>
+    <text x="0" y="6" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="46" fill="#f6f0e4">将</text>
+  </g>
+
+  <text x="600" y="516" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="16" letter-spacing="6" fill="#8a6a4a">the sword taught mastery · the tea taught presence · the city teaches sovereignty</text>
+  <text x="600" y="554" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="14" letter-spacing="8" fill="#6a4a3a">MUSASHI · NITOBE · HAGAKURE · THE BOOK OF FIVE RINGS</text>
+
+  <text x="600" y="596" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="12" letter-spacing="8" fill="#4a352a">pocoo sovereign library · scifinime · 0 + 1</text>
+</svg>

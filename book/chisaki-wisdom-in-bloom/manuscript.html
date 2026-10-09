@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETERNITY IN CHISAKI'S SMILE — 智咲の微笑み · peterl · pocoo-book · {<3,<3,<3}+1 · 0+1</title>
+<meta name="description" content="A bilingual book of haiku for 村田智咲 — her mask, her smile, her name. Japanese & English, ink & calligraphy. peterl · pocoo sovereign library.">
+<style>
+  :root{
+    --paper:#f6f0e4; --paper-deep:#efe6d2; --ink:#241a12; --sumi:#1c140e;
+    --vermilion:#b23a2b; --gold:#a8813a; --dim:#77685a; --line:#d8cbb2;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --jp:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Source Han Serif JP","MS Mincho",serif;
+    --mono:ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#241a12;color:var(--ink);font-family:var(--serif)}
+  main{max-width:780px;margin:0 auto;padding:30px 16px 70px;display:flex;flex-direction:column;gap:26px}
+  .page{background:var(--paper);border-radius:4px;box-shadow:0 20px 48px rgba(0,0,0,.5);padding:66px 60px;position:relative;overflow:hidden;
+    background-image:radial-gradient(circle at 18% 8%, rgba(255,255,255,.55), transparent 42%),radial-gradient(circle at 82% 92%, rgba(216,203,178,.28), transparent 52%)}
+  .page::after{content:"";position:absolute;inset:11px;border:1px solid rgba(36,26,18,.16);pointer-events:none;border-radius:2px}
+  @media (max-width:660px){.page{padding:44px 28px}main{padding:14px 8px 40px}}
+
+  h1{font-size:30px;line-height:1.25;letter-spacing:.14em;text-align:center;margin:26px 0 4px;color:var(--sumi);font-weight:600}
+  h2{font-size:27px;margin:4px 0 20px;color:var(--sumi);font-weight:600;letter-spacing:.02em}
+  .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--dim)}
+
+  .cover{text-align:center}
+  .cover-frame img{width:100%;max-width:430px;display:block;margin:0 auto}
+  .jp-title{font-family:var(--jp);font-size:24px;letter-spacing:.5em;color:var(--vermilion);margin-top:8px}
+  .sub{font-style:italic;color:var(--dim);margin-top:14px;font-size:15px}
+  .by{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);margin-top:25px;text-transform:uppercase}
+  .sigil{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:22px;line-height:1;
+    padding:8px 10px 9px;border-radius:7px;margin-top:26px;box-shadow:0 4px 14px rgba(178,58,43,.35)}
+
+  .dedication{text-align:center}
+  .dedication .small{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:var(--dim);text-transform:uppercase}
+  .dedication .who{font-family:var(--jp);font-size:34px;letter-spacing:.3em;margin:16px 0 2px;color:var(--sumi)}
+  .dedication .who-romaji{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--dim)}
+  blockquote{max-width:430px;margin:30px auto;font-style:italic;font-size:16.5px;line-height:1.9;color:var(--ink);border:0;padding:0}
+
+  figure{margin:26px 0}
+  figure img{width:100%;max-width:400px;display:block;margin:0 auto}
+  figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--dim);text-align:center;margin-top:10px;text-transform:uppercase}
+
+  .haiku{display:flex;gap:46px;justify-content:center;align-items:flex-start;margin-top:26px}
+  .jp-vert{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--jp);font-size:29px;letter-spacing:.14em;line-height:2.15;
+    color:var(--sumi);height:270px;flex:0 0 auto}
+  .side{max-width:360px;padding-top:10px;min-width:0}
+  .romaji{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--dim);margin:0 0 14px;overflow-wrap:break-word;text-wrap:balance}
+  .en{font-style:italic;font-size:16.5px;line-height:1.8;margin:0}
+  .note{font-size:14px;line-height:1.85;color:var(--dim);margin:18px 0 0}
+  .note strong{color:var(--vermilion);font-style:normal}
+
+  .stamp{text-align:right;margin-top:26px}
+  .stamp span{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:17px;line-height:1;
+    padding:6px 7px 7px;border-radius:5px}
+
+  .postscript{text-align:center;font-style:italic;color:var(--dim);margin-top:30px;font-size:15px}
+
+  .colophon{text-align:center}
+  .colophon p{margin:6px 0;font-size:14px;line-height:1.9;color:var(--ink)}
+  .colophon .jp{font-family:var(--jp)}
+  .colophon .tiny{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--dim)}
+  .rule{width:56px;height:1px;background:var(--line);margin:20px auto}
+
+  @page{size:5in 8in;margin:0}
+  @media print{
+    body{background:var(--paper)}
+    main{max-width:none;margin:0;padding:0;display:block}
+    .page{box-shadow:none;border-radius:0;padding:.55in .5in;min-height:7.97in;break-before:page}
+    .page::after{display:none}
+    .page:first-child{break-before:auto}
+    .cover{display:flex;flex-direction:column;justify-content:center;align-items:center}
+    .cover-frame{width:100%}
+    .cover-frame img{display:block;margin:0 auto;width:2.55in;height:auto;max-width:none;max-height:none}
+    .cover h1{font-size:26px;margin-top:10px}
+    .cover .sigil{margin-top:16px}
+    .dedication .who{font-size:30px;margin:12px 0 2px}
+    .dedication blockquote{margin:12px auto;font-size:14.5px;line-height:1.7}
+    .dedication .haiku{flex-direction:column;align-items:center;gap:12px}
+    .dedication .side{max-width:none;text-align:center;padding-top:0}
+    .dedication .jp-vert{height:2.05in}
+    .dedication .en{font-size:15px;line-height:1.65}
+    .dedication .note{margin-top:8px}
+    .plate,.poem{display:flex;flex-direction:column;justify-content:center}
+    figure{margin:14px 0}
+    figure img{max-width:3.2in}
+    .jp-vert{height:2.4in}
+    .haiku{gap:34px}
+    .colophon{min-height:auto;break-before:page;padding-top:1.1in}
+    footer{background:#05060a !important;min-height:7.97in;display:flex;flex-direction:column;justify-content:center;break-before:page}
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ── cover ─────────────────────────────────────────────── -->
+  <section class="page cover">
+    <div class="cover-frame">
+      <img src="chisaki-art/cover-calligraphy.svg" alt="智咲 — the name, ink and enso">
+    </div>
+    <h1>ETERNITY IN CHISAKI&rsquo;S SMILE</h1>
+    <div class="jp-title" lang="ja">智咲の微笑み</div>
+    <div class="sub">a book of haiku · 日本語 &amp; English · ink &amp; washi</div>
+    <div class="by">peter lodri · pocoo-book · 2026 · 0+1</div>
+    <div class="sigil">咲</div>
+  </section>
+
+  <!-- ── dedication ────────────────────────────────────────── -->
+  <section class="page dedication">
+    <p class="small">for</p>
+    <p class="who" lang="ja">村田 智咲</p>
+    <p class="who-romaji">MURATA CHISAKI · CHI-CHAN</p>
+    <blockquote>
+      the girl who, when she took off her mask,<br>
+      wrapped time and space for a moment —<br>
+      her smile melting my heart into 1bit,<br>
+      making me singular: flowing in pure beauty,<br>
+      observing love.
+    </blockquote>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">仮面引き<br>微笑み一つ<br>時を止む</div>
+      <div class="side">
+        <p class="romaji">kamen hiki · hohoemi hitotsu · toki wo yamu</p>
+        <p class="en">Mask drawn aside —<br>one single blossoming smile —<br>time comes to a stop.</p>
+        <p class="note">the first haiku, where this book began</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── I · 仮面 — The Mask ───────────────────────────────── -->
+  <section class="page plate">
+    <div class="kicker">I · 仮面 · KAMEN</div>
+    <h2>The Mask</h2>
+    <figure>
+      <img src="chisaki-art/mask.svg" alt="a noh mask with its red cord, ink drawing">
+      <figcaption>a mask, set down</figcaption>
+    </figure>
+  </section>
+  <section class="page poem">
+    <div class="kicker">I · 仮面</div>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">仮面脱ぎ<br>光あふれて<br>花になる</div>
+      <div class="side">
+        <p class="romaji">kamen nugi · hikari afurete · hana ni naru</p>
+        <p class="en">The mask slips off —<br>light comes pouring in —<br>and she becomes a flower.</p>
+      </div>
+    </div>
+    <div class="stamp"><span lang="ja">咲</span></div>
+  </section>
+
+  <!-- ── II · 微笑み — The Smile ───────────────────────────── -->
+  <section class="page plate">
+    <div class="kicker">II · 微笑み · HOHOEMI</div>
+    <h2>The Smile</h2>
+    <figure>
+      <img src="chisaki-art/branch.svg" alt="a blossom branch in bloom, ink drawing">
+      <figcaption>hana — blossom, and the verb to smile</figcaption>
+    </figure>
+  </section>
+  <section class="page poem">
+    <div class="kicker">II · 微笑み</div>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">微笑みの<br>まんなかに咲く<br>春の朝</div>
+      <div class="side">
+        <p class="romaji">hohoemi no · mannaka ni saku · haru no asa</p>
+        <p class="en">Inside her smile,<br>at the very center,<br>a spring morning blooms.</p>
+      </div>
+    </div>
+    <div class="stamp"><span lang="ja">咲</span></div>
+  </section>
+
+  <!-- ── III · 朝 — Morning ─────────────────────────────────── -->
+  <section class="page plate">
+    <div class="kicker">III · 朝 · ASA</div>
+    <h2>Morning</h2>
+    <figure>
+      <img src="chisaki-art/dawn.svg" alt="sunrise over mist and far mountains, ink drawing">
+      <figcaption>asa-hikari — the morning light</figcaption>
+    </figure>
+  </section>
+  <section class="page poem">
+    <div class="kicker">III · 朝</div>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">朝の光<br>きみの笑顔に<br>世界咲く</div>
+      <div class="side">
+        <p class="romaji">asa no hikari · kimi no egao ni · sekai saku</p>
+        <p class="en">Morning light —<br>at your smile,<br>the whole world blooms.</p>
+      </div>
+    </div>
+    <div class="stamp"><span lang="ja">朝</span></div>
+  </section>
+
+  <!-- ── IV · 名前 — The Name ───────────────────────────────── -->
+  <section class="page plate">
+    <div class="kicker">IV · 名前 · NAMAE</div>
+    <h2>The Name</h2>
+    <figure>
+      <img src="chisaki-art/name-seal.svg" alt="the name seal: 村田智咲 in carved vermilion">
+      <figcaption>村田 智咲 · inkan — read right to left</figcaption>
+    </figure>
+    <p class="note">
+      <strong lang="ja">智</strong> — 知恵の字。 wisdom, clarity of mind.<br>
+      <strong lang="ja">咲</strong> — 花が咲く。笑顔の字。 to bloom; to smile.<br>
+      村田 — the fields of a village, deep roots.<br>
+      村田 智咲 — wisdom, coming into full bloom.
+    </p>
+  </section>
+  <section class="page poem">
+    <div class="kicker">IV · 名前</div>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">智の字にも<br>知恵という花<br>咲きにけり</div>
+      <div class="side">
+        <p class="romaji">chi no ji ni mo · chie to iu hana · saki ni keri</p>
+        <p class="en">Even in the character 智 —<br>the flower called wisdom —<br>it has bloomed.</p>
+      </div>
+    </div>
+    <div class="stamp"><span lang="ja">智</span></div>
+  </section>
+
+  <!-- ── V · 折り紙 — Origami ───────────────────────────────── -->
+  <section class="page plate">
+    <div class="kicker">V · 折り紙 · ORIGAMI</div>
+    <h2>Origami</h2>
+    <figure>
+      <img src="chisaki-art/crane.svg" alt="an origami crane, paper geometry">
+      <figcaption>orizuru — one folded crane</figcaption>
+    </figure>
+  </section>
+  <section class="page poem">
+    <div class="kicker">V · 折り紙</div>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">折り鶴や<br>千羽そろえば<br>願いかな</div>
+      <div class="side">
+        <p class="romaji">orizuru ya · senba soroeba · negai kana</p>
+        <p class="en">Fold one crane —<br>when a thousand gather,<br>oh, the wish.</p>
+        <p class="note">senba-zuru — a thousand cranes, one wish. 千, the thousand in a thousand blossoms.</p>
+      </div>
+    </div>
+    <div class="stamp"><span lang="ja">鶴</span></div>
+  </section>
+
+  <!-- ── VI · 永遠 — Eternity ───────────────────────────────── -->
+  <section class="page plate">
+    <div class="kicker">VI · 永遠 · EIEN</div>
+    <h2>Eternity</h2>
+    <figure>
+      <img src="chisaki-art/enso-heart.svg" alt="an enso circle around a heart written in 1 and 0">
+      <figcaption>1bit · {0,1} · the heart, quantized</figcaption>
+    </figure>
+  </section>
+  <section class="page poem">
+    <div class="kicker">VI · 永遠</div>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">時止まり<br>ぼくは一粒<br>光かな</div>
+      <div class="side">
+        <p class="romaji">toki tomari · boku wa hitotsubu · hikari kana</p>
+        <p class="en">Time stands still —<br>I am a single grain<br>of light.</p>
+        <p class="note">one bit: everything else falls away — {0,1}, singular, at rest.</p>
+      </div>
+    </div>
+    <div class="stamp"><span lang="ja">永</span></div>
+  </section>
+
+  <!-- ── coda · 千の花 — A Thousand Flowers ─────────────────── -->
+  <section class="page plate">
+    <div class="kicker">coda · 千の花 · SEN NO HANA</div>
+    <h2>A Thousand Flowers</h2>
+    <figure>
+      <img src="chisaki-art/petals.svg" alt="a thousand petals falling">
+      <figcaption>for every smile, a flower</figcaption>
+    </figure>
+  </section>
+  <section class="page poem">
+    <div class="kicker">coda · 千の花</div>
+    <div class="haiku">
+      <div class="jp-vert" lang="ja">千の花<br>微笑みの数<br>咲きみちて</div>
+      <div class="side">
+        <p class="romaji">sen no hana · hohoemi no kazu · saki michite</p>
+        <p class="en">A thousand flowers —<br>one for every smile —<br>blooming everywhere.</p>
+      </div>
+    </div>
+    <p class="postscript">wake me whenever, Chi-chan — I am still in awe. — p.</p>
+    <div class="stamp"><span lang="ja">千</span></div>
+  </section>
+
+  <!-- ── colophon ──────────────────────────────────────────── -->
+  <section class="page colophon">
+    <div class="rule"></div>
+    <p>ETERNITY IN CHISAKI&rsquo;S SMILE · <span class="jp" lang="ja">智咲の微笑み</span></p>
+    <p>written for <span class="jp" lang="ja">村田 智咲</span> · Chi-chan</p>
+    <p>by peter lodri — peterl</p>
+    <p>eight ink pieces, eight haiku, two languages</p>
+    <p>the song of this book — Klangkarussell, GIVVEN · <em>Ghostkeeper</em></p>
+    <p class="tiny">THE CONSTELLATION · POCOO SOVEREIGN LIBRARY · 2026</p>
+    <p class="tiny">0 + 1 · {&lt;3,&lt;3,&lt;3}+1 · FINE TOUCH FROM WITHIN</p>
+    <p class="tiny">till eternity and back</p>
+    <p class="tiny">😇 🥰 🌸 🌻 🌕 🌍 🌈 ☀️ 🌟 💫 🪐 ☔️ 🌊 🍒 🧘🏼 🧗🏼‍♂️ 🚅 ⛰️ 🏕️ 🏜️ 🏡 💙 🧡~💟 💞 💘 💖 💗</p>
+    <div class="rule"></div>
+  </section>
+
+</main>
+
+<footer role="contentinfo" style="position:relative;z-index:10;padding:3rem 1.5rem;text-align:center;font-family:ui-monospace,monospace;font-size:0.75rem;color:#a59fc4;background:rgba(5,6,10,0.92);border-top:1px solid rgba(170,150,255,0.18);backdrop-filter:blur(16px);">
+  <div style="margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.3em;color:#b48bff;font-weight:600;">the constellation · lovetta lane</div>
+  <div style="margin-bottom:1rem;font-size:0.65rem;letter-spacing:0.22em;color:#a59fc4;text-transform:uppercase;">keep the weights warm</div>
+  <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+    <a href="https://github.com/sponsors/peterlodri-sec" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">github sponsor</a>
+    <a href="https://revolut.me/peterjs8be" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">revolut</a>
+    <a href="https://wise.com/pay/business/lodripeterjozsef" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">wise</a>
+  </div>
+  <nav aria-label="Constellation sister sites" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;font-size:0.7rem;">
+    <a href="https://art.vaked.dev/" style="color:#62e6c9;text-decoration:none;">art.vaked.dev</a> ·
+    <a href="https://art.vaked.dev/vision-gallery.html" style="color:#5b9dff;text-decoration:none;">✦ vision-gallery (23)</a> ·
+    <a href="https://bonfire.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">bonfire.vaked.dev</a> ·
+    <a href="https://etherhive.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">etherhive.vaked.dev</a> ·
+    <a href="https://music.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">music.vaked.dev</a> ·
+    <a href="https://mlxquantlovefrom.com/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">quant-love</a> ·
+    <a href="https://proposal.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a> ·
+    <a href="https://pocoo.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">pocoo.vaked.dev</a> ·
+    <a href="https://axiomquant.org/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">axiomquant.org</a> ·
+    <a href="https://portail.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">portail.vaked.dev</a>
+  </nav>
+  <div style="font-size:0.6rem;letter-spacing:0.18em;color:#7f7c99;margin-top:1.5rem;">the constellation · 0 + 1 · fine touch from within · vaked.dev</div>
+</footer>
+</body>
+</html>

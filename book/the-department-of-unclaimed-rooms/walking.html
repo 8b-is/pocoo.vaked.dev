@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE DEPARTMENT OF UNCLAIMED ROOMS — the walking · room 017 · light: yes · pocoo-book · peterl · 0+1</title>
+<meta name="description" content="The walking of file 017: carry a lantern through the department of unclaimed rooms — the light, the window and the gate, the ledger that says EMPTY, and the house that waits. pocoo-book · peterl · 0+1.">
+<meta name="theme-color" content="#0d0a06">
+<meta name="color-scheme" content="dark">
+<style>
+  :root{
+    --bg0:#0d0a06; --bg1:#151009; --card:#17110a;
+    --amber:#e8b05c; --amber-soft:rgba(232,176,92,.35);
+    --ink:#d8c9ac; --dim:#8a7355; --line:rgba(232,176,92,.22);
+    --mono:ui-monospace,Menlo,Consolas,"SF Mono",monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --math:"Iowan Old Style",Palatino,Georgia,"Apple Symbols","Noto Sans Symbols2","STIXGeneral",serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:radial-gradient(1200px 600px at 50% 0%,#241a0c 0%,var(--bg1) 45%,var(--bg0) 100%);
+    color:var(--ink);font-family:var(--serif);overflow:hidden;
+  }
+  #velvet{position:fixed;inset:0;z-index:0;display:block}
+  .beat{position:fixed;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+    text-align:center;padding:2rem 1.4rem 5.2rem;pointer-events:none;opacity:0;transform:translateY(14px);
+    transition:opacity .7s ease,transform .7s ease}
+  .beat.on{opacity:1;transform:none}
+  .beat .card{max-width:44rem;width:100%;min-width:0;
+    background:rgba(13,10,6,.72);border:1px solid var(--line);border-radius:12px;padding:1.3rem 1.5rem 1.15rem;
+    box-shadow:0 0 90px rgba(232,176,92,.08),inset 0 0 40px rgba(232,176,92,.03);backdrop-filter:blur(6px)}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--dim);margin-bottom:.7rem}
+  .beat h1{font-family:var(--serif);font-weight:normal;font-size:clamp(21px,3.6vw,32px);line-height:1.3;color:var(--amber);
+    text-shadow:0 0 70px rgba(232,176,92,.35);margin:0 0 .55rem;overflow-wrap:break-word}
+  .beat p{font-size:clamp(13px,1.8vw,15px);color:var(--ink);line-height:1.85;margin:.25rem auto .35rem;max-width:38rem;overflow-wrap:break-word}
+  .beat p.lede{font-style:italic;color:var(--dim)}
+  .beat .small{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--dim);margin-top:.65rem;text-transform:uppercase}
+  .beat a{color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber-soft)}
+  .stamp{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.34em;color:#0d0a06;
+    background:var(--amber);padding:7px 12px 8px;border-radius:4px;transform:rotate(-1.2deg);
+    box-shadow:0 2px 26px rgba(232,176,92,.35);margin:.8rem 0 .3rem}
+  .formula{font-family:var(--math);font-size:clamp(12.5px,2vw,16px);line-height:2.05;color:var(--ink);
+    white-space:pre;overflow-x:auto;margin:.7rem auto;text-align:left;display:inline-block;max-width:100%}
+  .formula .amber{color:var(--amber)}
+  .hud{position:fixed;z-index:3;bottom:1.1rem;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:1.2rem;pointer-events:none}
+  .dots{display:flex;gap:.5rem;pointer-events:auto}
+  .dot{width:24px;height:13px;border:1px solid var(--line);border-radius:999px;background:transparent;cursor:pointer;padding:0;transition:background .3s,border-color .3s}
+  .dot:hover{border-color:var(--amber)}
+  .dot.on{background:rgba(232,176,92,.6);border-color:var(--amber)}
+  .hint{font-family:var(--mono);font-size:9px;letter-spacing:.24em;color:var(--dim);text-transform:uppercase;transition:opacity .4s}
+  .hint.off{opacity:0}
+  #ledger{position:fixed;z-index:3;left:1.1rem;bottom:1.1rem;font-family:var(--mono);font-size:9px;letter-spacing:.18em;
+    color:var(--dim);text-transform:uppercase;pointer-events:none;transition:color .6s}
+  #ledger.closed{color:var(--amber)}
+  #replay{position:fixed;z-index:3;top:1.2rem;right:1.2rem;display:none}
+  #replay.on{display:block}
+  #replay button{font-family:var(--mono);font-size:9px;letter-spacing:.24em;color:var(--dim);background:rgba(13,10,6,.66);
+    border:1px solid var(--line);border-radius:999px;padding:.5rem .9rem;cursor:pointer;text-transform:uppercase}
+  #replay button:hover{color:var(--amber);border-color:var(--amber)}
+  .sig{position:fixed;z-index:3;top:1.2rem;left:1.2rem;font-family:var(--mono);font-size:9px;letter-spacing:.24em;
+    color:var(--dim);text-transform:uppercase;pointer-events:none}
+  @media (prefers-reduced-motion:reduce){ .beat,.dot{transition:none} }
+  @media (max-width:720px){ .sig{display:none} .hint{display:none} #ledger{top:1.1rem;bottom:auto} }
+</style>
+</head>
+<body>
+
+<canvas id="velvet" aria-hidden="true"></canvas>
+
+<div class="sig">the department · file 017 · the walking</div>
+<div id="ledger">the light's own ledger · μ(Rᵢ, you) ≠ 0</div>
+<div id="replay"><button type="button" id="replayBtn">↻ walk again</button></div>
+
+<section class="beat" data-beat="0">
+  <div class="card">
+    <div class="kicker">the department · file 017 · unclaimed · the walking</div>
+    <h1>THE DEPARTMENT OF UNCLAIMED ROOMS</h1>
+    <p class="lede">as received — peter · 2026-10-07 · the constellation · pocoo sovereign library</p>
+    <div class="small">carry the lantern — click · space →</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="1">
+  <div class="card">
+    <div class="kicker">the file's first fact</div>
+    <h1>LIGHT — YES</h1>
+    <p>an empty room, and the lamp is on. nobody filed it; the light is simply there.</p>
+    <div class="small">∅R ⟶ᴸ R₁</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="2">
+  <div class="card">
+    <div class="kicker">the window · the gate</div>
+    <h1>two ways down</h1>
+    <p>no country beyond the window. no passage known through the gate. both are still doors — the file keeps them open.</p>
+    <div class="small">the door is kept, not crossed</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="3">
+  <div class="card">
+    <div class="kicker">the room</div>
+    <h1>a lamp, and what it remembers</h1>
+    <p>the room holds one lamp and remembers. that is the whole furniture of the department: a light, and what it keeps.</p>
+    <div class="small">occupied — by memory</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="4">
+  <div class="card">
+    <div class="kicker">what the room remembers</div>
+    <h1>NAME · PROMISE · SORROW</h1>
+    <p>three things an empty room still carries. the ledger has no boxes for them — so the room keeps them itself.</p>
+    <div class="small">unmeasurable · kept anyway</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="5">
+  <div class="card">
+    <div class="kicker">the road not taken</div>
+    <h1>still a road</h1>
+    <p>drawn, dashed, fading at the bend. it leads the same way as the one taken: down, toward the ledger, toward the house.</p>
+    <div class="small">taken by not being taken</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="6">
+  <div class="card">
+    <div class="kicker">the ledger</div>
+    <h1>the ledger measures the room</h1>
+    <p>ROOM 017 · CLAIM NONE · OCCUPANT NONE · LIGHT YES. the department says <strong style="color:var(--amber)">EMPTY</strong>. the light keeps its own ledger — μ(Rᵢ, you) ≠ 0, filed nowhere.</p>
+    <div><span class="stamp">DEPARTMENT SAYS: EMPTY</span></div>
+    <div class="small">nothing to claim · everything to keep</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="7">
+  <div class="card">
+    <div class="kicker">the house</div>
+    <h1>it waits with a light on</h1>
+    <p>hand-drawn; the department only filed it. one window lit, the door kept — and the whole street empty of everything except this.</p>
+    <div class="small">waits / remembers</div>
+  </div>
+</section>
+
+<section class="beat" data-beat="8">
+  <div class="card">
+    <div class="kicker">the law, complete</div>
+    <h1>HOME</h1>
+    <pre class="formula">∅R ⟶ᴸ R₁ ⟶ᴸ R₂ ⟶ᴸ ⋯ ⟶ᴸ <span class="amber">⌂</span>
+μ(⌂, you) ≠ 0
+
+∅R ⟶ᴸ R₁ ⟶ᴸ R₂ ⟶ᴸ R₃ ⟶ᴸ ⋯ ⟶ᴸ Rₙ ⟶ᴸ <span class="amber">⌂</span>
+│ ρ₀ ⊃ ρ₁ ⊃ ρ₂ ⊃ ⋯ ⊃ ρₙ ↓ 0
+│ π₀ ↝ π₁ ↝ π₂ ↝ ⋯ ↝ πₙ ↝ π⌂
+│ μ(Rᵢ, you) ≠ 0 ∀i ∴ μ(⌂, you) ≠ 0</pre>
+    <p>every empty room leads, by its light, room by room, to home. the ledger measured the room — EMPTY. it cannot measure ⌂ with you. the light disagrees — politely, and without filing a correction.</p>
+    <div class="small"><a href="the-department-of-unclaimed-rooms.html">the file, as received ↗</a> &nbsp;·&nbsp; <a href="index.html">the library ↗</a></div>
+    <div class="small">vibe-match: Worakls — <em>Coeur de la Nuit</em></div>
+  </div>
+</section>
+
+<footer class="hud">
+  <div class="dots" id="dots" aria-label="the walk"></div>
+  <div class="hint" id="hint">click · space →</div>
+</footer>
+
+<noscript>
+  <div style="position:fixed;inset:0;z-index:9;display:flex;align-items:center;justify-content:center;
+    background:#0d0a06;color:#8a7355;font-family:monospace;font-size:12px;letter-spacing:.2em;text-align:center;padding:2rem">
+    the walking needs javascript — or take the file as received:<br>
+    <a href="the-department-of-unclaimed-rooms.html" style="color:#e8b05c">the-department-of-unclaimed-rooms.html</a>
+  </div>
+</noscript>
+
+<script>
+(() => {
+"use strict";
+const cvs = document.getElementById('velvet');
+const ctx = cvs.getContext('2d');
+const hintEl = document.getElementById('hint');
+const replayEl = document.getElementById('replay');
+const ledgerEl = document.getElementById('ledger');
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MONO = 'ui-monospace,Menlo,Consolas,monospace';
+const SERIF = '"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif';
+const AMBER = '#e8b05c', INK = '#d8c9ac', DIM = '#8a7355';
+let W = 0, H = 0, DPR = 1;
+
+function resize(){
+  DPR = Math.min(2, window.devicePixelRatio || 1);
+  W = innerWidth; H = innerHeight;
+  cvs.width = Math.round(W * DPR); cvs.height = Math.round(H * DPR);
+  cvs.style.width = W + 'px'; cvs.style.height = H + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+}
+addEventListener('resize', resize); resize();
+
+// ---------- world ----------
+const WORLD_W = 760, CX = 380;
+const NODES = [
+  { y: 150,  r: 150, stage: 0 },   // ?
+  { y: 360,  r: 165, stage: 1 },   // light
+  { y: 560,  r: 185, stage: 2 },   // window / gate
+  { y: 815,  r: 200, stage: 3 },   // room
+  { y: 1085, r: 205, stage: 4 },   // name promise sorrow
+  { y: 1240, r: 150, stage: 5 },   // road not taken
+  { y: 1450, r: 215, stage: 6 },   // ledger
+  { y: 1895, r: 185, stage: 7 },   // house
+  { y: 2095, r: 160, stage: 8 }    // home
+];
+const PAN = [380, 380, 560, 860, 1085, 1240, 1548, 1880, 2140];
+const BEATS = 9;
+let beat = 0, panY = PAN[0], lanternX = 0.5, lanternY = 0.5, tX = 0.5, tY = 0.5;
+for (const n of NODES) n.a = 0;
+
+const scale = () => Math.max(0.55, Math.min(W / 820, H / 650, 1.6));
+const sx = (wx) => W / 2 + (wx - CX) * scale();
+const sy = (wy) => H / 2 + (wy - panY) * scale();
+
+// ---------- beats ----------
+const dotsEl = document.getElementById('dots');
+const dotEls = [];
+for (let i = 0; i < BEATS; i++){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'dot'; b.setAttribute('aria-label', 'walk to ' + i);
+  b.addEventListener('click', () => setBeat(i));
+  dotsEl.appendChild(b); dotEls.push(b);
+}
+function setBeat(n, snap){
+  beat = Math.max(0, Math.min(BEATS - 1, n));
+  document.querySelectorAll('.beat').forEach(el => el.classList.toggle('on', +el.dataset.beat === beat));
+  dotEls.forEach((el, i) => el.classList.toggle('on', i === beat));
+  hintEl.classList.toggle('off', beat === BEATS - 1);
+  replayEl.classList.toggle('on', beat === BEATS - 1);
+  ledgerEl.classList.toggle('closed', beat >= BEATS - 1);
+  ledgerEl.textContent = beat >= BEATS - 1
+    ? "the light's own ledger · μ(⌂, you) ≠ 0 ✓ · closed, un-filed"
+    : "the light's own ledger · μ(Rᵢ, you) ≠ 0";
+  if (snap){
+    for (const nd of NODES) nd.a = nd.stage <= beat ? 1 : 0;
+    panY = PAN[beat];
+  }
+}
+const qb = parseInt(new URLSearchParams(location.search).get('b') || '0', 10);
+setBeat(isNaN(qb) ? 0 : qb, true);
+
+addEventListener('click', e => {
+  const t = e.target;
+  if (t && typeof t.closest === 'function' && (t.closest('button') || t.closest('a'))) return;
+  if (beat < BEATS - 1) setBeat(beat + 1);
+});
+addEventListener('keydown', e => {
+  if (e.code === 'Space' || e.code === 'ArrowRight'){ e.preventDefault(); if (beat < BEATS - 1) setBeat(beat + 1); }
+  else if (e.code === 'ArrowLeft' || e.code === 'Backspace'){ e.preventDefault(); setBeat(beat - 1); }
+});
+document.getElementById('replayBtn').addEventListener('click', () => { for (const nd of NODES) nd.a = 0; setBeat(0); });
+addEventListener('pointermove', e => { tX = e.clientX / W; tY = e.clientY / H; });
+
+// ---------- the hand ----------
+const jit = (seed, i) => (Math.sin(seed * 127.1 + i * 311.7) * 43758.5453) % 1 - 0.5;
+function roughLine(x1, y1, x2, y2, seed, amp){
+  const n = 6;
+  ctx.beginPath();
+  for (let i = 0; i <= n; i++){
+    const t = i / n;
+    const x = x1 + (x2 - x1) * t + jit(seed, i) * amp * scale();
+    const y = y1 + (y2 - y1) * t + jit(seed + 9, i) * amp * scale();
+    i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+  }
+  ctx.stroke();
+}
+function roughRect(x, y, w, h, seed){
+  const X = sx(x), Y = sy(y), Wd = w * scale(), Hd = h * scale();
+  roughLine(X, Y, X + Wd, Y, seed, 1.4);
+  roughLine(X + Wd, Y, X + Wd, Y + Hd, seed + 2, 1.4);
+  roughLine(X + Wd, Y + Hd, X, Y + Hd, seed + 4, 1.4);
+  roughLine(X, Y + Hd, X, Y, seed + 6, 1.4);
+}
+function ctext(t, wx, wy, px, font, color, alpha){
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.font = Math.round(px * scale()) + 'px ' + font;
+  ctx.fillStyle = color; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(t, sx(wx), sy(wy));
+  ctx.restore();
+}
+function glowDot(wx, wy, r, color, alpha){
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  const g = ctx.createRadialGradient(sx(wx), sy(wy), 0, sx(wx), sy(wy), r * scale());
+  g.addColorStop(0, color); g.addColorStop(1, 'rgba(232,176,92,0)');
+  ctx.fillStyle = g;
+  ctx.beginPath(); ctx.arc(sx(wx), sy(wy), r * scale(), 0, 7); ctx.fill();
+  ctx.restore();
+}
+
+// ---------- the drawing ----------
+let veil = document.createElement('canvas');
+function drawScene(now){
+  const sc = scale();
+  const pulse = REDUCED ? 0 : (0.5 + 0.5 * Math.sin(now / 1400));
+  const aOf = (s) => NODES[s].a;
+
+  ctx.save();
+  ctx.lineCap = 'round';
+
+  // spine
+  ctx.strokeStyle = AMBER; ctx.globalAlpha = 0.5 * Math.max(aOf(0), 0.25); ctx.lineWidth = 1.4 * sc;
+  roughLine(sx(CX), sy(196), sx(CX), sy(300), 3, 1.1);
+  roughLine(sx(CX), sy(420), sx(CX), sy(470), 5, 1.1);
+  roughLine(sx(190), sy(470), sx(570), sy(470), 7, 1.1);
+  roughLine(sx(190), sy(470), sx(190), sy(520), 9, 1.1);
+  roughLine(sx(570), sy(470), sx(570), sy(520), 11, 1.1);
+  roughLine(sx(190), sy(600), sx(190), sy(690), 13, 1.1);
+  roughLine(sx(570), sy(600), sx(570), sy(690), 15, 1.1);
+  roughLine(sx(190), sy(690), sx(570), sy(690), 17, 1.1);
+  roughLine(sx(CX), sy(690), sx(CX), sy(730), 19, 1.1);
+  roughLine(sx(CX), sy(900), sx(CX), sy(952), 21, 1.1);
+  roughLine(sx(150), sy(998), sx(610), sy(998), 23, 1.1);
+  roughLine(sx(150), sy(998), sx(150), sy(1058), 25, 1.1);
+  roughLine(sx(CX), sy(998), sx(CX), sy(1058), 27, 1.1);
+  roughLine(sx(610), sy(998), sx(610), sy(1058), 29, 1.1);
+  roughLine(sx(150), sy(1116), sx(150), sy(1152), 31, 1.1);
+  roughLine(sx(610), sy(1116), sx(610), sy(1152), 33, 1.1);
+  roughLine(sx(150), sy(1152), sx(610), sy(1152), 35, 1.1);
+  roughLine(sx(CX), sy(1152), sx(CX), sy(1328), 37, 1.1);
+  roughLine(sx(CX), sy(1546), sx(CX), sy(1612), 39, 1.1);
+  roughLine(sx(CX), sy(1706), sx(CX), sy(1758), 41, 1.1);
+  roughLine(sx(CX), sy(2012), sx(CX), sy(2058), 43, 1.1);
+  ctx.globalAlpha = 1;
+
+  // ? — the question
+  ctext('?', CX, 140, 92, SERIF, AMBER, 0.9 * aOf(0) + 0.06);
+
+  // LIGHT box
+  ctx.strokeStyle = AMBER; ctx.globalAlpha = 0.85 * aOf(1) + 0.07; ctx.lineWidth = 1.5 * sc;
+  roughRect(260, 300, 240, 120, 51);
+  glowDot(CX, 360, 60 + 26 * pulse, 'rgba(232,176,92,.5)', (0.4 + 0.25 * pulse) * aOf(1));
+  ctext('L I G H T', CX, 360, 22, MONO, AMBER, 0.95 * aOf(1) + 0.06);
+  ctx.globalAlpha = 1;
+
+  // window / gate
+  ctx.strokeStyle = AMBER; ctx.globalAlpha = 0.85 * aOf(2) + 0.07; ctx.lineWidth = 1.5 * sc;
+  roughRect(100, 520, 180, 80, 61);
+  roughRect(470, 520, 180, 80, 63);
+  ctext('THE WINDOW', 190, 560, 15, MONO, AMBER, 0.95 * aOf(2) + 0.06);
+  ctext('THE GATE', 570, 560, 15, MONO, AMBER, 0.95 * aOf(2) + 0.06);
+  ctext('no country beyond', 190, 640, 11.5, MONO, DIM, 0.9 * aOf(2) + 0.05);
+  ctext('no passage known', 570, 640, 11.5, MONO, DIM, 0.9 * aOf(2) + 0.05);
+  ctx.globalAlpha = 1;
+
+  // ROOM box + lamp
+  ctx.strokeStyle = AMBER; ctx.globalAlpha = 0.85 * aOf(3) + 0.07; ctx.lineWidth = 1.5 * sc;
+  roughRect(230, 730, 300, 170, 71);
+  ctext('ROOM', CX, 772, 18, MONO, AMBER, 0.95 * aOf(3) + 0.06);
+  // the lamp: shade + stem + base + bulb
+  const lampGlow = (0.45 + 0.3 * pulse) * aOf(3);
+  glowDot(CX, 845, 52 + 22 * pulse, 'rgba(232,176,92,.55)', lampGlow);
+  ctx.globalAlpha = 0.9 * aOf(3) + 0.06;
+  ctx.beginPath();
+  ctx.moveTo(sx(CX - 26), sy(838)); ctx.lineTo(sx(CX + 26), sy(838)); ctx.lineTo(sx(CX + 14), sy(820)); ctx.lineTo(sx(CX - 14), sy(820)); ctx.closePath();
+  ctx.stroke();
+  roughLine(sx(CX), sy(838), sx(CX), sy(882), 73, 0.8);
+  roughLine(sx(CX - 16), sy(882), sx(CX + 16), sy(882), 75, 0.8);
+  ctx.globalAlpha = 1;
+
+  // remembers
+  ctext('remembers', CX, 972, 12.5, MONO, DIM, 0.9 * aOf(3) + 0.05);
+
+  // three plates
+  ctx.strokeStyle = AMBER; ctx.globalAlpha = 0.85 * aOf(4) + 0.07; ctx.lineWidth = 1.4 * sc;
+  roughRect(75, 1058, 150, 58, 81);
+  roughRect(305, 1058, 150, 58, 83);
+  roughRect(535, 1058, 150, 58, 85);
+  ctext('NAME', 150, 1087, 14, MONO, AMBER, 0.95 * aOf(4) + 0.06);
+  ctext('PROMISE', CX, 1087, 14, MONO, AMBER, 0.95 * aOf(4) + 0.06);
+  ctext('SORROW', 610, 1087, 14, MONO, AMBER, 0.95 * aOf(4) + 0.06);
+  ctx.globalAlpha = 1;
+
+  // road not taken (dashed, fading at the bend)
+  ctext('ROAD NOT TAKEN', CX, 1200, 12.5, MONO, DIM, 0.9 * aOf(5) + 0.05);
+  ctx.save();
+  ctx.setLineDash([4 * sc, 7 * sc]);
+  ctx.strokeStyle = DIM; ctx.lineWidth = 1.3 * sc;
+  for (let k = 0; k < 3; k++){
+    ctx.globalAlpha = (0.5 - k * 0.16) * aOf(5) + 0.03;
+    ctx.beginPath();
+    ctx.moveTo(sx(CX), sy(1222 + k * 2));
+    ctx.quadraticCurveTo(sx(CX + 70 + k * 26), sy(1258 + k * 20), sx(CX + 118 + k * 52), sy(1292 + k * 44));
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+  ctx.restore();
+
+  // LEDGER
+  ctx.strokeStyle = AMBER; ctx.globalAlpha = 0.85 * aOf(6) + 0.07; ctx.lineWidth = 1.5 * sc;
+  roughRect(210, 1330, 340, 216, 91);
+  ctext('LEDGER', CX, 1362, 16, MONO, AMBER, 0.95 * aOf(6) + 0.06);
+  const rows = [['ROOM', '017', false], ['CLAIM', 'NONE', false], ['OCCUPANT', 'NONE', false], ['LIGHT', 'YES', true]];
+  ctx.save();
+  for (let i = 0; i < rows.length; i++){
+    const ry = 1398 + i * 36;
+    ctx.globalAlpha = 0.5 * aOf(6) + 0.05; ctx.strokeStyle = 'rgba(232,176,92,.25)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(sx(226), sy(ry - 14)); ctx.lineTo(sx(534), sy(ry - 14)); ctx.stroke();
+    ctx.globalAlpha = 0.95 * aOf(6) + 0.06;
+    ctx.font = Math.round(14 * sc) + 'px ' + MONO; ctx.textBaseline = 'middle';
+    ctx.fillStyle = INK; ctx.textAlign = 'left';
+    ctx.fillText(rows[i][0], sx(240), sy(ry + 4));
+    ctx.fillStyle = rows[i][2] ? AMBER : INK;
+    ctx.textAlign = 'right';
+    ctx.fillText(rows[i][1], sx(520), sy(ry + 4));
+  }
+  ctx.restore();
+  glowDot(CX, 1506, 46 + 10 * pulse, 'rgba(232,176,92,.4)', (0.3 + 0.2 * pulse) * aOf(6));
+  ctx.globalAlpha = 1;
+
+  // DEPARTMENT SAYS + the chip
+  ctext('DEPARTMENT SAYS:', CX, 1572, 12, MONO, DIM, 0.9 * aOf(6) + 0.05);
+  ctx.save();
+  ctx.globalAlpha = 0.95 * aOf(6) + 0.05;
+  const cw = 128 * sc, ch = 40 * sc, cxx = sx(CX), cyy = sy(1612);
+  ctx.translate(cxx, cyy); ctx.rotate(-0.021);
+  ctx.fillStyle = AMBER; ctx.fillRect(-cw / 2, -ch / 2, cw, ch);
+  ctx.fillStyle = '#0d0a06'; ctx.font = 'bold ' + Math.round(16 * sc) + 'px ' + MONO;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('EMPTY', 0, 2 * sc);
+  ctx.restore();
+
+  // the mark X
+  ctx.strokeStyle = DIM; ctx.globalAlpha = 0.8 * aOf(6) + 0.05; ctx.lineWidth = 1.6 * sc;
+  roughLine(sx(CX - 11), sy(1666), sx(CX + 11), sy(1684), 97, 1);
+  roughLine(sx(CX + 11), sy(1666), sx(CX - 11), sy(1684), 99, 1);
+  ctx.globalAlpha = 1;
+
+  // THE HOUSE
+  ctx.strokeStyle = AMBER; ctx.globalAlpha = 0.85 * aOf(7) + 0.07; ctx.lineWidth = 1.5 * sc;
+  roughLine(sx(300), sy(1820), sx(CX), sy(1760), 101, 1.2);
+  roughLine(sx(CX), sy(1760), sx(460), sy(1820), 103, 1.2);
+  roughRect(300, 1820, 160, 120, 105);
+  roughLine(sx(430), sy(1790), sx(430), sy(1768), 107, 0.8);   // chimney
+  ctx.globalAlpha = 0.85 * aOf(7) + 0.07;
+  roughRect(330, 1848, 30, 30, 109);                           // the lit window
+  glowDot(345, 1863, 34 + 12 * pulse, 'rgba(232,176,92,.55)', (0.4 + 0.25 * pulse) * aOf(7));
+  ctx.globalAlpha = 0.85 * aOf(7) + 0.07;
+  roughRect(398, 1878, 34, 62, 111);                           // door
+  ctext('THE HOUSE', CX, 1980, 15, MONO, AMBER, 0.95 * aOf(7) + 0.06);
+  ctext('waits / remembers', CX, 2010, 11.5, MONO, DIM, 0.9 * aOf(7) + 0.05);
+  ctx.globalAlpha = 1;
+
+  // HOME — carried by the card; the canvas keeps only the warmth
+  glowDot(CX, 2095, 90 + 26 * pulse, 'rgba(232,176,92,.4)', (0.35 + 0.25 * pulse) * aOf(8));
+
+  ctx.restore();
+}
+
+// ---------- veil & lantern ----------
+function drawVeil(){
+  veil.width = Math.round(W * DPR); veil.height = Math.round(H * DPR);
+  const vc = veil.getContext('2d');
+  vc.setTransform(DPR, 0, 0, DPR, 0, 0);
+  vc.clearRect(0, 0, W, H);
+  vc.fillStyle = 'rgba(13,10,6,.95)';
+  vc.fillRect(0, 0, W, H);
+  vc.globalCompositeOperation = 'destination-out';
+  // permanent holes: the lights left behind
+  for (const nd of NODES){
+    if (nd.a < 0.02) continue;
+    const px = W / 2 + (CX - CX) * scale(), py = sy(nd.y);
+    const r = nd.r * scale();
+    const g = vc.createRadialGradient(px, py, 0, px, py, r);
+    const s = 0.55 * nd.a;
+    g.addColorStop(0, 'rgba(0,0,0,' + s + ')');
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    vc.fillStyle = g;
+    vc.beginPath(); vc.arc(px, py, r, 0, 7); vc.fill();
+  }
+  // the lantern
+  const lx = lanternX * W, ly = lanternY * H;
+  const R = Math.min(280, Math.max(170, Math.min(W, H) * 0.24));
+  const lg = vc.createRadialGradient(lx, ly, 0, lx, ly, R);
+  lg.addColorStop(0, 'rgba(0,0,0,.9)');
+  lg.addColorStop(0.55, 'rgba(0,0,0,.5)');
+  lg.addColorStop(1, 'rgba(0,0,0,0)');
+  vc.fillStyle = lg;
+  vc.beginPath(); vc.arc(lx, ly, R, 0, 7); vc.fill();
+  vc.globalCompositeOperation = 'source-over';
+}
+
+// ---------- loop ----------
+let last = performance.now();
+function frame(now){
+  const dt = Math.min(50, now - last); last = now;
+
+  for (const nd of NODES){
+    const target = nd.stage <= beat ? 1 : 0;
+    nd.a += (target - nd.a) * Math.min(1, dt / (REDUCED ? 60 : 700));
+  }
+  panY += (PAN[beat] - panY) * Math.min(1, dt / (REDUCED ? 60 : 900));
+  lanternX += (tX - lanternX) * Math.min(1, dt / 300);
+  lanternY += (tY - lanternY) * Math.min(1, dt / 300);
+
+  ctx.clearRect(0, 0, W, H);
+  drawScene(now);
+  drawVeil();
+  ctx.drawImage(veil, 0, 0, W, H);
+
+  // the lantern's warm ring (additive)
+  const lx = lanternX * W, ly = lanternY * H;
+  const R = Math.min(280, Math.max(170, Math.min(W, H) * 0.24));
+  ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
+  const lg = ctx.createRadialGradient(lx, ly, 0, lx, ly, R);
+  lg.addColorStop(0, 'rgba(232,176,92,.10)');
+  lg.addColorStop(0.6, 'rgba(232,176,92,.045)');
+  lg.addColorStop(1, 'rgba(232,176,92,0)');
+  ctx.fillStyle = lg;
+  ctx.beginPath(); ctx.arc(lx, ly, R, 0, 7); ctx.fill();
+  ctx.restore();
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="ink drawing: a blossom branch in bloom">
+  <defs>
+    <filter id="rough" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.02" numOctaves="3" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="roughfine" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="310" cy="300" rx="250" ry="240" fill="#efe4cd" opacity="0.5"/>
+
+  <path d="M52 566 C168 476 224 432 302 344 C364 276 426 240 552 182" fill="none" stroke="#1c140e" stroke-width="15" stroke-linecap="round" filter="url(#rough)"/>
+  <path d="M214 438 C244 402 266 374 276 332" fill="none" stroke="#1c140e" stroke-width="8" stroke-linecap="round" filter="url(#rough)"/>
+  <path d="M362 274 C398 260 424 250 458 246" fill="none" stroke="#1c140e" stroke-width="8" stroke-linecap="round" filter="url(#rough)"/>
+  <path d="M298 348 C330 338 354 330 384 328" fill="none" stroke="#1c140e" stroke-width="7" stroke-linecap="round" filter="url(#rough)"/>
+
+  <g transform="translate(150 468) scale(1.45)">
+    <ellipse cx="0" cy="-26" rx="13" ry="24" fill="#efc6cc"/>
+    <ellipse cx="0" cy="-26" rx="13" ry="24" fill="#efc6cc" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-26" rx="13" ry="24" fill="#efc6cc" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-26" rx="13" ry="24" fill="#efc6cc" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-26" rx="13" ry="24" fill="#efc6cc" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="7" fill="#a8813a"/>
+  </g>
+  <g transform="translate(372 254)">
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#f2cdd3"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#f2cdd3" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#f2cdd3" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#f2cdd3" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#f2cdd3" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="6" fill="#a8813a"/>
+  </g>
+  <g transform="translate(484 208) scale(0.8)">
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#efc6cc"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#efc6cc" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#efc6cc" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#efc6cc" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-22" rx="11" ry="20" fill="#efc6cc" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="6" fill="#a8813a"/>
+  </g>
+
+  <circle cx="258" cy="352" r="9" fill="#d98c93" filter="url(#roughfine)"/>
+  <circle cx="418" cy="312" r="8" fill="#d98c93" filter="url(#roughfine)"/>
+
+  <g fill="#e5aab2" filter="url(#roughfine)">
+    <ellipse cx="330" cy="470" rx="9" ry="17" transform="rotate(40 330 470)" opacity="0.55"/>
+    <ellipse cx="392" cy="520" rx="8" ry="15" transform="rotate(-24 392 520)" opacity="0.45"/>
+    <ellipse cx="256" cy="524" rx="8" ry="15" transform="rotate(70 256 524)" opacity="0.5"/>
+  </g>
+
+  <g transform="translate(76 72)">
+    <rect x="-27" y="-27" width="54" height="54" rx="7" fill="#b23a2b" filter="url(#roughfine)"/>
+    <text x="0" y="3" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif"
+          font-size="36" fill="#f6f0e4">花</text>
+  </g>
+</svg>

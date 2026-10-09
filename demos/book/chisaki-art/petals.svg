@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="a thousand petals falling">
+  <defs>
+    <filter id="roughfine" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="77" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="300" cy="300" rx="258" ry="252" fill="#efe4cd" opacity="0.45"/>
+
+  <g fill="#e5aab2" filter="url(#roughfine)">
+    <ellipse rx="10" ry="19" transform="translate(92 112) rotate(24)" opacity="0.5"/>
+    <ellipse rx="9" ry="17" transform="translate(168 322) rotate(58)" opacity="0.45"/>
+    <ellipse rx="11" ry="20" transform="translate(148 512) rotate(96)" opacity="0.4"/>
+    <ellipse rx="8" ry="16" transform="translate(238 92) rotate(12)" opacity="0.5"/>
+    <ellipse rx="10" ry="18" transform="translate(306 226) rotate(72)" opacity="0.42"/>
+    <ellipse rx="9" ry="17" transform="translate(362 82) rotate(38)" opacity="0.5"/>
+    <ellipse rx="11" ry="20" transform="translate(438 148) rotate(82)" opacity="0.45"/>
+    <ellipse rx="8" ry="15" transform="translate(506 92) rotate(18)" opacity="0.4"/>
+    <ellipse rx="10" ry="18" transform="translate(522 298) rotate(52)" opacity="0.45"/>
+    <ellipse rx="9" ry="17" transform="translate(556 468) rotate(108)" opacity="0.4"/>
+    <ellipse rx="10" ry="18" transform="translate(212 428) rotate(34)" opacity="0.48"/>
+    <ellipse rx="8" ry="15" transform="translate(88 372) rotate(78)" opacity="0.42"/>
+    <ellipse rx="10" ry="19" transform="translate(320 538) rotate(14)" opacity="0.45"/>
+    <ellipse rx="9" ry="16" transform="translate(462 552) rotate(92)" opacity="0.4"/>
+    <ellipse rx="10" ry="18" transform="translate(252 176) rotate(48)" opacity="0.5"/>
+    <ellipse rx="9" ry="16" transform="translate(398 414) rotate(28)" opacity="0.45"/>
+    <ellipse rx="8" ry="15" transform="translate(78 72) rotate(62)" opacity="0.38"/>
+    <ellipse rx="10" ry="18" transform="translate(544 196) rotate(6)" opacity="0.45"/>
+    <ellipse rx="9" ry="17" transform="translate(384 316) rotate(118)" opacity="0.42"/>
+    <ellipse rx="10" ry="18" transform="translate(302 424) rotate(8)" opacity="0.5"/>
+    <ellipse rx="9" ry="16" transform="translate(196 240) rotate(66)" opacity="0.4"/>
+    <ellipse rx="8" ry="15" transform="translate(470 240) rotate(44)" opacity="0.42"/>
+  </g>
+
+  <g stroke="#241a12" stroke-width="3.4" stroke-linecap="round" opacity="0.35" fill="none" filter="url(#roughfine)">
+    <path d="M64 148 q46 -24 92 -10"/>
+    <path d="M88 196 q42 -22 84 -8"/>
+    <path d="M118 244 q34 -18 68 -6"/>
+  </g>
+
+  <g transform="translate(506 74)">
+    <rect x="-27" y="-27" width="54" height="54" rx="7" fill="#b23a2b" filter="url(#roughfine)"/>
+    <text x="0" y="3" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif"
+          font-size="36" fill="#f6f0e4">千</text>
+  </g>
+</svg>

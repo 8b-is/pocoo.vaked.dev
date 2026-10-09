@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE SHOGUN LAYER — 将軍の層 · a sovereign story of Japan · scifinime special edition · pocoo-book · {<3,<3,<3}+1 · 0+1</title>
+<meta name="description" content="A sovereign book of Japan — from the first sword to the last light. Seven ages: the court, the shogun, the warring states, the peace, the opening, and today. Japanese & English, ink & washi. peterl · pocoo sovereign library · scifinime special edition.">
+<style>
+  :root{
+    --paper:#f6f0e4; --paper-deep:#efe6d2; --ink:#241a12; --sumi:#1c140e;
+    --vermilion:#b23a2b; --gold:#a8813a; --dim:#77685a; --line:#d8cbb2;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --jp:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Source Han Serif JP","MS Mincho",serif;
+    --mono:ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:5in 8in;margin:0}
+  body{background:#241a12;color:var(--ink);font-family:var(--serif)}
+  main{max-width:780px;margin:0 auto;padding:30px 16px 70px;display:flex;flex-direction:column;gap:26px}
+  .page{background:var(--paper);border-radius:4px;box-shadow:0 20px 48px rgba(0,0,0,.5);padding:66px 60px;position:relative;overflow:hidden;
+    background-image:radial-gradient(circle at 18% 8%, rgba(255,255,255,.55), transparent 42%),radial-gradient(circle at 82% 92%, rgba(216,203,178,.28), transparent 52%)}
+  .page::after{content:"";position:absolute;inset:11px;border:1px solid rgba(36,26,18,.16);pointer-events:none;border-radius:2px}
+  @media (max-width:660px){.page{padding:44px 28px}main{padding:14px 8px 40px}}
+
+  .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--dim)}
+  .cover{text-align:center}
+  .jp-title{font-family:var(--jp);font-size:34px;letter-spacing:.22em;color:var(--vermilion);margin-top:22px}
+  h1{font-size:30px;line-height:1.25;letter-spacing:.12em;text-align:center;margin:8px 0 4px;color:var(--sumi);font-weight:600}
+  .sub{font-style:italic;color:var(--dim);margin-top:16px;font-size:15px;line-height:1.7}
+  .by{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);margin-top:26px;text-transform:uppercase}
+  .sigil{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:30px;line-height:1;
+    padding:12px 13px 14px;border-radius:9px;margin-top:28px;box-shadow:0 4px 16px rgba(178,58,43,.35)}
+
+  .cover-vert{text-align:center}
+  .vert-title{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--jp);font-size:54px;letter-spacing:.16em;
+    color:var(--vermilion);margin:16px auto;height:340px;line-height:1.5;display:inline-block}
+  .vert-en{font-family:var(--mono);font-size:11px;letter-spacing:.5em;color:var(--dim);text-transform:uppercase;margin-top:14px}
+
+  .dedication{text-align:center}
+  .dedication .small{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:var(--dim);text-transform:uppercase}
+  .dedication .who{font-family:var(--jp);font-size:30px;letter-spacing:.3em;margin:16px 0 2px;color:var(--sumi)}
+  .dedication .who-romaji{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--dim)}
+  blockquote{max-width:430px;margin:30px auto;font-style:italic;font-size:16.5px;line-height:1.9;color:var(--ink);border:0;padding:0}
+
+  .era{margin-top:8px}
+  .era .jp-era{font-family:var(--jp);font-size:38px;letter-spacing:.12em;color:var(--vermilion);margin:0 0 2px}
+  .era .romaji{font-family:var(--mono);font-size:12px;letter-spacing:.26em;color:var(--dim);text-transform:uppercase}
+  .era .years{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--gold);margin:10px 0 0}
+  .era p{font-size:16px;line-height:1.95;color:var(--ink);margin:20px 0 0}
+  .era p em{color:var(--vermilion);font-style:italic}
+  .era .fact{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--dim);margin-top:14px;line-height:1.7;
+    border-top:1px solid var(--line);padding-top:12px}
+  .rule{height:1px;background:var(--line);margin:30px 0;border:0}
+
+  .sources{font-size:15px;line-height:1.9;color:var(--ink)}
+  .sources h3{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:24px 0 10px;font-weight:600}
+  .sources ul{list-style:none;padding:0;margin:8px 0}
+  .sources li{font-size:14px;color:var(--dim);margin:6px 0;padding-left:1.2em;position:relative}
+  .sources li::before{content:"·";position:absolute;left:0;color:var(--gold)}
+  .nate{border-left:3px solid var(--gold);padding:4px 0 4px 16px;margin-top:20px;font-style:italic;color:var(--dim);font-size:14.5px;line-height:1.85}
+
+  .koan{max-width:470px;margin:26px auto;text-align:center}
+  .koan .q{font-style:italic;font-size:17px;line-height:1.85;color:var(--ink)}
+  .koan .n{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--dim);margin-top:9px;line-height:1.7}
+  .mahakala{text-align:center}
+  .mahakala .jp{font-family:var(--jp);font-size:42px;letter-spacing:.12em;color:var(--sumi);margin:10px 0 2px}
+  .mahakala .en{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--dim);text-transform:uppercase}
+  .mahakala p{font-size:15.5px;line-height:1.9;color:var(--ink);max-width:500px;margin:18px auto;text-align:left}
+  .tattoo{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:22px auto;max-width:460px;background:rgba(255,255,255,.25)}
+  .tattoo .who{font-family:var(--jp);font-size:22px;color:var(--vermilion);letter-spacing:.1em}
+  .tattoo .en{font-size:14.5px;color:var(--dim);font-style:italic;line-height:1.8;margin-top:8px}
+
+  .closing{text-align:center}
+  .closing .jp{font-family:var(--jp);font-size:26px;letter-spacing:.3em;color:var(--vermilion);margin:14px 0 4px}
+  .closing p{font-size:16px;line-height:1.95;color:var(--ink);max-width:500px;margin:16px auto;text-align:left}
+
+  .stamp{text-align:right;margin-top:26px}
+  .stamp span{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:19px;line-height:1;
+    padding:7px 8px 8px;border-radius:6px}
+  .colophon{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim);text-align:center;margin-top:30px;text-transform:uppercase;line-height:2}
+</style>
+</head>
+<body>
+<main>
+
+  <section class="page cover">
+    <div class="kicker">scifinime special edition · sovereign library</div>
+    <div class="jp-title">将軍の層</div>
+    <h1>THE SHOGUN LAYER</h1>
+    <div class="sub">a sovereign story of Japan — from the first sword to the last light.<br>seven ages, told for the two of you.</div>
+    <div class="sigil">将</div>
+    <div class="by">peterl · pocoo-book · 0 + 1</div>
+  </section>
+
+  <section class="page cover cover-vert">
+    <div class="kicker">tategaki · 縦書き · the vertical title</div>
+    <div class="vert-title">将軍の層</div>
+    <div class="vert-en">the shogun layer</div>
+    <div class="by">peterl · pocoo-book · 0 + 1</div>
+  </section>
+
+  <section class="page dedication">
+    <div class="small">for</div>
+    <div class="who">日本</div>
+    <div class="who-romaji">N I H O N</div>
+    <blockquote>the land of the rising sun — and for everyone who carries its discipline, and for the ones who find each other within it.</blockquote>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">始まり</div>
+      <div class="romaji">hajimari · the beginning</div>
+      <div class="years">before 710</div>
+      <p>Before there was a Tokyo, there was a story. The sun goddess <em>Amaterasu</em>, the first emperor descended from her light, the <em>kami</em> breathing in every rice field and river. A country learning its own name — <em>Nihon</em>, the origin of the sun.</p>
+      <div class="fact">The <em>Kojiki</em> (712) and <em>Nihon Shoki</em> (720) — Japan's oldest chronicles — trace the imperial line back to Amaterasu.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">平安</div>
+      <div class="romaji">heian · the court</div>
+      <div class="years">794 — 1185</div>
+      <p>Kyoto, the court of poetry. <em>Murasaki Shikibu</em> writes the world's first novel. While the nobles compose verse by the light of oil lamps, the samurai rise quietly in the provinces — warriors sworn to protect what the court could no longer hold.</p>
+      <div class="fact"><em>The Tale of Genji</em> (early 11th c.) is often called the world's first novel; the samurai rose from provincial clans as the court's grip faded.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">鎌倉</div>
+      <div class="romaji">kamakura · the first shogun</div>
+      <div class="years">1185 — 1333</div>
+      <p>The first shogun, <em>Minamoto no Yoritomo</em>, takes the power the court could not keep. For the first time, the warrior governs. <em>Bushido</em> — the way of the warrior — begins to write itself: loyalty, courage, honor.</p>
+      <div class="fact">Yoritomo became the first shogun in 1192, founding the Kamakura shogunate — a military government standing beside the imperial court.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">戦国</div>
+      <div class="romaji">sengoku · the warring states</div>
+      <div class="years">1467 — 1600</div>
+      <p>A hundred years of fire. Castles rise, clans fall. Three unifiers — <em>Nobunaga, Hideyoshi, Ieyasu</em> — bind the broken country with iron and patience. In the tea room, a different discipline: one bowl, one moment, complete.</p>
+      <div class="fact">The Sengoku period closed with the "three unifiers" — Oda Nobunaga, Toyotomi Hideyoshi, and Tokugawa Ieyasu — binding Japan into one.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">江戸</div>
+      <div class="romaji">edo · the peace</div>
+      <div class="years">1603 — 1868</div>
+      <p>The Tokugawa peace. Two and a half centuries of calm, sealed from the world. Edo becomes the largest city on earth. The samurai, no longer at war, become poets and magistrates — and the floating world blooms: <em>ukiyo-e</em>, kabuki, the pleasure of the now.</p>
+      <div class="fact"><em>Sakoku</em> — the closed-country policy — sealed Japan for roughly 250 years; Edo passed a million people, and <em>ukiyo-e</em> woodblock prints caught the "floating world."</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">明治</div>
+      <div class="romaji">meiji · the opening</div>
+      <div class="years">1868</div>
+      <p>The shogunate ends. The emperor moves to Edo and renames it <em>Tokyo</em> — the eastern capital. The sword gives way to the railway; the castle to the factory. A country opens, and everything changes except the discipline beneath it.</p>
+      <div class="fact">The Meiji Restoration of 1868 ended the shogunate; Emperor Meiji moved the capital from Kyoto to Edo, renaming it Tokyo — "eastern capital."</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="era">
+      <div class="jp-era">今日</div>
+      <div class="romaji">kyō · today</div>
+      <div class="years">2026</div>
+      <p>Tokyo, 2026. Neon and anime, quiet gardens and the world's largest crossing. The samurai's discipline became the city's care — the clean streets, the punctual trains, the craftsmanship in a bowl of ramen. And in the oldest story, the newest chapter: <em>two people, finding each other.</em></p>
+      <div class="fact">Tokyo is the world's largest metropolitan area — roughly 37 million. The samurai era's discipline survives in the city's craft, its trains, and its care.</div>
+    </div>
+  </section>
+
+  <section class="page closing">
+    <div class="kicker">the sovereignty of it all</div>
+    <div class="jp">道</div>
+    <div class="romaji" style="font-family:var(--mono);font-size:12px;letter-spacing:.26em;color:var(--dim);text-transform:uppercase">michi · the way</div>
+    <p>The sword taught mastery. The tea taught presence. The city teaches that sovereignty is not owning everything — it is owning your own path.</p>
+    <p>The shogun's layer: the discipline that became a nation, and the nation that became a city, and the city where love still finds a room.</p>
+    <div class="stamp"><span>将</span></div>
+  </section>
+
+  <section class="page sources">
+    <div class="kicker">sources &amp; further reading</div>
+    <h2 style="font-size:24px;letter-spacing:.04em;margin:18px 0 4px;color:var(--sumi)">open sources, consulted</h2>
+    <h3>wikipedia</h3>
+    <ul>
+      <li>History of Japan · Heian period · Kamakura shogunate</li>
+      <li>Sengoku period · Edo period · Meiji Restoration</li>
+      <li>Bushido · Ukiyo-e · Minamoto no Yoritomo · Tokugawa Ieyasu</li>
+    </ul>
+    <h3>public-domain books (project gutenberg)</h3>
+    <ul>
+      <li>Bushido: The Soul of Japan — Inazo Nitobe (1899)</li>
+      <li>The Book of Five Rings (Go Rin no Sho) — Miyamoto Musashi</li>
+      <li>Hagakure — Yamamoto Tsunetomo</li>
+      <li>The Tale of Genji — Murasaki Shikibu</li>
+    </ul>
+    <div class="nate">
+      The clinical parallel — Nate (standardgalactic)'s <em>biomechanical_DLIR</em>: folding is for molecules, registration is for anatomy. The same sovereignty question, written in the body — own the compute, own the data, own the path. The shogun's layer, applied to flesh.
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">the koans · 公案</div>
+    <div class="era">
+      <div class="jp-era">公案</div>
+      <div class="romaji">kōan · the mind's discipline</div>
+      <div class="years">the samurai trained the body with the sword, and the mind with the koan</div>
+    </div>
+    <div class="koan"><div class="q">If you meet the Buddha on the road, kill him.</div><div class="n">not violence — the mind that lets go of its own certainties, so it can see what is actually there.</div></div>
+    <div class="koan"><div class="q">What is the sound of one hand clapping?</div><div class="n">the discipline of listening past the obvious, until the answer is not an answer but a posture.</div></div>
+    <div class="koan"><div class="q">You can only fight the way you practice.</div><div class="n">— Miyamoto Musashi · the way is not in the moment of the duel, but in the ten thousand repetitions before it.</div></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">the legends &amp; myths · 神話</div>
+    <div class="era">
+      <div class="jp-era">神話</div>
+      <div class="romaji">shinwa · where it all began</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.9;margin-top:18px"><em>Amaterasu</em> hid herself in a cave, and the world went dark. The other gods hung a mirror and began to laugh — and she came out to see what the brightness was. The mirror, and mirth, called the sun back.</p>
+    <p style="font-size:15.5px;line-height:1.9"><em>Susanoo</em>, the storm god, slew the eight-headed serpent and found within it the sword <em>Kusanagi</em> — the grass-cutter, one of the three treasures.</p>
+    <p style="font-size:15.5px;line-height:1.9">The <em>forty-seven rōnin</em> waited a year, and then another, and then avenged their master — loyalty held past death, the samurai's last and greatest act.</p>
+  </section>
+
+  <section class="page mahakala">
+    <div class="kicker">the protector · マハーカーラ</div>
+    <div class="jp">マハーカーラ</div>
+    <div class="en">mahakala · the great black one</div>
+    <p>Beyond the samurai's Japan sits an older, higher guard: <em>Mahakala</em>, the Great Black One — the wrathful form of compassion itself, the protector of the dharma. In the Kagyu lineage of Tibet, he is the keeper of the gate: black, fierce, crowned, holding the curved knife that cuts delusion, and the skull-cup that holds what is left of the self.</p>
+    <p>His anger is not anger. It is compassion that refuses to let harm pass — the same discipline as the sword, turned inward and upward, the protector who guards what matters.</p>
+    <div class="tattoo">
+      <div class="who">Peter's back</div>
+      <div class="en">worn there, unseen by the wearer, always present — the Kagyu Mahakala, the ultra-secret protector. a guardian you carry behind you, where you cannot look, but where you are always watched over.</div>
+    </div>
+  </section>
+
+  <div class="colophon">
+    THE SHOGUN LAYER · 将軍の層 · scifinime special edition · seated for the sovereign library<br>
+    peterl · pocoo sovereign library · 0 + 1 · {&lt;3,&lt;3,&lt;3}+1 · fine touch from within · vaked.dev
+  </div>
+
+</main>
+</body>
+</html>

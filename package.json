@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Personal blog at pocoo.vaked.dev",
   "scripts": {
-    "build": "node build.mjs"
+    "og": "python3 scripts/generate_og_images.py",
+    "build": "python3 scripts/generate_og_images.py && node build.mjs"
   },
   "dependencies": {
     "markdown-it": "^14.1.0",

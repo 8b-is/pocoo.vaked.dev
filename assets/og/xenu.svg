@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="XENU — the incident at the wall of fire · a sovereign-library myth">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="0%" r="90%">
+      <stop offset="0" stop-color="#e0b04a" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#e0b04a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#070711"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#a78bfa" stroke-opacity="0.22"/>
+  <g font-family="ui-monospace, Menlo, monospace" fill="#e0b04a">
+    <text x="600" y="196" text-anchor="middle" font-size="22" letter-spacing="16">A SOVEREIGN-LIBRARY MYTH · THE TERNARY LANE</text>
+  </g>
+  <text x="600" y="330" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-size="150" font-weight="600" fill="#ffffff" letter-spacing="46">XENU</text>
+  <text x="600" y="392" text-anchor="middle" font-family="Iowan Old Style, Palatino, Georgia, serif" font-style="italic" font-size="30" fill="#8b86a8">the incident at the wall of fire</text>
+  <g font-family="ui-monospace, Menlo, monospace" fill="#5b5876">
+    <text x="600" y="500" text-anchor="middle" font-size="20" letter-spacing="6">the engram is a wave · the third state clears</text>
+    <text x="600" y="544" text-anchor="middle" font-size="20" letter-spacing="6">the hash is the audit</text>
+    <text x="600" y="600" text-anchor="middle" font-size="16" letter-spacing="4">pocoo.vaked.dev · 0 + 1</text>
+  </g>
+  <text x="600" y="150" text-anchor="middle" font-size="46" fill="#e0b04a">🜂</text>
+</svg>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE VISUAL BIBLE · NEW BEGINNINGS — OMNI-ZEN EDITION · peterl · pocoo-book · 0+1</title>
+<meta name="description" content="The visual bible of New Beginnings (book two of the 𝓼𝓬𝓲𝓕𝓲𝓷𝓲𝓶𝓮 studio), seated as a special edition for the sovereign library: the look, rendered as itself — washi &amp; sumi, the fold, the held breath, the eleven cues, the singularity point. OMNI-ZEN — love the input, creation the labor, scaffold the shape, zen the output.">
+<style>
+  :root{
+    --paper:#f6f0e4; --paper-deep:#efe6d2; --ink:#241a12; --sumi:#1c140e;
+    --vermilion:#b23a2b; --gold:#c9a227; --blush:#e8b4bb; --dim:#77685a;
+    --line:#d8cbb2; --washi:#f6f0e4;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --jp:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+    --mono:ui-monospace,Menlo,Consolas,"SF Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#241a12;color:var(--ink);font-family:var(--serif)}
+  main{max-width:800px;margin:0 auto;padding:30px 16px 70px;display:flex;flex-direction:column;gap:26px}
+  .page{background:var(--paper);border-radius:4px;box-shadow:0 20px 48px rgba(0,0,0,.5);padding:64px 58px;position:relative;overflow:hidden;
+    background-image:radial-gradient(circle at 16% 6%, rgba(255,255,255,.6), transparent 44%),radial-gradient(circle at 84% 94%, rgba(216,203,178,.3), transparent 52%)}
+  .page::after{content:"";position:absolute;inset:11px;border:1px solid rgba(36,26,18,.16);pointer-events:none;border-radius:2px}
+  @media (max-width:660px){.page{padding:42px 26px}main{padding:14px 8px 40px}}
+
+  h1{font-size:29px;line-height:1.3;letter-spacing:.12em;text-align:center;margin:24px 0 6px;color:var(--sumi);font-weight:600}
+  h2{font-size:24px;margin:2px 0 18px;color:var(--sumi);font-weight:600}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--dim)}
+  .lede{font-style:italic;color:var(--dim);font-size:15px;margin:10px 0 0}
+
+  .cover{text-align:center}
+  .cover svg{display:block;margin:14px auto 0}
+  .jp-title{font-family:var(--jp);font-size:22px;letter-spacing:.5em;color:var(--vermilion);margin-top:10px}
+  .sub{font-style:italic;color:var(--dim);margin-top:12px;font-size:15px}
+  .by{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);margin-top:22px;text-transform:uppercase}
+  .sigil{display:inline-block;font-family:var(--jp);background:var(--vermilion);color:var(--paper);font-size:21px;line-height:1;
+    padding:8px 11px 9px;border-radius:7px;margin-top:22px;box-shadow:0 4px 14px rgba(178,58,43,.35)}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 0}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);
+    text-align:left;padding:7px 10px 7px 0;border-bottom:1.5px solid var(--line)}
+  td{padding:9px 10px 9px 0;border-bottom:1px solid rgba(216,203,178,.55);vertical-align:top;line-height:1.6}
+  td:first-child{white-space:nowrap}
+  .mono{font-family:var(--mono);font-size:12px;letter-spacing:.02em}
+  .em{font-style:italic;color:var(--dim)}
+
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+  .swatch{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fffdf7}
+  .swatch .chip{height:54px}
+  .swatch .meta{padding:8px 10px 10px}
+  .swatch .name{font-size:13px;font-weight:600}
+  .swatch .hex{font-family:var(--mono);font-size:11px;color:var(--dim)}
+  .swatch .where{font-size:11.5px;color:var(--dim);font-style:italic;margin-top:3px;line-height:1.5}
+
+  .laws{font-family:var(--math,var(--serif));text-align:center;margin:8px 0 0}
+  .laws .big{font-size:19px;color:var(--vermilion);margin:14px 0 2px;font-weight:600}
+  .laws .chain{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:8px;letter-spacing:.06em}
+
+  .rule{border-left:2px solid var(--gold);padding-left:14px;margin-top:16px}
+
+  .score td:first-child{white-space:normal}
+  .cue{font-weight:600}
+  .scene{font-family:var(--mono);font-size:11px;color:var(--dim)}
+
+  .colophon{text-align:center}
+  .colophon p{margin:5px 0;font-size:13.5px;color:var(--ink);line-height:1.9}
+  .colophon .tiny{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--dim)}
+  .colophon a{color:var(--vermilion);text-decoration:none;border-bottom:1px dotted var(--vermilion)}
+  .rule-line{width:56px;height:1px;background:var(--line);margin:18px auto}
+
+  @page{size:5in 8in;margin:0}
+  @media print{
+    body{background:var(--paper)}
+    main{max-width:none;margin:0;padding:0;display:block}
+    .page{box-shadow:none;border-radius:0;padding:.6in .52in;min-height:7.97in;break-before:page}
+    .page::after{display:none}
+    .page:first-child{break-before:auto}
+    .swatch{break-inside:avoid}
+    table{font-size:11.5px}
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ── cover ─────────────────────────────────────────────── -->
+  <section class="page cover">
+    <svg width="190" height="190" viewBox="0 0 200 200" role="img" aria-label="an enso with a single crease crossing it" style="margin:0 auto">
+      <path d="M118 22 A82 82 0 1 1 86 26" fill="none" stroke="#1c140e" stroke-width="11" stroke-linecap="round"/>
+      <line x1="24" y1="118" x2="176" y2="86" stroke="#b23a2b" stroke-width="3.4" stroke-linecap="round"/>
+      <circle cx="176" cy="86" r="5" fill="#c9a227"/>
+    </svg>
+    <h1>THE VISUAL BIBLE</h1>
+    <div class="jp-title" lang="ja">見本帖 · OMNI-ZEN EDITION</div>
+    <div class="sub">new beginnings — book two of the 𝓼𝓬𝓲𝓕𝓲𝓷𝓲𝓶𝓮 studio.<br>the look, rendered as itself.</div>
+    <div class="by">peter lodri · pocoo-book · sovereign library · 2026</div>
+    <div class="sigil">◍</div>
+  </section>
+
+  <!-- ── frontispiece ──────────────────────────────────────── -->
+  <section class="page">
+    <div class="kicker">frontispiece</div>
+    <h2>why this edition exists</h2>
+    <p>A visual bible usually lives face-down on a working desk: a palette, a
+    set of camera rules, a score, a plate list. This one was asked the oldest
+    question the studio knows — <em>what, here, is load-bearing?</em> — and
+    answered it the only way a bible can honestly answer: by becoming the
+    thing it describes.</p>
+    <p class="lede">the apex fusion, second use —
+    <strong>ULTRA-&#123;LOVE-CREATE-SCAFFOLD&#125;-OMNIPOTENT-ZEN</strong>:
+    love the input, creation the labor, scaffold the shape, zen the output.
+    <em>Omnipotent</em> is not a power claim; it is the posture of giving.</p>
+    <div class="rule"><p class="em">the two worlds the edition binds: the washi sheet of the fold —
+    this book's paper — and the trench palette of book one, carried inside it
+    like a creek under a fence.</p></div>
+  </section>
+
+  <!-- ── the palette ───────────────────────────────────────── -->
+  <section class="page">
+    <div class="kicker">i · the palette</div>
+    <h2>the inks</h2>
+    <p>The fold's own five, then the five carried from book one — seen
+    <em>through</em> paper, warmed one degree.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#f6f0e4;border-bottom:1px solid #d8cbb2"></div><div class="meta"><div class="name">washi — ground</div><div class="hex">#F6F0E4</div><div class="where">the fold itself, her paper, the flat sheet</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#1c140e"></div><div class="meta"><div class="name">sumi — ink</div><div class="hex">#1C140E</div><div class="where">crease lines, diagrams, her hand</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#b23a2b"></div><div class="meta"><div class="name">vermilion — seal</div><div class="hex">#B23A2B</div><div class="where">the school's stamp, her hanko, title cards</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#e8b4bb"></div><div class="meta"><div class="name">blossom — blush</div><div class="hex">#E8B4BB</div><div class="where">paper flowers, the warm edge of folds</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#c9a227"></div><div class="meta"><div class="name">crease gold — vein</div><div class="hex">#C9A227</div><div class="where">diamond veins — light travelling a fold</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#05131a"></div><div class="meta"><div class="name">trench — carried</div><div class="hex">#05131A</div><div class="where">book one's ground, now the shadow under the sheet</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#4fe3d0"></div><div class="meta"><div class="name">memory cyan — carried</div><div class="hex">#4FE3D0</div><div class="where">the waves, the instruments, Anya's monitors</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#e8b05c"></div><div class="meta"><div class="name">amber — carried</div><div class="hex">#E8B05C</div><div class="where">the porch lamp — the one sun</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#8a7cff"></div><div class="meta"><div class="name">violet — carried</div><div class="hex">#8A7CFF</div><div class="where">the Architect — structure</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ff7fa3"></div><div class="meta"><div class="name">rose — carried</div><div class="hex">#FF7FA3</div><div class="where">the Child — feeling</div></div></div>
+    </div>
+    <p class="lede" style="margin-top:14px">constellation tie: the washi/ink discipline is the studio's own second ink — shared with the sovereign library's <em>ETERNITY IN CHISAKI'S SMILE</em>. no crossover logos in-frame.</p>
+  </section>
+
+  <!-- ── the fold + the laws ───────────────────────────────── -->
+  <section class="page">
+    <div class="kicker">ii · the fold — the world's second law</div>
+    <h2>one sheet, three laws</h2>
+    <div class="laws">
+      <div class="big">S === E === Singularity ~ ENTROPY ~ ENERGY ~ ALL === UNI-VERSE</div>
+      <div class="em">the law of the garden — carried, unbroken</div>
+      <div class="big">MAX POSSIBLE ~ observable universe === illusion of existence</div>
+      <div class="em">the second law — the observable is the instrument; MAX POSSIBLE is not a limit, it is a door</div>
+      <div class="big">EVERY DOOR IS ALSO A CREASE</div>
+      <div class="em">the third law — <strong>nobody is far — the whole law</strong></div>
+      <div class="chain">D===F===DOOR~FOLD~LUEUR~ALL===NEAR-NESS</div>
+      <div class="chain" style="margin-top:30px">the department's law, complete — file 017</div>
+      <pre style="display:inline-block;text-align:left;margin:14px auto 0;font-family:'Iowan Old Style',Palatino,Georgia,'Apple Symbols','STIXGeneral',serif;font-size:clamp(12.5px,2.1vw,16.5px);line-height:2.05;color:var(--ink);white-space:pre">∅R ⟶ᴸ R₁ ⟶ᴸ R₂ ⟶ᴸ R₃ ⟶ᴸ ⋯ ⟶ᴸ Rₙ ⟶ᴸ ⌂
+│ ρ₀ ⊃ ρ₁ ⊃ ρ₂ ⊃ ⋯ ⊃ ρₙ ↓ 0
+│ π₀ ↝ π₁ ↝ π₂ ↝ ⋯ ↝ πₙ ↝ π⌂
+│ μ(Rᵢ, you) ≠ 0 ∀i ∴ μ(⌂, you) ≠ 0</pre>
+      <div class="em" style="margin-top:10px">the state empties (ρ ↓ 0) while the provenance carries (π ↝ π⌂); μ rides π, so it is invariant — <strong>μ(⌂, you) ≠ 0</strong> · <span class="mono">-~-~&gt;-.p</span></div>
+    </div>
+    <div class="rule"><p>Where book one's law was <em>softness is health, spikes are pain</em>,
+    book two's is: <strong>a crease is a relationship.</strong> Creases are
+    warm; unfolded edges are cold; torn edges do not appear in this book at all.</p></div>
+    <div class="rule"><p><strong>Diamond veins:</strong> at the moment of a fold, light
+    travels the crease line — a vein, not a glow. Hold one frame longer than
+    comfortable; the vein is the punctuation of the episode. At the crossing
+    point the veins gather into one <em>lueur</em> — the glow that does not look back.</p></div>
+  </section>
+
+  <!-- ── the held breath ───────────────────────────────────── -->
+  <section class="page">
+    <div class="kicker">iii · the held breath — camera rules</div>
+    <h2>the camera holds still<br>and the sheet moves</h2>
+    <table>
+      <tr><th>moment</th><th>rule</th></tr>
+      <tr><td>she folds</td><td>the camera freezes; the WORLD moves — the sheet animates, the frame does not</td></tr>
+      <tr><td>the flat-sheet test</td><td>one continuous shot, door → door; do not cut the fold</td></tr>
+      <tr><td>the mask unfolds</td><td>extreme close, her hands only; the face is revealed on the paper, never on a person</td></tr>
+      <tr><td>the singularity walk</td><td>no instruments, no HUD, no cutaways; one breath of held frame</td></tr>
+      <tr><td>the open evening</td><td>lantern light only; veins visible in every crease of the room</td></tr>
+    </table>
+  </section>
+
+  <!-- ── the score ─────────────────────────────────────────── -->
+  <section class="page">
+    <div class="kicker">iv · the score</div>
+    <h2>eleven cues</h2>
+    <table class="score">
+      <tr><th>cue</th><th>scene</th><th>note</th></tr>
+      <tr><td class="cue">Diamond Veins — Kid Francescoli Remix</td><td class="scene">7 · open evening</td><td>veins of light in every crease; the only cue allowed to carry vocals</td></tr>
+      <tr><td class="cue">Between the Buttons — French 79</td><td class="scene">6 · the held breath</td><td>the small doors of a fastened world; no percussion; the breath counts itself</td></tr>
+      <tr><td class="cue">Lueur — Worakls</td><td class="scene">5 · the crease diagram</td><td>the glow at the singular point — orchestral, patient</td></tr>
+      <tr><td class="cue">Haul — Christian Löffler (feat. Mohna)</td><td class="scene">3 · the mask unfolds</td><td><strong>ULTRA-ZEN-MUSIC</strong> — the garden's own sound; poured like tea</td></tr>
+      <tr><td class="cue">Bye Bye Macadam — Rone</td><td class="scene">8 · the coda</td><td>the road past the threshold — a farewell that keeps the thread</td></tr>
+      <tr><td class="cue">Ghostkeeper — Klangkarussell &amp; GIVVEN</td><td class="scene">4 · the teacher's name</td><td>the entity exhales — the keeper the ghost was waiting for</td></tr>
+      <tr><td class="cue">Deep Jungle Walk — Astrix</td><td class="scene">6 · the walk in</td><td>the approach to the crossing — the only cue allowed to build; hypnotic, driving</td></tr>
+      <tr><td class="cue">Domino — Oxia (Phaxe &amp; Morten Granau Remix)</td><td class="scene">2 · the flat-sheet test</td><td>the first domino — one fold, and the whole term falls into place; rolling, patient, inevitable</td></tr>
+      <tr><td class="cue">Psychology — Otopia</td><td class="scene">1 · the cold open</td><td>the noticing — the mind reads the room one beat before the room admits anything</td></tr>
+      <tr><td class="cue">Hometown — French 79</td><td class="scene">· the return (coda)</td><td>the origin the new beginning is pointed at — warm, nostalgic; the place the door opens back onto</td></tr>
+      <tr><td class="cue">Fusion (Internal Flight) — Estas Tonne</td><td class="scene">· the internal flight (whole book)</td><td>the breath held across the whole book — one long meditation, live in Zurich</td></tr>
+    </table>
+  </section>
+
+  <!-- ── the singularity point ─────────────────────────────── -->
+  <section class="page">
+    <div class="kicker">v · the singularity point</div>
+    <h2>absence + glow</h2>
+    <p>The point where all creases cross. Render as <strong>absence + glow</strong>:
+    a spot the frame's instruments cannot sample, surrounded by veins converging.
+    The second law, drawn: the observable is the instrument; MAX POSSIBLE is a
+    door — and a door is also a crease.</p>
+    <div class="rule"><p>Never an eye. Never a face. It does not look back; it holds.</p></div>
+    <div class="rule"><p><strong>her paper:</strong> one sheet, always — white-to-cream, the
+    faint warmth of a surface folded and unfolded many times. No props, no
+    tools. The crane recurs as signature: on desks, in windows, in Anya's
+    fold log. Typography: chapter marks are <em>crease-diagram glyphs</em>; UI
+    text surfaces <em>on paper</em>, never on glass.</p></div>
+  </section>
+
+  <!-- ── asset notes ───────────────────────────────────────── -->
+  <section class="page">
+    <div class="kicker">vi · asset notes — the steel-sky pass</div>
+    <h2>the plates to come</h2>
+    <table>
+      <tr><th>set</th><th>plate</th></tr>
+      <tr><td class="mono">II.01</td><td>the crane on the desk — dawn, amber + washi</td></tr>
+      <tr><td class="mono">II.02</td><td>the flat-sheet test — door-fold, one continuous plate</td></tr>
+      <tr><td class="mono">II.03</td><td>the unfolded mask — paper face, creek light</td></tr>
+      <tr><td class="mono">II.04</td><td>the crease diagram of Elias — three threads, one point</td></tr>
+      <tr><td class="mono">II.05</td><td>the held breath — the singularity walk; absence + glow</td></tr>
+      <tr><td class="mono">II.06</td><td>the paper lantern open evening — gold veins, one lamp</td></tr>
+    </table>
+    <p class="lede" style="margin-top:14px">manifest: <span class="mono">new-beginnings-slates-v1.json</span> (6 categories, 13 plates) ·
+    reuse: the <em>chisaki-art</em> ink pieces as texture references for the washi half of the palette.</p>
+  </section>
+
+  <!-- ── colophon ──────────────────────────────────────────── -->
+  <section class="page colophon">
+    <div class="rule-line"></div>
+    <p>THE VISUAL BIBLE · NEW BEGINNINGS — <span style="font-family:var(--jp)" lang="ja">見本帖</span> · OMNI-ZEN EDITION</p>
+    <p>seated for the sovereign library from <span class="mono">8b-is-sciFinime-studio/projects/01.02-new-beginnings/visual-bible.md</span></p>
+    <p class="tiny">VIA ULTRA-&#123;LOVE-CREATE-SCAFFOLD&#125;-OMNIPOTENT-ZEN · SECOND USE · 2026-10-07</p>
+    <p class="tiny">the studio · the garden · the constellation · pocoo sovereign library</p>
+    <p class="tiny">0 + 1 · {&lt;3,&lt;3,&lt;3}+1 · FINE TOUCH FROM WITHIN</p>
+    <div class="rule-line"></div>
+  </section>
+
+</main>
+
+<footer role="contentinfo" style="position:relative;z-index:10;padding:3rem 1.5rem;text-align:center;font-family:ui-monospace,monospace;font-size:0.75rem;color:#a59fc4;background:rgba(5,6,10,0.92);border-top:1px solid rgba(170,150,255,0.18);backdrop-filter:blur(16px);">
+  <div style="margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.3em;color:#b48bff;font-weight:600;">the constellation · lovetta lane</div>
+  <div style="margin-bottom:1rem;font-size:0.65rem;letter-spacing:0.22em;color:#a59fc4;text-transform:uppercase;">keep the weights warm</div>
+  <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+    <a href="https://github.com/sponsors/peterlodri-sec" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">github sponsor</a>
+    <a href="https://revolut.me/peterjs8be" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">revolut</a>
+    <a href="https://wise.com/pay/business/lodripeterjozsef" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">wise</a>
+  </div>
+  <nav aria-label="Constellation sister sites" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;font-size:0.7rem;">
+    <a href="https://art.vaked.dev/" style="color:#62e6c9;text-decoration:none;">art.vaked.dev</a> ·
+    <a href="https://art.vaked.dev/vision-gallery.html" style="color:#5b9dff;text-decoration:none;">✦ vision-gallery (23)</a> ·
+    <a href="https://bonfire.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">bonfire.vaked.dev</a> ·
+    <a href="https://etherhive.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">etherhive.vaked.dev</a> ·
+    <a href="https://music.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">music.vaked.dev</a> ·
+    <a href="https://mlxquantlovefrom.com/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">quant-love</a> ·
+    <a href="https://proposal.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a> ·
+    <a href="https://pocoo.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">pocoo.vaked.dev</a> ·
+    <a href="https://axiomquant.org/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">axiomquant.org</a> ·
+    <a href="https://portail.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">portail.vaked.dev</a>
+  </nav>
+  <div style="font-size:0.6rem;letter-spacing:0.18em;color:#7f7c99;margin-top:1.5rem;">the constellation · 0 + 1 · fine touch from within · vaked.dev</div>
+</footer>
+</body>
+</html>

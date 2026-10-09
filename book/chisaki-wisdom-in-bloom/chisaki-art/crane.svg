@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="origami crane">
+  <defs>
+    <filter id="roughfine" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="53" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="soft" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="53" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="300" cy="300" rx="256" ry="230" fill="#efe4cd" opacity="0.55"/>
+  <ellipse cx="300" cy="486" rx="148" ry="15" fill="#241a12" opacity="0.1" filter="url(#soft)"/>
+
+  <g stroke="#2a211a" stroke-width="3.5" stroke-linejoin="round" filter="url(#roughfine)">
+    <path d="M261.2 343.5 L115.2 253.5 L104.8 270.5 L250.8 360.5 Z" fill="#f1e6d2"/>
+    <path d="M115.2 253.5 L80 276 L104.8 270.5 Z" fill="#f6f0e4"/>
+    <path d="M349.2 360.5 L495.2 270.5 L484.8 253.5 L338.8 343.5 Z" fill="#ece0c6"/>
+    <path d="M152 116 L300 306 L248 326 Z" fill="#f1e6d2"/>
+    <path d="M448 116 L300 306 L352 326 Z" fill="#ece0c6"/>
+    <path d="M300 306 L358 360 L300 426 L242 360 Z" fill="#f6f0e4"/>
+  </g>
+
+  <g stroke="#2a211a" stroke-width="1.4" opacity="0.3" filter="url(#roughfine)">
+    <path d="M300 306 L300 426" fill="none"/>
+    <path d="M242 360 L358 360" fill="none"/>
+  </g>
+
+  <g fill="#e5aab2" filter="url(#roughfine)">
+    <ellipse cx="120" cy="428" rx="9" ry="17" transform="rotate(30 120 428)" opacity="0.5"/>
+    <ellipse cx="486" cy="404" rx="8" ry="15" transform="rotate(-38 486 404)" opacity="0.45"/>
+    <ellipse cx="462" cy="486" rx="8" ry="15" transform="rotate(64 462 486)" opacity="0.4"/>
+  </g>
+
+  <text x="300" y="552" text-anchor="middle" font-family="'Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif"
+        font-size="26" fill="#241a12" letter-spacing="14" opacity="0.8">折り鶴</text>
+</svg>

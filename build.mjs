@@ -372,6 +372,8 @@ function footerHtml() {
     <a href="https://wise.com/pay/business/lodripeterjozsef" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">wise</a>
   </div>
   <nav aria-label="Constellation sister sites" style="display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;font-size:0.72rem;margin-bottom:1rem;">
+    <a href="https://koan.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#e8b05c;text-decoration:none;">✧ koan.vaked.dev (the hub)</a> ·
+    <a href="https://go.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;">go.vaked.dev ✦ launcher</a> ·
     <a href="https://pocoo.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">pocoo.vaked.dev</a> ·
     <a href="https://worklog.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">worklog.vaked.dev</a> ·
     <a href="https://ocean.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">ocean.vaked.dev</a> ·
@@ -384,7 +386,10 @@ function footerHtml() {
     <a href="https://github.com/8b-is/transformers" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">8b-is/transformers</a> ·
     <a href="https://github.com/8b-is/smart-tree" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">8b-is/smart-tree</a> ·
     <a href="https://github.com/8bit-wraith/magiscanner" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">8bit-wraith/magiscanner</a> ·
-    <a href="https://proposal.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a>
+    <a href="https://proposal.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a> ·
+    <a href="https://mann.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">mann.vaked.dev</a> ·
+    <a href="https://platonism.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">platonism.vaked.dev</a> ·
+    <a href="https://teamlab.vaked.dev" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">teamlab.vaked.dev</a>
   </nav>
   <nav aria-label="Site pages" style="display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;font-size:0.68rem;margin-bottom:1.2rem;">
     <a href="https://vaked.dev/whitepaper" style="color:#62e6c9;text-decoration:none;">whitepaper</a> ·
@@ -679,6 +684,69 @@ ${quantumBgScript(null, false)}
       <div class="logo-wrap"><img src="assets/logo.svg" alt="vaked" width="48" height="48"></div>
       <h1>pocoo</h1>
       <p class="lede">Technical writing on agentic systems, protocols, and building in public.</p>
+      <nav aria-label="Sections" style="display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;font-size:0.78rem;margin-top:0.9rem;">
+        <a href="research/" style="color:#62e6c9;text-decoration:none;">research — the state of the art</a>
+      </nav>
+    </header>
+    <ul class="post-list">
+${entries}
+    </ul>
+  </main>
+  ${footerHtml()}
+  ${telemetryScript(false, null, null)}
+</body>
+</html>`;
+}
+
+// ── Research section page (/research/) ─────────────────────────────────────────
+function renderResearch(posts, section) {
+  const sectionPosts = posts.filter((p) => p.meta.section === section);
+  const entries = sectionPosts.map((p) => {
+    const thumbSrc = p.meta.image ? `../${p.meta.image}` : `../assets/og/${esc(p.slug)}.svg`;
+    return `      <li class="entry">
+        <div class="entry-flex">
+          <div class="entry-body">
+            <h2 class="entry-title"><a href="../posts/${esc(p.slug)}">${esc(p.meta.title)}</a></h2>
+            <p class="meta"><time datetime="${esc(p.meta.date)}">${displayDate(p.meta.date)}</time></p>
+            <p class="entry-desc">${esc(p.meta.description || "")}</p>
+            ${tagsHtml(p.meta.tags)}
+          </div>
+          <a href="../posts/${esc(p.slug)}" class="entry-thumb-link" tabindex="-1" aria-hidden="true">
+            <img src="${thumbSrc}" alt="${esc(p.meta.title)}" class="entry-thumb" loading="lazy" width="170" height="89">
+          </a>
+        </div>
+      </li>`;
+  }).join("\n");
+
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/research/#collection`,
+    "url": `${SITE_URL}/research/`,
+    "name": "pocoo research — the state of the art",
+    "description": `${sectionPosts.length} research notes on the constellation's open work: the named fires, the residue as evidence, and the readable mechanism.`,
+    "isPartOf": { "@id": `${SITE_URL}/#website` }
+  }, null, 2);
+
+  return `${head({
+    title: "pocoo research · the state of the art",
+    description: "The state of the art of the constellation's open work — the named fires, the residue as evidence, the readable mechanism.",
+    prefix: "../",
+    ogType: "website",
+    canonicalUrl: `${SITE_URL}/research/`,
+    ogImage: DEFAULT_OG_IMAGE,
+    jsonLd,
+  })}
+${quantumBgScript(null, false)}
+<body>
+  <main class="index">
+    <header class="index-head">
+      <div class="logo-wrap"><img src="../assets/logo.svg" alt="vaked" width="48" height="48"></div>
+      <h1>research</h1>
+      <p class="lede">The state of the art of the open work — the catalog of named fires, and the notes that keep the residue honest.</p>
+      <nav aria-label="Sections" style="display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;font-size:0.78rem;margin-top:0.9rem;">
+        <a href="../" style="color:#62e6c9;text-decoration:none;">← all posts</a>
+      </nav>
     </header>
     <ul class="post-list">
 ${entries}
@@ -793,6 +861,11 @@ function renderSitemap(posts) {
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>${SITE_URL}/research/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 ${urls}
 </urlset>`;
 }
@@ -825,6 +898,10 @@ async function main() {
 
   await writeFile(path.join(DIST_DIR, "index.html"), renderIndex(posts), "utf8");
   console.log("render: index.html");
+
+  await mkdir(path.join(DIST_DIR, "research"), { recursive: true });
+  await writeFile(path.join(DIST_DIR, "research", "index.html"), renderResearch(posts, "research"), "utf8");
+  console.log("render: research/index.html");
 
   await writeFile(path.join(DIST_DIR, "feed.xml"), renderFeed(posts), "utf8");
   console.log("render: feed.xml");

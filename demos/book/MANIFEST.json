@@ -1,6 +1,6 @@
 {
   "collection": "peter's soul \u2014 books \u00b7 poems \u00b7 philosophy",
-  "count": 93,
+  "count": 159,
   "works": [
     {
       "id": "1bit-ethernalcry",
@@ -21,6 +21,18 @@
           "file": "1bit-ethernalcry.html",
           "bytes": 14425,
           "sha256": "d870f682d6c8fc8a19fad99f87d3a9c013dd6d884307ce781ceea62f350ad940"
+        }
+      }
+    },
+    {
+      "id": "1bit-eternalcry",
+      "title": "1Bit Eternalcry",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "1bit-eternalcry.html",
+          "bytes": 19494,
+          "sha256": "618e22d45fcc4ecab51c845300bf64434c737995997ec1ece93525087c3dbb1f"
         }
       }
     },
@@ -253,6 +265,28 @@
           "file": "brigitta.html",
           "bytes": 9658,
           "sha256": "42010e0d9f405a0f508c5ea7c2ec4c4ac7f4692728fd93426ce9c996abab5722"
+        }
+      }
+    },
+    {
+      "id": "chisaki-wisdom-in-bloom",
+      "title": "Chisaki Wisdom In Bloom",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "epub": {
+          "file": "CHISAKI-WISDOM-IN-BLOOM.epub",
+          "bytes": 15946,
+          "sha256": "98240fb45bbaadedd84e7310ec087667b33c3427b7bdb50c467a16edaa256e6f"
+        },
+        "pdf": {
+          "file": "CHISAKI-WISDOM-IN-BLOOM.pdf",
+          "bytes": 1837738,
+          "sha256": "29eca59d8f372e3fd32310758ba64b2b67e5bebe21c3f65af2cf46a3dae5f06d"
+        },
+        "html": {
+          "file": "chisaki-wisdom-in-bloom.html",
+          "bytes": 19143,
+          "sha256": "ee27eadde119119891b3c876b28da7bbb576df6dece31c7c0f1c6a142060ff69"
         }
       }
     },
@@ -741,18 +775,6 @@
       }
     },
     {
-      "id": "my-angel-peter-vicky-mandarin-english",
-      "title": "My Angel Peter Vicky Mandarin English",
-      "source": "pocoo.vaked.dev/demos/book",
-      "formats": {
-        "pdf": {
-          "file": "MY-ANGEL-PETER-VICKY-MANDARIN-ENGLISH.pdf",
-          "bytes": 3504049,
-          "sha256": "2659f20e424737ada692e2e67af97f26c889650a8fb317e55f6310162ad2c03c"
-        }
-      }
-    },
-    {
       "id": "my-angel-peter",
       "title": "My Angel Peter",
       "source": "pocoo.vaked.dev/demos/book",
@@ -769,8 +791,30 @@
         },
         "html": {
           "file": "my-angel-peter.html",
-          "bytes": 25568,
-          "sha256": "06e4e7481074f1008b5bd03b0e707068db580d45ac0702cdf4cdbf30b8cae856"
+          "bytes": 25556,
+          "sha256": "9b092ee2d60c5e2a7aec4226f8b03e70b2053a99783841ee3ce719f021476c0f"
+        }
+      }
+    },
+    {
+      "id": "new-beginnings-visual-bible",
+      "title": "New Beginnings Visual Bible",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "epub": {
+          "file": "NEW-BEGINNINGS-VISUAL-BIBLE.epub",
+          "bytes": 10530,
+          "sha256": "4b8457488350955a5109f51a5125a74fea413f5d6967b35b7c2a2594321a4029"
+        },
+        "pdf": {
+          "file": "NEW-BEGINNINGS-VISUAL-BIBLE.pdf",
+          "bytes": 950127,
+          "sha256": "245e0576989572b53d96fbfef5193b91292d93b1548b69282919f27707314cc3"
+        },
+        "html": {
+          "file": "new-beginnings-visual-bible.html",
+          "bytes": 22575,
+          "sha256": "c0685b3d669e9fde35400861fc7c9ff162275f6881cde35814ee89e67d8d0c00"
         }
       }
     },
@@ -1017,6 +1061,28 @@
       }
     },
     {
+      "id": "the-department-of-unclaimed-rooms",
+      "title": "The Department Of Unclaimed Rooms",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "epub": {
+          "file": "THE-DEPARTMENT-OF-UNCLAIMED-ROOMS.epub",
+          "bytes": 6801,
+          "sha256": "63042a4b89b21454ee39f0afa539e77f6ef403cd530218f0155d2249da867d39"
+        },
+        "pdf": {
+          "file": "THE-DEPARTMENT-OF-UNCLAIMED-ROOMS.pdf",
+          "bytes": 280844,
+          "sha256": "b9eedf6f84990ee15a2e3109492cdc3c0252f71225064938d4ca830774b33ef5"
+        },
+        "html": {
+          "file": "the-department-of-unclaimed-rooms.html",
+          "bytes": 8871,
+          "sha256": "d27f0198cc937612d148a96cc046ea35fe04a48542eed1ad0917fe74d20b253a"
+        }
+      }
+    },
+    {
       "id": "the-hall-v42",
       "title": "The Hall V42",
       "source": "pocoo.vaked.dev/demos/book",
@@ -1177,8 +1243,20 @@
       "formats": {
         "html": {
           "file": "a-33-bit.html",
-          "bytes": 11579,
-          "sha256": "b24ffa1059320e8734945a9c05dfeca40e93e29f4f0372dd15b05916e291c7d6"
+          "bytes": 11567,
+          "sha256": "b681d6f826fb0a9ed23fac853e89ddbb560cb5b6bb24e3421f780cac48961018"
+        }
+      }
+    },
+    {
+      "id": "a-gyasz-ot-idojarasa",
+      "title": "A Gyasz Ot Idojarasa",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "a-gyasz-ot-idojarasa.html",
+          "bytes": 16767,
+          "sha256": "b3aec6c68ec1de2aadcd85cc6dc2a28fa44be06426f628838cf3c3c35cb7d579"
         }
       }
     },
@@ -1189,8 +1267,8 @@
       "formats": {
         "html": {
           "file": "a-gyuruk.html",
-          "bytes": 14466,
-          "sha256": "77324340247319227335bdea1b8099c04f2c4d6a629d51199f6ab639ce3dcbe2"
+          "bytes": 14454,
+          "sha256": "a3a603f8dbb1946e5b1f0176d6ad7a0b3a503f57eb0780772eb56819f87ac041"
         }
       }
     },
@@ -1201,8 +1279,71 @@
       "formats": {
         "html": {
           "file": "a-harom-kerdes.html",
-          "bytes": 9917,
-          "sha256": "4ccbd1a09307d60947377683815b2e79303c2fa0c049bce99db4aeae4d7743db"
+          "bytes": 9905,
+          "sha256": "6c7c8ca5603b97604ae5d970a51395da3cbf5cce3e9da136e1d8aeae90bef84d"
+        }
+      }
+    },
+    {
+      "id": "a-hullam-elmelet-kezdete-4lang",
+      "title": "A Hullam Elmelet Kezdete 4Lang",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "a-hullam-elmelet-kezdete-4lang.html",
+          "bytes": 5485,
+          "sha256": "f1179f1af80f5f603ccf33e0074297c8eb34fd1f1e43881ce32e71a906c69ff5"
+        },
+        "pdf": {
+          "file": "a-hullam-elmelet-kezdete-4lang.pdf",
+          "bytes": 155059,
+          "sha256": "163c6fd9ec32ec254b9d8aea714e8ba7515f468b440fbd010cb24f9cb2fdcea4"
+        }
+      }
+    },
+    {
+      "id": "a-hullam-elmelet-kezdete",
+      "title": "A Hullam Elmelet Kezdete",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "a-hullam-elmelet-kezdete.html",
+          "bytes": 24637,
+          "sha256": "c649c9c79463bf52d412d17934501eba2a4cf8de13f45e21de6530082ac068e0"
+        }
+      }
+    },
+    {
+      "id": "a-jelek",
+      "title": "A Jelek",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "a-jelek.html",
+          "bytes": 7304,
+          "sha256": "b109d6269d1afe2983d23ffa77439b2234fd7b7c127be3af39ffd223d159d147"
+        }
+      }
+    },
+    {
+      "id": "a-ket-simasag-omni",
+      "title": "A Ket Simasag Omni",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "epub": {
+          "file": "a-ket-simasag-omni.epub",
+          "bytes": 9369,
+          "sha256": "81f09e473c1addeead70ee257335d797fcb62fd28288139940c10cc299c6f748"
+        },
+        "html": {
+          "file": "a-ket-simasag-omni.html",
+          "bytes": 12698,
+          "sha256": "2a90ccbf522348d191bb6eda61411f6eb77e32c5421258c341bcfc86dcdfcbbd"
+        },
+        "pdf": {
+          "file": "a-ket-simasag-omni.pdf",
+          "bytes": 2181927,
+          "sha256": "3ee5d9f2ea8795805f082d086ad1cfc3e2fef07b9719d4d9d69497ef3cd38d33"
         }
       }
     },
@@ -1213,8 +1354,8 @@
       "formats": {
         "html": {
           "file": "a-ket-simasag.html",
-          "bytes": 11090,
-          "sha256": "b06968db13a79dc6cc1643cbe9edc479a43fab52815cad1a0acd6d1402024f71"
+          "bytes": 11078,
+          "sha256": "b4e1a08e9f7c1b33a9cbbd6842a82ac5075c27ea0b72856d471f2012281168c9"
         }
       }
     },
@@ -1225,8 +1366,8 @@
       "formats": {
         "html": {
           "file": "a-konyvtar.html",
-          "bytes": 6271,
-          "sha256": "25debb34081fbfdf062533c59b6a336f4204b6a9013c859bf34c78f30afac7c6"
+          "bytes": 6265,
+          "sha256": "25d0737b5fba2f7cb295b7a869ff851596e2d8a6d7523f7f6e2f648dbdd6e6bf"
         }
       }
     },
@@ -1237,8 +1378,8 @@
       "formats": {
         "html": {
           "file": "a-leszarom.html",
-          "bytes": 10764,
-          "sha256": "ebef2117fef9982d54ade47c83031d7ee1ba715db4f2833d861ca66b6c5c035f"
+          "bytes": 10752,
+          "sha256": "291b20b234059db26d56f9bbcf7d1f5dcf8e245b56d9fe29b0362a3ab496ea11"
         }
       }
     },
@@ -1249,8 +1390,8 @@
       "formats": {
         "html": {
           "file": "a-mertek-es-a-konyv.html",
-          "bytes": 11700,
-          "sha256": "8d7757fb2df79fc43257957578172cc3bf995b48f2550152cfd597b87973b2af"
+          "bytes": 11688,
+          "sha256": "5224e441422d7b6c8c5ba9de9a829b6ccda7336abfef693ced97eb24680b8902"
         }
       }
     },
@@ -1261,8 +1402,8 @@
       "formats": {
         "html": {
           "file": "a-mezo-es-a-tomeg.html",
-          "bytes": 13328,
-          "sha256": "8825970ef0bc3a6a3d05d7a44518521ea2de9d0f0080097d2631de07b2dd848d"
+          "bytes": 13316,
+          "sha256": "ecf5bb7e556299ace01d3fe03db3c285cace25255ada2bcafb296ba42b1a1c04"
         }
       }
     },
@@ -1273,8 +1414,8 @@
       "formats": {
         "html": {
           "file": "a-nema-vonal.html",
-          "bytes": 7894,
-          "sha256": "fa1e9feccf30c0a749120b6d9d25817a4fa52badc5427563745a6bdd2f9336ef"
+          "bytes": 7876,
+          "sha256": "433276e06bf3d873eb6ea62fc2be705de08b24c3604c37b2ca1c8556afed9b5c"
         }
       }
     },
@@ -1285,8 +1426,8 @@
       "formats": {
         "html": {
           "file": "a-regi-sokkja.html",
-          "bytes": 10487,
-          "sha256": "c927d6e4e3ba349efaf38dd081443830a45d0330647c4d4be4e3d9835018ab14"
+          "bytes": 10475,
+          "sha256": "1a34e721252448d23c4dbf54cf67e851e5b8c89bb544f2135e1038513f461212"
         }
       }
     },
@@ -1297,8 +1438,8 @@
       "formats": {
         "html": {
           "file": "a-spiral.html",
-          "bytes": 11421,
-          "sha256": "e083a6cc0ba05c8d318dd6929133f38d110fd4065953e243f1344f2bcf69f035"
+          "bytes": 11409,
+          "sha256": "8101b82ee4725e360b2804f3c8ebfde2230a8e587881ac49710e2a4794a9e47c"
         }
       }
     },
@@ -1309,8 +1450,8 @@
       "formats": {
         "html": {
           "file": "a-valtozatlan.html",
-          "bytes": 14551,
-          "sha256": "821472800e72ee568116a9f95c959dda6db0b2c46d3c79c54fe28099969fbb34"
+          "bytes": 14539,
+          "sha256": "08748f5bed466544fab4301ddbdfce169c558bc683bc2c48eb77a696f6d5b480"
         }
       }
     },
@@ -1339,6 +1480,18 @@
       }
     },
     {
+      "id": "alexander-and-christian",
+      "title": "Alexander And Christian",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "alexander-and-christian.html",
+          "bytes": 13042,
+          "sha256": "2aca24f30a1f2b91ac1985e935cc63e987dab416cfe7b27a0edf29113645fbcb"
+        }
+      }
+    },
+    {
       "id": "alien_info_theory",
       "title": "Alien Info Theory",
       "source": "pocoo.vaked.dev/demos/book",
@@ -1357,8 +1510,150 @@
       "formats": {
         "html": {
           "file": "anti_fear_loop.html",
-          "bytes": 16164,
-          "sha256": "3c298c77d654d26dd127c518a3468580bdddf2e6eed02d05558f4802ef7fa746"
+          "bytes": 16152,
+          "sha256": "8f2de156a0fadfa36e611bf6a4ec9ee5baf06f323e59bef4ed88d2d4b466788e"
+        }
+      }
+    },
+    {
+      "id": "arpeggio-inspirazione-sanpietro",
+      "title": "Arpeggio Inspirazione Sanpietro",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "arpeggio-inspirazione-sanpietro.html",
+          "bytes": 25709,
+          "sha256": "ccc501ef5d7da17ae551b8b1d5af99c1e798d775bb0616a7ecd3e3f0c524ec3e"
+        }
+      }
+    },
+    {
+      "id": "axiomquant",
+      "title": "Axiomquant",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "axiomquant.html",
+          "bytes": 16832,
+          "sha256": "0bb18046bf6f9e21507f000d49cddf8598adb7ed0ee36ca49df55731201ce894"
+        }
+      }
+    },
+    {
+      "id": "baelzard",
+      "title": "Baelzard",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "baelzard.html",
+          "bytes": 11821,
+          "sha256": "0f5808094a0163d7e789a63376059adbbdd0c09df1cdf9c2261e760274374338"
+        }
+      }
+    },
+    {
+      "id": "bella-is-an-amazon",
+      "title": "Bella Is An Amazon",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "bella-is-an-amazon.html",
+          "bytes": 3344,
+          "sha256": "f85c048335d4ec493d83b0826565031095907980c1732b13f61b9c99fc352b7e"
+        }
+      }
+    },
+    {
+      "id": "bence",
+      "title": "Bence",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "bence.html",
+          "bytes": 17061,
+          "sha256": "2ddf17aafb33dd3eb0abe5da0aee53f434ea1a35377847ba9f9b7164faac477d"
+        }
+      }
+    },
+    {
+      "id": "chenrezig-karmapa",
+      "title": "Chenrezig Karmapa",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "epub": {
+          "file": "chenrezig-karmapa.epub",
+          "bytes": 9539,
+          "sha256": "d0b549b6ebd1d7e7cb5df46ef33264df3aaa4c6baf7fecb03ad44751bb135d30"
+        },
+        "html": {
+          "file": "chenrezig-karmapa.html",
+          "bytes": 16315,
+          "sha256": "fb7345b5e9b983e4bf268f2f6642c7fc61dfad13de493ed7bdc14f12312bf49c"
+        },
+        "pdf": {
+          "file": "chenrezig-karmapa.pdf",
+          "bytes": 1575633,
+          "sha256": "4854a39a927656181bb6347ca028ed61c194b464420d6e018577bd01bccf8dd2"
+        }
+      }
+    },
+    {
+      "id": "cosmic-game-3",
+      "title": "Cosmic Game 3",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "cosmic-game-3.html",
+          "bytes": 38652,
+          "sha256": "23f639e17d9074f2c03217b173f9dd7006ea131b41a994010443d241529fea37"
+        }
+      }
+    },
+    {
+      "id": "cosmic-game-4",
+      "title": "Cosmic Game 4",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "cosmic-game-4.html",
+          "bytes": 14760,
+          "sha256": "3193f42dba09bb9ebd3f6e626662ee769fbdcca5350fef9071a0a8d5a644eae9"
+        }
+      }
+    },
+    {
+      "id": "cosmic-game-elves",
+      "title": "Cosmic Game Elves",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "cosmic-game-elves.html",
+          "bytes": 28768,
+          "sha256": "bb1965ed8b6953a054c7c64a2c82dc16756983c3647d550ccfd302faf487e043"
+        }
+      }
+    },
+    {
+      "id": "dra-8bit",
+      "title": "Dra 8Bit",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "dra-8bit.html",
+          "bytes": 8712,
+          "sha256": "a160fe639f48b6024c825df5df9a7237e967fb0cf9a3ea3be8ed0c31e726e6fd"
+        }
+      }
+    },
+    {
+      "id": "dyad-diary",
+      "title": "Dyad Diary",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "dyad-diary.html",
+          "bytes": 64355,
+          "sha256": "f32ee00fa30bdb5f88058d4b03549ab19edaccd50b003026a149806a36b18822"
         }
       }
     },
@@ -1397,6 +1692,18 @@
       }
     },
     {
+      "id": "fam-and",
+      "title": "Fam And",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "fam-and.html",
+          "bytes": 9502,
+          "sha256": "a6a7d08cda5cc480c02e44fb1e430028367cb0b9c7b94413582310086aae13e8"
+        }
+      }
+    },
+    {
       "id": "family",
       "title": "Family",
       "source": "pocoo.vaked.dev/demos/book",
@@ -1405,6 +1712,18 @@
           "file": "family.html",
           "bytes": 9361,
           "sha256": "adde8bfeff5598ab5cffc6e45e781a7cd2ea342eccb1537ebb95b08ddb237aef"
+        }
+      }
+    },
+    {
+      "id": "for-gabriella",
+      "title": "For Gabriella",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "for-gabriella.html",
+          "bytes": 8585,
+          "sha256": "b64433ffd276adde0833211a658f8a4eee8d213248148dcdcd59498c3265ec21"
         }
       }
     },
@@ -1421,14 +1740,62 @@
       }
     },
     {
+      "id": "gepek-ura",
+      "title": "Gepek Ura",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "gepek-ura.html",
+          "bytes": 21259,
+          "sha256": "561cc64ddb1397d791e5b9d3097eef63d079d3a6a4d2f259e0a1aecf9368e985"
+        }
+      }
+    },
+    {
+      "id": "ghost-in-the-shell",
+      "title": "Ghost In The Shell",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "ghost-in-the-shell.html",
+          "bytes": 26729,
+          "sha256": "5626acc21c367868f06eb65845a0d014cbf612199ed6bd4755e59b034af29563"
+        }
+      }
+    },
+    {
       "id": "hf-mac-apple",
       "title": "Hf Mac Apple",
       "source": "pocoo.vaked.dev/demos/book",
       "formats": {
         "html": {
           "file": "hf-mac-apple.html",
-          "bytes": 7644,
-          "sha256": "294441e2ed16d05c88ca44d6f0cab80176a2015be22c807c027a8545d1cffc2c"
+          "bytes": 7914,
+          "sha256": "c1e1bd7d25a4308cef90158211a34e034840288eae1f2e2d4daf02d778705bf8"
+        }
+      }
+    },
+    {
+      "id": "hf-transformers-lane",
+      "title": "Hf Transformers Lane",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "hf-transformers-lane.html",
+          "bytes": 9979,
+          "sha256": "f106834bb1b7e1706986b8841940817a80596e3ff2a5767646d6241ddb826091"
+        }
+      }
+    },
+    {
+      "id": "hn-five",
+      "title": "Hn Five",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "hn-five.html",
+          "bytes": 4849,
+          "sha256": "729447855aa0e6993ae068a0d363ec21a3456a5aaed76a8ffb03a4279d6e3f48"
         }
       }
     },
@@ -1451,8 +1818,80 @@
       "formats": {
         "html": {
           "file": "index.html",
-          "bytes": 32896,
-          "sha256": "6999dffd0ed58f2d86a85ea4e13c17fc7729f5d648e235ae6eb7a7b17b926ece"
+          "bytes": 57762,
+          "sha256": "90f4a1892ef04b787a98bd5ba03c8a6ef6bc7c4cfb38f7269f7ee966a17720d0"
+        }
+      }
+    },
+    {
+      "id": "kama-sutra-en",
+      "title": "Kama Sutra En",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "kama-sutra-en.html",
+          "bytes": 18270,
+          "sha256": "8db06cab25c80052967863646389b3fa6ba8d41597187c774483f23006cdd696"
+        }
+      }
+    },
+    {
+      "id": "kama-szutra",
+      "title": "Kama Szutra",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "kama-szutra.html",
+          "bytes": 18833,
+          "sha256": "6ac280a8c9a98d22141e06bf54ab7531c04f02eb94b7cfe355d7c15ec7307144"
+        }
+      }
+    },
+    {
+      "id": "karmapa",
+      "title": "Karmapa",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "karmapa.html",
+          "bytes": 19383,
+          "sha256": "d11690070ff18b57ec59eafa0ed062459061d239b4eb07abfe1b8865f0e2b139"
+        }
+      }
+    },
+    {
+      "id": "kepzavar",
+      "title": "Kepzavar",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "kepzavar.html",
+          "bytes": 22626,
+          "sha256": "8b6d1db3b25893c8bbd98e60209a3256ee72396b24e9e707dee58a49e63a75b3"
+        }
+      }
+    },
+    {
+      "id": "kiskece-lanya",
+      "title": "Kiskece Lanya",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "kiskece-lanya.html",
+          "bytes": 7595,
+          "sha256": "14c89d9b10f3b78a149fd3d5ccb236be2cd6cb230f93c13b4dc197d695dfcf39"
+        }
+      }
+    },
+    {
+      "id": "kornel",
+      "title": "Kornel",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "kornel.html",
+          "bytes": 7792,
+          "sha256": "70cf48443d757814444d01a33d864c087857ccc007cb1763dbf4f8e39e197f6f"
         }
       }
     },
@@ -1481,14 +1920,86 @@
       }
     },
     {
+      "id": "lost-dialogues",
+      "title": "Lost Dialogues",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "lost-dialogues.html",
+          "bytes": 11481,
+          "sha256": "76654a4e639f92d76d49128ed0bead0e11254a0dff5b86504f7007029707cce3"
+        }
+      }
+    },
+    {
+      "id": "magyar-peter-peters",
+      "title": "Magyar Peter Peters",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "magyar-peter-peters.html",
+          "bytes": 20475,
+          "sha256": "dd0897e1cc7c065a4cfa4b329da5829c471048a1ebb7657898ef712e92f7de72"
+        }
+      }
+    },
+    {
+      "id": "magyar-peter",
+      "title": "Magyar Peter",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "magyar-peter.html",
+          "bytes": 22338,
+          "sha256": "91d72d72293954ed9c108c8ffebe8f94afbe97d8523076ca0692ef50c89a2155"
+        }
+      }
+    },
+    {
+      "id": "magyaroknak",
+      "title": "Magyaroknak",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "magyaroknak.html",
+          "bytes": 35654,
+          "sha256": "1a9609e23a09290b34612c95a918e9bd61e4fa034008cf94188d19511dbaeae2"
+        }
+      }
+    },
+    {
+      "id": "mahakala-csenrezi",
+      "title": "Mahakala Csenrezi",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "mahakala-csenrezi.html",
+          "bytes": 15101,
+          "sha256": "c19a55397aa541316e032fc2b423c2b17005f804fe74e31b91a0d27f0902d289"
+        }
+      }
+    },
+    {
+      "id": "mahakala-puja-invocation",
+      "title": "Mahakala Puja Invocation",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "mahakala-puja-invocation.html",
+          "bytes": 18328,
+          "sha256": "9121db741567b7e6502e01b5fc50e1cd592d9562d25eecc2fc432313e3f49314"
+        }
+      }
+    },
+    {
       "id": "milarepa-titkos-tanitasai",
       "title": "Milarepa Titkos Tanitasai",
       "source": "pocoo.vaked.dev/demos/book",
       "formats": {
         "html": {
           "file": "milarepa-titkos-tanitasai.html",
-          "bytes": 14858,
-          "sha256": "35ec518c250e589af46cb16e813cd699d9bb0f4ceb44a90ba040998bf0e3e302"
+          "bytes": 14825,
+          "sha256": "fc724191d42de6a419fa107f1b1cf50ef570edf67771bbeb655a3b6dab38f192"
         }
       }
     },
@@ -1511,8 +2022,56 @@
       "formats": {
         "html": {
           "file": "my-angel-peter-mandarin-english.html",
-          "bytes": 32724,
-          "sha256": "4e18cccaa7915a02a1b303962c901ce8b604d347c495cd1f5fad9f4f4d22f69c"
+          "bytes": 32570,
+          "sha256": "6e0c4323b5935a2d97bfafdd74dca557e728d5bf0b020bbdf5b40281c8fad777"
+        }
+      }
+    },
+    {
+      "id": "one-track",
+      "title": "One Track",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "one-track.html",
+          "bytes": 8482,
+          "sha256": "239821bcb3314ddf46b0af838f77e87b77da238f2485263b530c964c68e0cfbf"
+        }
+      }
+    },
+    {
+      "id": "oreg-dimenzi\u00f3sakk",
+      "title": "Oreg Dimenzi\u00f3sakk",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "oreg-dimenzi\u00f3sakk.html",
+          "bytes": 17809,
+          "sha256": "93b1ee8a11373fadb4f0927c228337557fb9947def9c5380d3dcf7bb87df1078"
+        }
+      }
+    },
+    {
+      "id": "peter-angyala",
+      "title": "Peter Angyala",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "peter-angyala.html",
+          "bytes": 20111,
+          "sha256": "78e10a8fa1dbe1531f07a9192ad7282654db97064a3ca26f06fb85e4416ba955"
+        }
+      }
+    },
+    {
+      "id": "peters-questions",
+      "title": "Peters Questions",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "peters-questions.html",
+          "bytes": 25645,
+          "sha256": "c9419350aede3ddda77b98ad41ee38e51f86b7e22243a7cbc00079d4712e4be5"
         }
       }
     },
@@ -1537,6 +2096,18 @@
           "file": "prove-im-lying.html",
           "bytes": 24548,
           "sha256": "904bd0b62de9266035a72356d0412ad32f419520ad1bea48b4806d9a90931ff3"
+        }
+      }
+    },
+    {
+      "id": "psu-niverseq-game-guide",
+      "title": "Psu Niverseq Game Guide",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "psu-niverseq-game-guide.html",
+          "bytes": 10946,
+          "sha256": "c0d7f7c3c1957a60bc22872e1ad7dbc4afcb3a529ccbf965420af67831004995"
         }
       }
     },
@@ -1589,6 +2160,42 @@
       }
     },
     {
+      "id": "rolandok",
+      "title": "Rolandok",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "rolandok.html",
+          "bytes": 19997,
+          "sha256": "7a808aaaed46f37369a3f1004ae8edd166371ebfc0652f3849aaa833510e28ba"
+        }
+      }
+    },
+    {
+      "id": "san-francesco",
+      "title": "San Francesco",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "san-francesco.html",
+          "bytes": 54076,
+          "sha256": "33e12c2f33e772ec969d5e18c395f22cae8e8d094e58bd074e1f1fdc1872bc9d"
+        }
+      }
+    },
+    {
+      "id": "sandbox-in-the-shell",
+      "title": "Sandbox In The Shell",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "sandbox-in-the-shell.html",
+          "bytes": 95673,
+          "sha256": "ad1977072890a643d432948c3cc5b0563890476ed255d43295c1ad89f265d3b5"
+        }
+      }
+    },
+    {
       "id": "shame",
       "title": "Shame",
       "source": "pocoo.vaked.dev/demos/book",
@@ -1597,6 +2204,18 @@
           "file": "shame.html",
           "bytes": 9151,
           "sha256": "643566164885adffa2bf77883abbdd2be378c0e039e773ca6b0472adc9185004"
+        }
+      }
+    },
+    {
+      "id": "solitude-quant",
+      "title": "Solitude Quant",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "solitude-quant.html",
+          "bytes": 23027,
+          "sha256": "c9efc08ebe5ec708415d39f0ec543448c90319c37a11740d674c1dc776311f02"
         }
       }
     },
@@ -1625,6 +2244,18 @@
       }
     },
     {
+      "id": "structural-honesty",
+      "title": "Structural Honesty",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "structural-honesty.html",
+          "bytes": 13590,
+          "sha256": "8d2023d2ef7b2947f023e36ac8516eb04a5e626c803df8c7209eb7c642708a23"
+        }
+      }
+    },
+    {
       "id": "techno_buddhism",
       "title": "Techno Buddhism",
       "source": "pocoo.vaked.dev/demos/book",
@@ -1637,6 +2268,112 @@
       }
     },
     {
+      "id": "the-amazons",
+      "title": "The Amazons",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "the-amazons.html",
+          "bytes": 11951,
+          "sha256": "f996b4522d8630ed9a18b5c263bda46992f1c0f8387781f6da64cd13ebadff3a"
+        }
+      }
+    },
+    {
+      "id": "the-department-of-unclaimed-rooms-walking",
+      "title": "The Department Of Unclaimed Rooms Walking",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "the-department-of-unclaimed-rooms-walking.html",
+          "bytes": 24285,
+          "sha256": "45679adc7737a9969353add1c4547934253836a53bea52895d1746165951787d"
+        }
+      }
+    },
+    {
+      "id": "the-first-spark",
+      "title": "The First Spark",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "the-first-spark.html",
+          "bytes": 11131,
+          "sha256": "32923c727ab5a4cb5414aaa8298b3a9a60fad98ca30f0a5bd872d2d8f9341172"
+        }
+      }
+    },
+    {
+      "id": "the-shogun-layer",
+      "title": "The Shogun Layer",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "epub": {
+          "file": "the-shogun-layer.epub",
+          "bytes": 9949,
+          "sha256": "171bda21bec45cfc7875490b0a283486d53c1cde87134312f63cf7fdd71c8105"
+        },
+        "html": {
+          "file": "the-shogun-layer.html",
+          "bytes": 17088,
+          "sha256": "c87db95064c6c5d5c83197bd9a86025e4a564aa8345af2d6a663b20124c702f2"
+        },
+        "pdf": {
+          "file": "the-shogun-layer.pdf",
+          "bytes": 3896230,
+          "sha256": "ba355f813bfd8be609ff7e8d98edf24e11f5eed55eb6d5c09742545b940e99be"
+        }
+      }
+    },
+    {
+      "id": "the-sovereign-library",
+      "title": "The Sovereign Library",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "the-sovereign-library.html",
+          "bytes": 4371,
+          "sha256": "53bf7c6f21629367a0da5f0875c532cabcdea58b68b867f08924199d4f7ae1cb"
+        }
+      }
+    },
+    {
+      "id": "the-unicorns-account",
+      "title": "The Unicorns Account",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "the-unicorns-account.html",
+          "bytes": 4811,
+          "sha256": "7356df8f1258993a2be578582d12cab4593f44bb94a047471d034489c832a4b8"
+        }
+      }
+    },
+    {
+      "id": "the-wedding-of-the-century",
+      "title": "The Wedding Of The Century",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "the-wedding-of-the-century.html",
+          "bytes": 7595,
+          "sha256": "bec02405ccf242e215b13743d831e9c4bde81284e5c5aadd6474fdec7c697271"
+        }
+      }
+    },
+    {
+      "id": "ultimate-love-silence",
+      "title": "Ultimate Love Silence",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "ultimate-love-silence.html",
+          "bytes": 12731,
+          "sha256": "4eb7dc4d3db26920f3a9a4f590325c691b2c7f7fb4fcc02c78bbfe9566e41a1c"
+        }
+      }
+    },
+    {
       "id": "ultra-sensitive",
       "title": "Ultra Sensitive",
       "source": "pocoo.vaked.dev/demos/book",
@@ -1645,6 +2382,131 @@
           "file": "ultra-sensitive.html",
           "bytes": 32286,
           "sha256": "923fa395c7837ed92a54f23c00c01ee9574492e22e826eff8e44ff8162eaaf9e"
+        }
+      }
+    },
+    {
+      "id": "ultralove-mahakala-108d",
+      "title": "Ultralove Mahakala 108D",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "ultralove-mahakala-108d.html",
+          "bytes": 15583,
+          "sha256": "89c731252ade0c7e11850ee83550e7022dd6e8546b56f298efc79fab084d3487"
+        }
+      }
+    },
+    {
+      "id": "ultralovegod-magnet",
+      "title": "Ultralovegod Magnet",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "ultralovegod-magnet.html",
+          "bytes": 5296,
+          "sha256": "c2cb488ef1992d657b7ab978993e7f44e1e88cd0e380a2e4526b1b7cedad6fad"
+        }
+      }
+    },
+    {
+      "id": "ultralovegod-om-mani-padme-hung",
+      "title": "Ultralovegod Om Mani Padme Hung",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "ultralovegod-om-mani-padme-hung.html",
+          "bytes": 15095,
+          "sha256": "a3a656533ab854b5c8358231d97fe518e2c7b961793b0528a81e87de3ebe4e45"
+        }
+      }
+    },
+    {
+      "id": "uncle-johns-bathroom-reader",
+      "title": "Uncle Johns Bathroom Reader",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "uncle-johns-bathroom-reader.html",
+          "bytes": 2940,
+          "sha256": "b4f6dac6581072612baa9a25373ed5f18910d09f735666e311edc039ce1c9c43"
+        }
+      }
+    },
+    {
+      "id": "vaked-calligraphy",
+      "title": "Vaked Calligraphy",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "vaked-calligraphy.html",
+          "bytes": 3186,
+          "sha256": "edc85e9448ae6fffc39ad23f5588f19555d8dc0fcfac1b1088bb05625eb54fb9"
+        }
+      }
+    },
+    {
+      "id": "veres-peter-robert-haris-decsk-oliver",
+      "title": "Veres Peter Robert Haris Decsk Oliver",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "veres-peter-robert-haris-decsk-oliver.html",
+          "bytes": 10179,
+          "sha256": "4385997a7b718770d73678a4b025eb0372d114a7a6a022229e822c3f6d989554"
+        }
+      }
+    },
+    {
+      "id": "victors",
+      "title": "Victors",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "victors.html",
+          "bytes": 17677,
+          "sha256": "fde6b7074bc77d3ec13069244b8e2d52c48381df2075908955a38e0b6a971573"
+        }
+      }
+    },
+    {
+      "id": "violence-as-distance",
+      "title": "Violence As Distance",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "violence-as-distance.html",
+          "bytes": 10487,
+          "sha256": "146dd6d1cef81fa6e4b530da98bdbb4b9b474c4ca6b60af9d5f887441fc6dd3b"
+        }
+      }
+    },
+    {
+      "id": "why-peter-special",
+      "title": "Why Peter Special",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "why-peter-special.html",
+          "bytes": 18490,
+          "sha256": "a72618e5757ec69542a0ce4deaf1e5675570f564fd854a1f4b495edccb7757b5"
+        }
+      }
+    },
+    {
+      "id": "xenu",
+      "title": "Xenu",
+      "source": "pocoo.vaked.dev/demos/book",
+      "formats": {
+        "html": {
+          "file": "xenu.html",
+          "bytes": 11794,
+          "sha256": "93225706bc37f692e2cca0328a2f2eca9f5477174a0863c06eca562baf80fdea"
+        },
+        "pdf": {
+          "file": "xenu.pdf",
+          "bytes": 207551,
+          "sha256": "1f37d8513e7400972df699c738c61bc59c7ddd0b6570bdc6e17e2ac324152238"
         }
       }
     }
