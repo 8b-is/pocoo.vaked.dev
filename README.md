@@ -79,6 +79,15 @@ npm run build
 
 Output lands in `dist/`.
 
+`npm run build` is two steps: `npm run og` (generates a bespoke
+OG/hero SVG per post into `assets/og/<slug>.svg` and `dist/assets/og/`) then
+`node build.mjs`. Both run in CI, so a new post gets its hero/OG image
+automatically — without it, the post's `<img>` and `og:image` point at a
+missing `/assets/og/<slug>.svg` and **404**. `scripts/generate_og_images.py`
+is pure-stdlib and path-relative (runs from any cwd), and the hash is keyed on
+`title + date + slug`, so re-running is deterministic — only genuinely new
+posts gain a file.
+
 ## genesis / provenance
 
 This repository participates in the Vaked provenance chain.

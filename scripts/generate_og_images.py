@@ -4,9 +4,13 @@ import re
 import hashlib
 import html
 
-POSTS_DIR = "/Users/lodripeter/workspace/peterlodri-sec/pocoo.vaked.dev/posts"
-ASSETS_OG_DIR = "/Users/lodripeter/workspace/peterlodri-sec/pocoo.vaked.dev/assets/og"
-DIST_OG_DIR = "/Users/lodripeter/workspace/peterlodri-sec/pocoo.vaked.dev/dist/assets/og"
+# Paths are derived from this file's location so the generator runs identically
+# locally and in CI (no hardcoded /Users/... paths).
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(_HERE)
+POSTS_DIR = os.path.join(_ROOT, "posts")
+ASSETS_OG_DIR = os.path.join(_ROOT, "assets", "og")
+DIST_OG_DIR = os.path.join(_ROOT, "dist", "assets", "og")
 
 os.makedirs(ASSETS_OG_DIR, exist_ok=True)
 os.makedirs(DIST_OG_DIR, exist_ok=True)
