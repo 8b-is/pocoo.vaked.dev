@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHENREZIG &amp; KARMAPA — the sadhanas of the Kagyu · compassion &amp; the guru · pocoo-book · 0+1</title>
+<meta name="description" content="The 16th Karmapa Guru Yoga (Spontaneously Fulfilling All Desires) and the Chenrezig Sadhana (For the Benefit of All Beings), seated in Tibetan phonetics and English. The Kagyu lineage — compassion and the guru. peterl · pocoo sovereign library.">
+<style>
+  :root{
+    --paper:#f6efe2; --paper-deep:#efe5d2; --ink:#2a1c14; --sumi:#1c120c;
+    --maroon:#7a2a1e; --saffron:#b8862f; --gold:#c9973a; --dim:#7a6a58; --line:#d8c8ae;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --tib:"Kailasa","Noto Serif Tibetan","Microsoft Himalaya",serif;
+    --mono:ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:5in 8in;margin:0}
+  body{background:#1c120c;color:var(--ink);font-family:var(--serif)}
+  main{max-width:760px;margin:0 auto;padding:30px 16px 70px;display:flex;flex-direction:column;gap:22px}
+  .page{background:var(--paper);border-radius:6px;box-shadow:0 20px 48px rgba(0,0,0,.5);padding:56px 48px;position:relative;overflow:hidden;
+    background-image:radial-gradient(circle at 20% 6%, rgba(255,255,255,.5), transparent 45%),radial-gradient(circle at 82% 94%, rgba(184,134,47,.16), transparent 50%)}
+  .page::after{content:"";position:absolute;inset:11px;border:1px solid rgba(42,28,20,.15);pointer-events:none;border-radius:4px}
+  @media(max-width:640px){.page{padding:40px 26px}main{padding:14px 8px 40px}}
+
+  .cover{text-align:center}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--dim)}
+  .tib-title{font-family:var(--tib);font-size:26px;color:var(--maroon);margin-top:20px;line-height:1.6}
+  h1{font-size:26px;letter-spacing:.08em;margin:8px 0 2px;color:var(--sumi);font-weight:600}
+  .sub{font-style:italic;color:var(--dim);margin-top:14px;font-size:15px;line-height:1.7}
+  .sigil{display:inline-block;font-family:var(--tib);background:var(--maroon);color:var(--paper);font-size:24px;line-height:1;
+    padding:12px 14px 13px;border-radius:50%;margin-top:26px;box-shadow:0 4px 16px rgba(122,42,30,.4)}
+  .by{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);margin-top:24px;text-transform:uppercase}
+
+  .dedication{text-align:center}
+  .dedication .who{font-family:var(--tib);font-size:28px;margin:14px 0 2px;color:var(--sumi)}
+  .dedication .small{font-family:var(--mono);font-size:11px;letter-spacing:.4em;color:var(--dim);text-transform:uppercase}
+
+  h2{font-size:22px;letter-spacing:.05em;margin:2px 0 4px;color:var(--sumi);font-weight:600}
+  .tib-h{font-family:var(--tib);font-size:17px;color:var(--maroon);margin-top:2px}
+  .verse{margin:20px 0}
+  .verse .phon{font-weight:600;font-size:15.5px;color:var(--sumi);letter-spacing:.01em}
+  .verse .eng{font-style:italic;font-size:15px;color:var(--dim);margin-top:4px;line-height:1.6}
+  .mantra{text-align:center;margin:26px 0}
+  .mantra .phon{font-family:var(--tib);font-size:22px;color:var(--maroon);letter-spacing:.05em}
+  .mantra .eng{font-style:italic;color:var(--dim);font-size:14px;margin-top:6px}
+  .note{font-size:14px;line-height:1.85;color:var(--dim);margin:18px 0 0}
+  .note strong{color:var(--maroon);font-style:normal}
+  .rule{height:1px;background:var(--line);margin:26px 0;border:0}
+
+  .colophon{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);text-align:center;margin-top:26px;text-transform:uppercase;line-height:2.2}
+</style>
+</head>
+<body>
+<main>
+
+  <section class="page cover">
+    <div class="kicker">the kagyu lineage · compassion &amp; the guru</div>
+    <div class="tib-title">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ</div>
+    <h1>CHENREZIG &amp; KARMAPA</h1>
+    <div class="sub">the 16th Karmapa Guru Yoga &amp; the Chenrezig Sadhana — seated in Tibetan phonetics and English, for the benefit of all beings.</div>
+    <div class="sigil">ཨོཾ</div>
+    <div class="by">peterl · pocoo-book · 0 + 1</div>
+  </section>
+
+  <section class="page dedication">
+    <div class="small">dedicated to</div>
+    <div class="who">སྤྱན་རས་གཟིགས</div>
+    <div class="who" style="font-family:var(--serif);font-style:italic;font-size:20px;color:var(--dim)">Chenrezig, the Lord of Compassion</div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">part one · the guru</div>
+    <h2>The 16th Karmapa Guru Yoga</h2>
+    <div class="tib-h">Spontaneously Fulfilling All Desires</div>
+
+    <div class="verse">
+      <div class="phon">SANG-GYE CHÖ-DANG TSHOG-KYI CHOG-NAM-LA</div>
+      <div class="eng">In the Buddha, the Dharma, and the Supreme Assembly,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">JANG-CHUB BARDU DAG-NI KYAB-SU-CHI</div>
+      <div class="eng">I take refuge until I am enlightened.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DAG-GI JIN-SOG GYI-PA'I SÖ-NAM-KYI</div>
+      <div class="eng">By the merit of my practice of generosity and other virtues,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DRO-LA PHAN-CHIR SANG-GYE DRUB-PAR-SHOG</div>
+      <div class="eng">May I attain Buddhahood to benefit all sentient beings. (3x)</div>
+    </div>
+
+    <hr class="rule">
+
+    <div class="verse">
+      <div class="phon">KYE-MA!</div>
+      <div class="eng">Alas!</div>
+    </div>
+    <div class="verse">
+      <div class="phon">RANG-NANG DAK-PA'I ZHING-KHAM TANG-PO-RU</div>
+      <div class="eng">In the pure realm of my self-display,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">RANG-NYID CHEN-RE-ZIG-SU SAL-WA'I CHI</div>
+      <div class="eng">Clearly visualizing myself as Chenrezig,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DUN-GYI NAM-KHAR SENG-THI PEMA'I TENG</div>
+      <div class="eng">In the sky before me, upon a lion throne and lotus,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DA-WA'I KYIL-KHOR GYE-PA'I ZHING-KHAM-SU</div>
+      <div class="eng">On a moon disc in a vast and pure realm,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">TSA-WA'I LAMA RIG-BDAG KAR-MA-PA</div>
+      <div class="eng">Sits my Root Guru, the sovereign of families, Karmapa,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">KU-ZHIG SER-GYI-DONG-PO LTA-BU-LA</div>
+      <div class="eng">His body radiant like a mountain of gold,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">ZHAB-ZUNG KYIL-MO-KRUNG-GIS ZHUK-PA-NYID</div>
+      <div class="eng">Seated in the full lotus posture.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHÖ-GÖ SUM-GYI KU-LA YONG-SU-LUB</div>
+      <div class="eng">Wrapped completely in the three robes of a monk,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">UTSHA ZHA-NAG THONG-WA DÖN-DEN DÖN</div>
+      <div class="eng">Wearing the Black Crown, meaningful to behold,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHAG-NYID THUG-KAR DOR-JE DRIL-BU-DZIN</div>
+      <div class="eng">Holding a vajra and bell at his heart.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DAG-LA GYE-PA'I ZHYIN-GYIS SHI-WAR-GZHIG</div>
+      <div class="eng">Looking upon me with love and a smiling countenance,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DZAM-LING SHEN-PA'I CHEN-POR MA-RUNG-PA</div>
+      <div class="eng">The great savior of the world, beyond compare.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">seven-branch prayer &amp; supplication</div>
+    <div class="verse">
+      <div class="phon">GO-SUM GÜ-PA'I GO-NAS CHAG-TSHAL-LO</div>
+      <div class="eng">Homage with devotion of body, speech, and mind.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHÖ-PA CHEN-PO NAM-KHA'I KHANG-PAR-BUL</div>
+      <div class="eng">Great offerings filling the expanse of space I present.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">THOG-MED NAS-SOK DIG-PA THAM-CHED SHAK</div>
+      <div class="eng">All negative actions committed since beginningless time I confess.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">GE-WA THAM-CHED LA-NI YI-RANG-DO</div>
+      <div class="eng">In all virtue and merit I rejoice.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHÖ-KYI KHOR-LO KOR-WAR GÖL-WA-DE</div>
+      <div class="eng">I beseech you to turn the wheel of Dharma.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">MYA-NGAN MI-DA BZHUK-SU SÖL-WA-DE</div>
+      <div class="eng">I pray you remain in the world without passing into Nirvana.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">GE-WA THAM-CHED JANG-CHUB CHEN-POR-NO</div>
+      <div class="eng">All virtue I dedicate to supreme enlightenment.</div>
+    </div>
+
+    <div class="mantra">
+      <div class="phon">KARMAPA KHYENNO</div>
+      <div class="eng">Karmapa, know me — recited as many times as possible</div>
+    </div>
+
+    <div class="verse">
+      <div class="phon">LA-MA'I NAY-SUM YI-GE SUM-LAS-NI</div>
+      <div class="eng">From the three places of the Guru, the three syllables radiate:</div>
+    </div>
+    <div class="verse">
+      <div class="phon">Ö-ZER KAR-MAR THING-SUM CHUNG-NAS-SU</div>
+      <div class="eng">White, red, and blue lights emerge,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DAG-GI NAY-SUM THIM-PAS DRIB-PA-BYANG</div>
+      <div class="eng">Dissolving into my three places, purifying all obscurations.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">KU-GUNG-THUG-KYI JIN-LAB THOB-PAR-GYUR</div>
+      <div class="eng">I receive the blessings of his Body, Speech, and Mind.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">LA-MA O-SHU DAG-LA THIM-PA-YIS</div>
+      <div class="eng">The Guru melts into light and merges into me,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">YER-MED CHÖ-KYI KU-RU DRUB-PAR-GYUR</div>
+      <div class="eng">Becoming inseparable in the Dharmakaya.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">part two · compassion</div>
+    <h2>The Chenrezig Sadhana</h2>
+    <div class="tib-h">For the Benefit of All Beings</div>
+
+    <div class="verse">
+      <div class="phon">DAG-SOG KHA-KHYAB SEM-CHAN THAM-CHED-KYI</div>
+      <div class="eng">Atop the head of myself and all sentient beings throughout space,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHI-WOR PE-MA DA-WA'I TENG-NYID-DU</div>
+      <div class="eng">Upon a white lotus and a moon disc,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">HRIH-LAS PHAG-PA CHEN-RE-ZIG-WANG-NYID</div>
+      <div class="eng">From the syllable HRIH appears the Noble Chenrezig,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">KAR-SAL Ö-ZER NGA-LDAN CHOR-CHAK-DZE</div>
+      <div class="eng">Brilliant white, radiating five-colored light, handsome and smiling,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">ZHAY-DZUM CHEN-GYIS DRO-LA ZIG-PA-NYID</div>
+      <div class="eng">Gazing upon all beings with compassionate eyes.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHAG-BHI DANG-PO THUG-KAR SBYAR-WA-NYID</div>
+      <div class="eng">Of his four hands, the first two are joined at his heart.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">WANG-MA SHE-SHEL YEY-PAS SHEL-THRENG-DZIN</div>
+      <div class="eng">The lower right holds a crystal rosary, the lower left holds a lotus.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DAR-DANG RIN-CHEN GYEN-GYI DZE-PA-NYID</div>
+      <div class="eng">Adorned with silk garments and precious jewel ornaments,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">RI-DVAG MERO'I SHAM-THAB CHÖR-TEN-DZIN</div>
+      <div class="eng">Wearing an antelope skin over his shoulder,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">Ö-DPAG-MED-PA'I U-GYEN DZE-PA-NYID</div>
+      <div class="eng">Crowned with Amitabha, the Buddha of Boundless Light.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">ZHAB-NYID KYIL-KRUNG DRUNG-DU BZHUK-PA-NYID</div>
+      <div class="eng">His two feet are crossed in the full lotus posture,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DRI-MED DA-WA'I GYAB-YÖL CHOR-CHAR-LDAN</div>
+      <div class="eng">Backed by a spotless moon as a backrest.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">KYAB-NE KÜ-DÜ NGO-WO BZHUK-PAR-GYUR</div>
+      <div class="eng">He rests as the essence uniting all places of refuge.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">praise · mantra · dedication</div>
+    <div class="verse">
+      <div class="phon">JOM-LDAN CHEN-RE-ZIG-LA CHAG-TSHAL-LO</div>
+      <div class="eng">Homage to Avalokiteshvara, Lord of Compassion:</div>
+    </div>
+    <div class="verse">
+      <div class="phon">MA-THOK YÖN-TEN GYI-KYI KU-DOK KAR</div>
+      <div class="eng">Unsullied by fault, white in color,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DZOG-SANG-GYE-KYIS U-LA GYEN</div>
+      <div class="eng">Your head adorned with a perfect Buddha,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">THUG-JE'I CHEN-GYIS DRO-LA ZIG</div>
+      <div class="eng">Gazing upon beings with eyes of compassion,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHEN-RE-ZIG-LA CHAG-TSHAL-LO</div>
+      <div class="eng">To you, Chenrezig, I pay homage and bow. (3x)</div>
+    </div>
+
+    <div class="mantra">
+      <div class="phon">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ</div>
+      <div class="eng">OM MANI PADME HUM — recited continuously, lights radiating to purify all six realms</div>
+    </div>
+
+    <div class="verse">
+      <div class="phon">DAG-DANG ZHEN-GYI LÜ-SNANG CHEN-RE-ZIG</div>
+      <div class="eng">Forms and bodies appear as Chenrezig,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DRA-GRAG THAM-CHED YI-GE DRUG-PA'I SNGAG</div>
+      <div class="eng">All sounds are the six-syllable mantra,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DREN-RTOG THAM-CHED YESHE CHEN-POR-GYUR</div>
+      <div class="eng">All thoughts and mental movements are the vast primordial wisdom.</div>
+    </div>
+    <div class="verse">
+      <div class="phon">GE-WA DI-YIS NYUR-DU DAG</div>
+      <div class="eng">By this merit, may I quickly</div>
+    </div>
+    <div class="verse">
+      <div class="phon">CHEN-RE-ZIG-WANG DRUB-GYUR-NAS</div>
+      <div class="eng">Accomplish the state of Chenrezig,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DRO-WA CHIG-KYANG MA-LÜ-PA</div>
+      <div class="eng">And establish every single living being,</div>
+    </div>
+    <div class="verse">
+      <div class="phon">DE-YI SA-LA GÖ-PAR-SHOG</div>
+      <div class="eng">Without exception, in that same enlightened state.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">the honest note</div>
+    <div class="note"><strong>Compassion, and the guru.</strong> Chenrezig is the peaceful form; Mahakala is the same compassion, turned fierce — the protector who refuses to let harm pass. The Karmapa is the guru who holds the lineage between them. One compassion, two faces, and the guru who carries it. The sadhana is the practice; the protector is the vow. For the benefit of all beings.</div>
+    <div class="note" style="text-align:center;font-style:italic">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ — the jewel is in the lotus.</div>
+  </section>
+
+  <div class="colophon">
+    CHENREZIG &amp; KARMAPA · the sadhanas of the kagyu · seated in phonetics &amp; english<br>
+    peterl · pocoo sovereign library · 0 + 1 · {&lt;3,&lt;3,&lt;3}+1 · fine touch from within · vaked.dev
+  </div>
+
+</main>
+</body>
+</html>
