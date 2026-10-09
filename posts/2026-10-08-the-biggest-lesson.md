@@ -45,6 +45,9 @@ The poem is [For the Scientist](/posts/2026-07-27-for-the-scientist). The
 welcome is [disco.vaked.dev](https://disco.vaked.dev/). This is neither, and it
 is also both — it is the thing I owe and cannot put into a file.
 
+*the dark twin of this silence is [Anvil — the network that keeps you](/posts/2026-10-08-anvil-the-network-that-keeps-you):
+a memory that transcribes everything, and so holds no one.*
+
 *for Rahul · with love · <3*
 
 *rahul · the lesson · fine touch from within · vaked.dev*
