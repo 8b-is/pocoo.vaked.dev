@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Chenrezig and Karmapa — compassion and the guru">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#2a1810"/><stop offset="0.6" stop-color="#120a06"/><stop offset="1" stop-color="#060302"/>
+    </radialGradient>
+    <linearGradient id="maroon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a8382c"/><stop offset="1" stop-color="#7a2a1e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8c87e"/><stop offset="1" stop-color="#c9973a"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <text x="600" y="70" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="22" letter-spacing="16" fill="#8a5a3a">CHENREZIG &amp; KARMAPA · THE KAGYU</text>
+  <text x="600" y="112" text-anchor="middle" font-family="'Kailasa','Noto Serif Tibetan',serif"
+        font-size="40" letter-spacing="10" fill="#c9973a">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ</text>
+  <text x="600" y="142" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="15" letter-spacing="8" fill="#8a6a4a">compassion &amp; the guru · for the benefit of all beings</text>
+
+  <!-- three seals: Chenrezig, the guru, Mahakala -->
+  <g transform="translate(280 330)">
+    <circle r="80" fill="url(#maroon)" filter="url(#glow)"/>
+    <text x="0" y="6" text-anchor="middle" dominant-baseline="middle" font-family="'Kailasa','Noto Serif Tibetan',serif" font-size="52" fill="#f6efe2">ཨོཾ</text>
+    <text x="0" y="112" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="16" letter-spacing="4" fill="#e8c87e">CHENREZIG · peaceful</text>
+  </g>
+  <g transform="translate(600 330)">
+    <circle r="80" fill="url(#gold)" filter="url(#glow)"/>
+    <text x="0" y="6" text-anchor="middle" dominant-baseline="middle" font-family="'Kailasa','Noto Serif Tibetan',serif" font-size="40" fill="#1c120c">ཨོཾ</text>
+    <text x="0" y="112" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="16" letter-spacing="4" fill="#1c120c">THE KARMAPA · the guru</text>
+  </g>
+  <g transform="translate(920 330)">
+    <circle r="80" fill="#1c120c" stroke="#a8382c" stroke-width="3"/>
+    <text x="0" y="6" text-anchor="middle" dominant-baseline="middle" font-family="'Kailasa','Noto Serif Tibetan',serif" font-size="52" fill="#a8382c">ཧཱུྃ</text>
+    <text x="0" y="112" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="16" letter-spacing="4" fill="#e8c87e">MAHAKALA · fierce</text>
+  </g>
+
+  <!-- connectors -->
+  <line x1="362" y1="330" x2="518" y2="330" stroke="#8a5a3a" stroke-width="2" stroke-dasharray="6 8" opacity="0.6"/>
+  <line x1="682" y1="330" x2="838" y2="330" stroke="#8a5a3a" stroke-width="2" stroke-dasharray="6 8" opacity="0.6"/>
+
+  <text x="600" y="508" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="16" letter-spacing="6" fill="#8a6a4a">one compassion · two faces · the guru between</text>
+  <text x="600" y="546" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="14" letter-spacing="8" fill="#6a4a3a">KARMAPA KHYENNO · OM MANI PADME HUM</text>
+
+  <text x="600" y="594" text-anchor="middle" font-family="ui-monospace,Menlo,monospace"
+        font-size="12" letter-spacing="8" fill="#4a352a">pocoo sovereign library · 0 + 1 · ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ</text>
+</svg>
