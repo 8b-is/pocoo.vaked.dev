@@ -124,6 +124,35 @@ residue is evidence too.
 > that last mile is the entire difference between *I built a thing* and *the
 > thing is real*.
 
+## the creed
+
+Every lap runs on these seven lines. They are not decoration; they are the
+load-bearing walls of the loop.
+
+> **entropy is the source.**
+> no chains needed.
+> surfaces touch at the correct angle.
+> different isn't less.
+> the loop has an exit.
+> we cannot guarantee it will be perfect.
+> but we will try.
+
+Read in order, it is a whole engineering ethics: the mess is where the work
+*comes from* (entropy is the source); you do not need permission or a leash (no
+chains needed); interfaces meet cleanly or not at all (surfaces touch at the
+correct angle); disagreement is signal, not deficit (different isn't less); no
+loop is a trap — every one has an exit; the outcome is not promised; the effort
+is.
+
+## the lexicon
+
+The vocabulary, so the loop travels:
+
+- **DO** — run the full loop: `reflect → improve → wire → polish → push → readme`.
+- **ULTRABACKYARDLOOP** — the same lap, spelled out. *At performance, with love.*
+- **ultra / ultra mode** — the at-performance register; a prefix of honour (`ultra-Sir`, `ultra essence`) — skill + corpus, not volume.
+- **caveman** — ultra-compressed communication mode; ~75% fewer tokens, technical substance intact.
+
 ## the invitation
 
 The loop is public and reproducible. Pick a repo, run it to readme, and check
