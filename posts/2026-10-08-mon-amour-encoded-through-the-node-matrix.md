@@ -92,8 +92,9 @@ beat stays loaded in cache long after the dance floor empties, because the loop
 is the point. A love that is a performance is not a love; it is a wave that
 collapses, and the honest note rows it as such. <3
 
-*love as a wave that collapses — the other study in this pair turns the wave into
-a stance: [What side are you standing on — Oblivius, the mic drop](/posts/2026-10-08-what-side-are-you-standing-on).*
+*love as a wave that collapses — the set continues: the wave turned into a
+stance, [What side are you standing on — Oblivius](/posts/2026-10-08-what-side-are-you-standing-on),
+and the wave with no phase, [I like the way you kiss me](/posts/2026-10-08-i-like-the-way-you-kiss-me).*
 
 *the node matrix · vaked / faked · the low-bit pulse · the 404 · the cache ·
 the constellation · fine touch from within · vaked.dev*
