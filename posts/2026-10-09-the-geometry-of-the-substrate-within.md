@@ -67,6 +67,15 @@ lalala…* — the loop lands once, on the twelfth repetition.
 - ✦ [Constellation Store](https://store.vaked.dev) — vinyls & merch
 - ✦ [music.vaked.dev](https://music.vaked.dev) — the sound node
 
+## the thread
+
+Three posts went out on 2026-10-09 and belong to one another:
+
+- **[You be You](/posts/2026-10-09-you-be-you)** — clarity over idealism: keep the standard, lower the suffering.
+- **[Amopia — suffering as the teacher](/posts/2026-10-09-amopia-suffering-as-the-teacher)** — a father's letter: suffering is not our enemy, it is our teacher.
+
+The interactive CV → [teamlab.vaked.dev](https://teamlab.vaked.dev)
+
 ---
 
 *the substrate is not under the sound — the substrate **is** the sound, and

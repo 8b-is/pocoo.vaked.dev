@@ -104,6 +104,15 @@ credit and without edits.
   suffering, if we let it, can be our greatest teacher."* — endorsed by Guy
   Finley.
 
+## the thread
+
+Three posts went out on 2026-10-09 and belong to one another:
+
+- **[You be You](/posts/2026-10-09-you-be-you)** — clarity over idealism: keep the standard, lower the suffering.
+- **[The Geometry of the Substrate Within](/posts/2026-10-09-the-geometry-of-the-substrate-within)** — the AudioKit track that carried the day: 432–436 Hz theta, the 528 Hz God Particle.
+
+The music line → [music.vaked.dev](https://music.vaked.dev)
+
 ---
 
 *the heart's vision is infinitely brighter than the eyes can perceive · the
