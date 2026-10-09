@@ -194,6 +194,12 @@ git clone https://github.com/peterlodri-sec/burn-em-bitches-money && cd burn-em-
 
 [View the Sovereign Library →](https://pocoo.vaked.dev/demos/book/)
 
+The standalone **`book/` library** — 76 self-contained manuscripts (THE WHALE
+LAYER, MARLEY, THE MEDITATION BOOK, …) — is indexed at
+[`/book/`](https://pocoo.vaked.dev/book/). The index is regenerated on every
+build by `scripts/gen-book-index.mjs` (`npm run book-index`), so a new book is
+never an orphan surface.
+
 ---
 
 ## IN MEMORY OF AARON SWARTZ · 1986–2013

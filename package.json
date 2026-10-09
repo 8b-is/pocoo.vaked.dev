@@ -6,7 +6,8 @@
   "description": "Personal blog at pocoo.vaked.dev",
   "scripts": {
     "og": "python3 scripts/generate_og_images.py",
-    "build": "python3 scripts/generate_og_images.py && node build.mjs"
+    "book-index": "node scripts/gen-book-index.mjs",
+    "build": "python3 scripts/generate_og_images.py && node scripts/gen-book-index.mjs && node build.mjs"
   },
   "dependencies": {
     "markdown-it": "^15.0.2",
