@@ -9,7 +9,7 @@
     "build": "python3 scripts/generate_og_images.py && node build.mjs"
   },
   "dependencies": {
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^15.0.2",
     "markdown-it-mathjax3": "^4.3.2"
   }
 }
