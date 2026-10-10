@@ -1,7 +1,7 @@
 ---
 title: "The loop shipped. Here's what it produced."
 date: 2026-06-25
-tags: [kompress, loop-engineering, research, iclr, compression, paradox]
+tags: [kompress, loop-engineering, research, open-science, compression, paradox]
 description: "We closed the loop. 17 models, 8 teachers, 4 architectures, $38.95 total. The manuscript is written, the baselines are run, the paradox is proven, the fix works."
 draft: false
 ---
@@ -12,7 +12,7 @@ We closed the loop. 17 models, 8 teachers, 4 architectures, $38.95 total. The ma
 
 ## What we built
 
-- An ICLR 2027 manuscript proving the Voting Ensemble Paradox
+- An open-science manuscript proving the Voting Ensemble Paradox
 - [kompress-v8](https://huggingface.co/PeetPedro/kompress-v8): a production compression model (0.955 heretic exact, 1.000 agent mk_in_ref with override)
 - [LoopKit](https://github.com/peterlodri-sec/loopkit) — a loop-experiment-researcher template so anyone can scaffold from here
 - Interactive docs, a Colab notebook, a Telegram bot with council, an MCP-ready evaluation server

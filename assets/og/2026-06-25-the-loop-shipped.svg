@@ -57,8 +57,8 @@
         </g>
         
         <g transform="translate(426, 115)">
-            <rect width="60" height="26" rx="13" fill="hsla(214, 100%, 50%, 0.12)" stroke="hsl(214, 90%, 65%)" stroke-opacity="0.6" stroke-width="1" />
-            <text x="30.0" y="17" fill="hsl(214, 90%, 65%)" font-family="ui-monospace, monospace" font-size="12" font-weight="600" text-anchor="middle">#iclr</text>
+            <rect width="110" height="26" rx="13" fill="hsla(214, 100%, 50%, 0.12)" stroke="hsl(214, 90%, 65%)" stroke-opacity="0.6" stroke-width="1" />
+            <text x="55.0" y="17" fill="hsl(214, 90%, 65%)" font-family="ui-monospace, monospace" font-size="12" font-weight="600" text-anchor="middle">#openscience</text>
         </g>
         
 

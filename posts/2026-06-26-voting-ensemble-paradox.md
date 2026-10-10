@@ -1,7 +1,7 @@
 ---
 title: "the voting ensemble paradox — resolved"
 date: 2026-06-26
-tags: [kompress, ensemble, loop-engineering, open-science, iclr]
+tags: [kompress, ensemble, loop-engineering, open-science]
 description: "You build an ensemble of compression models, each fine-tuned from different checkpoints. You expect the ensemble to be better. It's worse. That's the voting ensemble paradox — formalized, proven, and fixed."
 draft: false
 ---
@@ -101,15 +101,18 @@ at 33% C3 ratio.
 ## Open science
 
 The interactive paper is live at **[kompress.vaked.dev](https://kompress.vaked.dev)** —
-WebGL neural field background, live paradox simulation, baseline comparison.
+a live WebGL neural field over the whole page, the manuscript at `/paper.html`,
+and the paradox simulator at [`/notebook/`](https://kompress.vaked.dev/notebook/).
 
-- **Paper PDF:** [peterlodri-sec.github.io/longrun-eval-kompress/paper/main.pdf](https://peterlodri-sec.github.io/longrun-eval-kompress/paper/main.pdf)
-- **GitHub:** [github.com/peterlodri-sec/longrun-eval-kompress](https://github.com/peterlodri-sec/longrun-eval-kompress)
+- **Paper PDF:** [kompress.vaked.dev/paper/main.pdf](https://kompress.vaked.dev/paper/main.pdf)
+- **GitHub:** [github.com/8b-is/longrun-eval-kompress](https://github.com/8b-is/longrun-eval-kompress)
 - **Model:** [huggingface.co/PeetPedro/kompress-v8](https://huggingface.co/PeetPedro/kompress-v8)
-- **All 18 models:** [huggingface.co/PeetPedro](https://huggingface.co/PeetPedro)
+- **All models:** [huggingface.co/PeetPedro](https://huggingface.co/PeetPedro)
 - **Experiment logs:** [pocoo.vaked.dev](https://pocoo.vaked.dev)
 
-ICLR 2027 submission. All code, data, models open source.
+An open-science manuscript: all code, data and models are open source. It has
+**not** been submitted to a venue — the addendum below explains why that
+sentence had to be written.
 
 ---
 
@@ -120,6 +123,30 @@ The whole thing cost less than a conference registration.
 
 **Label quality is the bottleneck**, not model capacity or data quantity.
 **Loop engineering works.** The loop shipped.
+
+## 2026-10-10 — what changed since this post
+
+- **The venue claim is gone.** This manuscript was never submitted to ICLR 2027 —
+  but the repo stated it as fact in the README, the Hugging Face card *and the
+  script that generates it*, the wiki, the announcement drafts and `CITATION.cff`.
+  Anyone citing the BibTeX would have been citing a venue the work never entered.
+  All of it now says *open science, target venue ICLR 2027, not yet submitted*.
+- **The site was redrawn, and the host surprised us.** `kompress.vaked.dev` is now
+  a live WebGL2 field — domain-warped noise, luminous filaments, a cursor bloom —
+  under glass typography. It is served by **GitHub Pages** from this repo, not a
+  Cloudflare Worker: a Worker route had been deployed against the domain and never
+  saw a single request, because the DNS was never proxied. `/paper/` and
+  `/paper.html` also now serve the same document instead of diverging copies.
+- **A second paper landed.** [KOMPRESS v2 — Geometric-Mean Consensus Distillation
+  & Spectral Rigidity for Edge Reasoning](https://github.com/peterlodri-sec/kompress-ultra/blob/main/paper/main_v2.pdf),
+  with its companion manifesto [The Attentive Order](https://github.com/peterlodri-sec/kompress-ultra/blob/main/paper/the-attentive-order.md),
+  both in [`kompress-ultra`](https://github.com/peterlodri-sec/kompress-ultra).
+- **The repo moved** to [`8b-is/longrun-eval-kompress`](https://github.com/8b-is/longrun-eval-kompress).
+- **The finding did not change.** 0.955 heretic-exact at 15% compression, the
+  paradox proved and fixed, 11 of 17 versions published as dead ends. This
+  addendum is about paperwork and paint, not results.
+
+---
 
 — peter
 
