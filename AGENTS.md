@@ -10,8 +10,8 @@ stays empty, and the live URL 404s. Nothing errors. That is the trap.
 
 | remote | repo | role |
 |---|---|---|
-| `origin` | `8b-is/pocoo.vaked.dev` | **canonical — push here** |
-| `fork` | `peterlodri-sec/pocoo.vaked.dev` | mirror; pushing here does not publish |
+| `origin` | `peterlodri-sec/pocoo.vaked.dev` | **canonical — push here; this is what Pages builds from** |
+| `org` | `8b-is/pocoo.vaked.dev` | mirror; pushing here does **not** publish |
 
 **If a change is not live, check which remote you pushed to before rebuilding
 anything.** Verify the effect, not the invocation:
@@ -20,9 +20,20 @@ anything.** Verify the effect, not the invocation:
 wrangler pages deployment list --project-name pocoo-vaked-dev   # is my SHA there?
 ```
 
-*(Canonical-by-assertion: this table states where pushes should go. Which repo
-Pages actually watches was tested on 2026-10-11 — see the note at the bottom of
-this file once that test settles.)*
+### how this was established (2026-10-11)
+
+Not from a config screen — **by test**, because two people disagreed about it
+and one of them was guessing:
+
+| pushed to | watched for | result |
+|---|---|---|
+| `8b-is/pocoo.vaked.dev` | 2 min, 6 polls | **no build. ever.** |
+| `peterlodri-sec/pocoo.vaked.dev` | 20 s | **build triggered** |
+
+Same commit, same branch, two remotes, opposite outcomes — and the failing one
+reports `git push` success and prints a cheerful ref update. The failure is
+silent by construction.
+
 
 
 ## Publish pipeline (draft → live post)
