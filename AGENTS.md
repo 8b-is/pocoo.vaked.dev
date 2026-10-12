@@ -2,6 +2,29 @@
 
 > **Static blog at pocoo.vaked.dev** — custom Node builder (`build.mjs`) → `dist/` → Cloudflare Pages (git integration on `main`).
 
+## remotes — push to the ONE that publishes
+
+Pages is **git-integrated**: it builds from exactly one repo. A push to any
+other remote is **silent** — `git push` reports success, the deployment list
+stays empty, and the live URL 404s. Nothing errors. That is the trap.
+
+| remote | repo | role |
+|---|---|---|
+| `origin` | `8b-is/pocoo.vaked.dev` | **canonical — push here** |
+| `fork` | `peterlodri-sec/pocoo.vaked.dev` | mirror; pushing here does not publish |
+
+**If a change is not live, check which remote you pushed to before rebuilding
+anything.** Verify the effect, not the invocation:
+
+```bash
+wrangler pages deployment list --project-name pocoo-vaked-dev   # is my SHA there?
+```
+
+*(Canonical-by-assertion: this table states where pushes should go. Which repo
+Pages actually watches was tested on 2026-10-11 — see the note at the bottom of
+this file once that test settles.)*
+
+
 ## Publish pipeline (draft → live post)
 
 Posts are long-form markdown in `posts/YYYY-MM-DD-slug.md`. The source drafts
