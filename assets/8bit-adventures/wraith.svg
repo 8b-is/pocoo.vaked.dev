@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#122018" stroke-width="0.75" stroke-opacity="0.6"/>
+    </pattern>
+    <radialGradient id="glow-ice" cx="26%" cy="46%" r="42%">
+      <stop offset="0%" stop-color="#9fd8e8" stop-opacity="0.16"/>
+      <stop offset="60%" stop-color="#9fd8e8" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#9fd8e8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-violet" cx="64%" cy="48%" r="42%">
+      <stop offset="0%" stop-color="#b98cc0" stop-opacity="0.24"/>
+      <stop offset="60%" stop-color="#b98cc0" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#b98cc0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frame-stroke" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#b98cc0" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#4a4260" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#9fd8e8" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background and Base Grids -->
+  <rect width="800" height="600" fill="#0b0a12"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- Two Soft Ambient Glows -->
+  <rect width="800" height="600" fill="url(#glow-ice)"/>
+  <rect width="800" height="600" fill="url(#glow-violet)"/>
+
+  <!-- Outer Frame -->
+  <rect x="14" y="14" width="772" height="572" rx="12" fill="none" stroke="url(#frame-stroke)" stroke-width="1.5"/>
+
+  <!-- Header and Metadata Labels -->
+  <text x="48" y="58" font-family="'SF Mono', ui-monospace, monospace" font-size="12" letter-spacing="3px" fill="#cfc9dd">WRAITH</text>
+  <text x="48" y="78" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">SEEKS</text>
+  <text x="752" y="58" text-anchor="end" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">VECTOR / LOSS MATRIX</text>
+  <text x="752" y="556" text-anchor="end" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">800 X 600 · 02</text>
+
+  <!-- Faint Concentric Arcs Suggesting Great Distance (Origin at 720, 270) -->
+  <g stroke="#4a4260" stroke-width="0.75" fill="none">
+    <path d="M 720,160 A 110 110 0 0 0 610,270 A 110 110 0 0 0 720,380" stroke-opacity="0.4"/>
+    <path d="M 720,100 A 170 170 0 0 0 550,270 A 170 170 0 0 0 720,440" stroke-opacity="0.35" stroke-dasharray="4 6"/>
+    <path d="M 720,30 A 240 240 0 0 0 480,270 A 240 240 0 0 0 720,510" stroke-opacity="0.3"/>
+    <path d="M 720,-50 A 320 320 0 0 0 400,270 A 320 320 0 0 0 720,590" stroke-opacity="0.25" stroke-dasharray="2 8"/>
+    <path d="M 720,-140 A 410 410 0 0 0 310,270 A 410 410 0 0 0 720,680" stroke-opacity="0.25"/>
+    <path d="M 720,-240 A 510 510 0 0 0 210,270 A 510 510 0 0 0 720,780" stroke-opacity="0.2" stroke-dasharray="1 6"/>
+    <path d="M 720,-350 A 620 620 0 0 0 100,270 A 620 620 0 0 0 720,890" stroke-opacity="0.18"/>
+
+    <!-- Distant Celestial / Telemetry Range Rays -->
+    <line x1="720" y1="270" x2="80" y2="190" stroke-opacity="0.2" stroke-dasharray="3 10"/>
+    <line x1="720" y1="270" x2="80" y2="350" stroke-opacity="0.2" stroke-dasharray="3 10"/>
+    <line x1="720" y1="270" x2="160" y2="470" stroke-opacity="0.15" stroke-dasharray="2 12"/>
+  </g>
+
+  <!-- The Wraith Figure: In Motion, Looking Outward -->
+  <!-- Solid Right Profile & Forward Stride (Violet #b98cc0) -->
+  <g>
+    <!-- Solid Leading Edge Paths & Translucent Facets -->
+    <path d="M 505 186 C 522 184, 538 192, 542 205 C 546 215, 542 225, 535 232 L 522 238" fill="none" stroke="#b98cc0" stroke-width="1.5"/>
+    <polygon points="510,192 538,205 524,232 505,215" fill="#b98cc0" fill-opacity="0.22" stroke="#b98cc0" stroke-width="1"/>
+
+    <!-- Gaze / Visor Line Looking Outward -->
+    <line x1="532" y1="205" x2="544" y2="205" stroke="#e8d9a6" stroke-width="1.25"/>
+    <circle cx="540" cy="205" r="1.5" fill="#e8d9a6"/>
+
+    <!-- Torso and Leading Edge Silhouette -->
+    <path d="M 535 232 C 555 258, 568 290, 574 330 C 580 375, 578 425, 568 475 C 560 505, 548 528, 536 544" fill="none" stroke="#b98cc0" stroke-width="1.5"/>
+    <path d="M 522 238 C 538 270, 546 310, 550 350 C 554 400, 548 450, 532 500" fill="none" stroke="#b98cc0" stroke-width="1"/>
+
+    <!-- Outward Reaching Arm / Vector -->
+    <path d="M 540 252 C 564 266, 592 280, 620 292" fill="none" stroke="#b98cc0" stroke-width="1.5"/>
+    <path d="M 545 264 C 568 276, 592 290, 616 300" fill="none" stroke="#b98cc0" stroke-width="0.75"/>
+    <line x1="620" y1="292" x2="660" y2="292" stroke="#e8d9a6" stroke-width="0.75" stroke-opacity="0.7"/>
+
+    <!-- Forward Panels -->
+    <polygon points="535,232 574,330 550,350 522,238" fill="#b98cc0" fill-opacity="0.18" stroke="#b98cc0" stroke-width="0.75"/>
+    <polygon points="550,350 574,330 578,425 544,425" fill="#b98cc0" fill-opacity="0.14" stroke="#b98cc0" stroke-width="0.75"/>
+    <polygon points="544,425 578,425 568,475 528,475" fill="#b98cc0" fill-opacity="0.12" stroke="#b98cc0" stroke-width="0.75"/>
+
+    <!-- Forward Dynamic Velocity Ticks -->
+    <line x1="574" y1="330" x2="630" y2="330" stroke="#b98cc0" stroke-width="0.75" stroke-opacity="0.4" stroke-dasharray="3 3"/>
+    <line x1="568" y1="475" x2="615" y2="475" stroke="#b98cc0" stroke-width="0.75" stroke-opacity="0.3" stroke-dasharray="2 4"/>
+  </g>
+
+  <!-- Horizontal Motion & Telemetry Lines Trailing Left -->
+  <g stroke="#b98cc0" stroke-width="0.75" stroke-opacity="0.3">
+    <line x1="160" y1="205" x2="505" y2="205" stroke-dasharray="8 12"/>
+    <line x1="180" y1="252" x2="520" y2="252" stroke-dasharray="12 16"/>
+    <line x1="140" y1="292" x2="490" y2="292" stroke-dasharray="6 10"/>
+    <line x1="190" y1="330" x2="530" y2="330" stroke-dasharray="14 18"/>
+    <line x1="150" y1="380" x2="510" y2="380" stroke-dasharray="8 14"/>
+    <line x1="200" y1="425" x2="520" y2="425" stroke-dasharray="10 16"/>
+    <line x1="170" y1="475" x2="500" y2="475" stroke-dasharray="6 12"/>
+    <line x1="220" y1="520" x2="510" y2="520" stroke-dasharray="4 8"/>
+  </g>
+
+  <!-- Dissolution Toward the Left: Scattered Small Squares (Dither / Signal Loss) -->
+  <!-- Zone 1 (x: 470 - 505): Dense dissolution boundary -->
+  <g fill="#b98cc0">
+    <rect x="495" y="196" width="6" height="6" opacity="0.9"/>
+    <rect x="484" y="208" width="5" height="5" opacity="0.85"/>
+    <rect x="492" y="220" width="6" height="6" opacity="0.9"/>
+    <rect x="500" y="235" width="5" height="5" opacity="0.85"/>
+    <rect x="488" y="248" width="6" height="6" opacity="0.9"/>
+    <rect x="478" y="260" width="5" height="5" opacity="0.8"/>
+    <rect x="498" y="274" width="6" height="6" opacity="0.85"/>
+    <rect x="485" y="288" width="5" height="5" opacity="0.8"/>
+    <rect x="502" y="302" width="6" height="6" opacity="0.9"/>
+    <rect x="490" y="316" width="5" height="5" opacity="0.85"/>
+    <rect x="478" y="328" width="6" height="6" opacity="0.8"/>
+    <rect x="504" y="342" width="6" height="6" opacity="0.9"/>
+    <rect x="492" y="356" width="5" height="5" opacity="0.85"/>
+    <rect x="480" y="370" width="6" height="6" opacity="0.8"/>
+    <rect x="500" y="384" width="6" height="6" opacity="0.85"/>
+    <rect x="486" y="398" width="5" height="5" opacity="0.8"/>
+    <rect x="496" y="412" width="6" height="6" opacity="0.85"/>
+    <rect x="482" y="426" width="5" height="5" opacity="0.8"/>
+    <rect x="498" y="440" width="6" height="6" opacity="0.85"/>
+    <rect x="486" y="454" width="5" height="5" opacity="0.8"/>
+    <rect x="492" y="468" width="6" height="6" opacity="0.85"/>
+    <rect x="478" y="482" width="5" height="5" opacity="0.75"/>
+    <rect x="494" y="496" width="6" height="6" opacity="0.85"/>
+    <rect x="482" y="510" width="5" height="5" opacity="0.75"/>
+    <rect x="490" y="524" width="6" height="6" opacity="0.8"/>
+  </g>
+
+  <!-- Zone 2 (x: 410 - 470): Medium-dense dither transition -->
+  <g fill="#b98cc0">
+    <rect x="460" y="198" width="4" height="4" opacity="0.75"/>
+    <rect x="446" y="212" width="5" height="5" opacity="0.7"/>
+    <rect x="465" y="226" width="4" height="4" opacity="0.75"/>
+    <rect x="432" y="240" width="5" height="5" opacity="0.65"/>
+    <rect x="454" y="254" width="4" height="4" opacity="0.7"/>
+    <rect x="468" y="268" width="5" height="5" opacity="0.75"/>
+    <rect x="440" y="282" width="4" height="4" opacity="0.65"/>
+    <rect x="458" y="296" width="5" height="5" opacity="0.7"/>
+    <rect x="424" y="310" width="4" height="4" opacity="0.6"/>
+    <rect x="450" y="324" width="5" height="5" opacity="0.7"/>
+    <rect x="466" y="338" width="4" height="4" opacity="0.75"/>
+    <rect x="436" y="352" width="5" height="5" opacity="0.65"/>
+    <rect x="462" y="366" width="4" height="4" opacity="0.7"/>
+    <rect x="444" y="380" width="5" height="5" opacity="0.65"/>
+    <rect x="426" y="394" width="4" height="4" opacity="0.6"/>
+    <rect x="456" y="408" width="5" height="5" opacity="0.7"/>
+    <rect x="470" y="422" width="4" height="4" opacity="0.75"/>
+    <rect x="438" y="436" width="5" height="5" opacity="0.65"/>
+    <rect x="460" y="450" width="4" height="4" opacity="0.7"/>
+    <rect x="442" y="464" width="5" height="5" opacity="0.65"/>
+    <rect x="428" y="478" width="4" height="4" opacity="0.6"/>
+    <rect x="454" y="492" width="5" height="5" opacity="0.7"/>
+    <rect x="440" y="506" width="4" height="4" opacity="0.65"/>
+    <rect x="462" y="520" width="5" height="5" opacity="0.7"/>
+    <rect x="448" y="534" width="4" height="4" opacity="0.6"/>
+  </g>
+
+  <!-- Zone 3 (x: 320 - 410): Expanding scatter and chromatic packets -->
+  <g fill="#b98cc0">
+    <rect x="395" y="210" width="4" height="4" opacity="0.55"/>
+    <rect x="372" y="228" width="4" height="4" opacity="0.5"/>
+    <rect x="390" y="246" width="4" height="4" opacity="0.55"/>
+    <rect x="354" y="264" width="4" height="4" opacity="0.45"/>
+    <rect x="382" y="282" width="4" height="4" opacity="0.5"/>
+    <rect x="336" y="300" width="4" height="4" opacity="0.4"/>
+    <rect x="370" y="318" width="4" height="4" opacity="0.5"/>
+    <rect x="398" y="336" width="4" height="4" opacity="0.55"/>
+    <rect x="348" y="354" width="4" height="4" opacity="0.45"/>
+    <rect x="386" y="372" width="4" height="4" opacity="0.5"/>
+    <rect x="328" y="390" width="4" height="4" opacity="0.4"/>
+    <rect x="364" y="408" width="4" height="4" opacity="0.5"/>
+    <rect x="392" y="426" width="4" height="4" opacity="0.55"/>
+    <rect x="340" y="444" width="4" height="4" opacity="0.4"/>
+    <rect x="378" y="462" width="4" height="4" opacity="0.5"/>
+    <rect x="356" y="480" width="4" height="4" opacity="0.45"/>
+    <rect x="388" y="498" width="4" height="4" opacity="0.5"/>
+    <rect x="366" y="516" width="4" height="4" opacity="0.45"/>
+  </g>
+
+  <!-- Ice blue dither chromatic accents in mid-field -->
+  <g fill="#9fd8e8">
+    <rect x="360" y="238" width="3" height="3" opacity="0.6"/>
+    <rect x="384" y="308" width="3" height="3" opacity="0.6"/>
+    <rect x="344" y="378" width="3" height="3" opacity="0.55"/>
+    <rect x="372" y="438" width="3" height="3" opacity="0.55"/>
+    <rect x="332" y="490" width="3" height="3" opacity="0.5"/>
+  </g>
+
+  <!-- Zone 4 (x: 220 - 320): Dispersing signal loss -->
+  <g fill="#b98cc0">
+    <rect x="298" y="222" width="3" height="3" opacity="0.4"/>
+    <rect x="274" y="248" width="3" height="3" opacity="0.35"/>
+    <rect x="306" y="276" width="3" height="3" opacity="0.4"/>
+    <rect x="252" y="304" width="3" height="3" opacity="0.3"/>
+    <rect x="288" y="332" width="3" height="3" opacity="0.35"/>
+    <rect x="236" y="360" width="3" height="3" opacity="0.28"/>
+    <rect x="278" y="388" width="3" height="3" opacity="0.35"/>
+    <rect x="312" y="416" width="3" height="3" opacity="0.4"/>
+    <rect x="264" y="444" width="3" height="3" opacity="0.32"/>
+    <rect x="294" y="472" width="3" height="3" opacity="0.35"/>
+    <rect x="246" y="500" width="3" height="3" opacity="0.28"/>
+  </g>
+
+  <!-- Zone 5 (x: 130 - 220): Distant faint trailing packets -->
+  <g fill="#b98cc0">
+    <rect x="204" y="242" width="2.5" height="2.5" opacity="0.25"/>
+    <rect x="176" y="278" width="2.5" height="2.5" opacity="0.2"/>
+    <rect x="212" y="318" width="2.5" height="2.5" opacity="0.25"/>
+    <rect x="154" y="356" width="2" height="2" opacity="0.18"/>
+    <rect x="192" y="394" width="2.5" height="2.5" opacity="0.22"/>
+    <rect x="168" y="432" width="2" height="2" opacity="0.18"/>
+    <rect x="208" y="468" width="2.5" height="2.5" opacity="0.22"/>
+    <rect x="180" y="508" width="2" height="2" opacity="0.18"/>
+  </g>
+</svg>

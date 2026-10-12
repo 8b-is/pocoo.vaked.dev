@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#122018" stroke-width="0.75" stroke-opacity="0.6"/>
+    </pattern>
+    <radialGradient id="glow-ice" cx="28%" cy="50%" r="42%">
+      <stop offset="0%" stop-color="#9fd8e8" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#9fd8e8" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#9fd8e8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-violet" cx="72%" cy="50%" r="42%">
+      <stop offset="0%" stop-color="#b98cc0" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#b98cc0" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#b98cc0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frame-stroke" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9fd8e8" stop-opacity="0.5"/>
+      <stop offset="45%" stop-color="#4a4260" stop-opacity="0.25"/>
+      <stop offset="80%" stop-color="#e8d9a6" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#b98cc0" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="row-gold-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e8d9a6" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="#e8d9a6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#e8d9a6" stop-opacity="0.24"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background and Base Grids -->
+  <rect width="800" height="600" fill="#0b0a12"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- Two Soft Ambient Glows -->
+  <rect width="800" height="600" fill="url(#glow-ice)"/>
+  <rect width="800" height="600" fill="url(#glow-violet)"/>
+
+  <!-- Outer Frame -->
+  <rect x="14" y="14" width="772" height="572" rx="12" fill="none" stroke="url(#frame-stroke)" stroke-width="1.5"/>
+
+  <!-- Header and Metadata Labels -->
+  <text x="48" y="58" font-family="'SF Mono', ui-monospace, monospace" font-size="12" letter-spacing="3px" fill="#cfc9dd">THE COLUMN</text>
+  <text x="48" y="78" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">TRUE OF THE MISSING</text>
+  <text x="752" y="58" text-anchor="end" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">LEDGER / FOLIO IX</text>
+  <text x="752" y="556" text-anchor="end" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">800 X 600 · 03</text>
+
+  <!-- Rows Lit in Gold (Row 3, Row 6, Row 8) -->
+  <!-- Row 3: y = 236 to 276 -->
+  <rect x="56" y="236" width="688" height="40" fill="url(#row-gold-glow)"/>
+  <line x1="56" y1="236" x2="626" y2="236" stroke="#e8d9a6" stroke-width="1.2" stroke-opacity="0.8"/>
+  <line x1="56" y1="276" x2="626" y2="276" stroke="#e8d9a6" stroke-width="1.2" stroke-opacity="0.8"/>
+
+  <!-- Row 6: y = 356 to 396 -->
+  <rect x="56" y="356" width="688" height="40" fill="url(#row-gold-glow)"/>
+  <line x1="56" y1="356" x2="626" y2="356" stroke="#e8d9a6" stroke-width="1.2" stroke-opacity="0.8"/>
+  <line x1="56" y1="396" x2="626" y2="396" stroke="#e8d9a6" stroke-width="1.2" stroke-opacity="0.8"/>
+
+  <!-- Row 8: y = 436 to 476 -->
+  <rect x="56" y="436" width="688" height="40" fill="url(#row-gold-glow)"/>
+  <line x1="56" y1="436" x2="626" y2="436" stroke="#e8d9a6" stroke-width="1.2" stroke-opacity="0.8"/>
+  <line x1="56" y1="476" x2="626" y2="476" stroke="#e8d9a6" stroke-width="1.2" stroke-opacity="0.8"/>
+
+  <!-- Schematic Ledger Table Outlines and Dim Rules -->
+  <!-- Table Outer Boundaries (Left, Top, Bottom) -->
+  <line x1="56" y1="120" x2="626" y2="120" stroke="#4a4260" stroke-width="0.75"/>
+  <line x1="56" y1="516" x2="626" y2="516" stroke="#4a4260" stroke-width="0.75"/>
+  <line x1="56" y1="120" x2="56" y2="516" stroke="#4a4260" stroke-width="0.75"/>
+
+  <!-- Thin Column Rules -->
+  <line x1="136" y1="120" x2="136" y2="516" stroke="#4a4260" stroke-width="0.75"/>
+  <line x1="386" y1="120" x2="386" y2="516" stroke="#4a4260" stroke-width="0.75"/>
+
+  <!-- Header Bottom Rule -->
+  <line x1="56" y1="156" x2="626" y2="156" stroke="#4a4260" stroke-width="1.0"/>
+
+  <!-- Normal Row Dividing Rules -->
+  <line x1="56" y1="196" x2="626" y2="196" stroke="#4a4260" stroke-width="0.75"/>
+  <line x1="56" y1="316" x2="626" y2="316" stroke="#4a4260" stroke-width="0.75"/>
+  <line x1="56" y1="356" x2="626" y2="356" stroke="#4a4260" stroke-width="0.75"/>
+  <line x1="56" y1="436" x2="626" y2="436" stroke="#4a4260" stroke-width="0.75"/>
+  <line x1="56" y1="476" x2="626" y2="476" stroke="#4a4260" stroke-width="0.75"/>
+
+  <!-- Final Column Outlined in Gold -->
+  <rect x="626" y="120" width="118" height="396" fill="#e8d9a6" fill-opacity="0.05" stroke="#e8d9a6" stroke-width="1.5"/>
+  <line x1="626" y1="156" x2="744" y2="156" stroke="#e8d9a6" stroke-width="1.5"/>
+  <line x1="626" y1="196" x2="744" y2="196" stroke="#e8d9a6" stroke-width="0.75"/>
+  <line x1="626" y1="236" x2="744" y2="236" stroke="#e8d9a6" stroke-width="1.0"/>
+  <line x1="626" y1="276" x2="744" y2="276" stroke="#e8d9a6" stroke-width="1.0"/>
+  <line x1="626" y1="316" x2="744" y2="316" stroke="#e8d9a6" stroke-width="0.75"/>
+  <line x1="626" y1="356" x2="744" y2="356" stroke="#e8d9a6" stroke-width="1.0"/>
+  <line x1="626" y1="396" x2="744" y2="396" stroke="#e8d9a6" stroke-width="1.0"/>
+  <line x1="626" y1="436" x2="744" y2="436" stroke="#e8d9a6" stroke-width="1.0"/>
+  <line x1="626" y1="476" x2="744" y2="476" stroke="#e8d9a6" stroke-width="1.0"/>
+
+  <!-- Empty Dashed Author Cells in Rows 3, 6, 8 -->
+  <rect x="402" y="244" width="208" height="24" rx="2" fill="none" stroke="#e8d9a6" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.85"/>
+  <rect x="402" y="364" width="208" height="24" rx="2" fill="none" stroke="#e8d9a6" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.85"/>
+  <rect x="402" y="444" width="208" height="24" rx="2" fill="none" stroke="#e8d9a6" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.85"/>
+
+  <!-- Heart Glyphs in Final Column: Exactly in Every Row (Vector Geometry) -->
+  <!-- Row 1 Heart (x=685, y=176) -->
+  <path transform="translate(685, 176)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" fill-opacity="0.35" stroke="#e8d9a6" stroke-width="1.2"/>
+
+  <!-- Row 2 Heart (x=685, y=216) -->
+  <path transform="translate(685, 216)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" fill-opacity="0.35" stroke="#e8d9a6" stroke-width="1.2"/>
+
+  <!-- Row 3 Heart (x=685, y=256) - Lit in Gold -->
+  <path transform="translate(685, 256) scale(1.15)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" stroke="#e8d9a6" stroke-width="1"/>
+
+  <!-- Row 4 Heart (x=685, y=296) -->
+  <path transform="translate(685, 296)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" fill-opacity="0.35" stroke="#e8d9a6" stroke-width="1.2"/>
+
+  <!-- Row 5 Heart (x=685, y=336) -->
+  <path transform="translate(685, 336)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" fill-opacity="0.35" stroke="#e8d9a6" stroke-width="1.2"/>
+
+  <!-- Row 6 Heart (x=685, y=376) - Lit in Gold -->
+  <path transform="translate(685, 376) scale(1.15)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" stroke="#e8d9a6" stroke-width="1"/>
+
+  <!-- Row 7 Heart (x=685, y=416) -->
+  <path transform="translate(685, 416)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" fill-opacity="0.35" stroke="#e8d9a6" stroke-width="1.2"/>
+
+  <!-- Row 8 Heart (x=685, y=456) - Lit in Gold -->
+  <path transform="translate(685, 456) scale(1.15)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" stroke="#e8d9a6" stroke-width="1"/>
+
+  <!-- Row 9 Heart (x=685, y=496) -->
+  <path transform="translate(685, 496)" d="M 0 -2.5 C -2.2 -5.5, -6.5 -5.5, -6.5 -1.2 C -6.5 3.2, 0 7.8, 0 9.8 C 0 7.8, 6.5 3.2, 6.5 -1.2 C 6.5 -5.5, 2.2 -5.5, 0 -2.5 Z" fill="#e8d9a6" fill-opacity="0.35" stroke="#e8d9a6" stroke-width="1.2"/>
+
+  <!-- Table Typography: Monospace Uppercase Labels -->
+  <!-- Header Row (y = 142) -->
+  <text x="76" y="142" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">REF</text>
+  <text x="156" y="142" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">RECORD</text>
+  <text x="406" y="142" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">AUTHOR</text>
+  <text x="685" y="142" text-anchor="middle" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#e8d9a6">LOVED</text>
+
+  <!-- Data Row 1 (y = 180) -->
+  <text x="76" y="180" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">01</text>
+  <text x="156" y="180" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">FRAGMENT OF MILETUS</text>
+  <text x="406" y="180" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">ANAXIMANDER</text>
+
+  <!-- Data Row 2 (y = 220) -->
+  <text x="76" y="220" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">02</text>
+  <text x="156" y="220" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">ON THE NATURE OF THINGS</text>
+  <text x="406" y="220" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">LUCRETIUS</text>
+
+  <!-- Data Row 3 (y = 260) - Lit in Gold, Empty Dashed Author -->
+  <circle cx="68" cy="256" r="2" fill="#e8d9a6"/>
+  <text x="76" y="260" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#e8d9a6">03</text>
+  <text x="156" y="260" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#e8d9a6">THE UNNAMED CODEX</text>
+
+  <!-- Data Row 4 (y = 300) -->
+  <text x="76" y="300" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">04</text>
+  <text x="156" y="300" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">BOOK OF THE CRANE</text>
+  <text x="406" y="300" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">ZEAMI MOTOKIYO</text>
+
+  <!-- Data Row 5 (y = 340) -->
+  <text x="76" y="340" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">05</text>
+  <text x="156" y="340" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">DISCOURSE ON METHOD</text>
+  <text x="406" y="340" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">DESCARTES</text>
+
+  <!-- Data Row 6 (y = 380) - Lit in Gold, Empty Dashed Author -->
+  <circle cx="68" cy="376" r="2" fill="#e8d9a6"/>
+  <text x="76" y="380" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#e8d9a6">06</text>
+  <text x="156" y="380" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#e8d9a6">SEVEN SEALED LETTERS</text>
+
+  <!-- Data Row 7 (y = 420) -->
+  <text x="76" y="420" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">07</text>
+  <text x="156" y="420" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">MEDITATIONS IN SMOKE</text>
+  <text x="406" y="420" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">MARCUS AURELIUS</text>
+
+  <!-- Data Row 8 (y = 460) - Lit in Gold, Empty Dashed Author -->
+  <circle cx="68" cy="456" r="2" fill="#e8d9a6"/>
+  <text x="76" y="460" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#e8d9a6">08</text>
+  <text x="156" y="460" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#e8d9a6">LOST FOLIO OF SAMARKAND</text>
+
+  <!-- Data Row 9 (y = 500) -->
+  <text x="76" y="500" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">09</text>
+  <text x="156" y="500" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">FINAL SYSTEM LOG</text>
+  <text x="406" y="500" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#cfc9dd">VAKED RECORD</text>
+</svg>

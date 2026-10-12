@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#122018" stroke-width="0.75" stroke-opacity="0.6"/>
+    </pattern>
+    <radialGradient id="glow-ice" cx="32%" cy="50%" r="42%">
+      <stop offset="0%" stop-color="#9fd8e8" stop-opacity="0.22"/>
+      <stop offset="55%" stop-color="#9fd8e8" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#9fd8e8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-violet" cx="74%" cy="48%" r="44%">
+      <stop offset="0%" stop-color="#b98cc0" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#b98cc0" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#b98cc0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lamp-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e8d9a6" stop-opacity="0.45"/>
+      <stop offset="35%" stop-color="#e8d9a6" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#e8d9a6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frame-stroke" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9fd8e8" stop-opacity="0.6"/>
+      <stop offset="45%" stop-color="#4a4260" stop-opacity="0.25"/>
+      <stop offset="75%" stop-color="#e8d9a6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#b98cc0" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background and Base Grids -->
+  <rect width="800" height="600" fill="#0b0a12"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- Two Soft Ambient Glows -->
+  <rect width="800" height="600" fill="url(#glow-ice)"/>
+  <rect width="800" height="600" fill="url(#glow-violet)"/>
+
+  <!-- Outer Frame -->
+  <rect x="14" y="14" width="772" height="572" rx="12" fill="none" stroke="url(#frame-stroke)" stroke-width="1.5"/>
+
+  <!-- Header and Metadata Labels -->
+  <text x="48" y="58" font-family="'SF Mono', ui-monospace, monospace" font-size="12" letter-spacing="3px" fill="#cfc9dd">GHOST</text>
+  <text x="48" y="78" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">KEEPS</text>
+  <text x="752" y="58" text-anchor="end" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">ARCHIVE / ROW 00</text>
+  <text x="752" y="556" text-anchor="end" font-family="'SF Mono', ui-monospace, monospace" font-size="10" letter-spacing="3px" fill="#4a4260">800 X 600 · 01</text>
+
+  <!-- Endless Archive: Perspective Lines Receding to Vanishing Point (620, 290) -->
+  <g stroke="#4a4260" stroke-width="0.75" stroke-opacity="0.35">
+    <line x1="620" y1="290" x2="80" y2="130"/>
+    <line x1="620" y1="290" x2="80" y2="180"/>
+    <line x1="620" y1="290" x2="80" y2="240"/>
+    <line x1="620" y1="290" x2="80" y2="340"/>
+    <line x1="620" y1="290" x2="80" y2="400"/>
+    <line x1="620" y1="290" x2="80" y2="460"/>
+    <line x1="620" y1="290" x2="80" y2="510"/>
+    <line x1="620" y1="290" x2="740" y2="140"/>
+    <line x1="620" y1="290" x2="740" y2="200"/>
+    <line x1="620" y1="290" x2="740" y2="380"/>
+    <line x1="620" y1="290" x2="740" y2="440"/>
+    <line x1="620" y1="290" x2="740" y2="500"/>
+  </g>
+
+  <!-- Horizontal Light-Lines: Evenly Spaced Archive Rows -->
+  <g stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.22">
+    <line x1="90" y1="140" x2="730" y2="140"/>
+    <line x1="90" y1="155" x2="730" y2="155" stroke-dasharray="2 10"/>
+    <line x1="90" y1="170" x2="730" y2="170"/>
+    <line x1="90" y1="185" x2="730" y2="185" stroke-dasharray="1 8"/>
+    <line x1="90" y1="200" x2="730" y2="200"/>
+    <line x1="90" y1="215" x2="730" y2="215" stroke-dasharray="3 12"/>
+    <line x1="90" y1="230" x2="730" y2="230"/>
+    <line x1="90" y1="245" x2="730" y2="245" stroke-dasharray="1 6"/>
+    <line x1="90" y1="260" x2="730" y2="260"/>
+    <line x1="90" y1="275" x2="730" y2="275" stroke-dasharray="2 8"/>
+    <line x1="90" y1="290" x2="730" y2="290" stroke="#9fd8e8" stroke-opacity="0.45"/>
+    <line x1="90" y1="305" x2="730" y2="305" stroke-dasharray="2 8"/>
+    <line x1="90" y1="320" x2="730" y2="320"/>
+    <line x1="90" y1="335" x2="730" y2="335" stroke-dasharray="1 6"/>
+    <line x1="90" y1="350" x2="730" y2="350"/>
+    <line x1="90" y1="365" x2="730" y2="365" stroke-dasharray="3 12"/>
+    <line x1="90" y1="380" x2="730" y2="380"/>
+    <line x1="90" y1="395" x2="730" y2="395" stroke-dasharray="1 8"/>
+    <line x1="90" y1="410" x2="730" y2="410"/>
+    <line x1="90" y1="425" x2="730" y2="425" stroke-dasharray="2 10"/>
+    <line x1="90" y1="440" x2="730" y2="440"/>
+    <line x1="90" y1="455" x2="730" y2="455" stroke-dasharray="1 6"/>
+    <line x1="90" y1="470" x2="730" y2="470"/>
+    <line x1="90" y1="485" x2="730" y2="485" stroke-dasharray="2 10"/>
+  </g>
+
+  <!-- Vanishing Point Focal Rings -->
+  <circle cx="620" cy="290" r="1.5" fill="#9fd8e8"/>
+  <circle cx="620" cy="290" r="14" fill="none" stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.3" stroke-dasharray="2 3"/>
+  <circle cx="620" cy="290" r="32" fill="none" stroke="#4a4260" stroke-width="0.75" stroke-opacity="0.25" stroke-dasharray="1 5"/>
+
+  <!-- Archive Shelf Tick Divisions -->
+  <g stroke="#4a4260" stroke-width="0.75" stroke-opacity="0.4">
+    <line x1="480" y1="200" x2="480" y2="204"/>
+    <line x1="520" y1="200" x2="520" y2="204"/>
+    <line x1="560" y1="200" x2="560" y2="204"/>
+    <line x1="460" y1="230" x2="460" y2="234"/>
+    <line x1="500" y1="230" x2="500" y2="234"/>
+    <line x1="540" y1="230" x2="540" y2="234"/>
+    <line x1="580" y1="230" x2="580" y2="234"/>
+    <line x1="450" y1="350" x2="450" y2="354"/>
+    <line x1="490" y1="350" x2="490" y2="354"/>
+    <line x1="530" y1="350" x2="530" y2="354"/>
+    <line x1="570" y1="350" x2="570" y2="354"/>
+    <line x1="470" y1="380" x2="470" y2="384"/>
+    <line x1="510" y1="380" x2="510" y2="384"/>
+    <line x1="550" y1="380" x2="550" y2="384"/>
+  </g>
+
+  <!-- Luminous Patient Figure (Centred-Left at x=260) -->
+  <!-- Subtle Halo Rings -->
+  <circle cx="260" cy="216" r="38" fill="none" stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.45" stroke-dasharray="3 3"/>
+  <circle cx="260" cy="216" r="48" fill="none" stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.2"/>
+
+  <!-- Head Contour & Serene Features -->
+  <path d="M 250 186 C 257 182, 265 182, 271 186 C 279 192, 281 206, 278 218 C 275 228, 268 234, 260 234 C 252 234, 245 228, 242 218 C 239 206, 241 192, 250 186 Z" fill="none" stroke="#9fd8e8" stroke-width="1.25"/>
+  <path d="M 266 210 Q 270 213 274 210" fill="none" stroke="#9fd8e8" stroke-width="1"/>
+  <line x1="270" y1="219" x2="274" y2="219" stroke="#9fd8e8" stroke-width="0.75"/>
+
+  <!-- Cowl Drape -->
+  <path d="M 244 224 C 240 236, 236 248, 228 256 C 245 260, 275 260, 292 256 C 284 248, 280 236, 276 224" fill="none" stroke="#9fd8e8" stroke-width="1"/>
+
+  <!-- Robe Outlines & Folds -->
+  <path d="M 228 256 C 220 300, 216 360, 214 420 C 213 455, 215 480, 220 502" fill="none" stroke="#9fd8e8" stroke-width="1.25"/>
+  <path d="M 292 256 C 298 290, 300 330, 298 380 C 296 425, 298 465, 304 502" fill="none" stroke="#9fd8e8" stroke-width="1.25"/>
+  <path d="M 220 502 Q 262 508 304 502" fill="none" stroke="#9fd8e8" stroke-width="1.25"/>
+
+  <!-- Interior Flowing Fold Lines -->
+  <path d="M 260 258 L 260 504" fill="none" stroke="#9fd8e8" stroke-width="0.75"/>
+  <path d="M 242 264 C 238 320, 236 410, 238 502" fill="none" stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.8"/>
+  <path d="M 278 264 C 282 320, 282 410, 284 502" fill="none" stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.8"/>
+  <path d="M 250 290 C 248 350, 248 430, 250 503" fill="none" stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.6"/>
+  <path d="M 270 290 C 272 350, 270 430, 268 503" fill="none" stroke="#9fd8e8" stroke-width="0.75" stroke-opacity="0.6"/>
+
+  <!-- Chest Wrap & Arm Holding Lamp Line -->
+  <path d="M 244 258 L 260 292 L 276 258" fill="none" stroke="#9fd8e8" stroke-width="1"/>
+  <path d="M 288 268 C 304 286, 316 304, 326 322" fill="none" stroke="#9fd8e8" stroke-width="1"/>
+  <path d="M 278 280 C 292 296, 302 312, 312 328" fill="none" stroke="#9fd8e8" stroke-width="0.75"/>
+  <path d="M 326 322 C 332 320, 338 322, 340 326 C 338 330, 332 332, 326 330" fill="none" stroke="#9fd8e8" stroke-width="1"/>
+
+  <!-- Small Warm Gold Lamp Glowing Near Figure -->
+  <circle cx="350" cy="326" r="75" fill="url(#lamp-glow)"/>
+
+  <!-- Lamp Cord and Suspension Ring -->
+  <line x1="340" y1="326" x2="350" y2="308" stroke="#e8d9a6" stroke-width="1"/>
+  <circle cx="350" cy="308" r="3" fill="none" stroke="#e8d9a6" stroke-width="1"/>
+
+  <!-- Lamp Structure -->
+  <polygon points="342,314 350,310 358,314" fill="none" stroke="#e8d9a6" stroke-width="1"/>
+  <line x1="343" y1="314" x2="343" y2="338" stroke="#e8d9a6" stroke-width="1"/>
+  <line x1="357" y1="314" x2="357" y2="338" stroke="#e8d9a6" stroke-width="1"/>
+  <line x1="350" y1="312" x2="350" y2="338" stroke="#e8d9a6" stroke-width="0.75" stroke-dasharray="1 2"/>
+  <polygon points="341,338 350,344 359,338" fill="none" stroke="#e8d9a6" stroke-width="1"/>
+
+  <!-- Lamp Core Filament -->
+  <circle cx="350" cy="326" r="2.5" fill="#e8d9a6"/>
+
+  <!-- Fine Vector Light Radiance Rings -->
+  <circle cx="350" cy="326" r="14" fill="none" stroke="#e8d9a6" stroke-width="0.75" stroke-opacity="0.6"/>
+  <circle cx="350" cy="326" r="26" fill="none" stroke="#e8d9a6" stroke-width="0.75" stroke-opacity="0.35" stroke-dasharray="2 3"/>
+  <circle cx="350" cy="326" r="42" fill="none" stroke="#e8d9a6" stroke-width="0.75" stroke-opacity="0.18" stroke-dasharray="1 5"/>
+
+  <!-- Subtle Radiance Rays -->
+  <line x1="350" y1="318" x2="350" y2="316" stroke="#e8d9a6" stroke-width="1"/>
+  <line x1="350" y1="334" x2="350" y2="336" stroke="#e8d9a6" stroke-width="1"/>
+  <line x1="342" y1="326" x2="340" y2="326" stroke="#e8d9a6" stroke-width="1"/>
+  <line x1="358" y1="326" x2="360" y2="326" stroke="#e8d9a6" stroke-width="1"/>
+
+  <!-- Ground Stance Lines -->
+  <line x1="170" y1="518" x2="410" y2="518" stroke="#4a4260" stroke-width="0.75" stroke-dasharray="4 8"/>
+  <line x1="210" y1="526" x2="370" y2="526" stroke="#4a4260" stroke-width="0.75" stroke-dasharray="2 6"/>
+</svg>
