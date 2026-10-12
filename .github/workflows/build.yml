@@ -6,14 +6,18 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
+      # The runner ships Node 22; fail explicitly if its image changes.
+      - name: Verify preinstalled Node 22
+        run: node -e "if (process.versions.node.split('.')[0] !== '22') throw new Error('Node 22 required'); console.log(process.version)"
       - run: npm ci
+      - run: node --test tests/citations.test.mjs
       - run: npm run build
