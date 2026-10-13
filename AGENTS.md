@@ -98,15 +98,15 @@ This repo has two remotes and they drift:
 | Remote | URL | Role |
 |--------|-----|------|
 | `origin` | `https://github.com/peterlodri-sec/pocoo.vaked.dev.git` | **Cloudflare Pages builds from this one.** |
-| `upstream` | `git@github-peterlodri-sec:8b-is/pocoo.vaked.dev.git` | org mirror (tracking branch for local `main`). |
+| `org` | `git@github-peterlodri-sec:8b-is/pocoo.vaked.dev.git` | 8b-is mirror (and the branch local `main` tracks). |
 
-Because local `main` tracks `upstream`, a plain `git push` goes to the mirror
+Because local `main` tracks `org`, a plain `git push` goes to the mirror
 and **the live site does not update** — Pages keeps serving the stale
 `origin/main` tree. New pages 404 even though they are committed, built, and
 present in `dist/`.
 
 ```bash
-git push origin main && git push upstream main
+git push origin main && git push org main
 ```
 
 Diagnose with `git log --oneline origin/main..main` — a non-empty list means the
