@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560">
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0e1424" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#05060a" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(170,150,255,0.18)" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 7 4 L 0 6.8 z" fill="#62e6c9"/>
+    </marker>
+    <marker id="arrow-gold" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 7 4 L 0 6.8 z" fill="#e8b05c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="560" fill="#05060a"/>
+  <rect width="1200" height="560" fill="url(#vignette)"/>
+  <rect x="16" y="16" width="1168" height="528" rx="10" fill="none" stroke="rgba(170,150,255,0.18)" stroke-width="1"/>
+  <rect x="16" y="96" width="1168" height="404" fill="url(#grid)" opacity="0.45"/>
+
+  <!-- Header -->
+  <text x="40" y="48" fill="#62e6c9" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" letter-spacing="3.5">PURE-RUST ENGINE · AUDIO TRANSCRIPTION PIPELINE</text>
+  <text x="40" y="78" fill="#cfc9dd" font-family="Georgia,serif" font-size="24">End-to-End Audio-to-Text Inference Path</text>
+  <line x1="16" y1="96" x2="1184" y2="96" stroke="rgba(170,150,255,0.18)" stroke-width="1"/>
+
+  <!-- Phase Kickers along top of pipeline -->
+  <text x="185" y="128" text-anchor="middle" fill="#7f7c99" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" letter-spacing="3">INGEST &amp; FRONTEND</text>
+  <text x="679" y="128" text-anchor="middle" fill="#7f7c99" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" letter-spacing="3">ACOUSTIC ENCODER &amp; BRIDGE</text>
+  <text x="998" y="128" text-anchor="middle" fill="#7f7c99" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" letter-spacing="3">HYBRID DECODER &amp; READOUT</text>
+
+  <!-- Tier 1 · perception bracket around the two parallel branches -->
+  <g id="tier1-bracket">
+    <path d="M 386 164 L 376 164 L 376 388 L 386 388" fill="none" stroke="#e8b05c" stroke-width="1"/>
+    <path d="M 520 164 L 530 164 L 530 388 L 520 388" fill="none" stroke="#e8b05c" stroke-width="1"/>
+    <line x1="386" y1="164" x2="520" y2="164" stroke="rgba(170,150,255,0.18)" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="386" y1="388" x2="520" y2="388" stroke="rgba(170,150,255,0.18)" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="381" y="140" width="144" height="20" rx="5" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="453" y="154" text-anchor="middle" fill="#e8b05c" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11">Tier 1 · perception</text>
+  </g>
+
+  <!-- Node 1: Audio File -->
+  <g id="node-audio-file">
+    <rect x="22" y="242" width="78" height="68" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="61" y="280" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5">Audio File</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="100" y1="276" x2="118" y2="276" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 2: symphonia (decode) -->
+  <g id="node-symphonia">
+    <rect x="120" y="242" width="100" height="68" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="170" y="271" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="170" dy="0">symphonia </tspan><tspan x="170" dy="16" fill="#7f7c99">(decode)</tspan></text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="220" y1="276" x2="238" y2="276" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 3: rubato -> 16 kHz mono -->
+  <g id="node-rubato">
+    <rect x="240" y="242" width="108" height="68" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="294" y="271" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="294" dy="0">rubato -&gt; </tspan><tspan x="294" dy="16" fill="#62e6c9">16 kHz mono</tspan></text>
+  </g>
+
+  <!-- Fork 3 -> 4 (Upper & Lower) -->
+  <path d="M 348 276 L 362 276 L 362 214 L 382 214" fill="none" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 348 276 L 362 276 L 362 338 L 382 338" fill="none" stroke="#e8b05c" stroke-width="1.5" marker-end="url(#arrow-gold)"/>
+
+  <!-- Node 4a (Upper): Goertzel mel · 80 bins -->
+  <g id="node-goertzel">
+    <rect x="384" y="180" width="138" height="68" rx="10" fill="#0e1424" stroke="#62e6c9" stroke-opacity="0.55" stroke-width="1"/>
+    <text x="453" y="209" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="453" dy="0">Goertzel mel </tspan><tspan x="453" dy="16" fill="#62e6c9">· 80 bins</tspan></text>
+  </g>
+
+  <!-- Node 4b (Lower): Marine salience · Jp, Ja -->
+  <g id="node-marine">
+    <rect x="384" y="304" width="138" height="68" rx="10" fill="#0e1424" stroke="#e8b05c" stroke-opacity="0.55" stroke-width="1"/>
+    <text x="453" y="333" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="453" dy="0">Marine salience </tspan><tspan x="453" dy="16" fill="#e8b05c">· Jp, Ja</tspan></text>
+  </g>
+
+  <!-- Rejoin 4 -> 5 -->
+  <path d="M 522 214 L 542 214 L 542 270 L 556 270" fill="none" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 522 338 L 542 338 L 542 282 L 556 282" fill="none" stroke="#e8b05c" stroke-width="1.5" marker-end="url(#arrow-gold)"/>
+
+  <!-- Node 5: FastConformer · 17 blocks -->
+  <g id="node-fastconformer">
+    <rect x="558" y="242" width="122" height="68" rx="10" fill="#0e1424" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="619" y="271" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="619" dy="0">FastConformer </tspan><tspan x="619" dy="16" fill="#b48bff">· 17 blocks</tspan></text>
+  </g>
+
+  <!-- Arrow 5 -> 6 -->
+  <line x1="680" y1="276" x2="698" y2="276" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 6: MM proj 512->2048 -->
+  <g id="node-mm-proj">
+    <rect x="700" y="242" width="100" height="68" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="750" y="271" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="750" dy="0">MM proj </tspan><tspan x="750" dy="16" fill="#00f0ff">512-&gt;2048</tspan></text>
+  </g>
+
+  <!-- Arrow 6 -> 7 -->
+  <line x1="800" y1="276" x2="818" y2="276" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 7: LFM2 · 16 hybrid blocks -->
+  <g id="node-lfm2">
+    <rect x="820" y="242" width="142" height="68" rx="10" fill="#0e1424" stroke="#62e6c9" stroke-opacity="0.7" stroke-width="1"/>
+    <text x="891" y="271" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="891" dy="0">LFM2 </tspan><tspan x="891" dy="16" fill="#62e6c9">· 16 hybrid blocks</tspan></text>
+    <!-- Small monospace note under the LFM2 node -->
+    <line x1="891" y1="310" x2="891" y2="330" stroke="rgba(170,150,255,0.28)" stroke-width="1" stroke-dasharray="2 2"/>
+    <rect x="786" y="330" width="210" height="24" rx="6" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="891" y="346" text-anchor="middle" fill="#e8b05c" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11">~6.7 tok/s CPU · ~50 tok/s GPU</text>
+  </g>
+
+  <!-- Arrow 7 -> 8 -->
+  <line x1="962" y1="276" x2="980" y2="276" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 8: BPE · 65536 vocab -->
+  <g id="node-bpe">
+    <rect x="982" y="242" width="114" height="68" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+    <text x="1039" y="271" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5"><tspan x="1039" dy="0">BPE </tspan><tspan x="1039" dy="16" fill="#7f7c99">· 65536 vocab</tspan></text>
+  </g>
+
+  <!-- Arrow 8 -> 9 -->
+  <line x1="1096" y1="276" x2="1114" y2="276" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Node 9: Text -->
+  <g id="node-text">
+    <rect x="1116" y="242" width="62" height="68" rx="10" fill="#0e1424" stroke="#ff4d9d" stroke-opacity="0.65" stroke-width="1"/>
+    <text x="1147" y="280" text-anchor="middle" fill="#ff4d9d" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12">Text</text>
+  </g>
+
+  <!-- Bottom caption -->
+  <line x1="16" y1="500" x2="1184" y2="500" stroke="rgba(170,150,255,0.18)" stroke-width="1"/>
+  <text x="600" y="526" text-anchor="middle" fill="#5b577a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" letter-spacing="2">liquid-rust · the audio path</text>
+</svg>

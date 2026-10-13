@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520">
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#0e1424" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#05060a" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow-mint" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 4 L 0 6.5 z" fill="#62e6c9"/>
+    </marker>
+    <marker id="arrow-violet" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 4 L 0 6.5 z" fill="#b48bff"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas background -->
+  <rect x="0" y="0" width="1200" height="520" fill="#05060a"/>
+  <rect x="0" y="0" width="1200" height="520" fill="url(#vignette)"/>
+
+  <!-- Header -->
+  <text x="44" y="38" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#7f7c99" letter-spacing="3.5">ARCHITECTURAL TRAJECTORY · TWO REGISTERS</text>
+  <text x="44" y="70" font-family="Georgia,serif" font-size="26" fill="#cfc9dd">Same four stages, one intermediate mechanism removed</text>
+
+  <!-- ================================================================= -->
+  <!-- LEFT PANEL: TODAY · v1 · built                                    -->
+  <!-- ================================================================= -->
+  <rect x="44" y="94" width="542" height="302" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+
+  <!-- Left panel header & 'built' tag in mint -->
+  <text x="68" y="130" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#cfc9dd" letter-spacing="3.2">TODAY · v1 · built</text>
+  <rect x="500" y="112" width="64" height="24" rx="10" fill="#0e1424" stroke="#62e6c9" stroke-width="1"/>
+  <text x="532" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#62e6c9">built</text>
+  <line x1="60" y1="150" x2="570" y2="150" stroke="rgba(170,150,255,0.18)" stroke-width="1"/>
+
+  <!-- Left panel chain: Voice -> Embedding -> Cosine similarity -> Match (mint/ink) -->
+  <!-- Node 1: Voice -->
+  <rect x="60" y="206" width="78" height="64" rx="10" fill="#0e1424" stroke="#62e6c9" stroke-opacity="0.65" stroke-width="1"/>
+  <text x="99" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12.5" fill="#cfc9dd">Voice</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="138" y1="238" x2="155" y2="238" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow-mint)"/>
+
+  <!-- Node 2: Embedding (with subtle cross-out line) -->
+  <rect x="158" y="206" width="102" height="64" rx="10" fill="#0e1424" stroke="#62e6c9" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="209" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#62e6c9">Embedding</text>
+  <line x1="171" y1="238" x2="247" y2="238" stroke="#ff4d9d" stroke-opacity="0.78" stroke-width="1.5"/>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="260" y1="238" x2="277" y2="238" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow-mint)"/>
+
+  <!-- Node 3: Cosine similarity (with subtle cross-out line) -->
+  <rect x="280" y="206" width="136" height="64" rx="10" fill="#0e1424" stroke="#62e6c9" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="348" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5" fill="#62e6c9">Cosine similarity</text>
+  <line x1="288" y1="238" x2="408" y2="238" stroke="#ff4d9d" stroke-opacity="0.78" stroke-width="1.5"/>
+
+  <!-- Arrow 3 -> 4 -->
+  <line x1="416" y1="238" x2="433" y2="238" stroke="#62e6c9" stroke-width="1.5" marker-end="url(#arrow-mint)"/>
+
+  <!-- Node 4: Match -->
+  <rect x="436" y="206" width="134" height="64" rx="10" fill="#0e1424" stroke="#62e6c9" stroke-opacity="0.8" stroke-width="1"/>
+  <text x="503" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12.5" fill="#cfc9dd">Match</text>
+
+  <!-- Bracket under crossed-out mechanism -->
+  <path d="M 164 284 L 164 294 L 410 294 L 410 284" fill="none" stroke="#7f7c99" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="287" y="314" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#7f7c99">proxy representation · geometric lookup</text>
+  <text x="315" y="366" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#5b577a">EXTRACT VECTOR -&gt; COMPARE ANGLES -&gt; THRESHOLD</text>
+
+  <!-- ================================================================= -->
+  <!-- RIGHT PANEL: TOMORROW · v2 · planned                              -->
+  <!-- ================================================================= -->
+  <rect x="614" y="94" width="542" height="302" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1"/>
+
+  <!-- Right panel header & 'planned' tag in gold -->
+  <text x="638" y="130" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#b48bff" letter-spacing="3.2">TOMORROW · v2 · planned</text>
+  <rect x="1060" y="112" width="76" height="24" rx="10" fill="#0e1424" stroke="#e8b05c" stroke-width="1"/>
+  <text x="1098" y="128" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#e8b05c">planned</text>
+  <line x1="630" y1="150" x2="1140" y2="150" stroke="rgba(170,150,255,0.18)" stroke-width="1"/>
+
+  <!-- Right panel chain: Voice -> Wave -> Resonance -> recognition emerges (violet #b48bff) -->
+  <!-- Node 1: Voice -->
+  <rect x="630" y="206" width="78" height="64" rx="10" fill="#0e1424" stroke="#b48bff" stroke-opacity="0.7" stroke-width="1"/>
+  <text x="669" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12.5" fill="#b48bff">Voice</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="708" y1="238" x2="725" y2="238" stroke="#b48bff" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- Node 2: Wave -->
+  <rect x="728" y="206" width="102" height="64" rx="10" fill="#0e1424" stroke="#b48bff" stroke-opacity="0.7" stroke-width="1"/>
+  <text x="779" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12.5" fill="#b48bff">Wave</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="830" y1="238" x2="847" y2="238" stroke="#b48bff" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- Node 3: Resonance -->
+  <rect x="850" y="206" width="136" height="64" rx="10" fill="#0e1424" stroke="#b48bff" stroke-opacity="0.7" stroke-width="1"/>
+  <text x="918" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12.5" fill="#b48bff">Resonance</text>
+
+  <!-- Arrow 3 -> 4 -->
+  <line x1="986" y1="238" x2="1003" y2="238" stroke="#b48bff" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+  <!-- Node 4: recognition emerges -->
+  <rect x="1006" y="206" width="134" height="64" rx="10" fill="#0e1424" stroke="#b48bff" stroke-opacity="0.9" stroke-width="1"/>
+  <text x="1073" y="242" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#b48bff">recognition emerges</text>
+
+  <!-- Bracket under wave resonance mechanism -->
+  <path d="M 734 284 L 734 294 L 980 294 L 980 284" fill="none" stroke="#b48bff" stroke-opacity="0.6" stroke-width="1"/>
+  <text x="857" y="314" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#b48bff">direct physical coupling · no vector table</text>
+  <text x="885" y="366" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#5b577a">PROPAGATE FIELD -&gt; INTERFERE -&gt; CONVERGE</text>
+
+  <!-- ================================================================= -->
+  <!-- BOTTOM QUOTE & CAPTION                                            -->
+  <!-- ================================================================= -->
+  <text x="600" y="446" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="22" fill="#cfc9dd">the README calls today training wheels.</text>
+
+  <text x="600" y="492" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#5b577a" letter-spacing="2">liquid-rust · Phoenix Protocol v1 vs v2</text>
+</svg>

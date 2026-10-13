@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460">
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0e1424" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#05060a" stop-opacity="0" />
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7f7c99" />
+    </marker>
+  </defs>
+
+  <!-- Canvas background -->
+  <rect width="1200" height="460" fill="#05060a" />
+  <rect width="1200" height="460" fill="url(#vignette)" />
+
+  <!-- Main outer panel -->
+  <rect x="40" y="28" width="1120" height="382" rx="10" fill="#0b0f19" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+
+  <!-- Subtle grid lines -->
+  <line x1="40" y1="126" x2="1160" y2="126" stroke="rgba(170,150,255,0.18)" stroke-width="1" />
+  <line x1="40" y1="322" x2="1160" y2="322" stroke="rgba(170,150,255,0.18)" stroke-width="1" />
+
+  <!-- Header -->
+  <text x="76" y="66" fill="#7f7c99" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" letter-spacing="3.5">LFM2 ARCHITECTURE · 16-LAYER HYBRID BACKBONE</text>
+  <text x="76" y="100" fill="#cfc9dd" font-family="Georgia,serif" font-size="24">the block pattern: S S A S S A S S A S A S A S A S</text>
+
+  <!-- Stage panel for the 16 blocks -->
+  <rect x="76" y="144" width="1048" height="158" rx="10" fill="#0e1424" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+
+  <!-- Forward flow spine behind blocks -->
+  <line x1="94" y1="200" x2="1108" y2="200" stroke="rgba(170,150,255,0.28)" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- 16 Hybrid Blocks (0..15) -->
+  <!-- 0: SSM -->
+  <g>
+    <rect x="110" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="135" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="135" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">0</text>
+  </g>
+
+  <!-- 1: SSM -->
+  <g>
+    <rect x="172" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="197" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="197" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">1</text>
+  </g>
+
+  <!-- 2: ATTENTION -->
+  <g>
+    <rect x="234" y="175" width="50" height="50" rx="10" fill="#e8b05c" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="259" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">A</text>
+    <text x="259" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">2</text>
+  </g>
+
+  <!-- 3: SSM -->
+  <g>
+    <rect x="296" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="321" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="321" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">3</text>
+  </g>
+
+  <!-- 4: SSM -->
+  <g>
+    <rect x="358" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="383" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="383" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">4</text>
+  </g>
+
+  <!-- 5: ATTENTION -->
+  <g>
+    <rect x="420" y="175" width="50" height="50" rx="10" fill="#e8b05c" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="445" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">A</text>
+    <text x="445" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">5</text>
+  </g>
+
+  <!-- 6: SSM -->
+  <g>
+    <rect x="482" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="507" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="507" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">6</text>
+  </g>
+
+  <!-- 7: SSM -->
+  <g>
+    <rect x="544" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="569" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="569" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">7</text>
+  </g>
+
+  <!-- 8: ATTENTION -->
+  <g>
+    <rect x="606" y="175" width="50" height="50" rx="10" fill="#e8b05c" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="631" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">A</text>
+    <text x="631" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">8</text>
+  </g>
+
+  <!-- 9: SSM -->
+  <g>
+    <rect x="668" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="693" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="693" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">9</text>
+  </g>
+
+  <!-- 10: ATTENTION -->
+  <g>
+    <rect x="730" y="175" width="50" height="50" rx="10" fill="#e8b05c" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="755" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">A</text>
+    <text x="755" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">10</text>
+  </g>
+
+  <!-- 11: SSM -->
+  <g>
+    <rect x="792" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="817" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="817" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">11</text>
+  </g>
+
+  <!-- 12: ATTENTION -->
+  <g>
+    <rect x="854" y="175" width="50" height="50" rx="10" fill="#e8b05c" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="879" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">A</text>
+    <text x="879" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">12</text>
+  </g>
+
+  <!-- 13: SSM -->
+  <g>
+    <rect x="916" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="941" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="941" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">13</text>
+  </g>
+
+  <!-- 14: ATTENTION -->
+  <g>
+    <rect x="978" y="175" width="50" height="50" rx="10" fill="#e8b05c" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="1003" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">A</text>
+    <text x="1003" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">14</text>
+  </g>
+
+  <!-- 15: SSM -->
+  <g>
+    <rect x="1040" y="175" width="50" height="50" rx="10" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="1065" y="205" text-anchor="middle" fill="#05060a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="14" font-weight="700">S</text>
+    <text x="1065" y="248" text-anchor="middle" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">15</text>
+  </g>
+
+  <!-- Cadence phase annotations inside stage -->
+  <line x1="110" y1="268" x2="656" y2="268" stroke="rgba(170,150,255,0.18)" stroke-width="1" />
+  <text x="383" y="286" text-anchor="middle" fill="#7f7c99" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11">layers 0..8 · (S S A) × 3</text>
+
+  <line x1="668" y1="268" x2="1090" y2="268" stroke="rgba(170,150,255,0.18)" stroke-width="1" />
+  <text x="879" y="286" text-anchor="middle" fill="#7f7c99" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11">layers 9..15 · alternating S / A tail</text>
+
+  <!-- Legend -->
+  <g>
+    <rect x="76" y="354" width="22" height="22" rx="6" fill="#62e6c9" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="110" y="370" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">SSM · sequence</text>
+
+    <rect x="310" y="354" width="22" height="22" rx="6" fill="#e8b05c" stroke="rgba(170,150,255,0.28)" stroke-width="1" />
+    <text x="344" y="370" fill="#cfc9dd" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13">Attention · global</text>
+
+    <text x="1124" y="370" text-anchor="end" fill="#7f7c99" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12">10 SSM · 6 Attention · 16 total</text>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="600" y="438" text-anchor="middle" fill="#5b577a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" letter-spacing="2">liquid-rust · LFM2 hybrid stack</text>
+</svg>
