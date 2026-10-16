@@ -13,8 +13,9 @@ draft: false
 ---
 
 **Billie Eilish — "everything i wanted"** (with Finneas). Released
-13 November 2019, the single from *When We All Fall Asleep, Where Do We
-Go?*. **120 BPM · F♯ minor · 4:05.**
+13 November 2019 as a standalone single; later folded into the Japanese
+complete/deluxe editions of *When We All Fall Asleep, Where Do We Go?*.
+**120 BPM · F♯ minor · 4:05.**
 
 The set has run performance, position, signal, space, submersion,
 attenuation. This one closes the arc where the arc began — not with more
@@ -83,7 +84,8 @@ rest: a read, labeled, never a claim about intent.
 
 the source, named so the study can be re-walked: **Billie Eilish —
 *everything i wanted*** (with Finneas), Darkroom/Interscope, 13 November
-2019, from *When We All Fall Asleep, Where Do We Go?*. a real door, at
+2019, a standalone single later added to the Japanese complete/deluxe
+editions of *When We All Fall Asleep, Where Do We Go?*. a real door, at
 120, in F♯ minor.
 
 - **Sovereign Library 6-Track Audio Deck:** [everything i wanted & the Billie arc (`+1* → 0 → +1` · `+1 → 0 → −1 → +1`)](/demos/book/billie-eilish-everything-i-wanted-and-the-five-station-arc.html)
