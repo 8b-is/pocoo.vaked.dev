@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>The Unattempted Alternative — Flyxion — pocoo-book</title>
+<style>
+  @page { size: 5in 8in; margin: 0.6in 0.6in; @top-center { content: none }; @bottom-center { content: counter(page); font-family: "SF Mono", monospace; font-size: 7px; color: #2a2a3a; } }
+  @page cover { margin: 0; @bottom-center { content: none } }
+  body { background: #06080c; color: #b0bcc8; font-family: "Georgia", serif; font-size: 10pt; line-height: 1.85; margin: 0; padding: 0; }
+  .cover { page: cover; break-after: page; text-align: center; background: radial-gradient(ellipse at 50% 40%, #0c1620 0%, #06080c 60%, #000 100%); height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .cover .sigil { font-size: 56px; color: #5a8fbf; opacity: 0.9; text-shadow: 0 0 140px rgba(90,143,191,0.5); line-height: 1; }
+  .cover h1 { font-family: "SF Mono", monospace; font-size: 12.5pt; color: #7ab0d8; letter-spacing: 3px; margin: 0.15in 0 0.05in; }
+  .cover .sub { font-family: "Georgia", serif; font-size: 11pt; color: #5a7a90; font-style: italic; letter-spacing: 1px; }
+  .cover .by { font-size: 10pt; color: #4a6270; margin-top: 0.5in; letter-spacing: 3px; }
+  h1.chapter { font-family: "SF Mono", monospace; font-size: 11pt; color: #5a7a90; font-weight: normal; letter-spacing: 3px; margin-top: 0.5in; margin-bottom: 0.25in; page-break-before: always; }
+  h1.chapter .num { float: right; font-family: "SF Mono", monospace; font-size: 24pt; color: #2a4a5a; line-height: 1; }
+  p { margin: 0 0 0.7em 0; }
+  .prop { border-left: 2px solid #3a5a6a; padding-left: 0.15in; margin: 0.2in 0; font-style: italic; }
+  .refs { font-size: 8.5pt; color: #8a9aa8; }
+  .console { font-family: "SF Mono", monospace; font-size: 7.5pt; color: #2a4a5a; letter-spacing: 2px; text-align: center; margin: 0.25in 0; }
+  .colophon { page-break-before: always; text-align: center; font-family: "SF Mono", monospace; font-size: 8pt; color: #4a6270; line-height: 2.2; }
+</style></head><body>
+<div class="cover"><div class="sigil">Ω</div>
+<h1>THE UNATTEMPTED ALTERNATIVE</h1>
+<div class="sub">AI, Engineering Complexity, and the Expansion of Feasible Work</div>
+<div class="by">Flyxion · October 2026 · v1.0</div></div>
+
+<h1 class="chapter"><span class="num">§</span>Abstract</h1>
+<p>Automation debates cycle between two readings: machines displace human work, or machines
+augment it. This essay argues for a third alternative that has gone largely unattempted — not in
+the lab, but in the discussion. Automation, in its most consequential form, does not remove work
+nor merely improve it; it <em>expands the set of work that can be done at all</em>. The constraint on
+ambition has never been the number of ideas but the capacity to realize them. As that capacity
+grows, work previously abandoned as infeasible becomes feasible, and the boundary of what
+human effort can attempt shifts outward.</p>
+<p>To make this precise, the essay introduces a fidelity framework: attainable fidelity and
+deployable fidelity, and the gap between them that governs what ships. It argues that AI's
+structural contribution is to raise attainable fidelity on the most complex work, and that the
+under-recognized obstacle is not intelligence but <em>deployability</em> — the difference between what
+can be built and what can be trusted in operation. The essay develops these ideas through
+engineering cases, a formal treatment, and a discussion of recoverability as the organizing
+virtue. It is offered as a working manuscript, not a final word.</p>
+
+<h1 class="chapter"><span class="num">1</span>Introduction</h1>
+<p>Every wave of automation has been read through two lenses. The displacement view holds that
+machines replace human labor; the augmentation view holds that they raise human productivity.
+Both are true in part, and both miss the more consequential move. The most important effect of
+automation is neither subtraction nor multiplication. It is <em>expansion</em>: the set of feasible work
+grows.</p>
+<p>Consider what "feasible" means. A task is feasible when a competent team can actually deliver it
+at acceptable quality within available resources. Most of what humanity could imagine doing has
+never been feasible in this sense. The history of engineering is the history of moving tasks across
+the feasibility boundary — from impossible to expensive to routine. AI is the latest, and largest,
+movement of that boundary. The unattempted alternative is the set of tasks on the far side of the
+old boundary: work that was never tried because trying it was beyond capacity, not because it was
+unwanted.</p>
+
+<h1 class="chapter"><span class="num">2</span>Related Work</h1>
+<p>The displacement view descends from classical automation economics, from the Luddite frame to
+recent estimates of task-level exposure. The augmentation view descends from the productivity
+literature: the computer as a multiplier of individual output. Both literatures measure change
+<em>within</em> the existing set of work. What they do not measure is the growth of the set itself — the
+work that appears only after the tool exists. The closest predecessors are studies of general-
+purpose technologies: steam, electricity, computing, each of which expanded what could be
+produced, not merely how fast. AI, on the evidence of its first decade, belongs to that lineage.</p>
+
+<h1 class="chapter"><span class="num">3</span>The Fidelity Framework</h1>
+<p>Define <em>fidelity</em> as the measure of how completely an intended design is realized in a working
+system. Two numbers matter:</p>
+<p><strong>Attainable fidelity</strong> (<em>F<sub>att</sub></em>): how complete a system <em>could</em> be, given current
+knowledge, tools, and engineering capacity.</p>
+<p><strong>Deployable fidelity</strong> (<em>F<sub>dep</sub></em>): how complete it <em>must</em> be to be deployed at acceptable
+risk.</p>
+<p>The difference between them is the <em>fidelity gap</em>. Systems ship when the gap closes — when
+attainable fidelity meets or exceeds deployable fidelity. AI's structural effect is asymmetric: on
+complex work, it raises <em>F<sub>att</sub></em> far more than it raises <em>F<sub>dep</sub></em>. Requirements are set by the
+world — by safety, by users, by regulators — and the world does not relax them because the tool
+improved. The gap narrows from the attainable side.</p>
+<p>This asymmetry is why the most ambitious work benefits first. Simple work was already
+attainable; the gap was already closed; automation merely lowers its cost. Complex work was
+stuck with a permanently open gap, and it is exactly there that AI closes it.</p>
+
+<h1 class="chapter"><span class="num">4</span>The Unattempted Alternative</h1>
+<p>Let Ω denote the set of feasible work and <em>W</em>* the <em>work frontier</em> — the most demanding work
+deliverable at acceptable quality given available capacity. The unattempted alternative is the
+region just beyond <em>W</em>*: work that was conceivable, desirable, and yet never seriously tried,
+because attempting it meant committing resources to a gap that could not be closed.</p>
+<p>Every discipline has its inventory of such work: the software that could not be written, the
+device that could not be integrated, the theory that could not be checked. These are not failures.
+They are honest admissions that capacity sets the boundary of ambition. When capacity moves,
+ambition is allowed to follow. The expansion of Ω is the real output of the AI era — real, but
+easily missed, because expansion is invisible in statistics that only count existing jobs and
+existing tasks.</p>
+
+<h1 class="chapter"><span class="num">5</span>Formal Treatment</h1>
+<p>The argument, stated minimally.</p>
+<div class="prop"><strong>Definition (feasibility).</strong> Work <em>W</em> is feasible under engineering capacity <em>c</em> if and only
+if <em>F<sub>att</sub></em>(<em>W</em>, <em>c</em>) ≥ <em>F<sub>dep</sub></em>(<em>W</em>).</div>
+<div class="prop"><strong>Proposition 1 (feasibility).</strong> The frontier <em>W</em>* is the greatest feasible work: for all <em>W</em> in Ω,
+the fidelity gap <em>F<sub>att</sub></em>(<em>W</em>) − <em>F<sub>dep</sub></em>(<em>W</em>) is non-negative, and any <em>W</em>' outside Ω has a
+negative gap — attainable fidelity falls short of what deployment requires.</div>
+<div class="prop"><strong>Proposition 2 (expansion).</strong> An intervention <em>I</em> expands Ω only if the work it admits
+satisfies <em>F<sub>att</sub></em> ≥ <em>F<sub>dep</sub></em> at acceptable cost. No feasible expansion follows from
+fidelity-lowering shortcuts: relaxing what a system must be does not make more of it attainable —
+it only relabels the gap.</div>
+<p>Proposition 2 is the essay's sharpest claim, and its least popular one. The temptation of every
+tooling wave is to respond to an open gap by lowering the deployable bar — ship the demo, call it
+the product, let the users find the gaps. That relabeling expands nothing. The only expansion that
+counts is attained fidelity meeting an unchanged deployable requirement.</p>
+
+<h1 class="chapter"><span class="num">6</span>Discussion</h1>
+<p>Two properties decide whether expanded work <em>stays</em> expanded: maintenance burden and
+recoverability.</p>
+<p><strong>Maintenance burden.</strong> The fidelity gap is not closed once; it is defended continuously. Every
+expanded system carries a standing cost — supervision, repair, evolution. If the cost of defending
+the gap exceeds the value of the work, the expansion is an illusion: the work was admitted to Ω
+and then quietly abandoned.</p>
+<p><strong>Recoverability.</strong> A system is recoverable if, upon failure, it can be restored to a known-good
+state by a bounded, understood process. Recoverability is the criterion by which AI-generated
+systems should be admitted: not cleverness, but the capacity to survive contact with reality and
+return. The unattempted alternative, attempted badly, produces systems that work until they do
+not — and then cannot be brought back. Attempted well, it produces systems that can fail safely,
+because failure was designed for.</p>
+
+<h1 class="chapter"><span class="num">7</span>Engineering Implications</h1>
+<p>Three disciplines follow. First, <em>measure the gap</em>: teams should know their attainable and
+deployable fidelity explicitly, and treat the gap as a budget, not a rumor. Second, <em>expend the
+gain on ambition, not on shortcuts</em>: when AI raises attainable fidelity, the honest response is to
+attempt the previously unattempted work — not to lower the deployable bar on the work already
+in reach. Third, <em>build for recovery before building for glory</em>: every newly feasible system should
+ship with its rollback understood, because the frontier is where failure is most expensive and
+most instructive.</p>
+
+<h1 class="chapter"><span class="num">8</span>Limitations</h1>
+<p>The framework abstracts away many real forces: organizational inertia, regulatory lag, the
+distribution of gains, and the human cost of transition. It is a lens for seeing the unattempted
+alternative, not a complete account of the automated economy. The empirical grounding is
+illustrative — engineering cases, not a systematic measurement of Ω's growth. The propositions
+are stated informally, in the spirit of a working manuscript; they await sharper formulation and
+harder tests. What the essay claims is modest: the third reading deserves to be attempted.</p>
+
+<h1 class="chapter"><span class="num">§</span>Conclusion</h1>
+<p>The unattempted alternative is not a prophecy. It is a question: what could we try now that we
+could not try before? The answer will not be found in the statistics of displacement, nor in the
+productivity tables, but at the boundary where ambition meets capacity. AI has moved that
+boundary. The fidelity framework is offered as a way to see the move — and recoverability as the
+virtue that keeps the newly feasible world standing after it arrives. The alternative remains
+unattempted only for as long as we keep measuring the old work instead of attempting the new.</p>
+
+<h1 class="chapter"><span class="num">§</span>References</h1>
+<div class="refs">
+<p>[1] Autor, D. (2024). Applying AI to rebuild the middle class. NBER Working Paper.</p>
+<p>[2] Brynjolfsson, E., &amp; McAfee, A. (2014). The Second Machine Age. W. W. Norton.</p>
+<p>[3] Acemoglu, D., &amp; Restrepo, P. (2019). Automation and new tasks. American Economic Review.</p>
+<p>[4] Eloundou, T., et al. (2023). GPTs are GPTs. arXiv:2303.10130.</p>
+<p>[5] Noy, S., &amp; Zhang, W. (2023). Experimental evidence on the productivity effects of generative AI. Science.</p>
+<p>[6] Bresnahan, T., &amp; Trajtenberg, M. (1995). General purpose technologies. Journal of Econometrics.</p>
+<p>[7] Goldin, C., &amp; Katz, L. (1998). The origins of technology-skill complementarity. QJE.</p>
+<p>[8] Mokyr, J. (1990). The Lever of Riches. Oxford University Press.</p>
+<p>[9] LeCun, Y. (2022). A path towards autonomous machine intelligence.</p>
+<p>[10] Sutton, R. (2019). The Bitter Lesson.</p>
+<p>[11] Brooks, F. (1986). No Silver Bullet. IEEE Computer.</p>
+<p>[12] Parnas, D. (1972). On the criteria for decomposing systems into modules. CACM.</p>
+<p>[13] Ousterhout, J. (2018). A Philosophy of Software Design.</p>
+<p>[14] DeMarco, T. (1979). Structured Analysis and System Specification.</p>
+<p>[15] Boehm, B. (1981). Software Engineering Economics.</p>
+<p>[16] Hoare, C. A. R. (1969). An axiomatic basis for computer programming. CACM.</p>
+<p>[17] Dijkstra, E. W. (1968). Go To statement considered harmful. CACM.</p>
+<p>[18] Lamport, L. (1978). Time, clocks, and the ordering of events. CACM.</p>
+<p>[19] Parnas, D., &amp; Clements, P. (1986). A rational design process. IEEE TSE.</p>
+<p>[20] Royce, W. (1970). Managing the development of large software systems.</p>
+<p>[21] Ousterhout, J. (1990). Why threads are a bad idea.</p>
+<p>[22] Gray, J., &amp; Reuter, A. (1993). Transaction Processing.</p>
+<p>[23] Perrow, C. (1984). Normal Accidents. Princeton University Press.</p>
+<p>[24] Reason, J. (1990). Human Error. Cambridge University Press.</p>
+<p>[25] Taleb, N. N. (2012). Antifragile. Random House.</p>
+<p>[26] Henderson, R., &amp; Clark, K. (1990). Architectural innovation. ASQ.</p>
+<p>[27] Flyxion (2026a). Paper I. Unpublished manuscript.</p>
+<p>[28] Flyxion (2026b). Paper II. Unpublished manuscript.</p>
+<p>[29] Kuhn, T. S. (1962). The Structure of Scientific Revolutions.</p>
+<p>[30] Flyxion (2026c). claimshift. github.com/8b-is/claimshift.</p>
+<p>[31] Flyxion (2026d). Paper IV. Unpublished manuscript.</p>
+<p>[32] Bengio, Y. (2025). International AI safety report (contrib.).</p>
+</div>
+
+<div class="colophon">
+<p>Flyxion · The Unattempted Alternative · October 2026 · v1.0</p>
+<p>ingested into the sovereign library · the residue is the evidence · 0 + 1 · vaked.dev</p>
+</div>
+</body></html>
