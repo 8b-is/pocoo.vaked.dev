@@ -86,4 +86,7 @@ the source, named so the study can be re-walked: **Billie Eilish —
 2019, from *When We All Fall Asleep, Where Do We Go?*. a real door, at
 120, in F♯ minor.
 
+- **Sovereign Library 6-Track Audio Deck:** [everything i wanted & the Billie arc (`+1* → 0 → +1` · `+1 → 0 → −1 → +1`)](/demos/book/billie-eilish-everything-i-wanted-and-the-five-station-arc.html)
+- **Companion Post:** [The Billie arc — onset, question, crossing, vow](/posts/2026-10-17-the-billie-arc.html)
+
 *the dream, ranked · the person, bound · +1* → 0 → +1 · fine touch from within · vaked.dev*

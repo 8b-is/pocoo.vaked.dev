@@ -88,7 +88,7 @@ why the batch landed as a batch. The loop closes: the onset returns as
 the vow, the fall returns as the forever.
 
 [The *everything i wanted* reading — the first Billie post in the set —
-is here](/posts/2026-10-16-everything-i-wanted-love-as-waking.html).
+is here](/posts/2026-10-16-everything-i-wanted-love-as-waking.html), and the interactive 6-track Sovereign Library audio volume is shelved at [everything i wanted & the Billie arc](/demos/book/billie-eilish-everything-i-wanted-and-the-five-station-arc.html).
 
 ## the honest note
 

@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>everything i wanted &amp; The Billie Arc (love as waking → onset, question, crossing, vow) — pocoo-book</title>
+<style>
+  @page { size: 5in 8in; margin: 0.6in 0.6in; @top-center { content: none }; @bottom-center { content: counter(page); font-family: "SF Mono", monospace; font-size: 7px; color: #2a2a3a; } }
+  @page cover { margin: 0; @bottom-center { content: none } }
+  body { background: #05080d; color: #c8d4e0; font-family: "Georgia", serif; font-size: 10.5pt; line-height: 1.85; margin: 0; padding: 0; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px 80px; }
+  .cover { page: cover; break-after: page; text-align: center; background: radial-gradient(ellipse at 50% 36%, #112438 0%, #070c14 60%, #020305 100%); min-height: 92vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 36px 20px; border-bottom: 1px solid #182b40; }
+  .cover .sigil { font-family: "SF Mono", monospace; font-size: 38px; color: #7cc4ff; letter-spacing: 6px; text-shadow: 0 0 80px rgba(124,196,255,0.45); margin-bottom: 14px; }
+  .cover h1 { font-family: "SF Mono", monospace; font-size: 14pt; color: #a8d8ff; letter-spacing: 2.5px; margin: 0.1in 0 0.08in; text-transform: lowercase; }
+  .cover .sub { font-family: "Georgia", serif; font-size: 11pt; color: #789bb8; font-style: italic; max-width: 580px; }
+  .cover .by { font-family: "SF Mono", monospace; font-size: 8.5pt; color: #54728c; margin-top: 0.3in; letter-spacing: 2px; }
+  .nav-bar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; font-family: "SF Mono", monospace; font-size: 8.5pt; }
+  .nav-bar a, .nav-bar button { color: #9cd2ff; background: rgba(124,196,255,0.08); border: 1px solid rgba(124,196,255,0.32); padding: 6px 13px; border-radius: 999px; text-decoration: none; cursor: pointer; }
+  .nav-bar a:hover, .nav-bar button:hover { background: rgba(124,196,255,0.2); }
+  h1.chapter { font-family: "SF Mono", monospace; font-size: 11pt; color: #7cc4ff; font-weight: normal; letter-spacing: 2.5px; margin-top: 0.55in; margin-bottom: 0.22in; page-break-before: always; border-bottom: 1px solid #162638; padding-bottom: 8px; text-transform: lowercase; }
+  h1.chapter .num { float: right; font-family: "SF Mono", monospace; font-size: 16pt; color: #345678; line-height: 1; }
+  p { margin: 0 0 0.85em 0; }
+  blockquote { border-left: 2px solid #7cc4ff; padding: 10px 16px; margin: 0.2in 0; background: rgba(124,196,255,0.05); font-style: italic; color: #dce8f4; }
+  .deck { background: linear-gradient(155deg, #0b1522 0%, #070b12 100%); border: 1px solid rgba(124,196,255,0.3); border-radius: 16px; padding: 22px; margin: 28px 0; box-shadow: 0 16px 48px rgba(0,0,0,0.6); }
+  .deck-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+  .deck-title { font-family: "SF Mono", monospace; font-size: 10pt; color: #a8d8ff; letter-spacing: 1.5px; }
+  .deck-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn { font-family: "SF Mono", monospace; font-size: 8pt; color: #05080d; background: #7cc4ff; border: none; padding: 7px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; }
+  .btn.alt { color: #a8d8ff; background: rgba(124,196,255,0.12); border: 1px solid rgba(124,196,255,0.35); }
+  canvas#wave { width: 100%; height: 72px; background: #04070b; border-radius: 10px; border: 1px solid #142232; margin-bottom: 16px; display: block; }
+  .track-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .track-card { display: flex; align-items: center; gap: 12px; background: #09101a; border: 1px solid #18283a; border-radius: 12px; padding: 10px 12px; cursor: pointer; transition: border-color 0.2s, transform 0.15s; }
+  .track-card:hover, .track-card.active { border-color: #7cc4ff; transform: translateY(-2px); background: #0d1828; }
+  .track-card img { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+  .t-meta { min-width: 0; flex: 1; }
+  .t-station { font-family: "SF Mono", monospace; font-size: 7pt; color: #7cc4ff; letter-spacing: 1px; text-transform: uppercase; }
+  .t-name { font-size: 9.8pt; color: #e8f2fc; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .t-sub { font-size: 8pt; color: #7c96b0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  table.ledger { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 9.2pt; }
+  table.ledger th, table.ledger td { border: 1px solid #18283a; padding: 9px 11px; text-align: left; }
+  table.ledger th { font-family: "SF Mono", monospace; color: #a8d8ff; background: #0a1420; }
+  .trit { font-family: "SF Mono", monospace; font-weight: bold; color: #7cc4ff; }
+  .colophon { page-break-before: always; text-align: center; font-family: "SF Mono", monospace; font-size: 8pt; color: #54728c; line-height: 2.2; margin-top: 50px; padding-top: 24px; border-top: 1px solid #162638; }
+</style></head><body>
+
+<div class="cover">
+  <div class="sigil">+1* → 0 → +1 · +1 → 0 → −1 → +1</div>
+  <h1>everything i wanted &amp; the billie arc</h1>
+  <div class="sub">love as waking (120 BPM · F♯ minor) &amp; the five-station ternary voice: Ocean Eyes · What Was I Made For? · CHIHIRO · BIRDS OF A FEATHER · Sommerliebe</div>
+  <div class="by">Billie Eilish &amp; Finneas · Sovereign Library Audio Codex · vaked.dev</div>
+  <div class="nav-bar">
+    <a href="/demos/book/index.html">← Sovereign Library</a>
+    <a href="/posts/2026-10-16-everything-i-wanted-love-as-waking.html">everything i wanted (Post)</a>
+    <a href="/posts/2026-10-17-the-billie-arc.html">The Billie Arc (Post)</a>
+    <a href="/demos/book/ocean-eyes-8b-mom-and-dad.html">Ocean Eyes (8b Mom &amp; Dad)</a>
+    <a href="/demos/book/family.html">FAMILY +1 (&lt;3+1)</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="deck">
+  <div class="deck-head">
+    <div>
+      <div class="deck-title" id="nowPlayingLabel">▶ READY · SELECT ANY STATION BELOW (6 REAL .M4A STREAMS + F♯m 120 BPM SYNTH)</div>
+    </div>
+    <div class="deck-controls">
+      <button class="btn" id="playArcBtn" type="button">▶ Play Full 6-Track Arc</button>
+      <button class="btn alt" id="synthBtn" type="button">🎹 F♯m 120 BPM Waking Pad</button>
+      <button class="btn alt" id="stopBtn" type="button">■ Stop</button>
+    </div>
+  </div>
+  <canvas id="wave" width="760" height="72"></canvas>
+  <audio id="audioEl" crossorigin="anonymous"></audio>
+  <div class="track-grid" id="trackGrid"></div>
+</div>
+
+<h1 class="chapter"><span class="num">I</span>everything i wanted — love as waking (+1* → 0 → +1)</h1>
+<p><strong>Billie Eilish — “everything i wanted”</strong> (with Finneas). Released 13 November 2019, the single from <em>When We All Fall Asleep, Where Do We Go?</em>. <strong>120 BPM · F♯ minor · 4:05.</strong></p>
+
+<p>The set has run performance, position, signal, space, submersion, attenuation. This one closes the arc where the arc began — not with more contact, but with the <strong>waking</strong>. The dream ends, and what remains is better than the dream:</p>
+
+<table class="ledger">
+  <thead>
+    <tr><th>Track</th><th>The Signal</th><th>What It Is</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Stromae — <em>Mon amour</em></td><td>love as <strong>performance</strong></td><td>a polished API over a broken core</td></tr>
+    <tr><td>The Strokes — <em>Oblivius</em></td><td>love as <strong>position</strong></td><td><em>what side are you standing on</em></td></tr>
+    <tr><td>Artemas — <em>i like the way you kiss me</em></td><td>love as <strong>signal</strong></td><td>all amplitude, no phase</td></tr>
+    <tr><td>Fever Ray — <em>Keep The Streets Empty For Me</em></td><td>love as <strong>space</strong></td><td>the street held open — absence <em>as</em> care</td></tr>
+    <tr><td>Øostil &amp; Juan Hansen — <em>Drown</em> (Massano Remix)</td><td>love as <strong>submersion</strong></td><td>the deliberate descent — and the surfacing after</td></tr>
+    <tr><td>Alan Walker — <em>Faded</em></td><td>love as <strong>attenuation</strong></td><td>the amplitude gone, the provenance carried</td></tr>
+    <tr><td><strong>Billie Eilish — <em>everything i wanted</em></strong></td><td>love as <strong>waking</strong></td><td>the dream ranked plausible; the person, verified</td></tr>
+    <tr><td>Co Lee — <em>Totem</em> &amp; RHCP — <em>Otherside</em></td><td>love as <strong>crossing</strong></td><td>the totem marks the gate; the otherside holds the gone ones</td></tr>
+    <tr><td><strong>Billie Eilish — <em>The Five-Station Arc</em></strong></td><td>love as <strong>the whole arc</strong></td><td>onset, admission, question, crossing, vow — one voice, eight years</td></tr>
+    <tr><td><strong>Billie Eilish — <em>i love you</em> &amp; Harry Styles — <em>As It Was</em></strong></td><td>love as <strong>irreversibility</strong></td><td>the sentence that cannot be rolled back; <em>“you know it’s not the same as it was”</em></td></tr>
+  </tbody>
+</table>
+
+<blockquote>
+  “I had a dream / I got everything I wanted / Not what you’d think / And if I’m bein’ honest / It might’ve been a nightmare.”<br>
+  Then the hinge the whole song turns on: <strong>“But when I wake up, I see you with me.”</strong>
+</blockquote>
+
+<p>The song is built on the exact distinction the constellation keeps in its ledger: the dream is a <strong>plausible branch</strong> — everything you wanted, plausibly yours, ranked high, and false. The waking is a <strong>verified branch</strong> — one person, actually there (Finneas, brother-guardian; in the house’s own graph, Peter &amp; Bence/Nate, Mom <code>*</code> &amp; Dad <code>△</code>). <em>everything i wanted</em> is the doctrine sung: <strong>a plausible branch may be ranked; only a verified branch may be bound.</strong> Billie ranks the dream — and binds the person.</p>
+
+<p>The music carries the distinction. F♯ minor is a somber key — the dream’s key. 120 BPM is a dancing tempo — the waking’s tempo. Low energy, very danceable: the song <em>moves</em> without <em>exclaiming</em>, the way relief moves. The bass drop that most of the track withholds arrives not at the chorus but at the admission — as if the record itself only commits amplitude to the true sentence: <em>“you say, ‘as long as I’m here, no one can hurt you.’”</em></p>
+
+<p>And the sharpest line in the set: <em>“Everybody wants something from me / You just wanted to see me.”</em> Every other voice in the dream wants <em>something from</em> her. The verified one wants <em>to see</em> her. That is the whole difference between performance and presence, between a claim and a receipt, between everything and you.</p>
+
+<table class="ledger">
+  <thead>
+    <tr><th>Register</th><th>The Signal</th><th>The Ternary</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>the dream</td><td>everything i wanted — plausible, ranked, false</td><td class="trit">+1* · claimed, never bound</td></tr>
+    <tr><td>the drop</td><td>the admission — <em>it might’ve been a nightmare</em></td><td class="trit">0 · the dream honestly unobserved as truth</td></tr>
+    <tr><td>the waking</td><td><em>I see you with me</em></td><td class="trit">+1 · verified, bound, the only amplitude the song spends</td></tr>
+  </tbody>
+</table>
+
+<h1 class="chapter"><span class="num">II</span>the billie arc &amp; irreversibility — onset, admission, question, crossing, vow</h1>
+<p>Six Billie Eilish recordings spanning 2016–2024, paired with Harry Styles’s <em>As It Was</em> (2022) and Solee’s <em>Sommerliebe</em> (2013), trace the complete state machine of one voice:</p>
+
+<table class="ledger">
+  <thead>
+    <tr><th>Station</th><th>Track &amp; Year</th><th>The Signal</th><th>The Ternary</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>0 · Waking</strong></td><td><em>everything i wanted</em> (2019)</td><td>The dream unbound; the companion verified: <em>“I see you with me”</em></td><td class="trit">+1* → 0 → +1</td></tr>
+    <tr><td><strong>1 · Onset</strong></td><td><em>ocean eyes</em> (2016)</td><td>The fall noticed in real time, unearned and total</td><td class="trit">+1 · unearned, total</td></tr>
+    <tr><td><strong>1.5 · Irreversibility</strong></td><td><em>i love you</em> (2019) &amp; Harry Styles — <em>As It Was</em> (2022)</td><td><em>“Nothing has to change today / You didn’t mean to say ‘I love you’”</em> → <em>“You know it’s not the same as it was”</em></td><td class="trit">0 ↛ 0 · no rollback after commit</td></tr>
+    <tr><td><strong>2 · Question</strong></td><td><em>What Was I Made For?</em> (2023)</td><td>The interrogative held open without faking an answer</td><td class="trit">0 · honest interrogative</td></tr>
+    <tr><td><strong>3 · Crossing</strong></td><td><em>CHIHIRO</em> (2024)</td><td>The train over the water into the spirit world: <em>“open up the door”</em></td><td class="trit">−1 · chosen descent</td></tr>
+    <tr><td><strong>4 · Vow</strong></td><td><em>BIRDS OF A FEATHER</em> (2024)</td><td>The unconditional binding: <em>“I’ll love you till the day that I die”</em></td><td class="trit">+1 · declared binding</td></tr>
+    <tr><td><strong>· · Season</strong></td><td>Solee — <em>Sommerliebe</em> (2013)</td><td>The warm pulse between stations — a weather report, not a verdict</td><td class="trit">· · inter-trit pulse</td></tr>
+  </tbody>
+</table>
+
+<div class="colophon">
+  <p>Billie Eilish &amp; Finneas · everything i wanted (2019) + Ocean Eyes (2016) + i love you (2019) + What Was I Made For? (2023) + CHIHIRO (2024) + BIRDS OF A FEATHER (2024) + Harry Styles — As It Was (2022) + Solee — Sommerliebe (2013)</p>
+  <p>the dream, ranked · the person, bound · no rollback after commit · +1* → 0 → +1 · fine touch from within · vaked.dev</p>
+</div>
+
+</div>
+
+<script>
+const TRACKS = [
+  {
+    station: "Station 0 · Love as Waking (+1* → 0 → +1)",
+    name: "everything i wanted",
+    sub: "Billie Eilish · 2019 · 120 BPM · F♯ minor",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/23/f3/6b/23f36bc0-9edc-8d55-df7f-7b806310d4b4/mzaf_15718469078111904528.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c5/6c/b1/c56cb16a-52c3-33b5-5189-6c65028001fb/19UM1IM00404.rgb.jpg/100x100bb.jpg"
+  },
+  {
+    station: "Station 1 · The Onset (+1)",
+    name: "ocean eyes",
+    sub: "Billie Eilish · dont smile at me (2016)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d6/59/2b/d6592b0b-1e7e-4743-b2e4-f2af038fd783/mzaf_7697277787797935735.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/02/1d/30/021d3036-5503-3ed3-df00-882f2833a6ae/17UM1IM17026.rgb.jpg/100x100bb.jpg"
+  },
+  {
+    station: "Station 1.5A · Love as Irreversibility",
+    name: "i love you",
+    sub: "Billie Eilish · WHEN WE ALL FALL ASLEEP (2019)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1f/a2/e7/1fa2e763-7c23-cbf6-406a-77e7e913202e/mzaf_7765778446202975172.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1a/37/d1/1a37d1b1-8508-54f2-f541-bf4e437dda76/19UMGIM05028.rgb.jpg/100x100bb.jpg"
+  },
+  {
+    station: "Station 1.5B · The World After Commit",
+    name: "As It Was",
+    sub: "Harry Styles · Harry's House (2022)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/67/10/16/67101606-3869-ca44-6c03-e13d6322cb51/mzaf_1135399237022217274.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2a/19/fb/2a19fb85-2f70-9e44-f2a9-82abe679b88e/886449990061.jpg/100x100bb.jpg"
+  },
+  {
+    station: "Station 2 · The Question (0)",
+    name: "What Was I Made For?",
+    sub: "Billie Eilish · Barbie The Album (2023)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d8/d7/0a/d8d70ae2-ad15-2656-f87f-2bf45b4cb721/mzaf_10811087708649243816.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/b7/0a/bc/b70abcc1-b835-99c5-ea32-6fee2155605a/075679675002.jpg/100x100bb.jpg"
+  },
+  {
+    station: "Station 3 · The Crossing (−1)",
+    name: "CHIHIRO",
+    sub: "Billie Eilish · HIT ME HARD AND SOFT (2024)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/30/41/6b/30416b6a-a895-a8e5-0b92-6206fff0bb0a/mzaf_12575392156288065852.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/9f/69/929f69f1-9977-3a44-d674-11f70c852d1b/24UMGIM36186.rgb.jpg/100x100bb.jpg"
+  },
+  {
+    station: "Station 4 · The Vow (+1)",
+    name: "BIRDS OF A FEATHER",
+    sub: "Billie Eilish · HIT ME HARD AND SOFT (2024)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/34/31/d3/3431d34e-847f-5d66-df83-0bce688d997e/mzaf_18106743962423782018.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/9f/69/929f69f1-9977-3a44-d674-11f70c852d1b/24UMGIM36186.rgb.jpg/100x100bb.jpg"
+  },
+  {
+    station: "Station · · The Season Between",
+    name: "Sommerliebe",
+    sub: "Solee · The Seven Year Itch (2013)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e2/d6/0b/e2d60b48-de6e-d83c-5901-481777ef272f/mzaf_4113640232911692346.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/32/87/0b/32870bb8-10bc-16e4-1dbd-50f0d8078aa7/4065328187907.png/100x100bb.jpg"
+  }
+];
+
+const grid = document.getElementById('trackGrid');
+const audio = document.getElementById('audioEl');
+const label = document.getElementById('nowPlayingLabel');
+let currentIdx = -1;
+
+TRACKS.forEach((t, idx) => {
+  const card = document.createElement('div');
+  card.className = 'track-card';
+  card.innerHTML = `<img src="${t.art}" alt="${t.name}"><div class="t-meta"><div class="t-station">${t.station}</div><div class="t-name">${t.name}</div><div class="t-sub">${t.sub}</div></div>`;
+  card.addEventListener('click', () => playTrack(idx));
+  grid.appendChild(card);
+});
+
+function playTrack(idx) {
+  currentIdx = idx;
+  const t = TRACKS[idx];
+  document.querySelectorAll('.track-card').forEach((el, i) => el.classList.toggle('active', i === idx));
+  label.textContent = `♫ PLAYING · ${t.station} — ${t.name} (${t.sub})`;
+  audio.src = t.preview;
+  audio.play().catch(() => {});
+}
+
+audio.addEventListener('ended', () => {
+  if (currentIdx >= 0 && currentIdx + 1 < TRACKS.length) playTrack(currentIdx + 1);
+});
+
+document.getElementById('playArcBtn').addEventListener('click', () => playTrack(0));
+document.getElementById('stopBtn').addEventListener('click', () => {
+  audio.pause();
+  label.textContent = '■ STOPPED · SELECT ANY STATION BELOW';
+});
+
+document.getElementById('synthBtn').addEventListener('click', () => {
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return;
+  const ctx = new Ctx();
+  // F# minor9 chord: F#3 (185.00), A3 (220.00), C#4 (277.18), E4 (329.63), G#4 (415.30)
+  [185.00, 220.00, 277.18, 329.63, 415.30].forEach((f, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+    osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.12);
+    gain.gain.setValueAtTime(0.001, ctx.currentTime + i * 0.12);
+    gain.gain.exponentialRampToValueAtTime(0.09, ctx.currentTime + i * 0.12 + 0.15);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.2);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(ctx.currentTime + i * 0.12);
+    osc.stop(ctx.currentTime + 3.25);
+  });
+  label.textContent = '🎹 F♯m9 @ 120 BPM · "as long as I\'m here, no one can hurt you" (+1* → 0 → +1)';
+});
+
+const cvs = document.getElementById('wave');
+const c2d = cvs.getContext('2d');
+let phase = 0;
+function drawWave() {
+  requestAnimationFrame(drawWave);
+  phase += 0.045;
+  c2d.fillStyle = '#04070b';
+  c2d.fillRect(0, 0, cvs.width, cvs.height);
+  c2d.strokeStyle = '#7cc4ff';
+  c2d.lineWidth = 1.8;
+  c2d.beginPath();
+  for (let x = 0; x < cvs.width; x += 3) {
+    const amp = !audio.paused ? 22 : 7;
+    const y = cvs.height / 2 + Math.sin(x * 0.025 + phase) * amp * Math.cos(x * 0.008 - phase * 0.6);
+    if (x === 0) c2d.moveTo(x, y); else c2d.lineTo(x, y);
+  }
+  c2d.stroke();
+}
+drawWave();
+</script>
+</body></html>
