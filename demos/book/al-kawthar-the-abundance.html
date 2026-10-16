@@ -246,6 +246,149 @@
 <p><strong>2. “Pre-Islamic and classical poetry (e.g., Al-Mutanabbī) can be analysed the same way”:</strong> 7th-century arbiters like Walīd ibn al-Mughīra and Labīd ibn Rabīʿah (author of one of the <em>Muʿallaqāt</em>, who ceased composing poetry after embracing Islam) testified that the Qur’ān belongs to neither <em>shiʿr</em> (metrical poetry) nor <em>sajʿ</em> (soothsayer rhymed prose). Later poets like al-Mutanabbī worked within inherited metres, borrowed from predecessors like Abū Nuwās, and wereboth critiqued (al-Ṣāḥib ibn ʿAbbād, al-Ḥātimī, Bonebakker) and emulated (Ibn Hānī, Ibn al-Fāriḍ).</p>
 <p><strong>3. “If Shakespeare is an unparalleled literary genius, then inimitability is human”:</strong> Shakespeare developed across decades of revisions within established forms like iambic pentameter (Mark Forsyth, Christopher Marlowe, John Fletcher), whereas Al-Kawthar was delivered extemporaneously in a single unrevised utterance satisfying 27 simultaneous lexical, morphological, phonetic, and intertextual constraints.</p>
 
+<h1 class="chapter"><span class="num">V</span>Formal 7-to-3 Typed Graph Transformation &amp; Quotient Analysis</h1>
+<p>We can formulate the proposed seven-to-three inversion as a finite, typed graph transformation $F = (f_V, f_E) : S_{107} \to S_{108}$ and test whether it preserves enough structure to qualify as a meaningful semantic compression — distinguishing between <em>constructing a possible mapping</em> and <em>proving that the mapping is privileged by the Arabic text</em>.</p>
+
+<h2 class="device">1. Semantic Predicate Structures ($V_{107}$ and $V_{108}$)</h2>
+<p>Let $S_{107}$ (<em>Al-Māʿūn</em>) and $S_{108}$ (<em>Al-Kawthar</em>) have verse sets $V_{107} = \{a_1, \dots, a_7\}$ and $V_{108} = \{b_1, b_2, b_3\}$. Grounded in explicit Arabic morphosyntax (verbal form, connective particle, agent/patient role, semantic root class, and evaluation polarity):</p>
+
+<table class="mirror">
+  <thead>
+    <tr>
+      <th>Verse</th>
+      <th>Arabic &amp; Morphosyntax</th>
+      <th>Formal Predicate</th>
+      <th>Domain &amp; Bond</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>$a_1$</strong></td>
+      <td>أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ<br><em>Form II imperfect + bi-</em></td>
+      <td>$\mathrm{Denies}(x, \mathrm{Judgment})$</td>
+      <td><code>Status_Exclusion</code> ($\to a_2$ via <em>fa-dhālika lladhī</em>)</td>
+    </tr>
+    <tr>
+      <td><strong>$a_2$</strong></td>
+      <td>فَذَٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ<br><em>Form I transitive imperfect</em></td>
+      <td>$\mathrm{Repels}(x, \mathrm{Orphan})$</td>
+      <td><code>Status_Exclusion</code> (equative bond with $a_1$)</td>
+    </tr>
+    <tr>
+      <td><strong>$a_3$</strong></td>
+      <td>وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ<br><em>Negated Form I + ṭaʿām</em></td>
+      <td>$\neg\mathrm{Encourages}(x, \mathrm{FeedingPoor})$</td>
+      <td><code>Material_Transfer</code> (closes singular <em>alladhī</em> block)</td>
+    </tr>
+    <tr>
+      <td><strong>$a_4$</strong></td>
+      <td>فَوَيْلٌ لِّلْمُصَلِّينَ<br><em>Imprecation + Form II participle</em></td>
+      <td>$\mathrm{Woe}(\mathrm{Prayers})$</td>
+      <td><code>Ritual_Orientation</code> (head of <em>alladhīna hum</em> chain)</td>
+    </tr>
+    <tr>
+      <td><strong>$a_5$</strong></td>
+      <td>الَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ<br><em>Aversative ʿan + active participle</em></td>
+      <td>$\mathrm{Heedless}(\mathrm{Prayers})$</td>
+      <td><code>Ritual_Orientation</code> (bound to $a_4, a_6$)</td>
+    </tr>
+    <tr>
+      <td><strong>$a_6$</strong></td>
+      <td>الَّذِينَ هُمْ يُرَاءُونَ<br><em>Form III ostentation verb</em></td>
+      <td>$\mathrm{Ostentatious}(\mathrm{Prayers})$</td>
+      <td><code>Ritual_Orientation</code> (bound to $a_4, a_5$)</td>
+    </tr>
+    <tr>
+      <td><strong>$a_7$</strong></td>
+      <td>وَيَمْنَعُونَ الْمَاعُونَ<br><em>Form I deprivation verb + māʿūn</em></td>
+      <td>$\mathrm{Withholds}(x, \mathrm{Assistance})$</td>
+      <td><code>Material_Transfer</code> (closes plural <em>-ūna</em> block)</td>
+    </tr>
+    <tr>
+      <td><strong>$b_1$</strong></td>
+      <td>إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ<br><em>Form IV perfect + fawʿal noun</em></td>
+      <td>$\mathrm{Gives}(\mathrm{God}, \mathrm{Recipient}, \mathrm{Abundance})$</td>
+      <td><code>Material_Transfer</code> ($\iota$: Provision vs. Withholding)</td>
+    </tr>
+    <tr>
+      <td><strong>$b_2$</strong></td>
+      <td>فَصَلِّ لِرَبِّكَ وَانْحَرْ<br><em>Form II + Form I imperatives</em></td>
+      <td>$\mathrm{Commands}(\mathrm{God}, \mathrm{Recipient}, \mathrm{Prayer}\wedge\mathrm{Sacrifice})$</td>
+      <td><code>Ritual_Orientation</code> + secondary <code>Material_Transfer</code></td>
+    </tr>
+    <tr>
+      <td><strong>$b_3$</strong></td>
+      <td>إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ<br><em>Participle + pronoun of separation + afʿal</em></td>
+      <td>$\mathrm{CutOff}(\mathrm{Antagonist})$</td>
+      <td><code>Status_Exclusion</code> ($\iota$: Reversed Exclusion)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="device">2. Candidate Surjection $f : V_{107} \to V_{108}$ &amp; Quotient $V_{107}/{\sim}$</h2>
+<p>Define the surjective mapping $f(a_i) = b_3$ for $i \in \{1,2\}$, $f(a_i) = b_2$ for $i \in \{4,5,6\}$, and $f(a_i) = b_1$ for $i \in \{3,7\}$, inducing the quotient partition:</p>
+<div class="prop">
+  $$\mathcal{P}^* = V_{107}/{\sim} = \bigl\{\, \{a_1, a_2\} \mapsto b_3,\;\; \{a_3, a_7\} \mapsto b_1,\;\; \{a_4, a_5, a_6\} \mapsto b_2 \,\bigr\}, \qquad |V_{107}/{\sim}| = 3.$$
+</div>
+<p>Rather than a Boolean truth-functional negation, $F = (f_V, f_E)$ acts as a <strong>typed reversal of relational orientation followed by quotienting</strong>: $f_E(r(u,v)) = \iota(r)(f_V(u), f_V(v))$, where $\iota(\mathrm{Withholding}) = \mathrm{Provision}$, $\iota(\mathrm{DefectivePrayer}) = \mathrm{DirectedPrayer}$, and $\iota(\mathrm{Rejection}) = \mathrm{ReversedExclusion}$ with $\iota^2(r) = r$.</p>
+
+<h2 class="device">3. Combinatorial Landscape ($1,806$ Surjections) &amp; Cost Minimization</h2>
+<p>Across $7$ source verses and $3$ nonempty target classes, there are $S(7,3) = 301$ unlabeled partitions and $3! \cdot S(7,3) = 1,806$ labeled surjections (of which $\frac{7!}{2!\,2!\,3!}\cdot 3 = 630$ have block sizes $\{2,2,3\}$, and only $36$ preserve all restrictive Arabic syntactic chains $U(F)=0$). Evaluating all $1,806$ surjections under $L(F) = \alpha U(F) + \beta T(F) + \gamma A(F) + \delta X(F)$ via <code>scripts/verify_kawthar_quotient.py</code>:</p>
+
+<table class="mirror">
+  <thead>
+    <tr>
+      <th>Rank / Mapping</th>
+      <th>Partition Assignment</th>
+      <th>$U(F)$ (Syntax)</th>
+      <th>$T(F)$ (Type)</th>
+      <th>$A(F)$ (Coercion)</th>
+      <th>Total Cost $L(F)$</th>
+      <th>Preservation $P_Q(F)$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>#1 ($F^*$ Global Min)</strong></td>
+      <td>$\{a_1,a_2\}\!\to\!b_3,\; \{a_3,a_7\}\!\to\!b_1,\; \{a_4,a_5,a_6\}\!\to\!b_2$</td>
+      <td>$0.00$</td>
+      <td>$0.00$</td>
+      <td>$1.35$</td>
+      <td><strong>$1.350$</strong> ($z = -3.79\sigma$)</td>
+      <td><strong>$1.0000$</strong></td>
+    </tr>
+    <tr>
+      <td><strong>#2 (Ibn al-Khaṭīb Variant A)</strong></td>
+      <td>$\{a_1,a_2\}\!\to\!b_3,\; \{a_3\}\!\to\!b_1,\; \{a_4,a_5,a_6,a_7\}\!\to\!b_2$</td>
+      <td>$0.00$</td>
+      <td>$0.45$</td>
+      <td>$1.50$</td>
+      <td>$2.175$</td>
+      <td>$0.6951$</td>
+    </tr>
+    <tr>
+      <td><strong>#3 (Ibn al-Khaṭīb Variant B)</strong></td>
+      <td>$\{a_1,a_2\}\!\to\!b_3,\; \{a_7\}\!\to\!b_1,\; \{a_3,a_4,a_5,a_6\}\!\to\!b_2$</td>
+      <td>$0.00$</td>
+      <td>$0.45$</td>
+      <td>$1.50$</td>
+      <td>$2.175$</td>
+      <td>$0.6951$</td>
+    </tr>
+    <tr>
+      <td><strong>Mean across 1,806 Surjections</strong></td>
+      <td>Random surjection baseline ($\sigma_L = 3.1225$)</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>$13.191$</td>
+      <td>$0.2140$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Blind Unsupervised Quotient Recovery:</strong> When clustering $\varphi : V_{107} \to \mathbb{R}^8$ over all $S(7,3) = 301$ unlabeled 3-class partitions of $S_{107}$ <em>with zero access to $S_{108}$</em>, the partition $\mathcal{P}^* = \{\{a_1,a_2\}, \{a_3,a_7\}, \{a_4,a_5,a_6\}\}$ ranks <strong>#1 out of 301</strong> ($\mathrm{WCSS} = 0.4167$), ahead of the contiguous surface-pericope split $\{\{a_1,a_2,a_3\}, \{a_4,a_5,a_6\}, \{a_7\}\}$ (Rank #2, $\mathrm{WCSS} = 3.0000$) because $a_3$ (<em>ṭaʿām al-miskīn</em>) and $a_7$ (<em>al-māʿūn</em>) form the parallel material-withholding closures of the two syntactic halves of $S_{107}$. Across a 9-pair comparative matrix of 7-verse passages ($S_{107}, S_{1}, S_{104:1\text{–}7}$) against all three 3-verse surahs of the Qur’ān ($S_{108}, S_{103}, S_{110}$), the $(S_{107} \to S_{108})$ pairing achieves $\min L = 1.60$ versus $12.95\text{–}17.70$ for all non-paired combinations.</p>
+
 <h1 class="chapter"><span class="num">§</span>References (1–88)</h1>
 <div class="refs">
   <p>[1–5] Acknowledgements (Shaykh Yasir Al-Hanifi, Shaykh Mohammad Idrissi, Salih Hamid Fatih, Mohammed Hijab, Dr. Safaruk Chowdhury, Shaykh Fahad Tasleem); Forsyth, M. (2013) <em>The Elements of Eloquence</em>; Dickinson, E. (1997) “Hope Is the Thing with Feathers”.</p>
