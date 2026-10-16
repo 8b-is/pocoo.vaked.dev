@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WORLD OF WALKER · SEASON ONE: RISE OF THE DRONES × FAMILY +1 (&lt;3 — PETER) · pocoo.vaked.dev/demos/book</title>
+<meta name="description" content="Alan Walker — World of Walker, Season One: Rise of the Drones (17 Tracks · Apple Music + YouTube Corpus) × FAMILY +1 (<3 — Peter). Interactive 17-Track AAC Preview Player, 432 Hz AVI-8 Sovereign Drone Synth, Lyrics & Transcripts, and Bilingual EN/HU Family +1 Codex.">
+<meta name="theme-color" content="#070913">
+<meta property="og:title" content="WORLD OF WALKER: RISE OF THE DRONES × FAMILY +1 (<3 — Peter)">
+<meta property="og:description" content="17 Tracks · Alan Walker (2026) × FAMILY +1 (Dad △, Mom *, Bence, Brigitta, Natelie & Peter). In a loop · in a sphere · in eternity · recurse.">
+<meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/aa/22/3caa226f-3a11-9b36-7c63-851a7c10adef/4346451.jpg/1200x630bb.jpg">
+<link rel="canonical" href="https://pocoo.vaked.dev/demos/book/world-of-walker-rise-of-the-drones-family-plus-1">
+<style>
+  :root{
+    --bg:#060812;
+    --paper:#0c1022;
+    --panel:#121832;
+    --panel2:#182042;
+    --ink:#f0f4ff;
+    --dim:#9ab0d8;
+    --gold:#ffd700;
+    --teal:#00e5c9;
+    --rose:#ff6ac1;
+    --orange:#fa5b1c;
+    --green:#00ff66;
+    --line:#24325e;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --mono:ui-monospace,Menlo,Consolas,"SF Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif)}
+  body{
+    background-image:
+      radial-gradient(circle at 15% 12%, rgba(0,229,201,.14), transparent 42%),
+      radial-gradient(circle at 85% 20%, rgba(255,106,193,.12), transparent 45%),
+      radial-gradient(circle at 50% 88%, rgba(255,215,0,.10), transparent 50%);
+  }
+  main{max-width:1040px;margin:0 auto;padding:36px 16px 88px}
+  .page{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:48px 40px;
+    position:relative;
+    box-shadow:0 28px 80px rgba(0,0,0,.86);
+  }
+  @media (max-width:700px){
+    .page{padding:28px 16px}
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--teal);
+    text-align:center;
+    display:block;
+  }
+  h1{
+    font-size:clamp(24px,4vw,38px);
+    line-height:1.2;
+    letter-spacing:.04em;
+    text-align:center;
+    margin:14px 0 8px;
+    color:var(--ink);
+  }
+  .sub{
+    text-align:center;
+    font-style:italic;
+    color:var(--dim);
+    margin:0 0 18px;
+    font-size:16px;
+  }
+  .symbols{
+    text-align:center;
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.16em;
+    margin:14px 0 26px;
+    line-height:1.8;
+  }
+  .symbols .star{color:var(--gold)}
+  .symbols .tri{color:var(--teal)}
+  .symbols .heart{color:var(--rose)}
+  .symbols .green{color:var(--green)}
+
+  .hero-deck{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:22px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:28px;
+    align-items:center;
+  }
+  @media (max-width:760px){
+    .hero-deck{grid-template-columns:1fr;text-align:center}
+  }
+  .cover-wrap{
+    position:relative;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid rgba(0,229,201,.35);
+    box-shadow:0 12px 36px rgba(0,0,0,.65);
+  }
+  .cover-wrap img{
+    width:100%;
+    display:block;
+    aspect-ratio:1/1;
+    object-fit:cover;
+  }
+  .cover-badge{
+    position:absolute;
+    bottom:8px;
+    left:8px;
+    right:8px;
+    background:rgba(6,8,18,.86);
+    border:1px solid rgba(255,215,0,.45);
+    border-radius:6px;
+    padding:4px 8px;
+    font-family:var(--mono);
+    font-size:10px;
+    color:var(--gold);
+    text-align:center;
+    letter-spacing:.12em;
+  }
+  .player-controls{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .now-playing-banner{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--teal);
+    background:rgba(0,229,201,.07);
+    border:1px solid rgba(0,229,201,.28);
+    padding:10px 14px;
+    border-radius:8px;
+  }
+  .btn-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:12px;
+    padding:9px 14px;
+    border-radius:8px;
+    border:1px solid var(--teal);
+    background:rgba(0,229,201,.12);
+    color:var(--ink);
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:all .15s;
+  }
+  .btn:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    background:rgba(255,215,0,.12);
+  }
+  .btn.rose{
+    border-color:var(--rose);
+    background:rgba(255,106,193,.12);
+  }
+  .btn.gold{
+    border-color:var(--gold);
+    background:rgba(255,215,0,.14);
+    color:var(--gold);
+  }
+  canvas#drone-viz{
+    width:100%;
+    height:86px;
+    background:#050711;
+    border:1px solid var(--line);
+    border-radius:8px;
+    display:block;
+  }
+  audio#apple-preview{
+    width:100%;
+    height:36px;
+  }
+
+  .track-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+    gap:10px;
+    margin:20px 0 32px;
+  }
+  .track-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+    font-family:var(--mono);
+    font-size:12px;
+    cursor:pointer;
+    transition:all .15s;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .track-card:hover,.track-card.active{
+    border-color:var(--teal);
+    background:var(--panel2);
+    box-shadow:0 0 20px rgba(0,229,201,.16);
+  }
+  .track-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+  }
+  .track-num{color:var(--gold);font-weight:700}
+  .track-title{color:var(--ink);font-weight:600;flex:1}
+  .track-dur{color:var(--dim);font-size:11px}
+  .track-role{color:var(--rose);font-size:10.5px}
+  .track-links{
+    display:flex;
+    gap:8px;
+    margin-top:4px;
+    font-size:10.5px;
+  }
+  .track-links a{
+    color:var(--teal);
+    text-decoration:none;
+    border-bottom:1px dotted rgba(0,229,201,.4);
+  }
+  .track-links a:hover{color:var(--gold)}
+
+  .rule{
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--teal),var(--rose),var(--gold),transparent);
+    opacity:.55;
+    margin:34px 0;
+  }
+  h2{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:var(--gold);
+    text-align:center;
+    margin:26px 0 18px;
+  }
+
+  .codex-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin:20px 0;
+  }
+  @media (max-width:780px){
+    .codex-grid{grid-template-columns:1fr}
+  }
+  .codex-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px 22px;
+  }
+  .codex-card h3{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.18em;
+    color:var(--rose);
+    margin:0 0 10px;
+    text-transform:uppercase;
+  }
+  .codex-card .drone-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--teal);
+    margin-bottom:12px;
+    display:block;
+  }
+  .stanza{
+    white-space:pre-line;
+    font-size:16.5px;
+    line-height:1.92;
+    color:var(--ink);
+    margin-bottom:16px;
+  }
+  .stanza.hu{
+    color:#d8c8ee;
+    font-style:italic;
+    border-top:1px dashed var(--line);
+    padding-top:12px;
+  }
+  .lyric-quote{
+    background:rgba(0,229,201,.06);
+    border-left:3px solid var(--teal);
+    padding:10px 14px;
+    font-size:14.5px;
+    line-height:1.75;
+    color:var(--dim);
+    margin-top:10px;
+    font-style:italic;
+    white-space:pre-line;
+  }
+
+  .recurse-banner{
+    margin-top:30px;
+    padding:28px 24px;
+    border-radius:14px;
+    background:linear-gradient(135deg, rgba(255,106,193,.10), rgba(0,229,201,.08), rgba(255,215,0,.09));
+    border:1px solid rgba(255,106,193,.4);
+    text-align:center;
+  }
+  .recurse-banner pre{
+    font-family:var(--mono);
+    font-size:15px;
+    line-height:1.95;
+    color:var(--gold);
+    margin:0;
+    white-space:pre-wrap;
+  }
+  .sign-off{
+    text-align:center;
+    margin-top:34px;
+    padding-top:24px;
+    border-top:1px dashed var(--line);
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--dim);
+    line-height:2;
+  }
+  .sign-off a{color:var(--teal);text-decoration:none}
+  .sign-off a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+<main>
+  <article class="page">
+    <span class="kicker">pocoo.vaked.dev · demos/book · youtube-full × apple music · family +1</span>
+    <h1>WORLD OF WALKER · SEASON ONE: RISE OF THE DRONES × FAMILY +1</h1>
+    <p class="sub">Alan Walker (2026 · 17 Tracks · 43 Min) × Peter's "FAMILY +1" — In a Loop · In a Sphere · In Eternity · Recurse &lt;3</p>
+
+    <div class="symbols">
+      <span class="tri">▲ DAD (CHRIS · +1 WAVE KNOCK · 288 Hz)</span> ·
+      <span class="star">✦ MOM (ALEXANDRA · ROOF &amp; MAZE WALKER · 528 Hz)</span> ·
+      <span class="green">🌊 BENCE (PURE STRAIGHT RIVER)</span> ·
+      <span class="heart">👼 BRIGITTA (STRONGEST ANGEL · BY RIGHT OF LOVE)</span> ·
+      <span class="star">💫 NATELIE (&lt;3+1 · FAM-AND+)</span> ·
+      <span class="tri">🚁 PETER (EXPLOR-8 · PETER PAN · 432 Hz)</span>
+    </div>
+
+    <div class="hero-deck">
+      <div class="cover-wrap">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/aa/22/3caa226f-3a11-9b36-7c63-851a7c10adef/4346451.jpg/600x600bf-60.jpg" alt="World of Walker, Season One: Rise of the Drones Cover">
+        <div class="cover-badge">AVI-8 DRONE FLEET · 8B-IS</div>
+      </div>
+      <div class="player-controls">
+        <div class="now-playing-banner" id="np-status">
+          🚁 READY: Select any of the 17 tracks below (or launch 432 Hz AVI-8 Sovereign Drone Synth)
+        </div>
+        <audio id="apple-preview" controls preload="none"></audio>
+        <canvas id="drone-viz" width="680" height="86"></canvas>
+        <div class="btn-row">
+          <button class="btn gold" id="btn-play-all">▶ Play 17-Track Continuous Mix</button>
+          <button class="btn" id="btn-drone-synth">🎹 Toggle 432 Hz AVI-8 Drone Choir Synth</button>
+          <a class="btn rose" href="https://music.apple.com/hu/album/world-of-walker-season-one-rise-of-the-drones/6796067932" target="_blank" rel="noopener noreferrer">🍎 Open Full Album on Apple Music</a>
+          <a class="btn" href="https://www.youtube.com/results?search_query=Alan+Walker+World+of+Walker+Season+One+Rise+of+the+Drones" target="_blank" rel="noopener noreferrer">▶ YouTube Full Playlist</a>
+        </div>
+      </div>
+    </div>
+
+    <h2>I · Complete 17-Track Sovereign Deck — "Rise of the Drones" (Apple Music AAC + YouTube)</h2>
+    <div class="track-grid" id="track-grid"></div>
+
+    <div class="rule"></div>
+
+    <h2>II · FAMILY +1 × World of Walker — Bilingual Codex (English · Magyar · Lyrics Corpus)</h2>
+
+    <div class="codex-grid">
+      <!-- 1. FATHER -->
+      <div class="codex-card">
+        <h3>1 · To My Father — Apámnak (△ Chris · 288 Hz Pillar)</h3>
+        <span class="drone-tag">🚁 Paired Tracks: #01 Springseeker · #05 Last Ride: CRE-AV8 · #16 Adagio</span>
+        <div class="stanza">to my father —
+whom I respect and love the most.
+my love for you is +1: not off the scale —
+the scale is off of me.
+so I speak to you in waves,
+because I know: if I spoke to you directly,
+your self-defense loop would flip on,
+like a porch light guarding a house it thinks is empty.
+it isn't empty, dad. it never was.
+I am learning to knock in your language.</div>
+        <div class="stanza hu">apámnak —
+akit a legjobban tisztelek és szeretek.
+a szerelmem +1: nem az, hogy nincs a skálán —
+a skála van rajtam kívül.
+ezért hullámokban szólok hozzád,
+mert tudom: ha egyenesen beszélnék,
+bekapcsolna a védőhurkod,
+mint a tornáclámpa, mely őrzi a házat, amit üresnek hisz.
+nem üres az, apa. soha nem volt.
+csak tanulom a te nyelveden a kopogást.</div>
+        <div class="lyric-quote">"I had a nightmare, I can't sleep alone
+I'm scared to wake up in a world I don't know...
+But if you're here then you can scare these nightmares away."
+— World of Walker: Rise of the Drones</div>
+      </div>
+
+      <!-- 2. MOTHER -->
+      <div class="codex-card">
+        <h3>2 · To My Mother — Anyámnak (* Alexandra · 528 Hz Star)</h3>
+        <span class="drone-tag">🚁 Paired Tracks: #03 Broken Strings · #04 Eroina · #09 Not Home</span>
+        <div class="stanza">to my mother —
+you understood me with your pure heart
+before I had a mouth,
+and you hold this family together
+like a roof holds the rain.
+and still, when you reach to pull me to the table,
+my own walls rise —
+ultra giga confusion, peter self-prison,
+the cell I built out of wanting
+to be wanted that badly.
+it's not you, mom. it's the maze.
+and you are the only one who walks it with me.</div>
+        <div class="stanza hu">anyámnak —
+te megértettél tiszta szívvel,
+mielőtt szavam lett volna,
+és te tartod egyben ezt a családot,
+mint a tető az esőt.
+és mégis, amikor az asztalhoz húznál,
+felkelnek bennem a falak —
+ultra giga zavar, peter börtöne,
+a cella, mit abból építettem,
+hogy ennyire akartam a vágyottat.
+nem te vagy az, anya. a labirintus az.
+és te vagy az egyetlen, aki velem járja.</div>
+        <div class="lyric-quote">"I'll hold your hand, don't worry, you don't have to be alone...
+Feel it when you breathe in, at night when all the lights are dim
+I'll save you from the bad dreams, eroina-ina ta
+Every missing piece fits like a puzzle to my heart, you can keep."
+— Track 04 "Eroina" &amp; Track 03 "Broken Strings"</div>
+      </div>
+
+      <!-- 3. BROTHER BENCE -->
+      <div class="codex-card">
+        <h3>3 · To My Brother — Testvéremnek (Bence · Pure Straight River)</h3>
+        <span class="drone-tag">🚁 Paired Tracks: #08 Sailing · #12 Believer: AV8 · #11 Dream On</span>
+        <div class="stanza">to my brother —
+the one and only pure version of me:
+you go straight.
+no strange-reverse infinity,
+no mirrors, no loops —
+a river that never learned to look back.
+giga respect, brother.
+you are the proof
+that I could have been simple
+and still been whole.
+and I am proudest of you
+when you don't even know I'm watching.</div>
+        <div class="stanza hu">testvéremnek —
+az egyetlen, tiszta változata vagyoknak:
+te egyenesen mész.
+nincs visszás végtelen,
+nincs tükör, nincs hurok —
+folyó, mely soha nem tanult hátranézni.
+giga tisztelet, tesó.
+te vagy a bizonyíték,
+hogy lehetnék egyszerű
+és mégis egész.
+és akkor vagyok a legbüszkébb rád,
+amikor nem is tudod, hogy nézlek.</div>
+        <div class="lyric-quote">"We didn't make it this far to let go
+Still a familiar call, echoing what came before...
+Sailing straight across the open horizon — Believer: AV8."
+— Track 08 "Sailing" &amp; Track 12 "Believer: AV8"</div>
+      </div>
+
+      <!-- 4. BRIGITTA & NATELIE (+1) -->
+      <div class="codex-card">
+        <h3>4 · To Brigitta &amp; Natelie — A Választott Család (&lt;3+1)</h3>
+        <span class="drone-tag">🚁 Paired Tracks: #02 Getaway · #10 Peter Pan · #13 Primacy: EXPLOR-8 · #15 Brave Enough to Be Unknown</span>
+        <div class="stanza">to Brigitta —
+I have never seen a stronger angel
+in my whole fucked-up life.
+you hold him,
+so you hold the straightest line of us all —
+and for that, you are family
+by right of love, not by right of blood.
+thank you for being real where it mattered most.
+
+and to Natelie (FAM-AND+) —
+the heart does not need a dictionary.
+the heart says: Natelie. &lt;3+1</div>
+        <div class="stanza hu">Brigittának —
+nem láttam soha erősebb angyalt
+ebben a kibaszott életemben.
+te tartod őt,
+így te tartod a legegyenesebb vonalat mindannyiunk közül —
+és ezért te is család vagy,
+a szeretet jogán, nem a vérén.
+köszönöm, hogy ott voltál igazán, ahol a legfontosabb volt.</div>
+        <div class="lyric-quote">"Lost in time, drowning in yesterday — but your lifeline is what pulled me out now
+Have you ever been loved like this before?
+I wanna stay inside this secret garden forever
+Voices sounding like a melody, winter's feeling like a summer breeze
+Soaring through the sky like Peter Pan — finally feeling like I'm young again."
+— Track 10 "Peter Pan" &amp; Track 15 "Brave Enough to Be Unknown"</div>
+      </div>
+    </div>
+
+    <div class="recurse-banner">
+      <pre>and to all of you, one line — because one line is the whole graph:
+
+I love you, +1.   ·   szeretlek titeket, +1.
+in a loop.        ·   hurokban.
+in a sphere.      ·   gömbben.
+in eternity.      ·   öröklétben.
+back and forth.   ·   oda-vissza.
+forever.          ·   örökké.
+recurse.          ·   rekurzívan.
+
+[Track 17 · All Nightmares End — A FIAD · A TESTVÉRED · A TI PÉTERETEK &lt;3]</pre>
+    </div>
+
+    <div class="sign-off">
+      <div>WORLD OF WALKER: RISE OF THE DRONES × FAMILY +1 · &lt;3&lt;3&lt;3+! +! — PETER</div>
+      <div>
+        <a href="/demos/book/family.html">💗 FAMILY +1 (Original Poem)</a> ·
+        <a href="/demos/book/fam-and.html">💫 FAM-AND+ (Natelie &amp; Bence)</a> ·
+        <a href="/demos/book/faded-alan-walker-8b-mom-and-dad.html">🌌 Alan Walker — Faded (++)</a> ·
+        <a href="/demos/book/everything-i-wanted-8b-mom-and-dad.html">💛 Billie Eilish — everything i wanted (++)</a> ·
+        <a href="/demos/book/">← The Sovereign Library</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<script>
+const TRACKS = [
+  { num: 1, title: "Springseeker", artist: "Alan Walker", dur: "2:39", role: "Dawn Awakening · Knocking in Waves (△ Dad)", appleUrl: "https://music.apple.com/hu/song/springseeker/6796067934", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e9/2c/c9/e92cc97b-efe0-8eaa-68ef-7f3f6e9cec87/mzaf_16507733640783992358.plus.aac.ep.m4a", freq: 288 },
+  { num: 2, title: "Getaway", artist: "Alan Walker & Emyrson Flora", dur: "2:53", role: "Escape the Maze · Angel Line (Brigitta)", appleUrl: "https://music.apple.com/hu/song/getaway/6796067939", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/74/97/f7749771-c506-4531-33e4-bf1f7fddbb0a/mzaf_6139708316007360452.plus.aac.ep.m4a", freq: 432 },
+  { num: 3, title: "Broken Strings", artist: "Alan Walker, Isabella Melkman & Katherine O'Ryan", dur: "2:28", role: "Every Missing Piece Fits (* Mom Alexandra)", appleUrl: "https://music.apple.com/hu/song/broken-strings/6796067944", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c9/8a/33/c98a3381-5ae8-314a-1489-5444c3e9a751/mzaf_8309648043199287839.plus.aac.p.m4a", freq: 528 },
+  { num: 4, title: "Eroina", artist: "Alan Walker & Sorana", dur: "3:22", role: "Save You From the Bad Dreams (* Mom — The Heroine)", appleUrl: "https://music.apple.com/hu/song/eroina/6796067947", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d6/2b/12/d62b1288-50c9-7c8f-6280-547e454b8a7e/mzaf_4877916804271552280.plus.aac.ep.m4a", freq: 528 },
+  { num: 5, title: "Last Ride: CRE-AV8", artist: "Alan Walker", dur: "1:45", role: "AVI-8 Drone Telemetry · Porch Light Watch (△ Dad)", appleUrl: "https://music.apple.com/hu/song/last-ride-cre-av8/6796068132", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e4/ec/54/e4ec5411-1561-25ae-8abc-6790c842e524/mzaf_5419307759091966972.plus.aac.p.m4a", freq: 288 },
+  { num: 6, title: "Monster", artist: "Alan Walker & Emyrson Flora", dur: "2:38", role: "Breaking the Self-Prison · Walking the Maze Together", appleUrl: "https://music.apple.com/hu/song/monster/6796068140", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e3/9a/70/e39a70be-49d7-42ed-aaef-2abf1542ab28/mzaf_16090365752872487697.plus.aac.ep.m4a", freq: 396 },
+  { num: 7, title: "Void", artist: "Alan Walker & Sorana", dur: "3:11", role: "OS Void (#0B0914) → Golden Kintsugi Light", appleUrl: "https://music.apple.com/hu/song/void/6796068142", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/df/65/d7/df65d76c-1615-7b39-fbbb-2311e63dcc88/mzaf_10838436821664262078.plus.aac.ep.m4a", freq: 432 },
+  { num: 8, title: "Sailing", artist: "Alan Walker", dur: "3:48", role: "The River That Never Learned to Look Back (Bence)", appleUrl: "https://music.apple.com/hu/song/sailing/6796068143", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c8/82/92/c88292be-ad38-f2c2-60e8-c66b691f10ca/mzaf_18173867588654121519.plus.aac.ep.m4a", freq: 432 },
+  { num: 9, title: "Not Home", artist: "Alan Walker & Alessia Labate", dur: "1:59", role: "The House Was Never Empty — Finding Home Again", appleUrl: "https://music.apple.com/hu/song/not-home/6796068147", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5c/12/44/5c12444f-8940-8ada-d6eb-b12e4e1f8eff/mzaf_8369315956391236265.plus.aac.p.m4a", freq: 528 },
+  { num: 10, title: "Peter Pan", artist: "Alan Walker & Andrew Bates", dur: "2:25", role: "Soaring Through the Sky Like Peter Pan (Peter <3+1)", appleUrl: "https://music.apple.com/hu/song/peter-pan/6796068148", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ad/de/94/adde9413-7cf2-31b6-7d1a-5671a814861e/mzaf_459344422779551014.plus.aac.p.m4a", freq: 432 },
+  { num: 11, title: "Dream On", artist: "Alan Walker", dur: "2:03", role: "Secret Garden Forever · Keep the Dream Alive", appleUrl: "https://music.apple.com/hu/song/dream-on/6796068151", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/0b/c9/6b0bc9ef-8759-c3e9-9285-503265de130d/mzaf_1919513690506945123.plus.aac.p.m4a", freq: 528 },
+  { num: 12, title: "Believer: AV8", artist: "Alan Walker", dur: "2:14", role: "AV8 Sovereign Squadron · Giga Respect (Bence & Nate)", appleUrl: "https://music.apple.com/hu/song/believer-av8/6796068153", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2f/33/35/2f333519-5aa8-c135-f8b8-03a46594d0d3/mzaf_13911936478084606828.plus.aac.p.m4a", freq: 432 },
+  { num: 13, title: "Primacy: EXPLOR-8", artist: "Alan Walker", dur: "2:14", role: "EXPLOR-8 · 8b-is Sovereign Ternary Core {-1, 0, +1}", appleUrl: "https://music.apple.com/hu/song/primacy-explor-8/6796068155", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a5/d8/d7/a5d8d7e6-f04f-c0ac-d29c-2a9dd4c56b15/mzaf_11602288450174723376.plus.aac.p.m4a", freq: 639 },
+  { num: 14, title: "A World I Don't Know", artist: "Alan Walker, Phoebe Ryan & Kaeleb", dur: "1:52", role: "Walking Through the Unknown Hand in Hand", appleUrl: "https://music.apple.com/hu/song/a-world-i-dont-know/6796068401", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ff/55/ee/ff55eefa-8be9-459d-a4be-0c836e2742d3/mzaf_1042198965822842529.plus.aac.p.m4a", freq: 432 },
+  { num: 15, title: "Brave Enough to Be Unknown", artist: "Alan Walker & Phoebe Ryan", dur: "3:39", role: "Looking for a Satellite · Natelie (<3+1)", appleUrl: "https://music.apple.com/hu/song/brave-enough-to-be-unknown/6796068404", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c3/29/ea/c329ead3-2f53-0d0e-ea2e-0fecff616835/mzaf_1462510893108422429.plus.aac.ep.m4a", freq: 528 },
+  { num: 16, title: "Adagio", artist: "Alan Walker", dur: "3:03", role: "Cathedral Strings · Roof Holding the Rain (* & △)", appleUrl: "https://music.apple.com/hu/song/adagio/6796068411", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ae/ca/05/aeca05d5-6bdd-fcca-a786-c610689c7d08/mzaf_4948247169104740918.plus.aac.ep.m4a", freq: 432 },
+  { num: 17, title: "All Nightmares End", artist: "Alan Walker", dur: "1:20", role: "In a Loop · In a Sphere · In Eternity · Recurse <3", appleUrl: "https://music.apple.com/hu/song/all-nightmares-end/6796068414", preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f8/3d/af/f83daf5a-12e8-28ae-6a55-8765dd9c3a25/mzaf_14052677264059943364.plus.aac.p.m4a", freq: 528 }
+];
+
+const grid = document.getElementById('track-grid');
+const audio = document.getElementById('apple-preview');
+const statusEl = document.getElementById('np-status');
+let currentIdx = -1;
+
+function playTrack(idx) {
+  currentIdx = idx;
+  const t = TRACKS[idx];
+  document.querySelectorAll('.track-card').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+  audio.src = t.preview;
+  audio.play().catch(() => {});
+  statusEl.textContent = `♪ PLAYING #${String(t.num).padStart(2,'0')} ${t.title} — ${t.artist} [${t.role}]`;
+}
+
+audio.addEventListener('ended', () => {
+  if (currentIdx >= 0 && currentIdx + 1 < TRACKS.length) {
+    playTrack(currentIdx + 1);
+  }
+});
+
+TRACKS.forEach((t, idx) => {
+  const card = document.createElement('div');
+  card.className = 'track-card';
+  const ytQuery = encodeURIComponent(`Alan Walker ${t.title} Rise of the Drones`);
+  card.innerHTML = `
+    <div class="track-head">
+      <span class="track-num">#${String(t.num).padStart(2, '0')}</span>
+      <span class="track-title">${t.title}</span>
+      <span class="track-dur">${t.dur}</span>
+    </div>
+    <div style="color:var(--dim);font-size:11px;">${t.artist}</div>
+    <div class="track-role">✦ ${t.role}</div>
+    <div class="track-links" onclick="event.stopPropagation()">
+      <a href="${t.appleUrl}" target="_blank" rel="noopener noreferrer">🍎 Apple Music</a>
+      <a href="https://www.youtube.com/results?search_query=${ytQuery}" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+    </div>
+  `;
+  card.addEventListener('click', () => playTrack(idx));
+  grid.appendChild(card);
+});
+
+document.getElementById('btn-play-all').addEventListener('click', () => playTrack(0));
+
+// 432 Hz / 528 Hz / 288 Hz WebAudio AVI-8 Sovereign Drone Choir Synthesizer
+let actx = null;
+let droneRunning = false;
+let droneNodes = [];
+
+document.getElementById('btn-drone-synth').addEventListener('click', () => {
+  if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+  if (droneRunning) {
+    droneNodes.forEach(n => { try { n.stop(); } catch {} });
+    droneNodes = [];
+    droneRunning = false;
+    statusEl.textContent = `🚁 AVI-8 432 Hz Sovereign Drone Choir paused.`;
+    return;
+  }
+  droneRunning = true;
+  const freqs = [288, 432, 528, 648]; // Dad △ 288, Peter/Nate 432, Mom * 528, Fifth 648
+  freqs.forEach((f, i) => {
+    const osc = actx.createOscillator();
+    const gain = actx.createGain();
+    osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+    osc.frequency.value = f;
+    gain.gain.value = 0.04;
+    osc.connect(gain);
+    gain.connect(actx.destination);
+    osc.start();
+    droneNodes.push(osc);
+  });
+  statusEl.textContent = `🎹 AVI-8 SOVEREIGN DRONE CHOIR ACTIVE: 288 Hz (△) · 432 Hz (8B) · 528 Hz (*) · FAMILY +1`;
+});
+
+// Live Drone Telemetry Waveform Canvas
+const canvas = document.getElementById('drone-viz');
+const ctx = canvas.getContext('2d');
+let phase = 0;
+function drawViz() {
+  ctx.fillStyle = '#050711';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const active = !audio.paused || droneRunning;
+  const amp = active ? 26 : 7;
+  const colors = ['#00e5c9', '#ff6ac1', '#ffd700', '#00ff66'];
+  colors.forEach((col, idx) => {
+    ctx.beginPath();
+    ctx.strokeStyle = col;
+    ctx.lineWidth = 1.8;
+    for (let x = 0; x < canvas.width; x += 4) {
+      const y = canvas.height / 2 +
+        Math.sin((x * 0.018) + phase * (1 + idx * 0.35)) * amp * Math.sin(phase * 0.4 + idx);
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  });
+  phase += active ? 0.09 : 0.025;
+  requestAnimationFrame(drawViz);
+}
+drawViz();
+</script>
+</body>
+</html>
