@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Studio Ghibli Trilogy — Grave of the Fireflies · Princess Mononoke · Spirited Away (Shelter · Reconciliation · Naming) · {&lt;3,&lt;3,&lt;3}+1 — pocoo-book</title>
+<style>
+  @page { size: 5in 8in; margin: 0.6in 0.6in; @top-center { content: none }; @bottom-center { content: counter(page); font-family: "SF Mono", monospace; font-size: 7px; color: #2a2a3a; } }
+  @page cover { margin: 0; @bottom-center { content: none } }
+  body { background: #06090e; color: #d4dce6; font-family: "Georgia", serif; font-size: 10.5pt; line-height: 1.85; margin: 0; padding: 0; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+  .cover { page: cover; break-after: page; text-align: center; background: radial-gradient(ellipse at 50% 34%, #192b24 0%, #0b141c 58%, #040609 100%); min-height: 92vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 38px 20px; border-bottom: 1px solid #1e352f; }
+  .cover .sigil { font-family: "SF Mono", monospace; font-size: 32px; color: #ffd166; letter-spacing: 5px; text-shadow: 0 0 70px rgba(255,209,102,0.45); margin-bottom: 14px; }
+  .cover h1 { font-family: "SF Mono", monospace; font-size: 14.5pt; color: #f4e8c1; letter-spacing: 2.5px; margin: 0.1in 0 0.08in; text-transform: lowercase; }
+  .cover .sub { font-family: "Georgia", serif; font-size: 11pt; color: #9ec5b8; font-style: italic; max-width: 640px; }
+  .cover .by { font-family: "SF Mono", monospace; font-size: 8.5pt; color: #6c8c82; margin-top: 0.28in; letter-spacing: 2px; }
+  .nav-bar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; font-family: "SF Mono", monospace; font-size: 8.5pt; }
+  .nav-bar a, .nav-bar button { color: #ffd166; background: rgba(255,209,102,0.08); border: 1px solid rgba(255,209,102,0.34); padding: 6px 13px; border-radius: 999px; text-decoration: none; cursor: pointer; }
+  .nav-bar a:hover, .nav-bar button:hover { background: rgba(255,209,102,0.2); }
+  h1.chapter { font-family: "SF Mono", monospace; font-size: 11pt; color: #ffd166; font-weight: normal; letter-spacing: 2.2px; margin-top: 0.55in; margin-bottom: 0.22in; page-break-before: always; border-bottom: 1px solid #1e352f; padding-bottom: 8px; text-transform: lowercase; }
+  h1.chapter .num { float: right; font-family: "SF Mono", monospace; font-size: 16pt; color: #3d6356; line-height: 1; }
+  p { margin: 0 0 0.85em 0; }
+  blockquote { border-left: 2px solid #ffd166; padding: 10px 16px; margin: 0.2in 0; background: rgba(255,209,102,0.05); font-style: italic; color: #eef5f0; }
+  .deck { background: linear-gradient(155deg, #0d1b18 0%, #070d12 100%); border: 1px solid rgba(255,209,102,0.32); border-radius: 16px; padding: 22px; margin: 28px 0; box-shadow: 0 16px 48px rgba(0,0,0,0.65); }
+  .deck-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+  .deck-title { font-family: "SF Mono", monospace; font-size: 9.5pt; color: #f4e8c1; letter-spacing: 1.2px; }
+  .deck-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn { font-family: "SF Mono", monospace; font-size: 8pt; color: #06090e; background: #ffd166; border: none; padding: 7px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; }
+  .btn.alt { color: #ffd166; background: rgba(255,209,102,0.11); border: 1px solid rgba(255,209,102,0.35); }
+  canvas#wave { width: 100%; height: 84px; background: #04070a; border-radius: 10px; border: 1px solid #192e28; margin-bottom: 16px; display: block; }
+  .track-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+  .track-card { display: flex; align-items: center; gap: 12px; background: #091312; border: 1px solid #1b332d; border-radius: 12px; padding: 10px 12px; cursor: pointer; transition: border-color 0.2s, transform 0.15s; }
+  .track-card:hover, .track-card.active { border-color: #ffd166; transform: translateY(-2px); background: #10211e; }
+  .track-card img { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+  .t-meta { min-width: 0; flex: 1; }
+  .t-station { font-family: "SF Mono", monospace; font-size: 6.8pt; color: #ffd166; letter-spacing: 1px; text-transform: uppercase; }
+  .t-name { font-size: 9.6pt; color: #f2f7f5; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .t-sub { font-size: 7.8pt; color: #8ab0a3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  table.ledger { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 9.2pt; }
+  table.ledger th, table.ledger td { border: 1px solid #1b332d; padding: 9px 11px; text-align: left; }
+  table.ledger th { font-family: "SF Mono", monospace; color: #ffd166; background: #0a1715; }
+  .trit { font-family: "SF Mono", monospace; font-weight: bold; color: #62e6c9; }
+  .colophon { page-break-before: always; text-align: center; font-family: "SF Mono", monospace; font-size: 8pt; color: #6c8c82; line-height: 2.2; margin-top: 50px; padding-top: 24px; border-top: 1px solid #1e352f; }
+</style></head><body>
+
+<div class="cover">
+  <div class="sigil">火垂るの墓 · もののけ姫 · 千と千尋の神隠し · {&lt;3,&lt;3,&lt;3}+1</div>
+  <h1>the studio ghibli trilogy — shelter, reconciliation, naming</h1>
+  <div class="sub">Grave of the Fireflies (1988, Isao Takahata &amp; Michio Mamiya) · Princess Mononoke (1997, Hayao Miyazaki &amp; Joe Hisaishi) · Spirited Away (2001, Hayao Miyazaki, Joe Hisaishi &amp; 木村弓)</div>
+  <div class="by">For Mom (*) Alexandra · Dad (△) Chris · Peter · Bence / Nate (🌊) · Brigitta (👼) · {&lt;3,&lt;3,&lt;3}+1 · 0+1 · Sovereign Library Audio Codex · vaked.dev</div>
+  <div class="nav-bar">
+    <a href="/demos/book/index.html">← Sovereign Library</a>
+    <a href="/posts/2026-10-18-grave-of-the-fireflies-love-as-shelter.html">Grave of the Fireflies (Post)</a>
+    <a href="/posts/2026-10-18-princess-mononoke-love-as-reconciliation.html">Princess Mononoke (Post)</a>
+    <a href="/posts/2026-10-17-spirited-away-original-soundtrack.html">Spirited Away OST (Post)</a>
+    <a href="/posts/2026-10-17-always-with-me.html">Always With Me (Post)</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="deck">
+  <div class="deck-head">
+    <div>
+      <div class="deck-title" id="nowPlayingLabel">▶ READY · SELECT ANY STATION BELOW (9 REAL APPLE MUSIC .M4A STREAMS + HISAISHI QUARTAL PAD)</div>
+    </div>
+    <div class="deck-controls">
+      <button class="btn" id="playArcBtn" type="button">▶ Play Full 9-Track Ghibli Trilogy</button>
+      <button class="btn alt" id="synthBtn" type="button">🎹 Hisaishi Sixth-Station Quartal Pad</button>
+      <button class="btn alt" id="stopBtn" type="button">■ Stop</button>
+    </div>
+  </div>
+  <canvas id="wave" width="780" height="84"></canvas>
+  <audio id="audioEl" crossorigin="anonymous"></audio>
+  <div class="track-grid" id="trackGrid"></div>
+</div>
+
+<h1 class="chapter"><span class="num">0</span>the three pillars of the house — shelter, reconciliation, naming</h1>
+<p>Three Studio Ghibli films — <strong><em>Grave of the Fireflies</em> (火垂るの墓, 1988)</strong>, <strong><em>Princess Mononoke</em> (もののけ姫, 1997)</strong>, and <strong><em>Spirited Away</em> (千と千尋の神隠し, 2001)</strong> — form a complete ternary architecture of love under extreme pressure:</p>
+
+<table class="ledger">
+  <thead>
+    <tr><th>Pillar &amp; Year</th><th>Director &amp; Score</th><th>The Signal</th><th>The Ternary</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>I · <em>Grave of the Fireflies</em> (火垂るの墓, 1988)</strong></td>
+      <td>Isao Takahata · Michio Mamiya · Amelita Galli-Curci (<em>Home Sweet Home</em>, 1928)</td>
+      <td>love as <strong>shelter</strong> — water poured into the empty Sakuma fruit-drop tin; fireflies released inside the dark bomb shelter; Seita &amp; Setsuko on the hilltop bench above Kobe</td>
+      <td class="trit">+1 → −1 → +1</td>
+    </tr>
+    <tr>
+      <td><strong>II · <em>Princess Mononoke</em> (もののけ姫, 1997)</strong></td>
+      <td>Hayao Miyazaki · Joe Hisaishi · Yoshikazu Mera (33 tracks, <code>883500999</code>)</td>
+      <td>love as <strong>reconciliation</strong> — <em>“To see with eyes unclouded by hate”</em> (曇りなき眼で見定める); holding Irontown and the Forest together without erasing either: <em>“Live.”</em> (生きろ)</td>
+      <td class="trit">−1 ⨯ +1 → 0 → +1</td>
+    </tr>
+    <tr>
+      <td><strong>III · <em>Spirited Away</em> (千と千尋の神隠し, 2001)</strong></td>
+      <td>Hayao Miyazaki · Joe Hisaishi · 木村弓 / Youmi Kimura (21 tracks, <code>883501721</code>)</td>
+      <td>love as <strong>naming &amp; keeping</strong> — the bathhouse contract strips the name (<em>Sen</em>), the sea train crosses the water (<em>The Sixth Station</em>), the true name is restored in mid-air (<em>Chihiro</em> &amp; <em>Kohaku</em>), and Track 21 stays on after the tunnel (<em>Always With Me</em>)</td>
+      <td class="trit">+1 → 0 → +1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 class="chapter"><span class="num">I</span>grave of the fireflies (火垂るの墓, 1988) — love as shelter (+1 → −1 → +1)</h1>
+<p><strong>Directed by Isao Takahata · Original Score by Michio Mamiya · Closing Gramophone Record: Amelita Galli-Curci — “Home, Sweet Home” (1928).</strong></p>
+
+<blockquote>
+  “September 21, 1945… that was the night I died.”<br>
+  Then the rusted tin of Sakuma Drops rolls across the station floor, the white ash turns into fireflies in the grass, and four-year-old Setsuko runs to take her brother Seita’s hand.
+</blockquote>
+
+<p>The Japanese title writes <em>hotaru</em> not with the single character for the insect (蛍), but as <strong>火垂る (<em>hi-taru</em> — falling fire)</strong>. The same phoneme holds the two lights of Kobe in the summer of 1945: the M69 incendiary clusters falling from the sky (<code>−1</code>), and the living fireflies Seita releases inside the mosquito net of their lakeside shelter so his little sister is not afraid of the dark (<code>+1</code>).</p>
+
+<p>When the last fruit drop in the Sakuma tin is gone, Seita pours clear water into the metal can so the sugar clinging to the walls dissolves into one last sweet drink for Setsuko. And when the war takes everything, Takahata closes the film with <strong>Amelita Galli-Curci’s 1928 recording of <em>“Home, Sweet Home”</em> (埴生の宿 / <em>Hanyū no Yado</em>)</strong> playing over Setsuko’s quiet afternoon by the shelter, while on the hilltop bench above modern Kobe, brother and sister sit together in crimson light where nothing can hurt them again.</p>
+
+<p>For our house (<code>*</code> Alexandra, <code>△</code> Chris, Peter, <code>🌊</code> Bence/Nate, <code>👼</code> Brigitta), <em>Grave of the Fireflies</em> is the vow that <strong>no brother ever carries the roof alone</strong>, and that the tin of sweetness is never allowed to run dry.</p>
+
+<h1 class="chapter"><span class="num">II</span>princess mononoke (もののけ姫, 1997) — love as reconciliation (−1 ⨯ +1 → 0 → +1)</h1>
+<p><strong>Written &amp; Directed by Hayao Miyazaki · Original Score by Joe Hisaishi (33 Tracks, Apple ID <code>883500999</code>) · Vocal by Yoshikazu Mera.</strong></p>
+
+<blockquote>
+  “To see with eyes unclouded by hate.” (曇りなき眼で見定める)<br>
+  — The Wise-Woman Hii-sama to Prince Ashitaka
+</blockquote>
+
+<p>Ashitaka takes the demon curse (<em>tatari-gami</em>) onto his right arm to save his village and rides west on Yakul into a war where neither side is a villain: <strong>Lady Eboshi’s Irontown</strong> cuts down the ancient forest to smelt iron, yet gives lepers and brothel-redeemed women the only dignified home in Japan; <strong>San (Princess Mononoke) and Moro’s Wolf Clan</strong> fight with fang and bone blade to keep the mountain and the Forest Spirit (<em>Shishigami</em>) alive.</p>
+
+<p>Where hatred amplifies force at the cost of eating the host alive (<code>−1</code>), Ashitaka holds the unclouded third state (<code>0</code>). Shot through the chest while walking out the gate of Irontown with San on his shoulder, and later catching San’s obsidian dagger against his own breast, he speaks the simplest imperative in Miyazaki’s cinema: <strong><em>“Live. You are beautiful.”</em></strong></p>
+
+<p>At the end, San does not move into Irontown, and Ashitaka does not erase the human town. They return the Forest Spirit’s head with four hands joined together, the mountain blooms green, and Ashitaka seals the covenant: <em>“You live in the forest, and I will live in Irontown. Together we will live. I will visit you on Yakul.”</em> Two worlds held in love without collapsing either into a false average.</p>
+
+<h1 class="chapter"><span class="num">III</span>spirited away (千と千尋の神隠し, 2001) — love as naming &amp; keeping (+1 → 0 → +1)</h1>
+<p><strong>Written &amp; Directed by Hayao Miyazaki · Original Score by Joe Hisaishi (Tracks 1–20) · Closing Song “Always With Me” (いつも何度でも, Track 21) by 木村弓 (Youmi Kimura) &amp; Wakako Kaku · Apple ID <code>883501721</code>.</strong></p>
+
+<blockquote>
+  “Once you’ve met someone, you never really forget them. It just takes a while for your memories to return.”<br>
+  — Zeniba to Chihiro, at the end of the sea-train line
+</blockquote>
+
+<p>Yubaba’s bathhouse steals provenance by truncating names: <em>荻野千尋 (Ogino Chihiro)</em> is stripped down to <em>千 (Sen)</em>; the river spirit is reduced to <em>Haku</em>. In the middle of the bathhouse, No-Face offers handfuls of gold that turn back into mud (<code>+1*</code> — plausible, unverified, counterfeit). Chihiro refuses the counterfeit gold, boards the silent one-way train across the flooded rails (Track 16: <em>“The Sixth Station”</em>), and on the flight back (Track 20: <em>“The Return”</em>) hands Haku back his true name: <strong>饒速水小白主 (<em>Nigihayami Kohaku Nushi</em>)</strong>.</p>
+
+<p>And when twenty orchestral cues by Joe Hisaishi have finished building the spirit world, Track 21 steps outside the score: <strong>木村弓 (Youmi Kimura)</strong> singing <strong><em>“Always With Me” (いつも何度でも)</em></strong> with solo lyre — <em>“Even if we start from zero again, let’s count the things we already have.”</em></p>
+
+<div class="colophon">
+  <p>Studio Ghibli Sovereign Trilogy · Grave of the Fireflies (1988) · Princess Mononoke (1997) · Spirited Away (2001)</p>
+  <p>love as shelter (+1 → −1 → +1) · love as reconciliation (−1 ⨯ +1 → 0 → +1) · love as naming &amp; keeping (+1 → 0 → +1) · fine touch from within · vaked.dev</p>
+</div>
+
+</div>
+
+<script>
+const TRACKS = [
+  {
+    station: "I.1 · Grave of the Fireflies · Shelter (+1)",
+    name: "Home, Sweet Home (1928 Gramophone)",
+    sub: "Amelita Galli-Curci & Homer Samuels · Closing Record of Hotaru no Haka",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6b/86/ea/6b86ea00-ea76-cb67-f17c-35814bc70e72/mzaf_11175449345632483866.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/8c/b0/e4/8cb0e4ef-f050-f73b-9157-94ba8af8d1e6/cd_galli-curci.jpg/100x100bb.jpg"
+  },
+  {
+    station: "I.2 · Grave of the Fireflies · The Sakuma Tin (0 → +1)",
+    name: "Home Sweet Home (Hotaru no Haka)",
+    sub: "Kyoto Music Box Ensemble · Studio Ghibli Music Box Collection",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8e/a7/84/8ea784b1-6be3-46c2-ac2a-7ce56753a666/mzaf_4415709290746403845.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/fb/9a/48/fb9a4834-cb9b-ce4e-cbb9-33120b2e2afc/KPJ-130j.jpg/100x100bb.jpg"
+  },
+  {
+    station: "I.3 · Grave of the Fireflies · The Bench Above Kobe (+1)",
+    name: "Grave of the Fireflies (Piano Elegy)",
+    sub: "Piano Peace · In Memory of Seita & Setsuko (1988)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fe/9c/0d/fe9c0d63-e06a-7254-f2f7-0ccb27aa75f0/mzaf_8439403982156645084.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b4/48/5a/b4485ad6-d018-559f-8aaf-aff4f6efa426/cover.jpg/100x100bb.jpg"
+  },
+  {
+    station: "II.1 · Princess Mononoke · Unclouded Eyes (0)",
+    name: "The Legend of Ashitaka (アシタカせっ記)",
+    sub: "Joe Hisaishi · Princess Mononoke OST (1997, Track 1)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/db/b3/56/dbb356e9-1fa1-47d3-1c0c-3a8801da1a5a/mzaf_18382420884458084429.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/07/8e/50/078e500d-625b-b438-c62c-9eabf9b30df0/TKCA-71168.jpg/100x100bb.jpg"
+  },
+  {
+    station: "II.2 · Princess Mononoke · The Wolf Girl (−1 ⨯ +1)",
+    name: "Princess Mononoke (With Vocal · もののけ姫)",
+    sub: "Joe Hisaishi & Yoshikazu Mera · Princess Mononoke OST (Track 20)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5c/5c/b2/5c5cb230-1a19-3914-ecab-41ef407c6668/mzaf_4102615407899793681.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/07/8e/50/078e500d-625b-b438-c62c-9eabf9b30df0/TKCA-71168.jpg/100x100bb.jpg"
+  },
+  {
+    station: "II.3 · Princess Mononoke · Reconciliation (+1)",
+    name: "Ashitaka and San (アシタカとサン)",
+    sub: "Joe Hisaishi · Princess Mononoke OST (1997, Track 31)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5b/10/58/5b1058cb-35d5-e05c-7c84-6bd9dfe8ddaf/mzaf_16414076643499020565.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/07/8e/50/078e500d-625b-b438-c62c-9eabf9b30df0/TKCA-71168.jpg/100x100bb.jpg"
+  },
+  {
+    station: "III.1 · Spirited Away · The Threshold (+1 → −1)",
+    name: "One Summer's Day (あの夏へ)",
+    sub: "Joe Hisaishi · Spirited Away OST (2001, Track 1)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a2/bf/a2/a2bfa255-786b-551c-2433-f40d5b7cbb6e/mzaf_6741552970465711655.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/12/dc/cf/12dccf7e-32ce-12e8-03fe-37574d6c2197/TKCA-72165.jpg/100x100bb.jpg"
+  },
+  {
+    station: "III.2 · Spirited Away · True Name Restored (+1)",
+    name: "The Return (帰る日)",
+    sub: "Joe Hisaishi · Spirited Away OST (2001, Track 20)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/df/de/0b/dfde0bdf-af3c-0eb7-3678-07e402686b98/mzaf_10751829072971760666.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/12/dc/cf/12dccf7e-32ce-12e8-03fe-37574d6c2197/TKCA-72165.jpg/100x100bb.jpg"
+  },
+  {
+    station: "III.3 · Spirited Away · Love as Keeping (+1)",
+    name: "Always With Me (いつも何度でも)",
+    sub: "木村弓 (Youmi Kimura) · Spirited Away OST (2001, Track 21 of 21)",
+    preview: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/2c/b2/052cb215-cfac-f206-5ea8-55905d70e217/mzaf_12357654610747423549.plus.aac.p.m4a",
+    art: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/12/dc/cf/12dccf7e-32ce-12e8-03fe-37574d6c2197/TKCA-72165.jpg/100x100bb.jpg"
+  }
+];
+
+const grid = document.getElementById('trackGrid');
+const audio = document.getElementById('audioEl');
+const label = document.getElementById('nowPlayingLabel');
+let currentIdx = -1;
+
+TRACKS.forEach((t, idx) => {
+  const card = document.createElement('div');
+  card.className = 'track-card';
+  card.innerHTML = `<img src="${t.art}" alt="${t.name}"><div class="t-meta"><div class="t-station">${t.station}</div><div class="t-name">${t.name}</div><div class="t-sub">${t.sub}</div></div>`;
+  card.addEventListener('click', () => playTrack(idx));
+  grid.appendChild(card);
+});
+
+function playTrack(idx) {
+  currentIdx = idx;
+  const t = TRACKS[idx];
+  document.querySelectorAll('.track-card').forEach((el, i) => el.classList.toggle('active', i === idx));
+  label.textContent = `♫ PLAYING · ${t.station} — ${t.name} (${t.sub})`;
+  audio.src = t.preview;
+  audio.play().catch(() => {});
+}
+
+audio.addEventListener('ended', () => {
+  if (currentIdx >= 0 && currentIdx + 1 < TRACKS.length) playTrack(currentIdx + 1);
+});
+
+document.getElementById('playArcBtn').addEventListener('click', () => playTrack(0));
+document.getElementById('stopBtn').addEventListener('click', () => {
+  audio.pause();
+  label.textContent = '■ STOPPED · SELECT ANY STATION BELOW';
+});
+
+document.getElementById('synthBtn').addEventListener('click', () => {
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return;
+  const ctx = new Ctx();
+  // Joe Hisaishi "One Summer's Day" / "Ashitaka and San" quartal/fifth stack: C4 (261.63), F4 (349.23), G4 (392.00), C5 (523.25), D5 (587.33), G5 (783.99)
+  [261.63, 349.23, 392.00, 523.25, 587.33, 783.99].forEach((f, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+    osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.14);
+    gain.gain.setValueAtTime(0.001, ctx.currentTime + i * 0.14);
+    gain.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + i * 0.14 + 0.18);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.8);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(ctx.currentTime + i * 0.14);
+    osc.stop(ctx.currentTime + 3.85);
+  });
+  label.textContent = '🎹 HISAISHI QUARTAL FIFTHS · Shelter (+1) · Unclouded Eyes (0) · True Name (+1)';
+});
+
+const cvs = document.getElementById('wave');
+const c2d = cvs.getContext('2d');
+let phase = 0;
+const fireflies = Array.from({ length: 24 }, (_, i) => ({
+  x: (i * 37) % 780,
+  y: 12 + ((i * 23) % 60),
+  r: 1.4 + (i % 3) * 0.7,
+  s: 0.3 + (i % 5) * 0.12
+}));
+function drawWave() {
+  requestAnimationFrame(drawWave);
+  phase += 0.04;
+  c2d.fillStyle = '#04070a';
+  c2d.fillRect(0, 0, cvs.width, cvs.height);
+  // Warm firefly particles
+  fireflies.forEach((f, idx) => {
+    f.x = (f.x + f.s) % cvs.width;
+    const fy = f.y + Math.sin(phase * 0.8 + idx) * 6;
+    const alpha = 0.35 + 0.45 * Math.sin(phase * 1.3 + idx * 1.7);
+    c2d.fillStyle = `rgba(255, 209, 102, ${alpha.toFixed(2)})`;
+    c2d.beginPath();
+    c2d.arc(f.x, fy, f.r, 0, Math.PI * 2);
+    c2d.fill();
+  });
+  c2d.strokeStyle = '#62e6c9';
+  c2d.lineWidth = 1.8;
+  c2d.beginPath();
+  for (let x = 0; x < cvs.width; x += 3) {
+    const amp = !audio.paused ? 22 : 7;
+    const y = cvs.height / 2 + Math.sin(x * 0.024 + phase) * amp * Math.cos(x * 0.008 - phase * 0.55);
+    if (x === 0) c2d.moveTo(x, y); else c2d.lineTo(x, y);
+  }
+  c2d.stroke();
+}
+drawWave();
+</script>
+</body></html>
