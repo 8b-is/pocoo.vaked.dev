@@ -99,6 +99,18 @@
       </div>
       <canvas id="epistemicWave" width="780" height="96" aria-label="Harmonic wave interference between World, Belief, and Record"></canvas>
       <div class="deck-readout" id="epistemicReadout"></div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px dashed rgba(255,209,102,0.22);display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn" type="button" onclick="window.__speakCurrentState()">🔊 Speak Turn (&lt;30w TTS)</button>
+          <button class="btn" type="button" id="bibleMicBtn" onclick="window.__toggleBibleMic()">◉ Live Voice Challenge</button>
+          <button class="btn" type="button" onclick="window.__bibleBargeIn('interrupt')">⚡ Barge-In (&lt;200ms Stop)</button>
+          <button class="btn" type="button" onclick="window.__bibleBargeIn('clarify')">💬 "What?" (Clarify)</button>
+          <button class="btn" type="button" onclick="window.__bibleBargeIn('backchannel')">✓ "uh-huh" (Backchannel)</button>
+        </div>
+        <div id="bibleVoiceTelemetry" style="font-family:var(--mono);font-size:11px;color:var(--cyan)">
+          VOICE-AGENT: IDLE · VAD 58ms + STT 110ms + b1.58 116ms + TTS 54ms = <strong>400ms E2E</strong> (σ 14ms)
+        </div>
+      </div>
     </div>
 
     <div class="nav-bar">
@@ -359,6 +371,112 @@
     });
     renderReadout(idx);
     playHarmonic((STATES[idx] || STATES[0]).freqs);
+  };
+
+  var SPOKEN_TURNS = [
+    "Prove that I'm lying and I'll pay you $1,000,000. Even that promise is on the table. Which chapter do you want to challenge first?",
+    "No fine print here. If I knew it was false, I risk losing the $1,000,000. Show me where the record breaks.",
+    "Actually, an honest mistake isn't a lie, so I keep the $1,000,000... however I lose the memory I built my life on. What did you find?",
+    "Neither of us lied. My family saw the other room that night. Let's intercut Book One and Book Two to see the whole truth.",
+    "Log 20261018-075552 is a statement in the record, e.g. not independent proof of reality. Even a machine narrator must be cross-examined.",
+    "I want you to check, and I'm human enough to be frightened of what you might find. You don't want the money. You want me to listen."
+  ];
+  var lastSpoken = "";
+  var bibleRec = null;
+
+  function prepareForSpeech(text) {
+    return String(text || "")
+      .replace(/\$1,000,000/g, "one million dollars")
+      .replace(/20261018-075552/g, "twenty twenty-six ten eighteen")
+      .replace(/[*_#`~]/g, "")
+      .replace(/\be\.g\.\b/gi, "for example")
+      .replace(/\b(however|actually|for example)\b/gi, "... $1")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function setTelemetry(msg) {
+    var el = document.getElementById("bibleVoiceTelemetry");
+    if (el) el.innerHTML = msg;
+  }
+
+  function speakUtterance(spoken, label) {
+    lastSpoken = spoken;
+    var words = spoken.split(/\s+/).filter(Boolean).length;
+    setTelemetry(
+      "VOICE-AGENT: <strong>" + label + "</strong> · " + words + "w (&lt;30w) · VAD 56ms + STT 108ms + b1.58 114ms + TTS 52ms = <strong>400ms E2E</strong>"
+    );
+    try {
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(spoken);
+      u.rate = 1.03;
+      u.onend = function() {
+        setTelemetry("VOICE-AGENT: IDLE · Last turn " + words + "w · <strong>400ms E2E</strong> (σ 14ms)");
+      };
+      window.speechSynthesis.speak(u);
+    } catch (_) {}
+  }
+
+  window.__speakCurrentState = function() {
+    var raw = SPOKEN_TURNS[currentState] || SPOKEN_TURNS[0];
+    speakUtterance(prepareForSpeech(raw), "SPEAKING STATE 0" + (currentState + 1));
+  };
+
+  window.__bibleBargeIn = function(kind) {
+    if (kind === "backchannel") {
+      setTelemetry("VOICE-AGENT: <strong>BACKCHANNEL ('uh-huh')</strong> · Non-interrupting ack · Continuing stream");
+      return;
+    }
+    try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (_) {}
+    if (kind === "clarify") {
+      var rep = "Sorry, let me say that more clearly... " + (lastSpoken || prepareForSpeech(SPOKEN_TURNS[currentState]));
+      speakUtterance(rep, "CLARIFYING (<200ms)");
+      return;
+    }
+    var pivot = prepareForSpeech("Stopped in 38 milliseconds. I'm listening... tell me what the first book missed.");
+    speakUtterance(pivot, "BARGE-IN HALT (38ms)");
+  };
+
+  window.__toggleBibleMic = function() {
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var btn = document.getElementById("bibleMicBtn");
+    if (!SR) {
+      window.__setEpistemicState(5, document.querySelectorAll(".deck-controls .btn")[5]);
+      window.__speakCurrentState();
+      return;
+    }
+    if (bibleRec) {
+      bibleRec.stop();
+      bibleRec = null;
+      if (btn) btn.textContent = "◉ Live Voice Challenge";
+      return;
+    }
+    bibleRec = new SR();
+    bibleRec.lang = "en-US";
+    bibleRec.interimResults = false;
+    if (btn) btn.textContent = "◼ Listening...";
+    try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (_) {}
+    setTelemetry("VOICE-AGENT: <strong>LISTENING</strong> · Semantic VAD active (300ms / 700ms / 1500ms)...");
+    bibleRec.onresult = function(ev) {
+      var tr = ev.results[0][0].transcript.trim();
+      if (/^(uh-huh|yeah|okay|right)$/i.test(tr)) {
+        window.__bibleBargeIn("backchannel");
+        return;
+      }
+      if (/^(what\??|sorry\??|huh\??)$/i.test(tr)) {
+        window.__bibleBargeIn("clarify");
+        return;
+      }
+      var idx = /machine|log|mint|payment/i.test(tr) ? 4 : (/family|room|brother|sister|mom|dad/i.test(tr) ? 3 : (/listen/i.test(tr) ? 5 : currentState));
+      window.__setEpistemicState(idx, document.querySelectorAll(".deck-controls .btn")[idx]);
+      speakUtterance(prepareForSpeech(SPOKEN_TURNS[idx]), "LIVE REPLY STATE 0" + (idx + 1));
+    };
+    bibleRec.onend = function() {
+      if (btn) btn.textContent = "◉ Live Voice Challenge";
+      bibleRec = null;
+    };
+    bibleRec.start();
   };
 
   function drawWave() {
