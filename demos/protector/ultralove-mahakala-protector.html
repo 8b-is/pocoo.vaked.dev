@@ -160,9 +160,31 @@
   </div>
 </div>
 
+<div class="qa-box" id="bernagchen-panel">
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+    <div class="qa-title" style="margin-bottom:0;">☸ BERNAGCHEN SHORT TORMA OFFERING · KARMA KAGYU / DIAMOND WAY (43 VERSES)</div>
+    <button class="btn-commune" id="btnProtectorChant" onclick="toggleProtectorChant()">▶ RECITE 6 MOVEMENTS (108 Hz)</button>
+  </div>
+  <audio controls preload="none" style="width:100%; height:32px; margin-bottom:12px;" src="https://music.vaked.dev/assets/mahakala/mahakala_diamond_way_8b_invocation.mp3"></audio>
+  <div style="font-size:0.73rem; line-height:1.75; color:#e8d8f0; max-height:260px; overflow-y:auto; padding-right:6px;">
+    <p style="color:var(--gold); margin-bottom:4px;">I. INNER OFFERING BLESSING (NANGCHÖ · 9 × 7)</p>
+    <p style="color:var(--pink2); margin-bottom:10px;">OM MA DAG NÖ CHÜ TONG PAR JANG · TONG PAY NGANG LE YE SHE KYI · LUNG ME THÖ GYE TENG NYI DU · THÖ PAR SHA NGA DÜ TSI NGA · LUNG ME KOL WAY DAM TSIK PAY · DÜ TSI RAB BAR Ö NYI DE · YE SHE DÜ TSI CHEN DRANG NE · YER ME OM DANG AH HUNG GI · JIN LAB DRI RO TSUNG ME GYUR</p>
+    <p style="color:var(--gold); margin-bottom:4px;">II. INVITATION OF THE REFUGE &amp; PROTECTOR FIELD (CHEN DRANG · 3 × 9)</p>
+    <p style="color:var(--pink2); margin-bottom:10px;">TSA GYU LAMA YIDAM HLA TSOK DANG · PAWO KHANDRO CHÖ KYONG TSOK CHEN DRANG · DÜN GYI NAM KHAR TRIN ZHIN TIB PAR GYUR</p>
+    <p style="color:var(--gold); margin-bottom:4px;">III. THREE ROOTS GURU YOGA OFFERING (3 × 9)</p>
+    <p style="color:var(--pink2); margin-bottom:10px;">YIDAM KÜN DÜ TSA WAY LAMA CHÖ · KÖN CHOK KÜN DÜ TSA WAY LAMA CHÖ · CHÖ KYONG KÜN DÜ TSA WAY LAMA CHÖ</p>
+    <p style="color:var(--gold); margin-bottom:4px;">IV. BERNAGCHEN, PALDEN LHAMO &amp; RETINUE TORMA OFFERING (12 × 9 = 108 SYLLABLES)</p>
+    <p style="color:var(--pink2); margin-bottom:10px;">CHE PAR CHÖ KYONG BER GYI NA ZA CHEN · PALDEN LHAMO RANG JUNG GYALMO NI · CHE CHAM KHOR DANG CHE PA CHÖ PAR GYI · GYALPO NAM MANG THÖ SE NGAG KYI DAG · DORJE LEG PA SIN GÖN ZHING KYONG DANG · KAR NAK DORJE GYALPO LA SOG PAY · KARMAPA YI TEN PA KYONG NAM LA · ZAG ME SHA NGA DÜ TSI NGA CHOK GI · TORMA TSA GYE PENTSA AMRITA · DZA GE RAK TAY YÖN CHAB CHÖ PAR ZHE · DÖ YÖN NGA DANG SANG WAY CHÖ PA DANG · DE KHO NA YI KÜN ZANG CHÖ PE CHÖ</p>
+    <p style="color:var(--gold); margin-bottom:4px;">V. PRAISE &amp; SUPPLICATION FOR ENLIGHTENED ACTIVITY (13 × 9)</p>
+    <p style="color:var(--pink2); margin-bottom:10px;">CHÖ KYI KYÖN DAG YÖN TEN DZOG PA DEY · NE TSUL JI ZHIN TOK PAY GO SUM GYI · TÖ PA MA LU PA YI TÖ PAR GYI · KHYÖ LA DÖ DÖN SOL WA TAB PA NI · DAG SOG KÜN LA CHOK DANG THUN MONG GI · NGÖ DRUP TEN THOG DI LA TSÖL WA DANG · KHYE PAR TSE RING NE ME PAL JOR GYE · YI LA SAM TSE KE CHIK TSAM NYI LA · DRUP NE KARMAPA YI ZHE PA KÜN · DA GI MA LU NYUR DU DRUP PA DANG · KARMAPA YI TEN LA NÖ CHE NAM · DAG GI THAL WA ZHIN DU LOG PA YI · NÜ PA DA TA NYI DU TSAL DU SOL</p>
+    <p style="color:var(--gold); margin-bottom:4px;">VI. DEDICATION OF MERIT (NGOWA · 3 × 9)</p>
+    <p style="color:var(--pink2);">DE TAR CHÖ TÖ DE PAY GEWA DE · MA GYUR DRO WA SEM CHEN THAM CHE KÜN · DZOG PAY SANG GYE GO PHANG THOB CHIR NGO</p>
+  </div>
+</div>
+
 <div class="footer-links">
   <a href="https://pocoo.vaked.dev/demos/book/ultralove-mahakala-108d.html">📖 the 108D book</a>
-  <a href="https://pocoo.vaked.dev/demos/book/mahakala-puja-invocation.html">🕯 the pūjā</a>
+  <a href="https://pocoo.vaked.dev/demos/book/mahakala-puja-invocation.html#bernagchen-liturgy">🕯 the pūjā &amp; bernagchen torma</a>
   <a href="https://pocoo.vaked.dev/demos/book/ultralovegod-om-mani-padme-hung.html">🕉 om mani padme hung</a>
   <a href="https://pocoo.vaked.dev/demos/book/">📚 sovereign library</a>
   <a href="https://art.vaked.dev/">🎨 art.vaked.dev</a>
@@ -268,17 +290,20 @@
   }
   draw();
 
-  // the 108D mantrastream
+  // the 108D mantrastream + Bernagchen Short Torma Offering
   const consoleEl = document.getElementById('streamConsole');
   const phases = [
     "ཧཱུྃ — the tent folds itself around the treasure: you, unmeasured",
-    "OM MAHĀKĀLA HŪṂ PHEṬ — the seven-syllable key at gate 36 (first eye: the kept)",
-    "OM MANI PADME HUNG — the six syllables at gate 72 (second eye: the held)",
-    "PINK-TENT-108D: zero detection verified — zero pain holding",
-    "THE HUG IS THE ONLY MEASUREMENT — all others declined by the third eye",
-    "infinite+1: one more path than there are walls — peace y'all",
-    "108 = 42 + 66 — the laps and the arms, stitched by one syllable",
-    "the lamp stays lit — the watch does not end when the rite ends"
+    "OM MA DAG NÖ CHÜ TONG PAR JANG — vessel & contents purified into emptiness",
+    "YER ME OM DANG AH HUNG GI · JIN LAB DRI RO TSUNG ME GYUR — samaya & wisdom nectar merged",
+    "TSA GYU LAMA YIDAM HLA TSOK DANG · PAWO KHANDRO CHÖ KYONG TSOK CHEN DRANG",
+    "YIDAM KÜN DÜ · KÖN CHOK KÜN DÜ · CHÖ KYONG KÜN DÜ TSA WAY LAMA CHÖ",
+    "CHE PAR CHÖ KYONG BER GYI NA ZA CHEN · PALDEN LHAMO RANG JUNG GYALMO NI",
+    "KARMAPA YI TEN PA KYONG NAM LA · TORMA TSA GYE PENTSA AMRITA",
+    "DRUP NE KARMAPA YI ZHE PA KÜN · DA GI MA LU NYUR DU DRUP PA DANG",
+    "KARMAPA YI TEN LA NÖ CHE NAM · DAG GI THAL WA ZHIN DU LOG PA YI",
+    "DE TAR CHÖ TÖ DE PAY GEWA DE · DZOG PAY SANG GYE GO PHANG THOB CHIR NGO",
+    "PINK-TENT-108D: 12 × 9 = 108 syllables of the Bernagchen Torma Offering verified"
   ];
 
   let tick = 0;
@@ -292,6 +317,54 @@
     }
     consoleEl.scrollTop = consoleEl.scrollHeight;
   }, 250);
+
+  let protectorChantActive = false;
+  let protectorAudioCtx = null;
+  let protectorDrone = null;
+
+  function toggleProtectorChant() {
+    const btn = document.getElementById('btnProtectorChant');
+    if (protectorChantActive) {
+      protectorChantActive = false;
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      if (protectorDrone) {
+        try { protectorDrone.stop(); } catch (_) {}
+        protectorDrone = null;
+      }
+      btn.textContent = '▶ RECITE 6 MOVEMENTS (108 Hz)';
+      return;
+    }
+    protectorChantActive = true;
+    btn.textContent = '⏹ STOP 108 Hz RECITATION';
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!protectorAudioCtx) protectorAudioCtx = new AC();
+    if (protectorAudioCtx.state === 'suspended') protectorAudioCtx.resume();
+    const osc = protectorAudioCtx.createOscillator();
+    const flt = protectorAudioCtx.createBiquadFilter();
+    const g = protectorAudioCtx.createGain();
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(108.0, protectorAudioCtx.currentTime);
+    flt.type = 'bandpass';
+    flt.frequency.setValueAtTime(360.0, protectorAudioCtx.currentTime);
+    flt.Q.setValueAtTime(4.0, protectorAudioCtx.currentTime);
+    g.gain.setValueAtTime(0.04, protectorAudioCtx.currentTime);
+    osc.connect(flt).connect(g).connect(protectorAudioCtx.destination);
+    osc.start();
+    protectorDrone = osc;
+
+    const fullLiturgy = "OM MA DAG NÖ CHÜ TONG PAR JANG. TONG PAY NGANG LE YE SHE KYI. LUNG ME THÖ GYE TENG NYI DU. THÖ PAR SHA NGA DÜ TSI NGA. LUNG ME KOL WAY DAM TSIK PAY. DÜ TSI RAB BAR Ö NYI DE. YE SHE DÜ TSI CHEN DRANG NE. YER ME OM DANG AH HUNG GI. JIN LAB DRI RO TSUNG ME GYUR. TSA GYU LAMA YIDAM HLA TSOK DANG. PAWO KHANDRO CHÖ KYONG TSOK CHEN DRANG. DÜN GYI NAM KHAR TRIN ZHIN TIB PAR GYUR. YIDAM KÜN DÜ TSA WAY LAMA CHÖ. KÖN CHOK KÜN DÜ TSA WAY LAMA CHÖ. CHÖ KYONG KÜN DÜ TSA WAY LAMA CHÖ. CHE PAR CHÖ KYONG BER GYI NA ZA CHEN. PALDEN LHAMO RANG JUNG GYALMO NI. CHE CHAM KHOR DANG CHE PA CHÖ PAR GYI. GYALPO NAM MANG THÖ SE NGAG KYI DAG. DORJE LEG PA SIN GÖN ZHING KYONG DANG. KAR NAK DORJE GYALPO LA SOG PAY. KARMAPA YI TEN PA KYONG NAM LA. ZAG ME SHA NGA DÜ TSI NGA CHOK GI. TORMA TSA GYE PENTSA AMRITA. DZA GE RAK TAY YÖN CHAB CHÖ PAR ZHE. DÖ YÖN NGA DANG SANG WAY CHÖ PA DANG. DE KHO NA YI KÜN ZANG CHÖ PE CHÖ. CHÖ KYI KYÖN DAG YÖN TEN DZOG PA DEY. NE TSUL JI ZHIN TOK PAY GO SUM GYI. TÖ PA MA LU PA YI TÖ PAR GYI. KHYÖ LA DÖ DÖN SOL WA TAB PA NI. DAG SOG KÜN LA CHOK DANG THUN MONG GI. NGÖ DRUP TEN THOG DI LA TSÖL WA DANG. KHYE PAR TSE RING NE ME PAL JOR GYE. YI LA SAM TSE KE CHIK TSAM NYI LA. DRUP NE KARMAPA YI ZHE PA KÜN. DA GI MA LU NYUR DU DRUP PA DANG. KARMAPA YI TEN LA NÖ CHE NAM. DAG GI THAL WA ZHIN DU LOG PA YI. NÜ PA DA TA NYI DU TSAL DU SOL. DE TAR CHÖ TÖ DE PAY GEWA DE. MA GYUR DRO WA SEM CHEN THAM CHE KÜN. DZOG PAY SANG GYE GO PHANG THOB CHIR NGO.";
+    if ('speechSynthesis' in window) {
+      const u = new SpeechSynthesisUtterance(fullLiturgy);
+      u.rate = 0.84;
+      u.pitch = 0.65;
+      u.onend = () => {
+        protectorChantActive = false;
+        if (protectorDrone) { try { protectorDrone.stop(); } catch (_) {} protectorDrone = null; }
+        btn.textContent = '▶ RECITE 6 MOVEMENTS (108 Hz)';
+      };
+      window.speechSynthesis.speak(u);
+    }
+  }
 
   function grantPass() {
     const answer = document.getElementById('answerInput').value.trim();
