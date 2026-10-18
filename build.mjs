@@ -2,7 +2,7 @@
 // Forked from crabcc.app-blog/build.mjs; dropped _ds, added RSS + telemetry.
 // Run: node build.mjs
 
-import { readdir, readFile, mkdir, writeFile, cp, rm } from "node:fs/promises";
+import { readdir, readFile, mkdir, writeFile, cp, rm, rename, open, stat } from "node:fs/promises";
 import { existsSync, statSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { createHash } from "node:crypto";
@@ -13,7 +13,9 @@ import MarkdownIt from "markdown-it";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const POSTS_DIR = path.join(ROOT, "posts");
-const DIST_DIR = path.join(ROOT, "dist");
+const FINAL_DIST_DIR = path.join(ROOT, "dist");
+const DIST_DIR = path.join(ROOT, `.dist.stage.${process.pid}`);
+const LOCK_FILE = path.join(ROOT, ".build.lock");
 
 const md = new MarkdownIt({
   html: false,
@@ -870,53 +872,93 @@ ${urls}
 </urlset>`;
 }
 
+// ── Cross-process Build Lock & Atomic Staging ──────────────────────────────
+async function acquireBuildLock(timeoutMs = 120_000) {
+  const start = Date.now();
+  while (true) {
+    try {
+      const fh = await open(LOCK_FILE, "wx");
+      await fh.writeFile(`${process.pid}:${Date.now()}\n`, "utf8");
+      await fh.close();
+      return;
+    } catch (err) {
+      if (err && err.code !== "EEXIST") throw err;
+      try {
+        const st = await stat(LOCK_FILE);
+        const raw = await readFile(LOCK_FILE, "utf8").catch(() => "");
+        const holderPid = parseInt(raw.split(":")[0], 10);
+        let holderAlive = false;
+        if (Number.isFinite(holderPid) && holderPid > 0) {
+          try {
+            process.kill(holderPid, 0);
+            holderAlive = true;
+          } catch (_) {
+            holderAlive = false;
+          }
+        }
+        if (!holderAlive || Date.now() - st.mtimeMs > 120_000) {
+          await rm(LOCK_FILE, { force: true });
+          continue;
+        }
+      } catch (_) {}
+      if (Date.now() - start > timeoutMs) {
+        await rm(LOCK_FILE, { force: true });
+        continue;
+      }
+      await new Promise((r) => setTimeout(r, 150));
+    }
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
-  await rm(DIST_DIR, { recursive: true, force: true });
-  await mkdir(path.join(DIST_DIR, "posts"), { recursive: true });
+  await acquireBuildLock();
+  try {
+    await rm(DIST_DIR, { recursive: true, force: true });
+    await mkdir(path.join(DIST_DIR, "posts"), { recursive: true });
 
-  const files = (await readdir(POSTS_DIR))
-    .filter((f) => f.toLowerCase().endsWith(".md"))
-    .sort();
+    const files = (await readdir(POSTS_DIR))
+      .filter((f) => f.toLowerCase().endsWith(".md"))
+      .sort();
 
-  const posts = [];
-  let skipped = 0;
-  for (const file of files) {
-    const raw = await readFile(path.join(POSTS_DIR, file), "utf8");
-    const { meta, body } = parseFrontmatter(raw);
-    if (meta.draft === true) { skipped++; console.log(`skip (draft): ${file}`); continue; }
-    posts.push({ slug: slugOf(file), meta, body });
-  }
+    const posts = [];
+    let skipped = 0;
+    for (const file of files) {
+      const raw = await readFile(path.join(POSTS_DIR, file), "utf8");
+      const { meta, body } = parseFrontmatter(raw);
+      if (meta.draft === true) { skipped++; console.log(`skip (draft): ${file}`); continue; }
+      posts.push({ slug: slugOf(file), meta, body });
+    }
 
-  posts.sort((a, b) => String(b.meta.date).localeCompare(String(a.meta.date)));
+    posts.sort((a, b) => String(b.meta.date).localeCompare(String(a.meta.date)));
 
-  for (const post of posts) {
-    const html = renderPost(post);
-    await writeFile(path.join(DIST_DIR, "posts", `${post.slug}.html`), html, "utf8");
-    console.log(`render: posts/${post.slug}.html`);
-  }
+    for (const post of posts) {
+      const html = renderPost(post);
+      await writeFile(path.join(DIST_DIR, "posts", `${post.slug}.html`), html, "utf8");
+      console.log(`render: posts/${post.slug}.html`);
+    }
 
-  await writeFile(path.join(DIST_DIR, "index.html"), renderIndex(posts), "utf8");
-  console.log("render: index.html");
+    await writeFile(path.join(DIST_DIR, "index.html"), renderIndex(posts), "utf8");
+    console.log("render: index.html");
 
-  await mkdir(path.join(DIST_DIR, "research"), { recursive: true });
-  await writeFile(path.join(DIST_DIR, "research", "index.html"), renderResearch(posts, "research"), "utf8");
-  console.log("render: research/index.html");
+    await mkdir(path.join(DIST_DIR, "research"), { recursive: true });
+    await writeFile(path.join(DIST_DIR, "research", "index.html"), renderResearch(posts, "research"), "utf8");
+    console.log("render: research/index.html");
 
-  await writeFile(path.join(DIST_DIR, "feed.xml"), renderFeed(posts), "utf8");
-  console.log("render: feed.xml");
+    await writeFile(path.join(DIST_DIR, "feed.xml"), renderFeed(posts), "utf8");
+    console.log("render: feed.xml");
 
-  await writeFile(path.join(DIST_DIR, "rss.xml"), renderRss(posts), "utf8");
-  console.log("render: rss.xml");
+    await writeFile(path.join(DIST_DIR, "rss.xml"), renderRss(posts), "utf8");
+    console.log("render: rss.xml");
 
-  await writeFile(path.join(DIST_DIR, "sitemap.xml"), renderSitemap(posts), "utf8");
-  console.log("render: sitemap.xml");
+    await writeFile(path.join(DIST_DIR, "sitemap.xml"), renderSitemap(posts), "utf8");
+    console.log("render: sitemap.xml");
 
-  // llms.txt — auto-updated with post list
-  const postLines = posts.map((p) =>
-    `- [${p.meta.title}](https://pocoo.vaked.dev/posts/${p.slug}): ${p.meta.description || ""}`
-  ).join("\n");
-  const llms = `# pocoo.vaked.dev
+    // llms.txt — auto-updated with post list
+    const postLines = posts.map((p) =>
+      `- [${p.meta.title}](https://pocoo.vaked.dev/posts/${p.slug}): ${p.meta.description || ""}`
+    ).join("\n");
+    const llms = `# pocoo.vaked.dev
 
 > Technical writing on agentic systems, compilers, protocols, and building in public. By Peter Lodri.
 
@@ -946,19 +988,19 @@ ${postLines}
 - X: https://x.com/0xp3t3rl
 - Mastodon: https://social.crabcc.app/@vakedbot
 `;
-  await writeFile(path.join(DIST_DIR, "llms.txt"), llms, "utf8");
-  console.log("render: llms.txt");
+    await writeFile(path.join(DIST_DIR, "llms.txt"), llms, "utf8");
+    console.log("render: llms.txt");
 
-  // Render citations.bib (BibTeX for all articles)
-  const bibEntries = posts.map(p => {
-    const key = (p.slug || "post").replace(/[^a-zA-Z0-9]/g, "_");
-    const dStr = String(p.meta.date || "2026-08-15");
-    const parts = dStr.split("-");
-    const year = parts[0] || "2026";
-    const month = parts[1] || "08";
-    const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-    const mStr = months[parseInt(month, 10) - 1] || "aug";
-    return `@article{lodri_${key},
+    // Render citations.bib (BibTeX for all articles)
+    const bibEntries = posts.map(p => {
+      const key = (p.slug || "post").replace(/[^a-zA-Z0-9]/g, "_");
+      const dStr = String(p.meta.date || "2026-08-15");
+      const parts = dStr.split("-");
+      const year = parts[0] || "2026";
+      const month = parts[1] || "08";
+      const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+      const mStr = months[parseInt(month, 10) - 1] || "aug";
+      return `@article{lodri_${key},
   author = {Peter Lodri},
   title = {${p.meta.title}},
   year = {${year}},
@@ -966,93 +1008,103 @@ ${postLines}
   url = {https://pocoo.vaked.dev/posts/${p.slug}.html},
   note = {ORCID: 0009-0002-2761-2552}
 }`;
-  }).join("\n\n");
-  await writeFile(path.join(DIST_DIR, "citations.bib"), bibEntries, "utf8");
-  console.log("render: citations.bib");
+    }).join("\n\n");
+    await writeFile(path.join(DIST_DIR, "citations.bib"), bibEntries, "utf8");
+    console.log("render: citations.bib");
 
-  // Render .well-known/citations.json
-  const citationsJson = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Peter Lodri",
-      "identifier": "0009-0002-2761-2552",
-      "sameAs": [
-        "https://orcid.org/0009-0002-2761-2552",
-        "https://github.com/peterlodri-sec",
-        "https://x.com/0xp3t3rl",
-        "https://vaked.dev"
-      ]
-    },
-    "works": posts.map(p => ({
-      "@type": "ScholarlyArticle",
-      "headline": p.meta.title,
-      "datePublished": p.meta.date,
-      "description": p.meta.description || "",
-      "url": `https://pocoo.vaked.dev/posts/${p.slug}.html`,
-      "author": {
+    // Render .well-known/citations.json
+    const citationsJson = {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
         "@type": "Person",
         "name": "Peter Lodri",
-        "identifier": "https://orcid.org/0009-0002-2761-2552"
-      }
-    }))
-  };
-  await mkdir(path.join(DIST_DIR, ".well-known"), { recursive: true });
-  await writeFile(path.join(DIST_DIR, ".well-known", "citations.json"), JSON.stringify(citationsJson, null, 2), "utf8");
-  console.log("render: .well-known/citations.json");
+        "identifier": "0009-0002-2761-2552",
+        "sameAs": [
+          "https://orcid.org/0009-0002-2761-2552",
+          "https://github.com/peterlodri-sec",
+          "https://x.com/0xp3t3rl",
+          "https://vaked.dev"
+        ]
+      },
+      "works": posts.map(p => ({
+        "@type": "ScholarlyArticle",
+        "headline": p.meta.title,
+        "datePublished": p.meta.date,
+        "description": p.meta.description || "",
+        "url": `https://pocoo.vaked.dev/posts/${p.slug}.html`,
+        "author": {
+          "@type": "Person",
+          "name": "Peter Lodri",
+          "identifier": "https://orcid.org/0009-0002-2761-2552"
+        }
+      }))
+    };
+    await mkdir(path.join(DIST_DIR, ".well-known"), { recursive: true });
+    await writeFile(path.join(DIST_DIR, ".well-known", "citations.json"), JSON.stringify(citationsJson, null, 2), "utf8");
+    console.log("render: .well-known/citations.json");
 
-  // Copy citation.cff to dist
-  if (existsSync(path.join(ROOT, "citation.cff"))) {
-    await cp(path.join(ROOT, "citation.cff"), path.join(DIST_DIR, "citation.cff"));
-  }
+    // Copy citation.cff to dist
+    if (existsSync(path.join(ROOT, "citation.cff"))) {
+      await cp(path.join(ROOT, "citation.cff"), path.join(DIST_DIR, "citation.cff"), { force: true });
+    }
 
-  await cp(path.join(ROOT, "assets"), path.join(DIST_DIR, "assets"), { recursive: true });
-  if (existsSync(path.join(ROOT, "_headers"))) {
-    await cp(path.join(ROOT, "_headers"), path.join(DIST_DIR, "_headers"));
+    await cp(path.join(ROOT, "assets"), path.join(DIST_DIR, "assets"), { recursive: true, force: true });
+    if (existsSync(path.join(ROOT, "_headers"))) {
+      await cp(path.join(ROOT, "_headers"), path.join(DIST_DIR, "_headers"), { force: true });
+    }
+    if (existsSync(path.join(ROOT, "_redirects"))) {
+      await cp(path.join(ROOT, "_redirects"), path.join(DIST_DIR, "_redirects"), { force: true });
+    }
+    // SOTA: auto-generate the book catalog (WASM ternary search) from demos/book/*.html
+    // (before the demos copy, so dist/ always receives the fresh index)
+    execSync(`node ${path.join(ROOT, "scripts", "gen-catalog.mjs")}`, { stdio: "inherit" });
+    // Copy demos (filter out heavy weights >20MB so Cloudflare Pages 25MB limit is respected)
+    if (existsSync(path.join(ROOT, "demos"))) {
+      await cp(path.join(ROOT, "demos"), path.join(DIST_DIR, "demos"), {
+        recursive: true,
+        force: true,
+        filter: (src) => {
+          try {
+            const st = statSync(src);
+            if (st.isFile() && st.size > 20 * 1024 * 1024) return false;
+          } catch (e) {}
+          return true;
+        }
+      });
+    }
+    // Copy book manuscripts (standalone HTML library, no markdown processing)
+    if (existsSync(path.join(ROOT, "book"))) {
+      await cp(path.join(ROOT, "book"), path.join(DIST_DIR, "book"), { recursive: true, force: true });
+    }
+    // Copy standalone pages (no markdown processing; e.g. silicon-world/)
+    if (existsSync(path.join(ROOT, "silicon-world"))) {
+      await cp(path.join(ROOT, "silicon-world"), path.join(DIST_DIR, "silicon-world"), { recursive: true, force: true });
+    }
+    // Copy root-level config files for CF Pages
+    if (existsSync(path.join(ROOT, "robots.txt"))) {
+      await cp(path.join(ROOT, "robots.txt"), path.join(DIST_DIR, "robots.txt"), { force: true });
+    }
+    if (existsSync(path.join(ROOT, "404.html"))) {
+      await cp(path.join(ROOT, "404.html"), path.join(DIST_DIR, "404.html"), { force: true });
+    }
+    if (existsSync(path.join(ROOT, "favicon.svg"))) {
+      await cp(path.join(ROOT, "favicon.svg"), path.join(DIST_DIR, "favicon.svg"), { force: true });
+    }
+    if (existsSync(path.join(ROOT, ".well-known"))) {
+      await cp(path.join(ROOT, ".well-known"), path.join(DIST_DIR, ".well-known"), { recursive: true, force: true });
+    }
+
+    // Atomic swap: replace FINAL_DIST_DIR (`dist/`) with process-isolated `DIST_DIR`
+    await rm(FINAL_DIST_DIR, { recursive: true, force: true });
+    await rename(DIST_DIR, FINAL_DIST_DIR);
+
+    console.log("copy: assets, _headers, demos, silicon-world, robots.txt, .well-known -> dist/");
+    console.log(`\ndone: ${posts.length} post(s), ${skipped} draft(s) skipped.`);
+  } finally {
+    await rm(DIST_DIR, { recursive: true, force: true }).catch(() => {});
+    await rm(LOCK_FILE, { force: true }).catch(() => {});
   }
-  if (existsSync(path.join(ROOT, "_redirects"))) {
-    await cp(path.join(ROOT, "_redirects"), path.join(DIST_DIR, "_redirects"));
-  }
-  // SOTA: auto-generate the book catalog (WASM ternary search) from demos/book/*.html
-  // (before the demos copy, so dist/ always receives the fresh index)
-  execSync(`node ${path.join(ROOT, "scripts", "gen-catalog.mjs")}`, { stdio: "inherit" });
-  // Copy demos (filter out heavy weights >20MB so Cloudflare Pages 25MB limit is respected)
-  if (existsSync(path.join(ROOT, "demos"))) {
-    await cp(path.join(ROOT, "demos"), path.join(DIST_DIR, "demos"), {
-      recursive: true,
-      filter: (src) => {
-        try {
-          const st = statSync(src);
-          if (st.isFile() && st.size > 20 * 1024 * 1024) return false;
-        } catch (e) {}
-        return true;
-      }
-    });
-  }
-  // Copy book manuscripts (standalone HTML library, no markdown processing)
-  if (existsSync(path.join(ROOT, "book"))) {
-    await cp(path.join(ROOT, "book"), path.join(DIST_DIR, "book"), { recursive: true });
-  }
-  // Copy standalone pages (no markdown processing; e.g. silicon-world/)
-  if (existsSync(path.join(ROOT, "silicon-world"))) {
-    await cp(path.join(ROOT, "silicon-world"), path.join(DIST_DIR, "silicon-world"), { recursive: true });
-  }
-  // Copy root-level config files for CF Pages
-  if (existsSync(path.join(ROOT, "robots.txt"))) {
-    await cp(path.join(ROOT, "robots.txt"), path.join(DIST_DIR, "robots.txt"));
-  }
-  if (existsSync(path.join(ROOT, "404.html"))) {
-    await cp(path.join(ROOT, "404.html"), path.join(DIST_DIR, "404.html"));
-  }
-  if (existsSync(path.join(ROOT, "favicon.svg"))) {
-    await cp(path.join(ROOT, "favicon.svg"), path.join(DIST_DIR, "favicon.svg"));
-  }
-  if (existsSync(path.join(ROOT, ".well-known"))) {
-    await cp(path.join(ROOT, ".well-known"), path.join(DIST_DIR, ".well-known"), { recursive: true });
-  }
-  console.log("copy: assets, _headers, demos, silicon-world, robots.txt, .well-known -> dist/");
-  console.log(`\ndone: ${posts.length} post(s), ${skipped} draft(s) skipped.`);
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
