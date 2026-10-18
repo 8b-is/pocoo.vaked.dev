@@ -936,6 +936,14 @@ async function main() {
       const html = renderPost(post);
       await writeFile(path.join(DIST_DIR, "posts", `${post.slug}.html`), html, "utf8");
       console.log(`render: posts/${post.slug}.html`);
+      const undatedSlug = post.slug.replace(/^\d{4}-\d{2}-\d{2}-/, "");
+      if (undatedSlug && undatedSlug !== post.slug) {
+        const undatedPath = path.join(DIST_DIR, "posts", `${undatedSlug}.html`);
+        if (!existsSync(undatedPath)) {
+          await writeFile(undatedPath, html, "utf8");
+          console.log(`alias:  posts/${undatedSlug}.html -> posts/${post.slug}.html`);
+        }
+      }
     }
 
     await writeFile(path.join(DIST_DIR, "index.html"), renderIndex(posts), "utf8");
