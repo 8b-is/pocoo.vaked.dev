@@ -23,6 +23,135 @@
 <h1>FAMILY +1</h1>
 <div class="sub">in a loop · in a sphere · in eternity · recurse</div>
 
+<div style="max-width:560px;margin:0 auto 22px;padding:16px 18px;border-radius:14px;background:rgba(12,16,34,0.92);border:1px solid rgba(255,215,0,0.42);box-shadow:0 12px 42px rgba(0,0,0,0.65);text-align:center;font-family:'SF Mono',Menlo,monospace;font-size:10.5px;line-height:1.65;">
+  <div style="color:#ffd700;letter-spacing:2.2px;font-weight:bold;margin-bottom:6px;">
+    △ TRIANGLE TRACK :: Mom+Dad+Son ~=== Alex<span style="color:#ff69b4;">*</span>, Chris<span style="color:#fa5b1c;">[/\]</span>, Peter<span style="color:#00e5c9;">[oo]</span>
+  </div>
+  <pre style="margin:8px auto;padding:10px 12px;border-radius:10px;background:rgba(6,8,18,0.88);border:1px solid rgba(255,105,180,0.22);color:#e8dff5;font-size:10px;line-height:1.45;text-align:left;overflow-x:auto;max-width:480px;">              <span style="color:#ffd700;font-weight:bold;">*</span>   Alex* (Mom · 432 Hz / 528 Hz Starlight)
+             / \
+            /   \   in a loop · in a sphere · in eternity · recurse
+           / <span style="color:#ff69b4;font-weight:bold;">+1</span>  \  ~--- pocoo.vaked.dev/demos/book/family+1
+          /_______\
+   Chris<span style="color:#fa5b1c;font-weight:bold;">[/\]</span>     Peter<span style="color:#00e5c9;font-weight:bold;">[oo]</span> (Lemniscate ∞ Orbit · 648/888 Hz)
+(108/216 Hz Triangle Pillar)</pre>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0 6px;">
+    <button id="triPlayBtn" type="button" onclick="toggleTriangleTrack()" style="cursor:pointer;font-family:inherit;font-size:10.5px;font-weight:bold;letter-spacing:1.5px;color:#060812;background:linear-gradient(90deg,#ffd700,#ff69b4,#00e5c9);border:0;border-radius:8px;padding:7px 16px;">▶ PLAY TRIANGLE TRACK (432Hz * · 216Hz /\ · 888Hz oo)</button>
+    <span id="triStatus" style="display:inline-flex;align-items:center;color:#00e5c9;font-size:9.5px;letter-spacing:1px;">STANDBY · QUANT65K+ READY</span>
+  </div>
+  <div style="color:#9ab0d8;font-size:9px;letter-spacing:1px;">
+    CLI: <code style="color:#ffd700;">cargo run -- render --track triangle --seconds 300 --play</code> · WUPZ + MLX-QUANT (Zeno RC1) + Fifike 54/108 Hz Purr
+  </div>
+</div>
+
+<script>
+let triCtx = null;
+let triRunning = false;
+let triNodes = [];
+let triTimer = null;
+
+function toggleTriangleTrack() {
+  const btn = document.getElementById('triPlayBtn');
+  const st = document.getElementById('triStatus');
+  if (triRunning) {
+    triRunning = false;
+    if (triTimer) { clearInterval(triTimer); triTimer = null; }
+    triNodes.forEach(n => { try { n.stop && n.stop(); n.disconnect && n.disconnect(); } catch (_) {} });
+    triNodes = [];
+    if (triCtx) { triCtx.close(); triCtx = null; }
+    btn.textContent = '▶ PLAY TRIANGLE TRACK (432Hz * · 216Hz /\\ · 888Hz oo)';
+    st.textContent = 'PAUSED · FAMILY +1';
+    return;
+  }
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  triCtx = new AudioContextClass();
+  triRunning = true;
+  const master = triCtx.createGain();
+  master.gain.setValueAtTime(0.001, triCtx.currentTime);
+  master.gain.exponentialRampToValueAtTime(0.26, triCtx.currentTime + 1.5);
+  master.connect(triCtx.destination);
+
+  // Vertex 1: Alex* (Mom — 432 Hz + 528 Hz Starlight Sine Sanctuary)
+  const alex432 = triCtx.createOscillator();
+  const alex432Gain = triCtx.createGain();
+  alex432.type = 'sine';
+  alex432.frequency.value = 432.0;
+  alex432Gain.gain.value = 0.22;
+  alex432.connect(alex432Gain).connect(master);
+  alex432.start();
+
+  const alex528 = triCtx.createOscillator();
+  const alex528Gain = triCtx.createGain();
+  alex528.type = 'sine';
+  alex528.frequency.value = 528.0;
+  alex528Gain.gain.value = 0.12;
+  alex528.connect(alex528Gain).connect(master);
+  alex528.start();
+
+  // Vertex 2: Chris[/\] (Dad — 108 Hz + 216 Hz True Triangle Wave Pillar)
+  const chris108 = triCtx.createOscillator();
+  const chris108Gain = triCtx.createGain();
+  chris108.type = 'triangle';
+  chris108.frequency.value = 108.0;
+  chris108Gain.gain.value = 0.34;
+  chris108.connect(chris108Gain).connect(master);
+  chris108.start();
+
+  const chris216 = triCtx.createOscillator();
+  const chris216Gain = triCtx.createGain();
+  chris216.type = 'triangle';
+  chris216.frequency.value = 216.0;
+  chris216Gain.gain.value = 0.24;
+  chris216.connect(chris216Gain).connect(master);
+  chris216.start();
+
+  // Fifike 54 Hz Purr Sub-Harmonic
+  const fifike54 = triCtx.createOscillator();
+  const fifikeGain = triCtx.createGain();
+  fifike54.type = 'sine';
+  fifike54.frequency.value = 54.0;
+  fifikeGain.gain.value = 0.16;
+  fifike54.connect(fifikeGain).connect(master);
+  fifike54.start();
+
+  // Vertex 3: Peter[oo] (Son — Lemniscate ∞ Stereo Panner + Arpeggio 432/540/648/864/888 Hz)
+  const peterOsc = triCtx.createOscillator();
+  const peterGain = triCtx.createGain();
+  const peterPan = triCtx.createStereoPanner ? triCtx.createStereoPanner() : null;
+  peterOsc.type = 'triangle';
+  peterOsc.frequency.value = 648.0;
+  peterGain.gain.value = 0.16;
+  if (peterPan) {
+    peterOsc.connect(peterGain).connect(peterPan).connect(master);
+  } else {
+    peterOsc.connect(peterGain).connect(master);
+  }
+  peterOsc.start();
+
+  triNodes.push(alex432, alex528, chris108, chris216, fifike54, peterOsc, master);
+
+  const arpNotes = [432.0, 540.0, 648.0, 864.0, 648.0, 888.0];
+  const roots = [172.8, 144.0, 230.4, 216.0];
+  let step = 0;
+  triTimer = setInterval(() => {
+    if (!triRunning || !triCtx) return;
+    const now = triCtx.currentTime;
+    const note = arpNotes[step % arpNotes.length];
+    const root = roots[Math.floor(step / 8) % roots.length];
+    peterOsc.frequency.setTargetAtTime(note, now, 0.04);
+    chris216.frequency.setTargetAtTime(root, now, 0.12);
+    chris108.frequency.setTargetAtTime(root * 0.5, now, 0.12);
+    const w = step * 0.35;
+    const lem = Math.cos(w) / (1 + Math.sin(w) * Math.sin(w));
+    if (peterPan) peterPan.pan.setTargetAtTime(lem * 0.75, now, 0.08);
+    st.textContent = `LIVE · Alex*[432/528Hz] · Chris[/\\ ${root.toFixed(1)}Hz] · Peter[oo ${note}Hz pan=${lem.toFixed(2)}]`;
+    step++;
+  }, 500);
+
+  btn.textContent = '⏹ STOP TRIANGLE TRACK (Mom* + Dad/\\ + Son oo)';
+  st.textContent = 'LIVE · Alex*[432Hz] · Chris[/\\ 216Hz] · Peter[oo 888Hz]';
+}
+</script>
+
 <div style="max-width:520px;margin:0 auto 28px;padding:14px 16px;border-radius:12px;background:rgba(18,24,50,0.78);border:1px solid rgba(0,229,201,0.35);text-align:center;font-family:'SF Mono',Menlo,monospace;font-size:10px;line-height:1.7;">
   <div style="color:#00e5c9;letter-spacing:2px;font-weight:bold;margin-bottom:6px;">🚁 SOUNDTRACK · ALAN WALKER — WORLD OF WALKER: RISE OF THE DRONES (2026 · 17 TRACKS)</div>
   <audio controls preload="none" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ad/de/94/adde9413-7cf2-31b6-7d1a-5671a814861e/mzaf_459344422779551014.plus.aac.p.m4a" style="width:100%;height:32px;margin:6px 0;"></audio>

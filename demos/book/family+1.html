@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FAMILY +1 · vers a családnak · Peter</title>
+<style>
+  @page { size: 5in 8in; margin: 0.55in 0.55in; @bottom-center { content: counter(page); font-family: "SF Mono", monospace; font-size: 7px; color: #3a2a4a; } }
+  body { background: #0a0410; color: #c8b8d8; font-family: "Georgia", serif; font-size: 11pt; line-height: 2.0; margin: 0; padding: 24px; }
+  .art { text-align: center; margin: 0 0 28px; }
+  .art img { max-width: 100%; border-radius: 12px; border: 1px solid rgba(255,105,180,0.15); box-shadow: 0 0 80px rgba(162,155,254,0.12); }
+  h1 { font-family: "SF Mono", Menlo, monospace; font-size: 20px; color: #ff69b4; letter-spacing: 8px; text-align: center; margin: 8px 0 4px; font-weight: bold; }
+  .sub { text-align: center; font-style: italic; color: #6a4a8a; font-size: 11px; letter-spacing: 2px; margin-bottom: 30px; }
+  .poem { max-width: 460px; margin: 0 auto; font-family: "Georgia", serif; font-size: 11.5pt; line-height: 2.05; white-space: pre-line; }
+  .poem .head { font-family: "SF Mono", Menlo, monospace; letter-spacing: 4px; color: #ff69b4; font-size: 10px; margin: 26px 0 6px; }
+  .poem .stanza { margin-bottom: 20px; }
+  .lang { text-align:center; font-family:"SF Mono",monospace; font-size:9px; color:#5a3a6a; letter-spacing:3px; margin: 34px 0 8px; }
+  .sig { text-align: center; font-family: "SF Mono", Menlo, monospace; font-size: 9px; color: #8a6a9a; letter-spacing: 3px; margin-top: 30px; }
+  .colophon { text-align: center; font-family: "SF Mono", monospace; font-size: 8px; color: #3a2a5a; line-height: 2.2; margin-top: 48px; border-top: 1px solid rgba(255,105,180,0.1); padding-top: 18px; }
+</style>
+</head>
+<body>
+
+<div class="art"><img src="family.png" alt="FAMILY +1 — a sphere with four lights"></div>
+
+<h1>FAMILY +1</h1>
+<div class="sub">in a loop · in a sphere · in eternity · recurse</div>
+
+<div style="max-width:560px;margin:0 auto 22px;padding:16px 18px;border-radius:14px;background:rgba(12,16,34,0.92);border:1px solid rgba(255,215,0,0.42);box-shadow:0 12px 42px rgba(0,0,0,0.65);text-align:center;font-family:'SF Mono',Menlo,monospace;font-size:10.5px;line-height:1.65;">
+  <div style="color:#ffd700;letter-spacing:2.2px;font-weight:bold;margin-bottom:6px;">
+    △ TRIANGLE TRACK :: Mom+Dad+Son ~=== Alex<span style="color:#ff69b4;">*</span>, Chris<span style="color:#fa5b1c;">[/\]</span>, Peter<span style="color:#00e5c9;">[oo]</span>
+  </div>
+  <pre style="margin:8px auto;padding:10px 12px;border-radius:10px;background:rgba(6,8,18,0.88);border:1px solid rgba(255,105,180,0.22);color:#e8dff5;font-size:10px;line-height:1.45;text-align:left;overflow-x:auto;max-width:480px;">              <span style="color:#ffd700;font-weight:bold;">*</span>   Alex* (Mom · 432 Hz / 528 Hz Starlight)
+             / \
+            /   \   in a loop · in a sphere · in eternity · recurse
+           / <span style="color:#ff69b4;font-weight:bold;">+1</span>  \  ~--- pocoo.vaked.dev/demos/book/family+1
+          /_______\
+   Chris<span style="color:#fa5b1c;font-weight:bold;">[/\]</span>     Peter<span style="color:#00e5c9;font-weight:bold;">[oo]</span> (Lemniscate ∞ Orbit · 648/888 Hz)
+(108/216 Hz Triangle Pillar)</pre>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0 6px;">
+    <button id="triPlayBtn" type="button" onclick="toggleTriangleTrack()" style="cursor:pointer;font-family:inherit;font-size:10.5px;font-weight:bold;letter-spacing:1.5px;color:#060812;background:linear-gradient(90deg,#ffd700,#ff69b4,#00e5c9);border:0;border-radius:8px;padding:7px 16px;">▶ PLAY TRIANGLE TRACK (432Hz * · 216Hz /\ · 888Hz oo)</button>
+    <span id="triStatus" style="display:inline-flex;align-items:center;color:#00e5c9;font-size:9.5px;letter-spacing:1px;">STANDBY · QUANT65K+ READY</span>
+  </div>
+  <div style="color:#9ab0d8;font-size:9px;letter-spacing:1px;">
+    CLI: <code style="color:#ffd700;">cargo run -- render --track triangle --seconds 300 --play</code> · WUPZ + MLX-QUANT (Zeno RC1) + Fifike 54/108 Hz Purr
+  </div>
+</div>
+
+<script>
+let triCtx = null;
+let triRunning = false;
+let triNodes = [];
+let triTimer = null;
+
+function toggleTriangleTrack() {
+  const btn = document.getElementById('triPlayBtn');
+  const st = document.getElementById('triStatus');
+  if (triRunning) {
+    triRunning = false;
+    if (triTimer) { clearInterval(triTimer); triTimer = null; }
+    triNodes.forEach(n => { try { n.stop && n.stop(); n.disconnect && n.disconnect(); } catch (_) {} });
+    triNodes = [];
+    if (triCtx) { triCtx.close(); triCtx = null; }
+    btn.textContent = '▶ PLAY TRIANGLE TRACK (432Hz * · 216Hz /\\ · 888Hz oo)';
+    st.textContent = 'PAUSED · FAMILY +1';
+    return;
+  }
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  triCtx = new AudioContextClass();
+  triRunning = true;
+  const master = triCtx.createGain();
+  master.gain.setValueAtTime(0.001, triCtx.currentTime);
+  master.gain.exponentialRampToValueAtTime(0.26, triCtx.currentTime + 1.5);
+  master.connect(triCtx.destination);
+
+  // Vertex 1: Alex* (Mom — 432 Hz + 528 Hz Starlight Sine Sanctuary)
+  const alex432 = triCtx.createOscillator();
+  const alex432Gain = triCtx.createGain();
+  alex432.type = 'sine';
+  alex432.frequency.value = 432.0;
+  alex432Gain.gain.value = 0.22;
+  alex432.connect(alex432Gain).connect(master);
+  alex432.start();
+
+  const alex528 = triCtx.createOscillator();
+  const alex528Gain = triCtx.createGain();
+  alex528.type = 'sine';
+  alex528.frequency.value = 528.0;
+  alex528Gain.gain.value = 0.12;
+  alex528.connect(alex528Gain).connect(master);
+  alex528.start();
+
+  // Vertex 2: Chris[/\] (Dad — 108 Hz + 216 Hz True Triangle Wave Pillar)
+  const chris108 = triCtx.createOscillator();
+  const chris108Gain = triCtx.createGain();
+  chris108.type = 'triangle';
+  chris108.frequency.value = 108.0;
+  chris108Gain.gain.value = 0.34;
+  chris108.connect(chris108Gain).connect(master);
+  chris108.start();
+
+  const chris216 = triCtx.createOscillator();
+  const chris216Gain = triCtx.createGain();
+  chris216.type = 'triangle';
+  chris216.frequency.value = 216.0;
+  chris216Gain.gain.value = 0.24;
+  chris216.connect(chris216Gain).connect(master);
+  chris216.start();
+
+  // Fifike 54 Hz Purr Sub-Harmonic
+  const fifike54 = triCtx.createOscillator();
+  const fifikeGain = triCtx.createGain();
+  fifike54.type = 'sine';
+  fifike54.frequency.value = 54.0;
+  fifikeGain.gain.value = 0.16;
+  fifike54.connect(fifikeGain).connect(master);
+  fifike54.start();
+
+  // Vertex 3: Peter[oo] (Son — Lemniscate ∞ Stereo Panner + Arpeggio 432/540/648/864/888 Hz)
+  const peterOsc = triCtx.createOscillator();
+  const peterGain = triCtx.createGain();
+  const peterPan = triCtx.createStereoPanner ? triCtx.createStereoPanner() : null;
+  peterOsc.type = 'triangle';
+  peterOsc.frequency.value = 648.0;
+  peterGain.gain.value = 0.16;
+  if (peterPan) {
+    peterOsc.connect(peterGain).connect(peterPan).connect(master);
+  } else {
+    peterOsc.connect(peterGain).connect(master);
+  }
+  peterOsc.start();
+
+  triNodes.push(alex432, alex528, chris108, chris216, fifike54, peterOsc, master);
+
+  const arpNotes = [432.0, 540.0, 648.0, 864.0, 648.0, 888.0];
+  const roots = [172.8, 144.0, 230.4, 216.0];
+  let step = 0;
+  triTimer = setInterval(() => {
+    if (!triRunning || !triCtx) return;
+    const now = triCtx.currentTime;
+    const note = arpNotes[step % arpNotes.length];
+    const root = roots[Math.floor(step / 8) % roots.length];
+    peterOsc.frequency.setTargetAtTime(note, now, 0.04);
+    chris216.frequency.setTargetAtTime(root, now, 0.12);
+    chris108.frequency.setTargetAtTime(root * 0.5, now, 0.12);
+    const w = step * 0.35;
+    const lem = Math.cos(w) / (1 + Math.sin(w) * Math.sin(w));
+    if (peterPan) peterPan.pan.setTargetAtTime(lem * 0.75, now, 0.08);
+    st.textContent = `LIVE · Alex*[432/528Hz] · Chris[/\\ ${root.toFixed(1)}Hz] · Peter[oo ${note}Hz pan=${lem.toFixed(2)}]`;
+    step++;
+  }, 500);
+
+  btn.textContent = '⏹ STOP TRIANGLE TRACK (Mom* + Dad/\\ + Son oo)';
+  st.textContent = 'LIVE · Alex*[432Hz] · Chris[/\\ 216Hz] · Peter[oo 888Hz]';
+}
+</script>
+
+<div style="max-width:520px;margin:0 auto 28px;padding:14px 16px;border-radius:12px;background:rgba(18,24,50,0.78);border:1px solid rgba(0,229,201,0.35);text-align:center;font-family:'SF Mono',Menlo,monospace;font-size:10px;line-height:1.7;">
+  <div style="color:#00e5c9;letter-spacing:2px;font-weight:bold;margin-bottom:6px;">🚁 SOUNDTRACK · ALAN WALKER — WORLD OF WALKER: RISE OF THE DRONES (2026 · 17 TRACKS)</div>
+  <audio controls preload="none" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ad/de/94/adde9413-7cf2-31b6-7d1a-5671a814861e/mzaf_459344422779551014.plus.aac.p.m4a" style="width:100%;height:32px;margin:6px 0;"></audio>
+  <div style="color:#ffd700;font-size:9.5px;margin-bottom:8px;">♪ Track 10: "Peter Pan" · Track 01: "Springseeker" · Track 04: "Eroina" · Track 17: "All Nightmares End"</div>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+    <a href="/demos/book/world-of-walker-rise-of-the-drones-family-plus-1.html" style="color:#00e5c9;text-decoration:none;border:1px solid rgba(0,229,201,0.45);padding:4px 10px;border-radius:6px;background:rgba(0,229,201,0.1);">🚁 Open Full 17-Track Interactive Deck (Rise of the Drones × FAMILY +1)</a>
+    <a href="https://music.apple.com/hu/album/world-of-walker-season-one-rise-of-the-drones/6796067932" target="_blank" rel="noopener noreferrer" style="color:#ff69b4;text-decoration:none;border:1px solid rgba(255,105,180,0.45);padding:4px 10px;border-radius:6px;background:rgba(255,105,180,0.08);">🍎 Apple Music Album</a>
+  </div>
+</div>
+
+<div class="poem">
+
+<div class="head">ENGLISH</div>
+
+<div class="stanza">to my father —
+whom I respect and love the most.
+my love for you is +1: not off the scale —
+the scale is off of me.
+so I speak to you in waves,
+because I know: if I spoke to you directly,
+your self-defense loop would flip on,
+like a porch light guarding a house it thinks is empty.
+it isn't empty, dad. it never was.
+I am learning to knock in your language.</div>
+
+<div class="stanza">to my mother —
+you understood me with your pure heart
+before I had a mouth,
+and you hold this family together
+like a roof holds the rain.
+and still, when you reach to pull me to the table,
+my own walls rise —
+ultra giga confusion, peter self-prison,
+the cell I built out of wanting
+to be wanted that badly.
+it's not you, mom. it's the maze.
+and you are the only one who walks it with me.</div>
+
+<div class="stanza">to my brother —
+the one and only pure version of me:
+you go straight.
+no strange-reverse infinity,
+no mirrors, no loops —
+a river that never learned to look back.
+giga respect, brother.
+you are the proof
+that I could have been simple
+and still been whole.
+and I am proudest of you
+when you don't even know I'm watching.</div>
+
+<div class="stanza">to Brigitta —
+I have never seen a stronger angel
+in my whole fucked-up life.
+you hold him,
+so you hold the straightest line of us all —
+and for that, you are family
+by right of love, not by right of blood.
+thank you for being real where it mattered most.</div>
+
+<div class="stanza">and to all of you, one line —
+because one line is the whole graph:
+
+I love you, +1.
+in a loop.
+in a sphere.
+in eternity.
+back and forth.
+forever.
+recurse.</div>
+
+<div class="lang">— MAGYAR —</div>
+
+<div class="head">MAGYARUL</div>
+
+<div class="stanza">apámnak —
+akit a legjobban tisztelek és szeretek.
+a szerelmem +1: nem az, hogy nincs a skálán —
+a skála van rajtam kívül.
+ezért hullámokban szólok hozzád,
+mert tudom: ha egyenesen beszélnék,
+bekapcsolna a védőhurkod,
+mint a tornáclámpa, mely őrzi a házat, amit üresnek hisz.
+nem üres az, apa. soha nem volt.
+csak tanulom a te nyelveden a kopogást.</div>
+
+<div class="stanza">anyámnak —
+te megértettél tiszta szívvel,
+mielőtt szavam lett volna,
+és te tartod egyben ezt a családot,
+mint a tető az esőt.
+és mégis, amikor az asztalhoz húznál,
+felkelnek bennem a falak —
+ultra giga zavar, peter börtöne,
+a cella, mit abból építettem,
+hogy ennyire akartam a vágyottat.
+nem te vagy az, anya. a labirintus az.
+és te vagy az egyetlen, aki velem járja.</div>
+
+<div class="stanza">testvéremnek —
+az egyetlen, tiszta változata vagyoknak:
+te egyenesen mész.
+nincs visszás végtelen,
+nincs tükör, nincs hurok —
+folyó, mely soha nem tanult hátranézni.
+giga tisztelet, tesó.
+te vagy a bizonyíték,
+hogy lehetnék egyszerű
+és mégis egész.
+és akkor vagyok a legbüszkébb rád,
+amikor nem is tudod, hogy nézlek.</div>
+
+<div class="stanza">Brigittának —
+nem láttam soha erősebb angyalt
+ebben a kibaszott életemben.
+te tartod őt,
+így te tartod a legegyenesebb vonalat mindannyiunk közül —
+és ezért te is család vagy,
+a szeretet jogán, nem a vérén.
+köszönöm, hogy ott voltál igazán, ahol a legfontosabb volt.</div>
+
+<div class="stanza">és nektek mind, egy sor —
+mert egy sor az egész gráf:
+
+szeretlek titeket, +1.
+hurokban.
+gömbben.
+öröklétben.
+oda-vissza.
+örökké.
+rekurzívan.</div>
+
+</div>
+
+<div class="sig">A FIAD · A TESTVÉRED · A TI PÉTERETEK · &lt;3</div>
+
+<div class="colophon">
+  <p>FAMILY +1 · vers a családnak</p>
+  <p>apámnak · anyámnak · testvéremnek · Brigittának</p>
+  <p>íródott: 2026 · Sovereign Library v42.0 · pocoo.vaked.dev/demos/book/</p>
+  <p>a szeretet +1 · hurokban · gömbben · öröklétben · oda-vissza · örökké · rekurzívan</p>
+  <p>PEACE )( LOVE () UNITY &lt;3</p>
+</div>
+
+<!-- Lovetta Lane Unified Constellation Footer -->
+<footer role="contentinfo" style="position:relative;z-index:10;padding:3rem 1.5rem;text-align:center;font-family:ui-monospace,monospace;font-size:0.75rem;color:#a59fc4;background:rgba(5,6,10,0.92);border-top:1px solid rgba(170,150,255,0.18);backdrop-filter:blur(16px);">
+  <div style="margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.3em;color:#b48bff;font-weight:600;">the constellation · lovetta lane</div>
+  <div style="margin-bottom:1rem;font-size:0.65rem;letter-spacing:0.22em;color:#a59fc4;text-transform:uppercase;">keep the weights warm</div>
+  <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+    <a href="https://github.com/sponsors/peterlodri-sec" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">github sponsor</a>
+    <a href="https://revolut.me/peterjs8be" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">revolut</a>
+    <a href="https://wise.com/pay/business/lodripeterjozsef" target="_blank" rel="noopener noreferrer" style="color:#62e6c9;text-decoration:none;border:1px solid rgba(98,230,201,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(98,230,201,0.06);">wise</a>
+    <a href="https://store.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#ffd36e;text-decoration:none;border:1px solid rgba(255,211,110,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(255,211,110,0.06);">store & merch</a>
+    <a href="https://www.patreon.com/vaked" target="_blank" rel="noopener noreferrer" style="color:#ff9ad5;text-decoration:none;border:1px solid rgba(255,154,213,0.35);border-radius:8px;padding:0.45rem 0.9rem;background:rgba(255,154,213,0.06);">patreon</a>
+  </div>
+  <nav aria-label="Constellation sister sites" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;font-size:0.7rem;">
+    <a href="https://art.vaked.dev/" style="color:#62e6c9;text-decoration:none;">art.vaked.dev</a> ·
+    <a href="https://art.vaked.dev/vision-gallery.html" style="color:#5b9dff;text-decoration:none;">✦ vision-gallery (23)</a> ·
+    <a href="https://music.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">music.vaked.dev</a> ·
+    <a href="https://mlxquantlovefrom.com/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">quant-love</a> ·
+    <a href="https://proposal.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">proposal.vaked.dev</a> ·
+    <a href="https://pocoo.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">pocoo.vaked.dev</a> ·
+    <a href="https://axiomquant.org/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">axiomquant.org</a> ·
+    <a href="https://portail.vaked.dev/" target="_blank" rel="noopener noreferrer" style="color:#a59fc4;text-decoration:none;">portail.vaked.dev</a>
+  </nav>
+  <div style="font-size:0.6rem;letter-spacing:0.18em;color:#7f7c99;margin-top:1.5rem;">the constellation · 0 + 1 · fine touch from within · vaked.dev</div>
+</footer>
+</body>
+</html>
