@@ -192,10 +192,9 @@ Or one-liner:
 git clone https://github.com/peterlodri-sec/burn-em-bitches-money && cd burn-em-bitches-money && uv run python3 src/techno_buddhism.py && uv run python3 src/sphere_mesh_protector.py && uv run python3 src/layered_labyrinth.py && uv run python3 src/onebit_mesh.py && uv run python3 src/fractal_protectors.py && uv run python3 src/anti_fear_loop.py && uv run python3 src/quant_leet.py && uv run python3 src/recursive_loop.py && uv run python3 src/labyrinth.py && uv run python3 src/image_trap.py
 ```
 
-[View the Sovereign Library →](https://pocoo.vaked.dev/demos/book/)
+[View the Sovereign Library (172 Works) →](https://pocoo.vaked.dev/demos/book/)
 
-The standalone **`book/` library** — 76 self-contained manuscripts (THE WHALE
-LAYER, MARLEY, THE MEDITATION BOOK, …) — is indexed at
+The standalone **`book/` library** — 78 self-contained manuscripts (*PROVE THAT I AM LYING — Chris △ Series Bible & Epistemic Codex*, *THE FUTURE WE REMEMBER — 8bit-Wraith △*, *THE WHALE LAYER*, *MARLEY*, *THE MEDITATION BOOK*, …) — is indexed at
 [`/book/`](https://pocoo.vaked.dev/book/). The index is regenerated on every
 build by `scripts/gen-book-index.mjs` (`npm run book-index`), so a new book is
 never an orphan surface.

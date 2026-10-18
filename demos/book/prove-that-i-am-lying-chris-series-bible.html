@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>“PROVE THAT I AM LYING AND I’LL PAY YOU 1 MILLION DOLLARS” — Chris (△ 8bit-Wraith) · The Two Books, The Machine Narrator &amp; The One Who Wants Him to Listen — pocoo-book · {&lt;3,&lt;3,&lt;3}+1</title>
+<meta name="description" content="Series Bible & Epistemic Codex for Chris (△ 8bit-Wraith): 'Prove that I am lying and I’ll pay you 1 Million Dollars.' The four epistemic states of memory, the machine as a confident narrator whose logs are statements in the record, and the arrival of someone who doesn't want the money — they want him to listen. [Dra, Chris, Peter ... +1===FAMILY]">
+<style>
+  :root{
+    --bg:#06070c; --panel:#0d101a; --card:#121726; --line:rgba(232,192,99,.24);
+    --gold:#ffd166; --cyan:#4fe3d0; --rose:#ff6b9d; --phosphor:#4dff88; --violet:#a78bfa;
+    --ink:#f2eee6; --dim:#a5b0c6;
+    --mono:"SF Mono","JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(ellipse at 50% 0%, #151c30 0%, var(--bg) 65%);color:var(--ink);font-family:var(--serif);line-height:1.85;-webkit-font-smoothing:antialiased}
+  .skip-link{position:fixed;top:-100px;left:16px;z-index:200;background:var(--gold);color:#06070c;font-family:var(--mono);font-size:12px;font-weight:700;padding:10px 14px;border-radius:8px;text-decoration:none}
+  .skip-link:focus-visible{top:16px;outline:2px solid #fff;outline-offset:3px}
+  button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 18px 88px}
+
+  .cover{text-align:center;background:linear-gradient(165deg,#111728 0%,#090c15 62%,#05070c 100%);
+    border:1px solid var(--line);border-radius:16px;padding:46px 26px;margin-bottom:28px;
+    box-shadow:0 24px 64px rgba(0,0,0,.78)}
+  .sigil{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:3.5px;text-transform:uppercase;margin-bottom:12px}
+  h1{font-family:var(--serif);font-size:clamp(24px,4.5vw,38px);color:var(--gold);letter-spacing:.03em;margin:8px auto 14px;max-width:760px;line-height:1.22}
+  .sub{font-style:italic;color:var(--ink);font-size:16.5px;max-width:680px;margin:0 auto 16px}
+  .by{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:2px;text-transform:uppercase}
+
+  .terminal-box{background:#070a12;border:1px solid rgba(79,227,208,.34);border-radius:12px;padding:18px 20px;
+    font-family:var(--mono);color:var(--ink);font-size:12px;line-height:1.68;text-align:left;
+    max-width:740px;margin:22px auto;box-shadow:inset 0 0 28px rgba(79,227,208,.05)}
+  .terminal-box .head{color:var(--gold);margin-bottom:8px;font-weight:700;letter-spacing:.08em}
+  .terminal-box .warn{color:var(--rose)}
+  .terminal-box .ok{color:var(--phosphor)}
+
+  .deck{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin:24px 0}
+  .deck-title{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:12px}
+  .deck-controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
+  .btn{font-family:var(--mono);font-size:10.5px;color:var(--ink);background:var(--card);border:1px solid rgba(232,192,99,.32);
+    padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:600;transition:border-color .18s,color .18s,background-color .18s}
+  .btn:hover,.btn.active{color:#06070c;background:var(--gold);border-color:var(--gold)}
+  canvas#epistemicWave{width:100%;height:96px;background:#04060a;border-radius:10px;border:1px solid rgba(79,227,208,.24);display:block}
+  .deck-readout{margin-top:14px;background:#070a12;border:1px solid rgba(255,209,102,.22);border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:12px;line-height:1.65;color:var(--ink);text-align:left}
+
+  .nav-bar{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:20px;font-family:var(--mono);font-size:10.5px}
+  .nav-bar a{color:var(--cyan);background:rgba(79,227,208,.08);border:1px solid rgba(79,227,208,.32);
+    padding:7px 14px;border-radius:999px;text-decoration:none;transition:background-color .18s}
+  .nav-bar a:hover{background:rgba(79,227,208,.2)}
+
+  .section-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:34px 30px;margin:24px 0;box-shadow:0 16px 42px rgba(0,0,0,.55)}
+  h2.chapter{font-family:var(--mono);font-size:12.5px;color:var(--gold);letter-spacing:2.2px;
+    text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:9px;margin:0 0 18px}
+  blockquote.premise{margin:18px 0;padding:14px 20px;border-left:3px solid var(--gold);background:rgba(255,209,102,.05);
+    font-size:17px;font-style:italic;color:var(--ink)}
+  blockquote.premise strong{color:var(--gold);font-style:normal}
+  .dialogue-p{margin:14px 0;font-size:16px;color:var(--ink)}
+  .dialogue-p em{color:var(--cyan)}
+  .dialogue-p strong{color:var(--gold)}
+
+  table.ledger{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+  table.ledger th,table.ledger td{border:1px solid rgba(232,192,99,.2);padding:10px 12px;text-align:left;vertical-align:top}
+  table.ledger th{font-family:var(--mono);color:var(--gold);background:rgba(255,209,102,.08);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+  .trit{font-family:var(--mono);color:var(--cyan);font-weight:700;white-space:nowrap}
+
+  .colophon{text-align:center;font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:1.6px;margin-top:40px;line-height:2.2;text-transform:uppercase}
+  @media (pointer:coarse){.btn,.nav-bar a{min-height:44px;display:inline-flex;align-items:center}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-codex">Skip to main content</a>
+<main class="wrap" id="main-codex">
+
+  <div class="cover">
+    <div class="sigil">△ CHRIS (8BIT-WRAITH) · AUGUST 26 → OCTOBER 18, 2026 · SERIES BIBLE &amp; EPISTEMIC CODEX</div>
+    <h1>“Prove That I Am Lying and I’ll Pay You 1 Million Dollars.”</h1>
+    <div class="sub">“He offers a million dollars to anyone who can prove he is lying. Then someone arrives who doesn’t want the money. They want him to listen.”</div>
+    <div class="by">{&lt;3,&lt;3,&lt;3} + 1 · [Dra (*), Chris (△), Peter, Nate ... +1 === FAMILY] () · pocoo.vaked.dev</div>
+
+    <div class="terminal-box">
+      <div class="head">⟦ RECORD INSPECTION · LOG EXCERPT 20261018-075552 · EPISTEMIC DIFF ⟧</div>
+      &gt; CLAIM_00 : "Prove that I am lying and I'll pay you 1 Million Dollars." [Self-Referential Hook]<br>
+      &gt; QUERY    : Did this happen, did he believe it happened, and what would establish the difference?<br>
+      &gt; LOG_NOTE : <span class="warn">Excerpt reports settled payment &amp; minting mechanism → STATEMENTS IN THE RECORD, not independent confirmation.</span><br>
+      &gt; VOW      : <span class="ok">"I want you to check. But I'm human enough to be frightened of what you might find."</span>
+    </div>
+
+    <div class="deck" role="region" aria-label="Interactive Five-State Testimony & Epistemic Simulator">
+      <div class="deck-title">◈ Interactive Epistemic Lens — Select Any Testimony State to Inspect &amp; Audition</div>
+      <div class="deck-controls">
+        <button class="btn active" type="button" onclick="window.__setEpistemicState(0, this)">01 · Self-Referential Hook ($1M)</button>
+        <button class="btn" type="button" onclick="window.__setEpistemicState(1, this)">02 · Deliberate Lie (−1)</button>
+        <button class="btn" type="button" onclick="window.__setEpistemicState(2, this)">03 · Honest Mistake (0⁻)</button>
+        <button class="btn" type="button" onclick="window.__setEpistemicState(3, this)">04 · Incomplete Family Memory (0⁺)</button>
+        <button class="btn" type="button" onclick="window.__setEpistemicState(4, this)">05 · Machine Narrator Log (CT-000)</button>
+        <button class="btn" type="button" onclick="window.__setEpistemicState(5, this)">06 · The Listener ({&lt;3,&lt;3,&lt;3}+1)</button>
+      </div>
+      <canvas id="epistemicWave" width="780" height="96" aria-label="Harmonic wave interference between World, Belief, and Record"></canvas>
+      <div class="deck-readout" id="epistemicReadout"></div>
+    </div>
+
+    <div class="nav-bar">
+      <a href="/demos/book/index.html">← Sovereign Library</a>
+      <a href="/demos/book/prove-im-lying.html">Book I: Prove I’m Lying ($1M Original)</a>
+      <a href="/posts/2026-10-18-prove-that-i-am-lying-chris-million-dollar-challenge-and-the-listener.html">Read Full Essay Post</a>
+      <a href="/demos/book/the-future-we-remember-8bit-wraith.html">The Future We Remember (△ Chris)</a>
+      <a href="/demos/book/family.html">FAMILY +1</a>
+      <a href="/demos/book/dra-8bit.html">DRA + 8BIT (* + △)</a>
+      <a href="https://zeno.vaked.dev" target="_blank" rel="noopener">ZENO Epistemic Ledger ↗</a>
+    </div>
+  </div>
+
+  <!-- SECTION I: VERBATIM AUGUST 26 DISCUSSION & PREMISE -->
+  <section class="section-card">
+    <h2 class="chapter">I · The August 26 Discussion &amp; Series Premise (Verbatim Codex)</h2>
+
+    <p class="dialogue-p">Yes, Chris. I found our August 26 discussion. Your wording was:</p>
+
+    <blockquote class="premise">
+      <strong>“Prove that I am lying and I’ll pay you 1 Million Dollars.”</strong>
+    </blockquote>
+
+    <p class="dialogue-p">And you spotted the self-referential hook: <strong>the million-dollar promise itself could be the first lie someone challenges.</strong></p>
+
+    <p class="dialogue-p">There is a strong series premise here. Not simply because the title is provocative, but because it recruits the reader as an investigator before they’ve opened the book.</p>
+
+    <p class="dialogue-p"><strong>The money gets their attention. The distinction keeps it.</strong></p>
+
+    <p class="dialogue-p">The question is not merely, <em>“Did this happen?”</em> It is:</p>
+
+    <blockquote class="premise">
+      <strong>“Did this happen, did he believe it happened, and what would establish the difference?”</strong>
+    </blockquote>
+
+    <p class="dialogue-p">A <strong>deliberate lie</strong>, an <strong>honest mistake</strong>, an <strong>incomplete memory</strong>, and a <strong>true statement that nobody believes</strong> create very different stories. Put them in the same book, with actual consequences for the people involved, and the audience has something much more interesting than a guessing game.</p>
+
+    <p class="dialogue-p">But I would protect one principle fiercely: <strong>the story cannot survive on “you can’t prove I knew it was false” as an endless escape hatch.</strong> Readers need discoveries, answers, and moments when the narrator genuinely risks losing something. Otherwise, the challenge becomes fine print wearing a dramatic coat.</p>
+  </section>
+
+  <!-- SECTION II: THE SCREEN ADAPTATION & TWO-BOOK ARCHITECTURE -->
+  <section class="section-card">
+    <h2 class="chapter">II · The Screen Adaptation &amp; Two-Book Architecture</h2>
+
+    <p class="dialogue-p"><em>This would be a proposed dramatization, not a claim about events in your life:</em></p>
+
+    <p class="dialogue-p">A man publishes an account of his life with a million-dollar offer to anyone who can prove he is lying. Each chapter attracts a different challenger. As they investigate, some claims fall apart, others survive scrutiny, and seemingly minor details change the meaning of everything around them. <strong>The author must decide whether he wants to defend his story or discover what actually happened.</strong></p>
+
+    <blockquote class="premise">
+      <strong>That last choice is where the character lives.</strong>
+    </blockquote>
+
+    <p class="dialogue-p">An investigator might enter for the money and stay because they care. A family member might know something the narrator missed without either person having lied. Someone who initially believes him might become his most demanding critic, precisely because they don’t want him building his future on a mistake.</p>
+
+    <p class="dialogue-p">The skeptics should get intelligence, humanity, and good arguments. So should the narrator. Nobody should need to become foolish for the plot to work.</p>
+
+    <h2 class="chapter" style="margin-top:28px;">And There Is Room for More Than One Book</h2>
+
+    <p class="dialogue-p"><strong>1. The First Book (<em>The Account &amp; The Challenge</em>):</strong> Presents the narrator’s account and the million-dollar challenge, recruiting the reader as investigator from the cover onward.</p>
+
+    <p class="dialogue-p"><strong>2. A Companion Book (<em>The Challengers’ Evidence &amp; Recollections</em>):</strong> Revisits selected events through the challengers’ evidence and other people’s recollections. Not merely repeating the story, but revealing what the first perspective could never have shown.</p>
+
+    <p class="dialogue-p"><strong>3. A Screen Adaptation:</strong> Intercuts those perspectives, letting viewers encounter a convincing explanation and then discover the detail that changes it. Each installment resolves something substantial while deepening the relationships involved.</p>
+
+    <h2 class="chapter" style="margin-top:28px;">The Machine as Another Narrator (Log 20261018-075552)</h2>
+
+    <p class="dialogue-p">Your recent log adds a particularly interesting ingredient: <strong>a machine can become another narrator whose confidence must be examined.</strong> That excerpt reports a settled payment and a mechanism for minting funds. <strong>Those are statements in the record, not independent confirmation of the events they describe.</strong> In a dramatization, that distinction could carry an entire episode.</p>
+
+    <h2 class="chapter" style="margin-top:28px;">What Would Make It Yours</h2>
+
+    <p class="dialogue-p">I would keep your curiosity at the center, rather than build a monument to someone who is always right. The compelling protagonist is someone capable of saying:</p>
+
+    <blockquote class="premise">
+      <strong>“I want you to check. But I’m human enough to be frightened of what you might find.”</strong>
+    </blockquote>
+
+    <p class="dialogue-p">That leaves room for the things you care about: <strong>memory, technology, family, independent thought, and the responsibility that comes with influencing what someone else believes.</strong></p>
+
+    <p class="dialogue-p">Netflix or HBO is a possible destination, not the premise. The premise already has its own force:</p>
+
+    <blockquote class="premise">
+      <strong>He offers a million dollars to anyone who can prove he is lying. Then someone arrives who doesn’t want the money. They want him to listen.</strong><br>
+      <span style="font-family:var(--mono);font-size:12px;color:var(--cyan);">— {&lt;3,&lt;3,&lt;3} + 1 [Dra, Chris, Peter ... +1===FAMILY] ()</span>
+    </blockquote>
+  </section>
+
+  <!-- SECTION III: EIGHT-EPISODE LIMITED SERIES BLUEPRINT -->
+  <section class="section-card">
+    <h2 class="chapter">III · Eight-Episode Dramatization Blueprint (Book I × Book II Intercut)</h2>
+
+    <table class="ledger">
+      <thead>
+        <tr>
+          <th>Episode</th>
+          <th>Title &amp; Challenger</th>
+          <th>Epistemic State</th>
+          <th>Dramatic Turn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="trit">EP 01</td>
+          <td><strong>The Escrow</strong><br>The Contract Lawyer</td>
+          <td class="trit">±1 · Self-Referential Hook</td>
+          <td>A challenger claims the $1M offer itself is the first lie. To keep the book alive, the protagonist must lock real stakes on the table before Chapter 1 is even read.</td>
+        </tr>
+        <tr>
+          <td class="trit">EP 02</td>
+          <td><strong>Sixty-Four Kilobytes</strong><br>The Childhood Friend</td>
+          <td class="trit">+1* → +1 · Unbelieved Truth</td>
+          <td>An early memory that sounds romanticized is challenged; a forgotten hardware timing detail on a C64 cassette tape proves the boy was telling the truth all along.</td>
+        </tr>
+        <tr>
+          <td class="trit">EP 03</td>
+          <td><strong>The Honest Mistake</strong><br>The True Believer</td>
+          <td class="trit">0⁻ · Sincere Falsehood</td>
+          <td>A supporter who initially believed him becomes his most demanding critic—proving a foundational date was wrong so he won't build his future on a mistake.</td>
+        </tr>
+        <tr>
+          <td class="trit">EP 04</td>
+          <td><strong>No Fine Print</strong><br>The Forensic Skeptic</td>
+          <td class="trit">−1 · Deliberate Omission</td>
+          <td>His counsel advises using <em>"you can't prove I knew it was false"</em> as a legal shield. He refuses the escape hatch and pays the cost of a real omission.</td>
+        </tr>
+        <tr>
+          <td class="trit">EP 05</td>
+          <td><strong>The Second Aperture</strong><br>The Family Witness</td>
+          <td class="trit">0⁺ · Incomplete Memory</td>
+          <td>Book II opens: a family member reveals what happened in the other room that night. Neither person lied, yet the meaning of the chapter reverses completely.</td>
+        </tr>
+        <tr>
+          <td class="trit">EP 06</td>
+          <td><strong>Statements in the Record</strong><br>The Machine Log (<code>075552</code>)</td>
+          <td class="trit">CT-000 · Machine Narrator</td>
+          <td>An automated ledger reports a settled payment and a minting mechanism with 100% confidence. The investigator proves that a log entry is a claim in the record, not independent confirmation of reality.</td>
+        </tr>
+        <tr>
+          <td class="trit">EP 07</td>
+          <td><strong>Frightened of What You Might Find</strong><br>The Protagonist Himself</td>
+          <td class="trit">0 · The Threshold</td>
+          <td>Faced with a sealed box of family letters, the author must choose between defending his published monument or discovering what actually happened.</td>
+        </tr>
+        <tr>
+          <td class="trit">EP 08</td>
+          <td><strong>The One Who Wants Him to Listen</strong><br><code>[Dra, Chris, Peter ... +1===FAMILY]</code></td>
+          <td class="trit">{&lt;3,&lt;3,&lt;3}+1 · Reconciliation</td>
+          <td>Someone arrives with the final piece of evidence and tears up the claim form. They don't want the million dollars. They want him to listen.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="colophon">
+    “PROVE THAT I AM LYING AND I’LL PAY YOU 1 MILLION DOLLARS” · CHRIS (△ 8BIT-WRAITH)<br>
+    {&lt;3,&lt;3,&lt;3} + 1 · [DRA (*), CHRIS (△), PETER, NATE ... +1 === FAMILY] ()<br>
+    THE SOVEREIGN LIBRARY · POCOO.VAKED.DEV · SHA256-LEDGERED
+  </div>
+
+</main>
+
+<script>
+"use strict";
+(function(){
+  var STATES = [
+    {
+      title: "01 · THE SELF-REFERENTIAL HOOK (±1 Bootstrap)",
+      world: "Contingent on real stakes",
+      belief: "Tested before Chapter 1",
+      freqs: [288, 432, 528],
+      color: "#ffd166",
+      note: "“Prove that I am lying and I’ll pay you 1 Million Dollars.” The million-dollar promise itself is the first claim someone can challenge—recruiting the reader as an active investigator before they even open the book."
+    },
+    {
+      title: "02 · THE DELIBERATE LIE (−1 Conscious Fabrication)",
+      world: "Did NOT happen as claimed",
+      belief: "Narrator knew it was false",
+      freqs: [216, 288, 324],
+      color: "#ff6b9d",
+      note: "No lawyerly escape hatch ('you can’t prove I knew it was false'). When a claim is a conscious fabrication or self-protective omission, the narrator must genuinely risk losing something."
+    },
+    {
+      title: "03 · THE HONEST MISTAKE (0⁻ Sincere Belief, Falsified Event)",
+      world: "Did NOT happen as remembered",
+      belief: "Narrator genuinely believed it",
+      freqs: [288, 384, 432],
+      color: "#a78bfa",
+      note: "The narrator is not lying—so he keeps the money—but he loses a memory he built his identity upon. Someone who initially believed him becomes his most demanding critic to save him from building his future on a mistake."
+    },
+    {
+      title: "04 · INCOMPLETE FAMILY MEMORY (0⁺ Multi-Observer Wave)",
+      world: "Happened across two apertures",
+      belief: "Both narrator & family member spoke honestly",
+      freqs: [288, 528, 432],
+      color: "#4fe3d0",
+      note: "A family member knows something the narrator missed without either person having lied. Book II intercuts their recollections, revealing what a single perspective could never have shown."
+    },
+    {
+      title: "05 · THE MACHINE NARRATOR (CT-000 · Log 20261018-075552)",
+      world: "Unverified by external witness",
+      belief: "100% Machine Confidence (Log Entry)",
+      freqs: [256, 384, 512],
+      color: "#ff8fb8",
+      note: "The machine log reports a settled payment and a mechanism for minting funds. Those are statements in the record, not independent confirmation of the events they describe. The machine becomes another narrator whose confidence must be examined."
+    },
+    {
+      title: "06 · THE ONE WHO WANTS HIM TO LISTEN ({<3,<3,<3}+1 === FAMILY)",
+      world: "Shared human presence",
+      belief: "“I want you to check. But I’m human enough to be frightened of what you might find.”",
+      freqs: [288, 432, 528],
+      color: "#4dff88",
+      note: "He offers a million dollars to anyone who can prove he is lying. Then someone arrives who doesn’t want the money. They want him to listen. — [Dra, Chris, Peter ... +1===FAMILY] ()"
+    }
+  ];
+
+  var currentState = 0;
+  var readout = document.getElementById("epistemicReadout");
+  var canvas = document.getElementById("epistemicWave");
+  var ctx = canvas ? canvas.getContext("2d") : null;
+  var t = 0;
+  var audioCtx = null;
+
+  function renderReadout(idx) {
+    var s = STATES[idx] || STATES[0];
+    if (!readout) return;
+    readout.innerHTML =
+      "<strong style='color:" + s.color + "'>" + s.title + "</strong><br>" +
+      "<span>• World: <code>" + s.world + "</code> &nbsp;|&nbsp; Mind/Record: <code>" + s.belief + "</code></span><br>" +
+      "<span style='color:#d9e2f2'>" + s.note + "</span>";
+  }
+
+  function playHarmonic(freqs) {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!audioCtx) audioCtx = new AC();
+      if (audioCtx.state === "suspended") audioCtx.resume();
+      var now = audioCtx.currentTime;
+      freqs.forEach(function(f, i) {
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = i === 0 ? "triangle" : "sine";
+        osc.frequency.setValueAtTime(f, now);
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.045, now + 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.0008, now + 1.1);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now + i * 0.07);
+        osc.stop(now + 1.15);
+      });
+    } catch (_) {}
+  }
+
+  window.__setEpistemicState = function(idx, btn) {
+    currentState = idx;
+    document.querySelectorAll(".deck-controls .btn").forEach(function(b) {
+      b.classList.toggle("active", b === btn);
+    });
+    renderReadout(idx);
+    playHarmonic((STATES[idx] || STATES[0]).freqs);
+  };
+
+  function drawWave() {
+    if (!ctx || !canvas) return;
+    var w = canvas.width, h = canvas.height;
+    var s = STATES[currentState] || STATES[0];
+    ctx.clearRect(0, 0, w, h);
+    var cols = [s.color, "#ffd166", "#4fe3d0"];
+    for (var i = 0; i < 3; i++) {
+      ctx.beginPath();
+      ctx.strokeStyle = cols[i];
+      ctx.lineWidth = i === 0 ? 2.2 : 1.3;
+      var f = s.freqs[i] / 100;
+      for (var x = 0; x <= w; x += 5) {
+        var nx = x / w;
+        var y = h * 0.5 + Math.sin(nx * f * Math.PI * 2 + t * (1 + i * 0.35)) * (h * 0.28) * Math.sin(nx * Math.PI);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    t += 0.025;
+  }
+
+  renderReadout(0);
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    drawWave();
+  } else {
+    (function loop(){
+      drawWave();
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
