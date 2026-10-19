@@ -1,4 +1,6 @@
 # Serve .html URLs directly — kill the 308 clean-url redirect
 /demos/book/family+1 /demos/book/family.html 200
+/crickets-in-tokyo.html /demos/book/yves-eva-eve-crickets-in-tokyo.html 200
+/crickets-in-tokyo /demos/book/yves-eva-eve-crickets-in-tokyo.html 200
 /demos/book/*.html /demos/book/:splat 200
 /*.html /:splat 200
