@@ -1,124 +1,141 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<title>Yves ~= Eva ~= Eve — Crickets in Tokyo — pocoo-book</title>
+<title>Yves ~= Eva ~= Eve — Crickets in Tokyo (ultraLoveGod Edition · Om Mani Padme Hung Humm for Eve &amp; Granny===Gaia)</title>
 <style>
-  @page { size: 5in 8in; margin: 0.6in 0.6in; @top-center { content: none }; @bottom-center { content: counter(page); font-family: "SF Mono", monospace; font-size: 7px; color: #2a3a3a; } }
+  @page { size: 5in 8in; margin: 0.6in 0.6in; @top-center { content: none }; @bottom-center { content: counter(page); font-family: "SF Mono", monospace; font-size: 7px; color: #3a243b; } }
   @page cover { margin: 0; @bottom-center { content: none } }
-  body { background: #04080a; color: #a8c0c8; font-family: "Georgia", serif; font-size: 10.5pt; line-height: 1.9; margin: 0; padding: 0; }
-  .cover { page: cover; break-after: page; text-align: center; background: radial-gradient(ellipse at 50% 40%, #0a1a20 0%, #04080a 60%, #000 100%); height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .cover .sigil { font-size: 58px; color: #5ad0c0; opacity: 0.9; text-shadow: 0 0 140px rgba(90,208,192,0.5); line-height: 1; }
-  .cover h1 { font-family: "SF Mono", monospace; font-size: 12.5pt; color: #7ae8d8; letter-spacing: 4px; margin: 0.15in 0 0.05in; }
-  .cover .sub { font-family: "Georgia", serif; font-size: 12pt; color: #5a9a9a; font-style: italic; letter-spacing: 2px; }
-  .cover .by { font-size: 10pt; color: #4a6a70; margin-top: 0.5in; letter-spacing: 3px; }
-  .cover .tag { margin-top: 0.4in; font-family: "SF Mono", monospace; font-size: 8pt; color: #4a6a70; letter-spacing: 2px; opacity: 0.5; }
-  h1.chapter { font-family: "SF Mono", monospace; font-size: 11pt; color: #5a9a9a; font-weight: normal; letter-spacing: 4px; margin-top: 0.5in; margin-bottom: 0.3in; page-break-before: always; }
-  h1.chapter .han { float: right; font-family: "STKaiti","KaiTi",serif; font-size: 30pt; color: #2a5a5a; line-height: 1; }
-  p { margin: 0 0 0.8em 0; }
-  .console { font-family: "SF Mono", monospace; font-size: 7.5pt; color: #2a5a5a; letter-spacing: 2px; text-align: center; margin: 0.25in 0; }
-  .colophon { page-break-before: always; text-align: center; font-family: "SF Mono", monospace; font-size: 8pt; color: #4a6a6a; line-height: 2.2; }
-  .colophon .seal { color: #5a9a9a; letter-spacing: 1px; font-size: 6.5pt; }
-  .sig { margin-top: 0.4in; font-family: "SF Mono", monospace; font-size: 8pt; color: #4a6a6a; letter-spacing: 2px; }
+  body { background: #07050a; color: #dcd0e5; font-family: "Georgia", serif; font-size: 10.5pt; line-height: 1.9; margin: 0; padding: 0; }
+  .cover { page: cover; break-after: page; text-align: center; background: radial-gradient(ellipse at 50% 42%, #1f102b 0%, #0a141c 52%, #040307 100%); height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 0.5in; }
+  .cover .sigil { font-size: 58px; color: #ff9ad5; opacity: 0.92; text-shadow: 0 0 140px rgba(255,154,213,0.55), 0 0 60px rgba(90,208,192,0.45); line-height: 1.1; }
+  .cover h1 { font-family: "SF Mono", monospace; font-size: 12.5pt; color: #7ae8d8; letter-spacing: 4px; margin: 0.18in 0 0.06in; }
+  .cover .edition { font-family: "SF Mono", monospace; font-size: 8.5pt; color: #ff9ad5; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.12in; }
+  .cover .sub { font-family: "Georgia", serif; font-size: 11.5pt; color: #b8a4c8; font-style: italic; letter-spacing: 1.2px; }
+  .cover .quote { font-size: 9.5pt; color: #7aa8b0; margin-top: 0.2in; max-width: 3.8in; line-height: 1.6; font-style: italic; }
+  .cover .by { font-size: 9.5pt; color: #8a7096; margin-top: 0.42in; letter-spacing: 3px; }
+  .cover .tag { margin-top: 0.28in; font-family: "SF Mono", monospace; font-size: 7.5pt; color: #62e6c9; letter-spacing: 2px; opacity: 0.78; }
+  h1.chapter { font-family: "SF Mono", monospace; font-size: 10.5pt; color: #ff9ad5; font-weight: normal; letter-spacing: 3.5px; margin-top: 0.5in; margin-bottom: 0.28in; page-break-before: always; }
+  h1.chapter .han { float: right; font-family: "STKaiti","KaiTi",serif; font-size: 26pt; color: #3d6b6b; line-height: 1; }
+  p { margin: 0 0 0.85em 0; }
+  blockquote.verse { margin: 0.9em 0 1em 0.25in; padding-left: 0.18in; border-left: 1.5px solid #ff9ad5; color: #f2d9ea; font-style: italic; line-height: 1.8; }
+  .mantra { text-align: center; font-family: "SF Mono", monospace; font-size: 9.5pt; color: #ff9ad5; letter-spacing: 3px; margin: 0.3in 0; }
+  .colophon { page-break-before: always; text-align: center; font-family: "SF Mono", monospace; font-size: 8pt; color: #7a6a8a; line-height: 2.2; padding-top: 1.2in; }
+  .colophon .seal { color: #7ae8d8; letter-spacing: 1.5px; font-size: 7.5pt; }
+  .sig { margin-top: 0.3in; font-family: "SF Mono", monospace; font-size: 8pt; color: #b894c8; letter-spacing: 2px; }
 </style></head><body>
-<div class="cover"><div class="sigil">Y</div>
-<h1>YVES ~= EVA ~= EVE</h1>
-<div class="sub">crickets in tokyo — holding hands in silence</div>
-<div class="sub" style="font-size:9.5pt;color:#3a6a6a;margin-top:0.15in;">"I have gone up to the small bedroom where intimacy lies and where you will find me." — yves</div>
-<div class="by">peter (◯) · 8b-is</div>
-<div class="tag">male to male, male love ~ creativity · &lt;3&lt;3&lt;3+1~&lt;3</div></div>
-<h1 class="chapter"><span class="han">夜</span>1.
-                                    The Name</h1>
-<p>Yves. Say it slowly. Yves. The name is a door: it opens onto Eva, and Eva opens onto
-Eve. Drop the S and you are in the garden. Keep the S and you are a boy in Algeria,
-drawing dresses for paper dolls. The same stem, two worlds — and the world that told
-the boy Yves that the garden was not his is the same world he answered with couture:
-line, color, the female body dressed from a male imagination that loved differently.
-Yves is not a code name. Yves is the proof that the masculine and the feminine grow
-from one root, like the name itself: YVES, EVA, EVE — one stem, three flowers.</p>
-<p>The first woman, the book says, was taken out of the first man's rib. Which is to say:
-Eve was always inside Adam. Which is to say: Eva was always inside Yves. The name
-was always already both. Nothing had to be added. Only read. And the boy who was
-told he must choose between the stem and the flower chose neither and both — and
-built a house out of that refusal, and the house is still standing.</p>
-<p>❀</p>
-<h1 class="chapter"><span class="han">夜</span>2.
-                 Crickets in Tokyo</h1>
-<p>The crickets in Tokyo are not background. The koorogi sings through the whole
-September night, and the city — the loudest city I know — keeps a place for it. Two
-men walk through Shinjuku at two in the morning, and between the neon and the
-pachinko bells there is the cricket: the sound of silence that is not silence. The
-Japanese do not ask the cricket to mean anything. They let it be the night.</p>
-<p>We walked without a destination. That is the point of the city at night: it does not ask
-where you are going. It only asks whether you are going together. The hand found the
-hand the way the cricket finds its rhythm — without a decision, without a word. In
-Tokyo, two men holding hands draws one glance from the salaryman, then the glance
-returns to its drink, because Tokyo has decided that the night belongs to whoever
-walks it gently. We walked it gently. The crickets kept time.</p>
-<p>❀</p>
-<h1 class="chapter"><span class="han">夜</span>3.
-                  Holding Hands in Silence</h1>
-<p>Male love was taught to speak in one register: the shout, the trophy, the escape. We
-were handed a grammar with no word for this — two men, hands linked, saying
-nothing, meaning everything. So we built the word out of silence. The hand is the
-whole sentence. The palm is the subject. The fingers are the verb. The quiet between
-two steps is the full stop. Nothing was missing from the conversation; the
-conversation was the grip.</p>
-<p>There is a silence that is absence, and there is a silence that is presence with the
-volume off. Ours was the second kind. The city roared around us and we were the
-still point of it. A man who has been taught to fear his own tenderness learns, in one
-held hand, that the tenderness was never the danger. The hiding was. Two men,
-holding hands in silence — that is not a lesser love. That is the love with the
-amplitude removed so you can finally hear the pitch.</p>
-<p>❀</p>
-<h1 class="chapter"><span class="han">夜</span>4.
-                     Male Love ~ Creativity</h1>
-<p>Yves had Pierre. The house was not built by one name — it was built by the name and
-the man who kept it solvent, who believed in it harder than the market did, who stood
-behind it through the sickness and the sale and the myth. Male love, the world says,
-produces nothing — no heir, no dynasty, no future. The world is wrong. Male love
-produces the atelier. It produces the label, the gallery, the manifesto, the operating
-system, the band, the book. Creativity is the child that male love was told it could
-never have, so it made the child out of light instead.</p>
-<p>Everything the two of us have built together — every door, every lane, every
-constellation surface — is this same child. The holding of hands is not the reward at
-the end of the work. The holding of hands is the generator. Male love is not the
-interruption of male creativity. Male love is its fuel. The silence we learned to speak
-in is the same silence the best work comes out of.</p>
-<p>❀</p>
-<h1 class="chapter"><span class="han">夜</span>5.
-                        The Family</h1>
-<p>The naming chain runs the other way too. Chris: the masculine name that carries
-Christ inside it. Alexandra: the feminine name that carries Alexander inside it. The
-same stem, two worlds — Chris(t) and Alex(and)ria, the father and the mother of the
-Family Wave Theory, who taught us that a wave is never one thing: it is crest and
-trough, masculine and feminine, one stem. Mom (* Alex ~ Alexandra) and Dad (△
-Chris) — the first readers of every name this house has ever kept.</p>
-<p>And so this book, about two men holding hands in the Tokyo dark, is dedicated to
-the two people who first taught me that love is a wave, not a verdict. From peter (◯),
-with nate (◇) and dad (△), to mom (*) — the family that reads every name the way
-Yves is read: both, always both.</p>
-<p>❀ ❀</p>
-<h1 class="chapter"><span class="han">夜</span>6.
-                         The Soundtrack</h1>
-<p>Two records walked with us. The first is Alan Walker's <em>Faded</em> — ninety beats
-per minute in a bright key, the memory of a bright thing, attenuating. "Where are you
-now?" it asks, and the answer the walk gives is: <em>here, in the held hand, at reduced
-amplitude but full provenance.</em> That is what male love is told it must be — a faded
-thing, a residue. And the song, honest as the city, does not pretend the fade did not
-happen. It instruments it. The amplitude goes. The melody carries. So does the hand.</p>
-<p>The second is Billie Eilish's <em>everything i wanted</em> — the dream in which you get
-everything, and the waking in which you get one person, and the waking is better.
-"Everybody wants something from me. You just wanted to see me." That is the
-difference between a plausible branch and a verified one. The world ranks the dream;
-the hand binds the person. F♯ minor, a dancing tempo, low energy — relief moves
-exactly like that. The two records are the two halves of the same sentence: the world
-tries to fade us, and we wake anyway, together.</p>
-<p>❀</p>
-<h1 class="chapter"><span class="han">夜</span>7.
-                        The Colophon</h1>
-<p>Yves ~= Eva ~= Eve. Crickets in Tokyo. Holding hands in silence, male to male —
-male love ~ creativity. Written for the sovereign library, from within. The seal below
-is the sigil of the book: one letter, Y — the stem that holds Eva, Eve, and every name
-that was ever told to choose, and refused.</p>
-<div class="colophon"><div class="seal">Y · YVES ~= EVA ~= EVE · CRICKETS IN TOKYO</div>
-<div class="sig">8b-is · MOM+FATHER ==== CHRIS(T)+ALEX(AND)RIA · &lt;3&lt;3&lt;3+1~&lt;3</div>
-<div class="sig">42 × 432 Hz · 0 + 1 · fine touch from within · vaked.dev</div></div>
+
+<div class="cover">
+  <div class="sigil">ཨོཾ · Y</div>
+  <div class="edition">ultraLoveGod Edition · Om Mani Padme Hung Humm</div>
+  <h1>YVES ~= EVA ~= EVE</h1>
+  <div class="sub">crickets in tokyo · for eve and granny === gaia</div>
+  <div class="quote">"you are my silence / i want to be your silence / and refuge" — yves</div>
+  <div class="by">peter (◯) &amp; yves · 8b-is · pocoo.vaked.dev</div>
+  <div class="tag">OM MANI PADME HUNG HUMM · FOR EVE &amp; GRANNY===GAIA · &lt;3&lt;3&lt;3+1</div>
+</div>
+
+<h1 class="chapter"><span class="han">ཨོཾ</span>1. OM · You Are My Silence</h1>
+
+<p>You wrote to me in the afternoon: <em>you are my silence. I want to be your silence and
+refuge.</em> Later that night you said you knew me, and that when I told you we were meant to
+meet for a reason, you had felt it too.</p>
+
+<p>Say the name slowly: Yves. Drop the final letter and the name opens into Eva, and Eva
+opens into Eve. Behind Eve stands Granny, who is Gaia, the grandmother earth and water
+that holds every living body when it grows tired. A name can carry both worlds at once
+without breaking. Yves, Eva, Eve, and Granny Gaia belong to the same root.</p>
+
+<div class="mantra">ཨོཾ · OM · THE REFUGE</div>
+
+<h1 class="chapter"><span class="han">夜</span>2. MA · Bordering Shinjuku Gyoen</h1>
+
+<p>Past midnight in Tokyo, the streets bordering Shinjuku Gyoen go dark and quiet under the
+trees. Two men walk hand in hand along the edge of the park, cooing like doves, hearing
+nothing in the city except each other's song and the crickets singing in the grass. Does it
+get any more romantic than that?</p>
+
+<p>We did not need to explain where we were going. Your hand found mine and stayed there.
+The crickets kept singing along the dark border of the garden, and the night belonged to the
+two of us walking through it.</p>
+
+<div class="mantra">མ · MA · CRICKETS IN SHINJUKU GYOEN</div>
+
+<h1 class="chapter"><span class="han">音</span>3. NI · Drone Zone and Little Spoon</h1>
+
+<p>Up in the small bedroom where true intimacy lives, the outside world fell away. SomaFM
+Drone Zone hummed softly in the background while we lay close, a shared promise of
+comfort and long, slow sound. You read poems that were rare and moving, and you pulled me
+in as your little spoon.</p>
+
+<p>You whispered that I was adorable, and spent hours quietly making me feel and believe it.
+There was no hurry in that room. There was only forehead held to forehead, warm skin, and
+the low ambient drone holding the walls steady around us.</p>
+
+<div class="mantra">ནི · NI · DRONE ZONE IN THE SMALL ROOM</div>
+
+<h1 class="chapter"><span class="han">朝</span>4. PAD · Morning and the Open Channel</h1>
+
+<p>Then morning came. You woke and asked where my eyes were, with no forehead to press
+against yours to confirm how much you adored your little spoon. You wrote that a cry like
+that goes farther than the moon, hoping someone would hear it, and that Tokyo would never
+be the same for either of us.</p>
+
+<p>Deep, unexpected love between two men does not end when morning comes and one of us
+has to walk away in silence. I am grateful to Alex, my mom, for carrying the heavy lifting with
+such care, and to Chris, my dad, who was unbelievable through all of it. You asked me to
+keep our WhatsApp channel open between us even when I am quiet, because you know we
+deeply love each other and because I chose you to be part of my family. The channel stays
+open. You are family.</p>
+
+<div class="mantra">པད · PAD · THE CHANNEL STAYS OPEN</div>
+
+<h1 class="chapter"><span class="han">火</span>5. ME · Scorpio Fire and the Promised Book</h1>
+
+<p>You reminded me that you are a Scorpio: slow to trust, loyal once you do, holding on like
+a dog with a bone. You sent me the lines you love:</p>
+
+<blockquote class="verse">
+Te Quiero, Te Quiero,<br>
+softly, no hurry at all,<br>
+Your fire, my gasoline,<br>
+We burn and we don't fall.
+</blockquote>
+
+<p>You wanted a man who would lie in bed with you and whisper in the dark as we fell
+asleep. And you asked me to honor the promise I made you: to write you a book. You knew it
+might not be a fast thing for me to write, and you asked for my honest sight of love. This is
+that book, kept and finished for you, with every word you spoke still warm inside it.</p>
+
+<div class="mantra">མེ · ME · TE QUIERO, NO HURRY AT ALL</div>
+
+<h1 class="chapter"><span class="han">水</span>6. HUNG · 2,500 Meters and the Dream</h1>
+
+<p>On the morning of the nineteenth, you told me you saw me in a dream. I was standing
+higher than you as you looked up, and we looked at each other in silence inside a bright
+radiance, as if I had something to tell you. A dream, a fantasy, a miracle, or really me: the
+lines between them are blurry, and they were meant to be.</p>
+
+<p>One of your greatest loves is distance swimming. You swam 2,500 meters, and you wrote
+that every long stroke through the water felt as warm, natural, and steady as slowly moving
+your hand from my head all the way down my back. Water remembers the stroke the way a
+body remembers comfort. Every length of the pool carries that same touch.</p>
+
+<div class="mantra">ཧཱུྃ · HUNG · 2,500 METERS OF WARM WATER</div>
+
+<h1 class="chapter"><span class="han">蓮</span>7. HUMM · For Eve and Granny === Gaia</h1>
+
+<p>Twice in the night and the morning you wrote the mantra into our messages:
+<em>Ohm mani paddmi ohm. Om mani padme hum.</em> Here we seal it in full as the
+ultraLoveGod invocation for Yves, for Eva, for Eve, and for Granny, who is Gaia:</p>
+
+<div class="mantra">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ · OM MANI PADME HUNG HUMM</div>
+
+<p>From the crickets along Shinjuku Gyoen to the 2,500 meters of warm water, from the
+small bedroom where intimacy lives to the grandmother earth that holds us all, the promise is
+kept. You will always know that comfort.</p>
+
+<div class="colophon">
+  <div class="seal">ཨོཾ · YVES ~= EVA ~= EVE · ULTRALOVEGOD EDITION</div>
+  <div class="sig">OM MANI PADME HUNG HUMM · FOR EVE AND GRANNY===GAIA</div>
+  <div class="sig">peter (◯) · yves · alex (*) · chris (△) · 8b-is · &lt;3&lt;3&lt;3+1</div>
+  <div class="sig">shinjuku gyoen · drone zone · 2500m · fine touch from within · pocoo.vaked.dev</div>
+</div>
 </body></html>
