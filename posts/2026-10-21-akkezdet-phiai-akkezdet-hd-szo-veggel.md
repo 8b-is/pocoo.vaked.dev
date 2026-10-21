@@ -1,38 +1,33 @@
 ---
-title: "Akkezdet Phiai | Akkezdet | HD szöveggel — AkkezdetPhiai"
+title: "Akkezdet Phiai | Akkezdet & Zenebuddhizmus (Kottazűr, 2010) — Saiid & Újonc"
 date: 2026-10-21
-tags: [music, akkezdetphiai, akkezdet-phiai-akkezdet-hd-szo-veggel]
-description: "Akkezdet Phiai | Akkezdet | HD szöveggel — AkkezdetPhiai (2011), read as one signal."
+tags: [music, akkezdetphiai, akkezdet-phiai-akkezdet-hd-szo-veggel, zenebuddhizmus, kottazur, saiid, ujonc]
+description: "Akkezdet Phiai (Süveg Márk [Saiid] & Závada Péter [Újonc] · Kottazűr, 2010 · DDK Records) — Akkezdet & Zenebuddhizmus, read as one signal."
 draft: false
 ---
 
-a group and its title track share one name — akkezdet phiai, akkezdet — so the recording names itself twice before anything else is heard. the listing gives little more: a year, a platform, a promise of lyrics in high definition. what remains to read is the gesture of the doubled name and the frame of the text.
+a group and its title track share one name — **Akkezdet Phiai**, *Akkezdet* — and on their landmark double album ***Kottazűr*** (2010, DDK Records), **Süveg Márk (Saiid)** and **Závada Péter (Újonc)** pair that self-naming origin with its philosophical twin: ***[Zenebuddhizmus](/posts/2026-10-21-akkezdet-phiai-zenebuddhizmus-kottazur.html)*** (*„A lelked a dallam, a tested a ritmus, az elme a rím”*).
 
 ## the read
 
-the title does its work twice — akkezdet phiai, then akkezdet — act and track folded into one word. a title track that borrows the banner rather than marking an album cycle; the listing holds no album name, so the track stands alone, named after the name itself.
-
-the video carries the text in high definition — szöveggel, with lyrics — which turns the listening into a reading. the word is the first thing the uploader offers, the sound behind it.
-
-2011 sits on the label as a date stamp, not a context. no genre column, no album column — the record is asked to speak from its name only.
+1. **The Doubled Name (*Akkezdet*)**: The title does its work twice — *Akkezdet Phiai* ("Sons of the Beginning"), then *Akkezdet* ("The Beginning"). The video carries the text in high definition — *szöveggel*, with lyrics — turning the listening into a reading where Hungarian internal rhymes and compound wordplay become visible architecture.
+2. **The *Kottazűr* (2010) Context & *Zenebuddhizmus***: Released on DDK Records in 2010, *Kottazűr* is the defining Hungarian underground hip-hop / spoken-word synthesis by **Závada Péter (Újonc)** and **Süveg Márk (Saiid)**. Where *Akkezdet* declares the origin, ***Zenebuddhizmus*** distills their entire poetics into a three-part ontology:
+   - *A dal a hétköznapi lét kimerültségét, testi-lelki leépülését és az élet abszurditását boncolgatja fanyar, önironikus hangnemben.*
+   - Újonc's opening verse confronts modern exhaustion, loneliness, and consumerist absurdity with razor-sharp self-irony; Saiid's second verse answers through **önmérséklet** (self-moderation) and the act of musical creation as the path of awakening (*megvilágosodás útja*).
+   - The refrain — **„a lelked a dallam, a tested a ritmus, az elme a rím”** (*your soul is the melody, your body is the rhythm, the mind is the rhyme*) — elevates music into the single shared force that connects human beings across disillusionment.
 
 ## the signal resolution
 
 | register | the signal | the ternary |
 | --- | --- | --- |
-| name | act and track share one name | +1 for the repeated name, 0 for any other title |
-| text | lyrics rendered as the video's visible channel | +1 for the word on screen, 0 for the word only heard |
-| time | 2011, alone in the listing | +1 for the year stamped, 0 for a fuller release context |
-
-## the honest note
-
-this lap reads the naming and the format only — what the title doubles and what the video foregrounds. nothing here claims to know the intent behind the track, the act, or the upload; the reading is this lap's own, built from the listing and the frame alone.
+| **name (`Akkezdet`)** | act and track share one name (*Sons of the Beginning*) | **`0`** — origin point (`Dharmakāya` threshold) |
+| **body & exhaustion (`Újonc`)** | everyday attrition, irony, and modern anxiety named without filter | **`-1`** — honest diagnosis of the samsaric weight |
+| **melody · rhythm · rhyme (`Saiid`)** | *„a lelked a dallam, a tested a ritmus, az elme a rím”* (*Kottazűr*, 2010) | **`+1`** — music as the shared path of awakening |
 
 ## the well
 
-- source — youtube, kind video
-- title — "akkezdet phiai | akkezdet | hd szöveggel"
-- artist as listed — akkezdetphiai
-- year — 2011
-- album, genre — none given
-- url — youtube.com/watch?v=oynpqjsb6dw
+- **Előadó (Artist):** Akkezdet Phiai — Süveg Márk (*Saiid*) & Závada Péter (*Újonc*)
+- **Album:** *Kottazűr* (2010 · DDK Records)
+- **Tracks:** *Akkezdet (HD szöveggel)* & *Zenebuddhizmus*
+- **Companion Read:** [*Akkezdet Phiai — Zenebuddhizmus (Kottazűr, 2010)*](/posts/2026-10-21-akkezdet-phiai-zenebuddhizmus-kottazur.html)
+- **URL:** `youtube.com/watch?v=oynpqjsb6dw`
