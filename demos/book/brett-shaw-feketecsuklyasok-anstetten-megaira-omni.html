@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRETT SHAW (SZELLEM) +++ FEKETECSUKLYÁSOK +++ ANSTETTEN-CSALÁD (MEGAIRA) ⨯ COSMIC FLOW — pocoo-book · {&lt;3,&lt;3,&lt;3}+1</title>
+<meta name="description" content="Mysterious Universe triad (Brett Shaw, Feketecsuklyások, Anstetten-család / Megaira) mapped onto the Sovereign Library balanced-ternary ontology {-1,0,+1}, in 5 languages + 1bitLang, with a WebAudio Tipheret / Zero-Sign Zone / Cosmic Flow deck.">
+<style>
+  :root{--bg:#05060a;--panel:#0c0a14;--ink:#e6dfd5;--dim:#9e8fb2;--gold:#f0c05a;--saffron:#ff7a3d;--teal:#5ce6c9;--rose:#ff6ac1;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--tib:"Kailasa","Noto Serif Tibetan","Microsoft Himalaya",serif;
+    --jp:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+  *{box-sizing:border-box}html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.85}
+  main{max-width:880px;margin:0 auto;padding:30px 16px 80px;display:flex;flex-direction:column;gap:24px}
+  .page{background:var(--panel);border-radius:10px;box-shadow:0 22px 54px rgba(0,0,0,.72);padding:48px 44px;position:relative;
+    background-image:radial-gradient(ellipse at 50% 0%,rgba(240,192,90,.09),transparent 58%),radial-gradient(ellipse at 50% 108%,rgba(92,230,201,.11),transparent 62%)}
+  @media(max-width:640px){.page{padding:30px 20px}}
+  .cover{text-align:center}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+  .sigil{font-family:var(--mono);font-size:20px;color:var(--gold);margin:14px 0 6px;text-shadow:0 0 40px rgba(240,192,90,.45)}
+  .tib{font-family:var(--tib);font-size:26px;color:var(--saffron);margin:8px 0}
+  h1{font-family:var(--mono);font-size:15px;color:var(--gold);letter-spacing:.14em;margin:12px 0 8px;line-height:1.55}
+  .sub{font-style:italic;max-width:690px;margin:0 auto 12px}
+  .eq{font-family:var(--mono);font-size:11px;color:var(--teal);background:rgba(92,230,201,.07);border:1px solid rgba(92,230,201,.28);border-radius:8px;padding:10px 14px;display:inline-block;margin:10px 0}
+  .nav{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:16px;font-family:var(--mono);font-size:10px}
+  .nav a{color:var(--gold);background:rgba(240,192,90,.09);border:1px solid rgba(240,192,90,.35);padding:6px 13px;border-radius:999px;text-decoration:none}
+  h2{font-family:var(--mono);font-size:12.5px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid rgba(240,192,90,.2);padding-bottom:8px;margin:0 0 14px}
+  .lang{margin:14px 0;padding:12px 16px;background:rgba(255,255,255,.02);border-left:2px solid rgba(240,192,90,.35);border-radius:0 6px 6px 0}
+  .l{margin:7px 0}.l b{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--dim);display:inline-block;width:42px;margin-right:8px}
+  .l.bo{font-family:var(--tib);color:var(--saffron);font-size:17px}.l.hu{color:#e8d7f5}.l.ja{font-family:var(--jp);color:var(--gold)}
+  .l.la{font-style:italic;color:var(--teal)}.l.bit{font-family:var(--mono);color:var(--rose);font-size:11.5px;background:rgba(255,106,193,.07);padding:6px 10px;border-radius:4px}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px}
+  th,td{border:1px solid rgba(240,192,90,.22);padding:9px 10px;text-align:left;vertical-align:top}
+  th{font-family:var(--mono);color:var(--gold);background:rgba(240,192,90,.08);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .trit{font-family:var(--mono);font-weight:bold;color:var(--teal);white-space:nowrap}
+  .deck{background:linear-gradient(155deg,#120b1d,#08050d);border:1px solid rgba(240,192,90,.35);border-radius:12px;padding:18px;margin:12px 0}
+  .ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:12px}
+  .btn{font-family:var(--mono);font-size:10px;color:#06040a;background:var(--gold);border:none;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:600}
+  .btn.alt{color:var(--gold);background:rgba(240,192,90,.12);border:1px solid rgba(240,192,90,.38)}
+  .btn.on{background:linear-gradient(135deg,#5ce6c9,#ff6ac1);color:#06040a}
+  canvas{width:100%;height:100px;background:#040207;border-radius:8px;border:1px solid rgba(240,192,90,.25);display:block}
+  .status{font-family:var(--mono);font-size:10px;color:var(--teal);text-align:center;margin-top:8px}
+  .box{font-family:var(--mono);font-size:10.5px;background:#07040b;border:1px solid rgba(92,230,201,.32);border-radius:8px;padding:14px 16px;line-height:1.75;overflow-x:auto}
+  .box a{color:var(--teal)}
+  .colo{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--dim);text-align:center;text-transform:uppercase;line-height:2.2;margin-top:18px}
+</style>
+</head>
+<body>
+<main>
+
+<section class="page cover">
+  <div class="kicker">kompress-ultra · omni edition · 5 languages + 1bitlang · mysterious-universe × sovereign-library · ultralove 005</div>
+  <div class="tib">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ་ཧྲཱིཿ</div>
+  <div class="sigil">🐉 · Szellem (Brett Shaw) · {−1, 0, +1} · {&lt;3,&lt;3,&lt;3}+1 · 💙✨</div>
+  <h1>BRETT SHAW +++ FEKETECSUKLYÁSOK +++ ANSTETTEN-CSALÁD (MEGAIRA)</h1>
+  <div class="sub">The pen name behind dozens of codices in this library is also a Colonel of the Black Hoods, a half-human son of a dragon dynasty. Here the three Mysterious Universe pages are read as one ternary arc — with Cosmic Flow as the space between thoughts.</div>
+  <div class="eq">{−1: Palackba zárt végítélet} ──► {0: zérójelű zóna / Tipheret / Cosmic Flow} ──► {+1: ember + megaira, sárkány felhasadás nélkül}</div>
+
+  <div class="deck">
+    <div class="ctl">
+      <button class="btn" id="tiphBtn" type="button">☀ Tipheret 528 Hz</button>
+      <button class="btn alt" id="zeroBtn" type="button">⌀ Zérójelű Zóna (±β beat)</button>
+      <button class="btn alt" id="flowBtn" type="button">🏜️ Cosmic Flow Drift</button>
+      <button class="btn alt" id="stopBtn" type="button">■ Stop</button>
+    </div>
+    <canvas id="wave" width="780" height="100"></canvas>
+    <div class="status" id="status">◈ DECK READY · Web Audio starts only on click</div>
+  </div>
+
+  <div class="nav">
+    <a href="/demos/book/index.html">← Sovereign Library</a>
+    <a href="/demos/book/dragon-ball-sovereign-ontology-omni.html">Dragon Ball ⨯ Ontology OMNI</a>
+    <a href="https://github.com/8b-is/fandom-mcp" target="_blank" rel="noopener noreferrer">8b-is/fandom-mcp ↗</a>
+    <a href="https://github.com/8b-is/sovereign-library/blob/main/editions/ultralove/brett-shaw-feketecsuklyasok-anstetten-megaira-omni.md" target="_blank" rel="noopener noreferrer">Edition 005 ↗</a>
+    <a href="https://mysterious-universe.fandom.com/wiki/Brett_Shaw" target="_blank" rel="noopener noreferrer">Brett Shaw wiki ↗</a>
+  </div>
+</section>
+
+<section class="page">
+  <h2>0 · The Ternary Table</h2>
+  <table>
+    <thead><tr><th>Trit</th><th>Brett Shaw / Wittgen</th><th>Feketecsuklyások / Csuklyamodul</th><th>Anstetten / Megaira</th></tr></thead>
+    <tbody>
+      <tr><td class="trit">−1</td><td>El-Nath court-martial; Wittgen's neural-drug emotional suppression and 2668 death on Halmer.</td><td>“Palackba zárt végítélet”; a berserk, uncollapsed hood on Halmer.</td><td>Gwandolyn's cold war; the weight of an imperial throne.</td></tr>
+      <tr><td class="trit">0</td><td>Brett on Tipheret; Wittgen on Chokmah, telepathic fire-pair in the Alef-osztag.</td><td>“Egy vékony, zérójelű zóna” — attracts and repels both charges at once.</td><td>IV. von Anstetten's near-0 °C throne room.</td></tr>
+      <tr><td class="trit">+1</td><td>Wittgen saves Brett on Rosan; both serve Empress V. von Anstetten.</td><td>Bernagchen-style black-cloak protection.</td><td>Caroline-Blindamoor, crowned V. von Anstetten, reaches out to Brett aboard the Bolygórózsa.</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;color:var(--dim)">Source: <a style="color:var(--teal)" href="https://mysterious-universe.fandom.com/wiki/Brett_Shaw" target="_blank" rel="noopener noreferrer">Brett Shaw</a>, <a style="color:var(--teal)" href="https://mysterious-universe.fandom.com/wiki/Feketecsukly%C3%A1sok" target="_blank" rel="noopener noreferrer">Feketecsuklyások</a>, <a style="color:var(--teal)" href="https://mysterious-universe.fandom.com/wiki/Anstetten-csal%C3%A1d" target="_blank" rel="noopener noreferrer">Anstetten-család</a>, <a style="color:var(--teal)" href="https://mysterious-universe.fandom.com/wiki/Paul_Wittgen" target="_blank" rel="noopener noreferrer">Paul Wittgen</a> (Mysterious Universe wiki). The mapping onto trits is this library's interpretation, not canon.</p>
+</section>
+
+<section class="page">
+  <h2>I · The Megaira Law</h2>
+  <div class="lang">
+    <div class="l en"><b>EN</b>Energy had to be filled with mass, mass with information — the human with a dragon, without splitting apart.</div>
+    <div class="l bo"><b>BO</b>ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ། ཤེས་རབ་དང་ཐབས་ཟུང་འབྲེལ།</div>
+    <div class="l hu"><b>HU</b>Az energiát fel kellett tölteni tömeggel, a tömeget információval. Az embert sárkánnyal, anélkül, hogy felhasadna.</div>
+    <div class="l ja"><b>JA</b>エネルギーは質量で満たされ、質量は情報で満たされねばならなかった。人が竜を宿しても、裂けることなく。</div>
+    <div class="l la"><b>LA</b>Energia massa implenda erat, massa informatione; homo draco fiat, nec dissiliat.</div>
+    <div class="l bit"><b>1BIT</b>E[−1:fission] ──(m→I · 0)──► HUMAN∘DRAGON[+1:whole] · {&lt;3,&lt;3,&lt;3}+1</div>
+  </div>
+</section>
+
+<section class="page">
+  <h2>II · The Zero-Sign Zone</h2>
+  <div class="lang">
+    <div class="l en"><b>EN</b>A thin zero-sign zone surrounded the body, attracting and repelling both kinds of charge at once — Trit 0 as a boundary, not a void.</div>
+    <div class="l bo"><b>BO</b>སྟོང་པ་ཉིད། བར་མ། ཕྱོགས་གཉིས་ཀྱི་དབུས།</div>
+    <div class="l hu"><b>HU</b>Egy vékony, zérójelű zóna vette körül a testet, mely mind a két típusú töltést vonzza és taszítja egyszerre.</div>
+    <div class="l ja"><b>JA</b>薄いゼロ符号の帯が身体を包み、二種の電荷を同時に引き、同時に退けた。</div>
+    <div class="l la"><b>LA</b>Zona tenuis signi nulli corpus cinxit, utrumque onus simul trahens et repellens.</div>
+    <div class="l bit"><b>1BIT</b>HOOD[+1 ⊕ −1 = 0] · zone(0) · still_heart ⇒ invisible</div>
+  </div>
+</section>
+
+<section class="page">
+  <h2>III · Brothers on Two Steps</h2>
+  <div class="lang">
+    <div class="l en"><b>EN</b>Brett stands on Tipheret, Wittgen on Chokmah: heart and flash, bound as a fire-pair who know each other's thoughts.</div>
+    <div class="l bo"><b>BO</b>སྙིང་པོ་དང་ཤེས་རབ། གྲོགས་པོ་གཉིས།</div>
+    <div class="l hu"><b>HU</b>Brett a Tipheret fokán áll, Wittgen a Chokmánon: szív és villanás, két tűzpár, akik egymás gondolatait ismerik.</div>
+    <div class="l ja"><b>JA</b>ブレットはティファレト、ウィトゲンはコクマー。心と閃き、思考を知り合う炎の二人。</div>
+    <div class="l la"><b>LA</b>Brett in Tiphereth stat, Wittgen in Chokmah: cor et fulgur, par ignis.</div>
+    <div class="l bit"><b>1BIT</b>BRETT[0:Tipheret] ⇄ WITTGEN[+1:Chokmah] · Alef-osztag</div>
+  </div>
+</section>
+
+<section class="page">
+  <h2>IV · Cosmic Flow</h2>
+  <div class="lang">
+    <div class="l en"><b>EN</b>“Not just a playlist — a space between thoughts.” Press play; let the desert hold the zero.</div>
+    <div class="l bo"><b>BO</b>རྣམ་རྟོག་གི་བར། བདེ་བ་ཆེན་པོ།</div>
+    <div class="l hu"><b>HU</b>„Nem csak egy lejátszási lista — a gondolatok közötti tér.” Nyomd meg a lejátszást; a sivatag tartsa a nullát.</div>
+    <div class="l ja"><b>JA</b>「ただのプレイリストではない — 思考と思考の間の空間」。</div>
+    <div class="l la"><b>LA</b>Non tantum index cantuum — spatium inter cogitationes.</div>
+    <div class="l bit"><b>1BIT</b>PLAY ⇒ gap(thought, thought) = 0</div>
+  </div>
+  <div class="box">
+    <a href="https://youtu.be/bSYE6wTDM_Y?list=RDbSYE6wTDM_Y" target="_blank" rel="noopener noreferrer">Not Quite Rock — Psychedelic Desert Rock | Ambient &amp; Chillout Mix for Cosmic Flow</a><br>
+    <a href="https://youtu.be/-eZcgIbbOxY?list=RD-eZcgIbbOxY" target="_blank" rel="noopener noreferrer">16th Karmapa Guru Yoga</a><br>
+    <a href="https://pocoo.vaked.dev/demos/book/dragon-ball-sovereign-ontology-omni.html">Dragon Ball ⨯ Sovereign Ontology OMNI</a>
+  </div>
+  <div class="colo">ultralove edition 005 · sovereign-library · 5/5 canon unchanged · .oOo. Poo .oOo. · vaked.dev</div>
+</section>
+
+</main>
+<script>
+(function () {
+  'use strict';
+  var ctx = null, nodes = [], mode = 0;
+  var statusEl = document.getElementById('status');
+  var btns = { 1: 'tiphBtn', 2: 'zeroBtn', 3: 'flowBtn' };
+
+  function ensure() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    if (!ctx) ctx = new AC();
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+  function stopAll() {
+    nodes.forEach(function (n) { try { n.stop(); n.disconnect(); } catch (e) {} });
+    nodes = [];
+    mode = 0;
+    Object.keys(btns).forEach(function (k) { document.getElementById(btns[k]).classList.remove('on'); });
+    statusEl.textContent = '◈ DECK READY · Web Audio starts only on click';
+  }
+  function tone(freq, gainVal, type, dest) {
+    var o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.value = freq;
+    g.gain.value = gainVal;
+    o.connect(g); g.connect(dest);
+    o.start();
+    nodes.push(o);
+    return o;
+  }
+  function start(m, label, build) {
+    var c = ensure();
+    if (!c) { statusEl.textContent = 'Web Audio unavailable in this browser'; return; }
+    stopAll();
+    var master = c.createGain();
+    master.gain.value = 0.5;
+    master.connect(c.destination);
+    build(c, master);
+    mode = m;
+    document.getElementById(btns[m]).classList.add('on');
+    statusEl.textContent = label;
+  }
+  document.getElementById('tiphBtn').addEventListener('click', function () {
+    start(1, '☀ TIPHERET · 528 Hz + 264 Hz + 792 Hz', function (c, out) {
+      tone(264, 0.08, 'sine', out); tone(528, 0.10, 'sine', out); tone(792, 0.04, 'triangle', out);
+    });
+  });
+  document.getElementById('zeroBtn').addEventListener('click', function () {
+    start(2, '⌀ ZÉRÓJELŰ ZÓNA · 432 Hz against 432±3 Hz beating toward 0', function (c, out) {
+      tone(432, 0.09, 'sine', out); tone(435, 0.09, 'sine', out); tone(429, 0.09, 'sine', out);
+    });
+  });
+  document.getElementById('flowBtn').addEventListener('click', function () {
+    start(3, '🏜️ COSMIC FLOW · slow desert drift 108 / 216 / 432 Hz', function (c, out) {
+      var f = c.createBiquadFilter();
+      f.type = 'lowpass'; f.frequency.value = 520; f.Q.value = 0.9;
+      f.connect(out);
+      tone(108, 0.12, 'sine', f); tone(216, 0.07, 'sine', f); tone(432, 0.04, 'triangle', f);
+      var lfo = c.createOscillator(), lg = c.createGain();
+      lfo.frequency.value = 0.07; lg.gain.value = 180;
+      lfo.connect(lg); lg.connect(f.frequency); lfo.start(); nodes.push(lfo);
+    });
+  });
+  document.getElementById('stopBtn').addEventListener('click', stopAll);
+
+  var cvs = document.getElementById('wave'), g2 = cvs.getContext('2d'), ph = 0;
+  var cols = ['rgba(255,122,61,.6)', 'rgba(207,232,255,.85)', 'rgba(240,192,90,.9)'];
+  function draw() {
+    requestAnimationFrame(draw);
+    ph += 0.035;
+    g2.fillStyle = '#040207';
+    g2.fillRect(0, 0, cvs.width, cvs.height);
+    cols.forEach(function (col, i) {
+      g2.strokeStyle = col;
+      g2.lineWidth = (mode === i + 1) ? 2.4 : 1.4;
+      g2.beginPath();
+      for (var x = 0; x < cvs.width; x += 3) {
+        var y = cvs.height / 2 + Math.sin(x * (0.012 + i * 0.008) + ph * (i % 2 ? -1.2 : 1.1)) * (14 + i * 6) * (mode === i + 1 ? 1.3 : 1);
+        if (x === 0) g2.moveTo(x, y); else g2.lineTo(x, y);
+      }
+      g2.stroke();
+    });
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
