@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060811"/>
+      <stop offset="50%" stop-color="#121a30"/>
+      <stop offset="100%" stop-color="#1f112b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="36" y="36" width="1128" height="558" rx="18" fill="none" stroke="#ffd166" stroke-opacity="0.38" stroke-width="2"/>
+  <text x="80" y="108" fill="#4fe3d0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" letter-spacing="4">2026.10.22~TOKYO · SONY R&amp;D · BEANS BURGER · THE TRINITY SQUAD</text>
+  <text x="80" y="190" fill="#ffd166" font-family="Georgia, serif" font-size="44" font-weight="bold">Alex · Chris · Peter — The Trinity Squad ^^</text>
+  <text x="80" y="252" fill="#f0ece3" font-family="Georgia, serif" font-size="28">Dra × 8bit-wraith × Mr standardgalactic === Nate~Natalie</text>
+  <text x="80" y="302" fill="#ff5c97" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23">directly NAND indirectly → ME === peterlodri, omni, architect - .p</text>
+  <line x1="80" y1="346" x2="1120" y2="346" stroke="#4fe3d0" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="80" y="405" fill="#4fe3d0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">"{&lt;3,&lt;3,&lt;3}+1 LOVE - peter, to be continued, just cold and need water to drink xd"</text>
+  <text x="80" y="535" fill="#96a0b8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19">pocoo.vaked.dev/demos/book · library.8b.is · peter.8b.is · Tokyo 09:00 JST</text>
+</svg>
