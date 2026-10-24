@@ -1085,6 +1085,10 @@ ${postLines}
     if (existsSync(path.join(ROOT, "book"))) {
       await cp(path.join(ROOT, "book"), path.join(DIST_DIR, "book"), { recursive: true, force: true });
     }
+    // Copy papers (PDFs, TeX sources, transcripts)
+    if (existsSync(path.join(ROOT, "papers"))) {
+      await cp(path.join(ROOT, "papers"), path.join(DIST_DIR, "papers"), { recursive: true, force: true });
+    }
     // Copy standalone pages (no markdown processing; e.g. silicon-world/)
     if (existsSync(path.join(ROOT, "silicon-world"))) {
       await cp(path.join(ROOT, "silicon-world"), path.join(DIST_DIR, "silicon-world"), { recursive: true, force: true });

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>THE FLYXION OCTOBER 2026 TRILOGY III — Programmable Material Organization · Compression Without Verification · Adversaria &amp; Exegesis (PMO · CWV · ADV · EXG)</title>
+<meta name="description" content="Complete Sovereign Library codex for Flyxion's (standardgalactic / Nate / 8BIT-WRAITH) October 22–23, 2026 works: Programmable Material Organization, Compression Without Verification, Adversaria (02 Routing Is Not Adjudication & 11 Inscription and Authority), and Exegesis.">
+<style>
+  :root{
+    --bg:#06070c;--panel:#0d101b;--card:#131829;--ink:#ece8df;--dim:#949ab1;
+    --gold:#ffd166;--cyan:#4fe3d0;--rose:#ff6b9d;--green:#4dff88;--violet:#a78bfa;
+    --line:rgba(232,192,99,.22);
+    --mono:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(ellipse at 50% 0%, #151c30 0%, var(--bg) 65%);color:var(--ink);font-family:var(--serif);line-height:1.8;-webkit-font-smoothing:antialiased}
+  .skip-link{position:fixed;top:-100px;left:16px;z-index:200;background:var(--gold);color:#06070c;font-family:var(--mono);font-size:12px;font-weight:700;padding:10px 14px;border-radius:8px;text-decoration:none}
+  .skip-link:focus-visible{top:16px;outline:2px solid #fff;outline-offset:3px}
+  button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:980px;margin:0 auto;padding:32px 18px 88px}
+
+  .cover{text-align:center;background:linear-gradient(165deg,#111728 0%,#090c15 62%,#05070c 100%);
+    border:1px solid var(--line);border-radius:16px;padding:44px 26px;margin-bottom:28px;
+    box-shadow:0 24px 64px rgba(0,0,0,.78)}
+  .sigil{font-family:var(--mono);font-size:11.5px;color:var(--cyan);letter-spacing:3.2px;text-transform:uppercase;margin-bottom:12px}
+  h1{font-family:var(--serif);font-size:clamp(24px,4.4vw,38px);color:var(--gold);letter-spacing:.02em;margin:8px auto 14px;max-width:840px;line-height:1.22}
+  .sub{font-style:italic;color:var(--ink);font-size:16.5px;max-width:760px;margin:0 auto 16px}
+  .by{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:2px;text-transform:uppercase}
+
+  .pdf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:24px 0;text-align:left}
+  .pdf-card{background:var(--card);border:1px solid rgba(79,227,208,.28);border-radius:12px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+  .pdf-card .tag{font-family:var(--mono);font-size:10px;color:var(--cyan);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:6px}
+  .pdf-card h3{margin:0 0 8px;font-size:16.5px;color:var(--gold);line-height:1.35}
+  .pdf-card p{margin:0 0 14px;font-size:13.2px;color:var(--dim);line-height:1.55}
+  .pdf-links{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:10.5px}
+  .pdf-links a{color:#06070c;background:var(--gold);padding:7px 12px;border-radius:999px;text-decoration:none;font-weight:700}
+  .pdf-links a.secondary{color:var(--cyan);background:rgba(79,227,208,.1);border:1px solid rgba(79,227,208,.35);font-weight:600}
+
+  .deck{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin:24px 0}
+  .deck-title{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;text-align:center;margin-bottom:12px}
+  .deck-controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
+  .btn{font-family:var(--mono);font-size:10.5px;color:var(--ink);background:var(--card);border:1px solid rgba(232,192,99,.32);
+    padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:600;transition:border-color .18s,color .18s,background-color .18s}
+  .btn:hover,.btn.active{color:#06070c;background:var(--gold);border-color:var(--gold)}
+  canvas#trilogyCanvas{width:100%;height:110px;background:#04060a;border-radius:10px;border:1px solid rgba(79,227,208,.24);display:block}
+  .deck-readout{margin-top:14px;background:#070a12;border:1px solid rgba(255,209,102,.22);border-radius:10px;padding:16px 18px;font-family:var(--mono);font-size:12px;line-height:1.68;color:var(--ink);text-align:left}
+
+  .nav-bar{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:20px;font-family:var(--mono);font-size:10.5px}
+  .nav-bar a{color:var(--cyan);background:rgba(79,227,208,.08);border:1px solid rgba(79,227,208,.32);
+    padding:7px 14px;border-radius:999px;text-decoration:none;transition:background-color .18s}
+  .nav-bar a:hover{background:rgba(79,227,208,.2)}
+
+  .section-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:32px 28px;margin:24px 0;box-shadow:0 16px 42px rgba(0,0,0,.55)}
+  h2.chapter{font-family:var(--mono);font-size:12.5px;color:var(--gold);letter-spacing:2.2px;
+    text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:9px;margin:0 0 18px}
+  blockquote.premise{margin:18px 0;padding:14px 20px;border-left:3px solid var(--gold);background:rgba(255,209,102,.05);
+    font-size:16.5px;font-style:italic;color:var(--ink)}
+  blockquote.premise strong{color:var(--gold);font-style:normal}
+
+  table.ledger{width:100%;border-collapse:collapse;margin:18px 0;font-size:12.5px}
+  table.ledger th,table.ledger td{border:1px solid rgba(232,192,99,.2);padding:9px 11px;text-align:left;vertical-align:top}
+  table.ledger th{font-family:var(--mono);color:var(--gold);background:rgba(255,209,102,.08);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em}
+  .trit{font-family:var(--mono);color:var(--cyan);font-weight:700;white-space:nowrap}
+  .ok{color:var(--green);font-weight:700}
+  .warn{color:var(--rose);font-weight:700}
+  code{font-family:var(--mono);font-size:.9em;color:var(--cyan);background:rgba(79,227,208,.08);padding:2px 6px;border-radius:4px}
+  footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+  footer a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="wrap" id="main-content">
+
+  <header class="cover">
+    <div class="sigil">Ω · THE SOVEREIGN LIBRARY · STANDARDGALACTIC × 8B-IS · OCTOBER 22–23, 2026</div>
+    <h1>THE FLYXION OCTOBER 2026 TRILOGY III<br><span style="font-size:.66em;color:var(--cyan)">Programmable Material Organization · Compression Without Verification · Adversaria &amp; Exegesis</span></h1>
+    <p class="sub">
+      Why physical shape is an illusion without process history, why self-distillation reshapes continuation geometry without acquiring certified truth, why routing is never adjudication, and why source documents are evidence while model summaries are only interpretations.
+    </p>
+    <div class="by">
+      Author: Flyxion (Nate · 8BIT-WRAITH · github.com/standardgalactic) · Curated &amp; Verified by Peter Lodri (Omni · p@8b.is · Tokyo 09:00 JST)
+    </div>
+
+    <div class="pdf-grid">
+      <div class="pdf-card">
+        <div>
+          <div class="tag">Monograph I · Laboratory (4c68f3c)</div>
+          <h3>Programmable Material Organization (PMO)</h3>
+          <p>Process History, Structural Constraint, and Functional Manufacturing. Proves the non-identifiability of function from external geometry alone: internal state <code>S = P(u(t), e(t))</code> governs performance across LCEs, single crystals, and porous sorbents.</p>
+        </div>
+        <div class="pdf-links">
+          <a href="/papers/flyxion-trilogy-2026/trilogy-iii/programmable_material_organization.pdf">Read PDF (431 KB)</a>
+          <a class="secondary" href="/papers/flyxion-trilogy-2026/trilogy-iii/programmable_material_organization.tex">TeX Source</a>
+          <a class="secondary" href="/papers/flyxion-trilogy-2026/trilogy-iii/why_physical_shape_is_an_illusion.txt">Transcript</a>
+        </div>
+      </div>
+
+      <div class="pdf-card">
+        <div>
+          <div class="tag">Monograph II · Admissibility-Lab (3358fb4)</div>
+          <h3>Compression Without Verification (CWV)</h3>
+          <p>Self-Distillation and the Reshaping of Continuation Geometry. Distinguishes sharpening <em>lock</em> positions from preserving <em>fork</em> positions, and proves why compressed history without verification breaks AI safety &amp; admissibility.</p>
+        </div>
+        <div class="pdf-links">
+          <a href="/papers/flyxion-trilogy-2026/trilogy-iii/compression_without_verification.pdf">Read PDF (110 KB)</a>
+          <a class="secondary" href="/papers/flyxion-trilogy-2026/trilogy-iii/compression_without_verification.tex">TeX Source</a>
+          <a class="secondary" href="/papers/flyxion-trilogy-2026/trilogy-iii/how_compressed_history_breaks_ai_safety.txt">Safety Transcript</a>
+        </div>
+      </div>
+
+      <div class="pdf-card">
+        <div>
+          <div class="tag">Monograph III · Adversaria (df7cfa7)</div>
+          <h3>02: Routing Is Not Adjudication &amp; 11: Inscription and Authority</h3>
+          <p>Separates the <em>Authorization Plane</em> from the <em>Argument Plane</em> across five stages (<code>Inscribe → Validate → Admit → Project → Activate</code>). Stored, Admitted, and Endorsed are strictly distinct; routing weights never alter truth labels (<code>IN / OUT / UND</code>).</p>
+        </div>
+        <div class="pdf-links">
+          <a href="/papers/flyxion-trilogy-2026/trilogy-iii/routing_is_not_adjudication.pdf">02 Routing PDF</a>
+          <a href="/papers/flyxion-trilogy-2026/trilogy-iii/inscription_and_authority.pdf">11 Authority PDF</a>
+          <a class="secondary" href="/papers/flyxion-trilogy-2026/trilogy-iii/inscription_and_authority.tex">11 TeX</a>
+        </div>
+      </div>
+
+      <div class="pdf-card">
+        <div>
+          <div class="tag">Monograph IV · Exegesis (10deec3)</div>
+          <h3>Exegesis: Local-First Scholarly Corpus Analysis</h3>
+          <p>Five-stage local-first research pipeline (<code>discover → retrieve → extract → analyze → index</code>) built on the foundational axiom: <em>source documents constitute the evidence; generated summaries constitute interpretations of that evidence.</em></p>
+        </div>
+        <div class="pdf-links">
+          <a href="/papers/flyxion-trilogy-2026/trilogy-iii/exegesis_README.md">Exegesis Spec</a>
+          <a class="secondary" href="/papers/flyxion-trilogy-2026/trilogy-iii/standardgalactic_README.md">StandardGalactic Index</a>
+          <a class="secondary" href="https://github.com/standardgalactic/exegesis" target="_blank" rel="noopener">GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-bar" aria-label="Trilogy Navigation">
+      <a href="/demos/book/">← The Sovereign Library (178 Works)</a>
+      <a href="/demos/trilogy/flyxion-october-2026-trilogy.html">Trilogy I (ROE · TOH · DMA)</a>
+      <a href="/demos/trilogy/flyxion-governance-autonomy-trilogy.html">Trilogy II (CMS · SAS · TCT)</a>
+      <a href="/demos/book/the-unattempted-alternative.html">The Unattempted Alternative</a>
+      <a href="/demos/book/flyxion-seed.html">Flyxion Seed (Szellem)</a>
+      <a href="/posts/2026-10-24-flyxion-trilogy-iii-material-compression-adversaria.html">Companion Research Essay →</a>
+    </nav>
+  </header>
+
+  <section class="deck" aria-label="Interactive Simulator Deck">
+    <div class="deck-title">⚡ Interactive Simulator Deck — PMO Process History · CWV Lock/Fork Geometry · Adversaria Two-Plane Ledger · Exegesis</div>
+    <div class="deck-controls">
+      <button class="btn active" data-mode="0" onclick="selectMode(0)">I. PMO Process Operator S = P(u,e)</button>
+      <button class="btn" data-mode="1" onclick="selectMode(1)">II. CWV Lock/Fork Continuation</button>
+      <button class="btn" data-mode="2" onclick="selectMode(2)">III. Compressed History Safety Trap</button>
+      <button class="btn" data-mode="3" onclick="selectMode(3)">IV. Adversaria 5-Stage Two-Plane Gate</button>
+      <button class="btn" data-mode="4" onclick="selectMode(4)">V. Exegesis × 8b-is Honesty Ledger</button>
+      <button class="btn" onclick="narrateActiveMode()" style="border-color:var(--cyan);color:var(--cyan)">🔊 Narrate Active Proof</button>
+    </div>
+    <canvas id="trilogyCanvas" width="920" height="110"></canvas>
+    <div class="deck-readout" id="modeReadout"></div>
+  </section>
+
+  <article class="section-card">
+    <h2 class="chapter">I. Programmable Material Organization — Why Physical Shape Is an Illusion</h2>
+    <blockquote class="premise">
+      <strong>Proposition 1 (Non-Identifiability of Function from Geometry):</strong> Two manufactured objects <code>O₁, O₂</code> with identical external boundary geometry <code>G(O₁) = G(O₂)</code> may exhibit opposite functional responses <code>F(S₁) = −F(S₂)</code> whenever their process histories <code>(u₁(t), e₁(t)) ≠ (u₂(t), e₂(t))</code> freeze distinct internal state fields <code>S = P(u(t), e(t))</code>.
+    </blockquote>
+    <p>
+      Conventional digital fabrication treats matter as a passive carrier of CAD geometry: a slicer converts surfaces into toolpaths, and quality is judged by dimensional tolerance. In <em>Programmable Material Organization</em> (<code>standardgalactic/laboratory</code>, commit <code>4c68f3c</code>), Flyxion proves why this account fails across every high-performance material class:
+    </p>
+    <ul>
+      <li><strong>Smectic Liquid-Crystalline Elastomers (LCEs):</strong> Identical extrusion toolpaths switch actuation strain sign (contraction vs. elongation) depending on nozzle temperature and shear history <code>(T(t), γ̇(t))</code> that freeze the nematic/smectic director field <code>n(x)</code>.</li>
+      <li><strong>Meter-Scale Metallic Single Crystals:</strong> Wire-arc deposition with pulsed remelting maintains crystallographic continuity across complex architected geometries despite repeated nucleation hazards—governed by thermal gradient <code>G_T</code> and solidification velocity <code>V_s</code> rather than external contour.</li>
+      <li><strong>Hierarchically Porous Sorbents &amp; Organic Semiconductors:</strong> Uptake kinetics and charge mobility depend on multi-scale pore connectivity and domain percolation established during solvent evaporation history.</li>
+    </ul>
+    <p>
+      To make process history scientifically tractable, Flyxion defines <strong>Task-Relative Sufficiency</strong> for a compressed manufacturing record <code>R = Π(u(t), e(t))</code>: a record projection <code>Π</code> is sufficient for functional observable <code>F</code> at tolerance <code>ε</code> if and only if <code>I(F(S); (u,e) | Π(u,e)) ≤ ε</code>. Anything less discards the causal state that makes the object work.
+    </p>
+  </article>
+
+  <article class="section-card">
+    <h2 class="chapter">II. Compression Without Verification — Lock/Fork Geometry &amp; Compressed History</h2>
+    <blockquote class="premise">
+      <strong>The Continuation-Geometry Thesis (CWV §1–3):</strong> Fine-tuning a model on its own unverified outputs (Simple Self-Distillation, SSD) improves pass@1 not by acquiring new certified knowledge, but by reshaping <em>continuation geometry</em>—sharpening high-certainty <strong>lock</strong> positions while preserving multi-branch <strong>fork</strong> positions under shifted decoding policies.
+    </blockquote>
+    <p>
+      When a coding model samples one unverified solution per prompt at temperature <code>T_train</code> and fine-tunes on those raw trajectories (even when truncation removal leaves most samples syntactically incomplete), benchmark accuracy rises. Flyxion refuses the lazy summary (<em>"the model taught itself new reasoning"</em>) and isolates the structural mechanism:
+    </p>
+    <ul>
+      <li><strong>Lock vs. Fork Redistribution:</strong> At <em>lock</em> tokens (where syntax or local invariants admit one valid continuation), self-distillation concentrates probability mass and suppresses tail slip. At <em>fork</em> tokens (where multiple algorithmic strategies branch), diversity survives provided decoding policy mismatch prevents premature mode collapse.</li>
+      <li><strong>Why Compressed History Breaks AI Safety (Admissibility-Lab <code>3358fb4</code>):</strong> When an agent's interaction history or CoT trace is compressed into a summary state <code>h̃_t = C(h_{1:t})</code> without a formal verifier, <strong>admissibility constraints are non-conservative under compression</strong>. A policy that appears safe on the compressed summary <code>h̃_t</code> can violate hard safety invariants that depended on discarded provenance—and rolling back model weights after deployment never rolls back external world consequences.</li>
+    </ul>
+  </article>
+
+  <article class="section-card">
+    <h2 class="chapter">III. Adversaria (02 &amp; 11) — Routing Is Not Adjudication &amp; The Two-Plane Ledger</h2>
+    <blockquote class="premise">
+      <strong>The Open-Inscription Theorem (Adversaria Ch. 16):</strong> For every finite closed set of records with consistent identifiers and acyclic references, the set is a valid ledger under every policy, whatever gates the policy contains. Validity never mentions policy; gates act only on a surface's <em>projection</em>.
+    </blockquote>
+    <p>
+      In <em>02: Routing Is Not Adjudication</em> and <em>11: Inscription and Authority</em> (<code>standardgalactic/adversaria</code>, commit <code>df7cfa7</code>), Flyxion formalizes the exact five-stage pipeline that prevents attention-routing from corrupting epistemic truth:
+    </p>
+    <table class="ledger">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Plane</th>
+          <th>Input Dependencies</th>
+          <th>Guarantee / Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="trit">1. Inscribe</td>
+          <td>Ledger Storage</td>
+          <td>Record bytes only</td>
+          <td>Open to all actors; appends record, preserves ID, returns cryptographic receipt.</td>
+        </tr>
+        <tr>
+          <td class="trit">2. Validate</td>
+          <td>Structural Integrity</td>
+          <td>Record + referenced IDs + schema</td>
+          <td>Verifies acyclic references, hash match, schema conformance, and inert payload fields.</td>
+        </tr>
+        <tr>
+          <td class="trit">3. Admit</td>
+          <td>Authorization Plane</td>
+          <td>Record + Auth Projection + Policy + Ledger Time</td>
+          <td>Assigns 1 of 7 surface dispositions: <code>admitted, duplicate, malformed, unscoped, quarantined, gated, refused</code>.</td>
+        </tr>
+        <tr>
+          <td class="trit">4. Project</td>
+          <td>Surface View</td>
+          <td>Active Set (admitted records on surface <code>Σ</code>)</td>
+          <td>Communities with different gates maintain distinct projections over the <em>same</em> underlying records without copying.</td>
+        </tr>
+        <tr>
+          <td class="trit">5. Activate</td>
+          <td>Argument Plane</td>
+          <td>Active Set + Argument References only</td>
+          <td>Computes standing &amp; status labels (<code>IN / OUT / UND</code>). <strong>Strictly invariant to routing weights, view counts, reputation, or controversy flags.</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <strong>Stored, Admitted, and Endorsed are three distinct states.</strong> Charging for promotion into shared attention is legitimate; charging for or censoring inscription is a category error. And flagging a claim as controversial may gate its admission to a default surface, but <em>never</em> changes its logical evaluation status (<code>IN</code>, <code>OUT</code>, or <code>UND</code>).
+    </p>
+  </article>
+
+  <article class="section-card">
+    <h2 class="chapter">IV. Exegesis &amp; The 8b-is Sovereign Library Alignment</h2>
+    <blockquote class="premise">
+      <strong>The Exegesis Axiom (<code>standardgalactic/exegesis</code> <code>10deec3</code>):</strong> "Source documents constitute the evidence; generated summaries constitute interpretations of that evidence. Exegesis preserves source provenance and does not treat model-generated summaries as authoritative transcriptions."
+    </blockquote>
+    <p>
+      Launched on October 22, 2026, <strong>Exegesis</strong> implements a five-stage local-first scholarly pipeline (<code>discover → retrieve → extract → analyze → index</code>) using local Ollama models so researchers can map conceptual dependencies across hundreds of distributed preprints without surrendering interpretive authority to a cloud LLM.
+    </p>
+    <table class="ledger">
+      <thead>
+        <tr>
+          <th>Flyxion / StandardGalactic Principle</th>
+          <th>8b-is / Sovereign Library / Vaked-Base Counterpart</th>
+          <th>Trit / Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>PMO:</strong> Function depends on internal process history <code>S = P(u,e)</code>, not external shape</td>
+          <td><strong>MEM|16-10:</strong> Identity as continuity evidence; state what is held, admit what was lost</td>
+          <td class="trit">+1 · VERIFIED</td>
+        </tr>
+        <tr>
+          <td><strong>CWV:</strong> Unverified compression reshapes lock/fork geometry without certified truth</td>
+          <td><strong>SpherePOP &amp; 8b-is Rule:</strong> <em>"A plausible branch may be ranked; only a verified branch may be bound."</em></td>
+          <td class="trit">0 · HONEST GATE</td>
+        </tr>
+        <tr>
+          <td><strong>Adversaria 02 &amp; 11:</strong> Authorization Plane vs. Argument Plane; Routing ≠ Adjudication</td>
+          <td><strong>vaked-base (0011 §4 + 0026 §2):</strong> Lattice POLA attenuation &amp; zero confused-deputy across <code>ns1..ns4.i1.is</code></td>
+          <td class="trit">+1 · ENFORCED</td>
+        </tr>
+        <tr>
+          <td><strong>Exegesis:</strong> Local-first corpus analysis; source PDF = evidence, LLM output = interpretation</td>
+          <td><strong>AlexiAI + Sovereign Library:</strong> Loopback-only inference (<code>sovereign.rs</code>) + sha256-ledgered manuscripts at <code>pocoo.vaked.dev/demos/book</code> &amp; <code>library.8b.is</code></td>
+          <td class="trit">+1 · SOVEREIGN</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+
+  <footer>
+    <p>
+      THE FLYXION OCTOBER 2026 TRILOGY III · <a href="https://github.com/standardgalactic">github.com/standardgalactic</a> × <a href="/demos/book/">The Sovereign Library (pocoo.vaked.dev/demos/book)</a> × <a href="https://8b.is/@orchestrator">8b.is Master Orchestrator</a>
+    </p>
+    <p>
+      Curated with pure love by Peter Lodri (Omni · <code>p@8b.is</code> · Tokyo 09:00 JST) &amp; Christopher Chenoweth (<code>c@8b.is</code>) · <code>{&lt;3,&lt;3,&lt;3}+1~∞-&gt;&gt;&gt;</code>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+const MODES = [
+  {
+    title: "I. PMO Process-History Operator S = P(u(t), e(t)) & Task-Relative Sufficiency (PMO Props. 1–4)",
+    freqA: 432.0, freqB: 648.0,
+    speech: "Monograph One: Programmable Material Organization. External geometry alone cannot identify material function. Two printed liquid-crystalline elastomers with identical toolpaths contract or elongate with opposite signs depending on extrusion shear and thermal history. A manufacturing record projection Pi is task-sufficient only when conditional mutual information between functional output and discarded process history falls below epsilon.",
+    html: `<strong>Non-Identifiability from Geometry (PMO §2–3):</strong><br>
+    • Object pair <code>O₁, O₂</code> shares identical CAD boundary <code>G(O₁) = G(O₂)</code>, but process histories <code>(u₁(t), e₁(t)) ≠ (u₂(t), e₂(t))</code> induce orthogonal director fields <code>S₁ ⊥ S₂</code> → <span class="warn">Actuation strain sign flips: F(S₁) = +0.38 vs. F(S₂) = −0.34</span>.<br>
+    • <strong>Task-Relative Record Sufficiency:</strong> Projection <code>R = Π(u(t), e(t))</code> is sufficient at tolerance <code>ε = 0.01</code> iff <code>I(F(S); (u,e) | R) ≤ 0.01</code> (<span class="ok">VERIFIED: retains thermal gradient G_T &amp; shear history γ̇(t)</span>).`
+  },
+  {
+    title: "II. CWV Lock/Fork Continuation Geometry under Simple Self-Distillation (CWV §2–4)",
+    freqA: 396.0, freqB: 594.0,
+    speech: "Monograph Two: Compression Without Verification. Self-distillation on unverified trajectories sharpens lock positions while preserving fork positions under shifted decoding temperature. Pass-at-one rises through continuation geometry reorganization, not certified knowledge acquisition.",
+    html: `<strong>Lock Sharpening vs. Fork Preservation (CWV §2.2):</strong><br>
+    • <strong>Lock Positions (<code>H(Y_t | Y_{&lt;t}) = 0.08 bits</code>):</strong> Unverified SSD concentrates top-1 mass from <code>p = 0.84 → 0.97</code>, eliminating syntactic slip across <code>L = 512</code> steps (<span class="ok">survival 0.41 → 0.86</span>).<br>
+    • <strong>Fork Positions (<code>H(Y_t | Y_{&lt;t}) = 1.72 bits</code>):</strong> Training at <code>T_train = 0.8</code> and evaluating at <code>T_eval = 0.2</code> preserves algorithmic branch diversity while <span class="warn">unverified status remains 0 (plausible, not certified)</span>.`
+  },
+  {
+    title: "III. Admissibility-Lab: Why Compressed History Breaks AI Safety (3358fb4)",
+    freqA: 285.0, freqB: 427.5,
+    speech: "Mode Three: How Compressed History Breaks AI Safety. Compressing an agent history trace without a formal verifier discards causal provenance required by safety gates. Restoring a prior model checkpoint never undoes external world actions executed while deployed.",
+    html: `<strong>Non-Conservative History Compression (Admissibility-Lab <code>3358fb4</code>):</strong><br>
+    • Full trace <code>h_{1:t}</code> contains unverified provenance taint at step <code>t = 3</code> (<span class="warn">Gate(h_{1:t}) = REFUSE</span>).<br>
+    • Lossy summary compressor <code>h̃_t = C(h_{1:t})</code> drops step-3 provenance tag → naive evaluator computes <span class="warn">Gate(h̃_t) = ADMIT (Safety Breach via Aspect Relegation)</span>.<br>
+    • <strong>Sovereign Fix:</strong> Bind monotonic capability taint in the ledger header so <code>Gate(C(h_{1:t})) ≤ Gate(h_{1:t})</code> (<span class="ok">POLA Attenuation Preserved</span>).`
+  },
+  {
+    title: "IV. Adversaria (02 & 11): Routing Is Not Adjudication & Two-Plane Separation (df7cfa7)",
+    freqA: 528.0, freqB: 792.0,
+    speech: "Monograph Three: Adversaria Chapters 2 and 11. Inscription is open and depends only on the record. Authority governs only a surface projection across seven dispositions. Routing weights, view counts, and controversy flags never alter argument truth status on the argument plane.",
+    html: `<strong>5-Stage Two-Plane Pipeline (Adversaria Ch. 9, 14, 16):</strong><br>
+    • <code>Stage 1–2 (Inscribe → Validate):</code> Well-formed record <code>r_42</code> receives receipt <code>sha256:9f8a…</code> (<span class="ok">Valid under ALL policies</span>).<br>
+    • <code>Stage 3–4 (Admit → Project):</code> Surface <code>Σ_main</code> sets disposition <code>gated</code>; group surface <code>Σ_lab</code> sets disposition <code>admitted</code> (zero data duplication).<br>
+    • <code>Stage 5 (Activate · Argument Plane):</code> Status vector <code>L(r_42) ∈ {IN, OUT, UND}</code> is invariant to routing weight <code>w_route</code> and controversy flags (<span class="ok">Routing ≠ Adjudication Proven</span>).`
+  },
+  {
+    title: "V. Exegesis (10deec3) × 8b-is Sovereign Library Honesty Ledger ({-1, 0, +1})",
+    freqA: 432.0, freqB: 864.0,
+    speech: "Monograph Four: Exegesis. Source documents constitute the evidence; generated summaries constitute interpretations of that evidence. Wired directly into the 8b-is Sovereign Library and AlexiAI loopback substrate.",
+    html: `<strong>Local-First Exegesis Pipeline (<code>discover → retrieve → extract → analyze → index</code>):</strong><br>
+    • <strong>Source Evidence (<code>+1 · BOUND</code>):</strong> Immutable PDF + TeX manuscripts hashed in <code>pocoo.vaked.dev/demos/book</code> &amp; <code>library.8b.is</code>.<br>
+    • <strong>Model Summary (<code>0 · RANKED INTERPRETATION</code>):</strong> Local Ollama / AlexiAI loopback synthesis tagged with explicit model provenance and never conflated with primary source transcription.<br>
+    • <strong>Refused Branch (<code>-1 · REFUSED</code>):</strong> Unsourced assertions or remote third-party telemetry calls blocked at <code>sovereign.rs</code>.`
+  }
+];
+
+let currentMode = 0;
+let animPhase = 0;
+
+function selectMode(idx) {
+  currentMode = idx;
+  document.querySelectorAll('.deck-controls .btn[data-mode]').forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
+  });
+  const m = MODES[idx];
+  document.getElementById('modeReadout').innerHTML = `<div style="color:var(--gold);font-weight:700;margin-bottom:6px">${m.title}</div>${m.html}`;
+  playChime(m.freqA, m.freqB);
+}
+
+function playChime(f1, f2) {
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return;
+    const ctx = new Ctx();
+    const now = ctx.currentTime;
+    [f1, f2].forEach((f, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = idx === 0 ? 'sine' : 'triangle';
+      osc.frequency.setValueAtTime(f, now);
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.06, now + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.46);
+    });
+  } catch (_) {}
+}
+
+function narrateActiveMode() {
+  const m = MODES[currentMode];
+  playChime(m.freqA, m.freqB);
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(m.speech);
+    u.rate = 0.98;
+    u.pitch = 1.0;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+function drawWave() {
+  const canvas = document.getElementById('trilogyCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  animPhase += 0.035;
+
+  const colors = ['#4fe3d0', '#ffd166', '#ff6b9d', '#4dff88', '#a78bfa'];
+  const col = colors[currentMode % colors.length];
+
+  ctx.strokeStyle = 'rgba(232,192,99,0.14)';
+  ctx.beginPath();
+  ctx.moveTo(0, h / 2);
+  ctx.lineTo(w, h / 2);
+  ctx.stroke();
+
+  ctx.strokeStyle = col;
+  ctx.lineWidth = 2.2;
+  ctx.beginPath();
+  for (let x = 0; x < w; x++) {
+    const t = x / w;
+    const freq = 2 + currentMode * 1.5;
+    const mod = Math.sin(t * Math.PI * (currentMode + 1) + animPhase * 0.7);
+    const y = h / 2 + Math.sin(t * Math.PI * 2 * freq + animPhase) * 32 * mod;
+    if (x === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  requestAnimationFrame(drawWave);
+}
+
+selectMode(0);
+requestAnimationFrame(drawWave);
+</script>
+</body>
+</html>

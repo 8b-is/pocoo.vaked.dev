@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06070c"/>
+      <stop offset="55%" stop-color="#111728"/>
+      <stop offset="100%" stop-color="#1a0f24"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="36" y="36" width="1128" height="558" rx="18" fill="none" stroke="#ffd166" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="80" y="108" fill="#4fe3d0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" letter-spacing="4">Ω · THE SOVEREIGN LIBRARY · STANDARDGALACTIC × 8B-IS</text>
+  <text x="80" y="190" fill="#ffd166" font-family="Georgia, serif" font-size="46" font-weight="bold">THE FLYXION OCTOBER 2026 TRILOGY III</text>
+  <text x="80" y="250" fill="#ece8df" font-family="Georgia, serif" font-size="30">Programmable Material Organization · Compression Without Verification</text>
+  <text x="80" y="296" fill="#ece8df" font-family="Georgia, serif" font-size="30">Adversaria (02 Routing ≠ Adjudication · 11 Authority) · Exegesis</text>
+  <line x1="80" y1="340" x2="1120" y2="340" stroke="#4fe3d0" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="80" y="395" fill="#4fe3d0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">S = P(u(t), e(t))  |  Lock/Fork Geometry  |  Inscribe → Validate → Admit → Project → Activate</text>
+  <text x="80" y="445" fill="#ff6b9d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">"Source documents constitute the evidence; generated summaries constitute interpretations."</text>
+  <text x="80" y="535" fill="#949ab1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19">pocoo.vaked.dev/demos/book · library.8b.is · flyxion.8b.is · Curated by Peter Lodri (Omni)</text>
+</svg>

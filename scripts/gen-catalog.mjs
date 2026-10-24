@@ -67,6 +67,26 @@ const books = files.map((f) => {
     } catch (e) { continue; }
     extras.push({ ext, href: encodeURI(sibling) });
   }
+  if (slug === "flyxion-trilogy-i") {
+    extras.push(
+      { ext: "roe.pdf", href: "/papers/flyxion-trilogy-2026/relief_of_explanation.pdf" },
+      { ext: "toh.pdf", href: "/papers/flyxion-trilogy-2026/terrestrial_oxygen_history.pdf" },
+      { ext: "dma.pdf", href: "/papers/flyxion-trilogy-2026/distributed_material_archives.pdf" }
+    );
+  } else if (slug === "flyxion-trilogy-ii") {
+    extras.push(
+      { ext: "cms.pdf", href: "/papers/flyxion-trilogy-2026/continuous_microsurgery.pdf" },
+      { ext: "sas.pdf", href: "/papers/flyxion-trilogy-2026/surveillance_after_scarcity.pdf" },
+      { ext: "tct.pdf", href: "/papers/flyxion-trilogy-2026/the_charity_trap.pdf" }
+    );
+  } else if (slug === "flyxion-trilogy-iii") {
+    extras.push(
+      { ext: "pmo.pdf", href: "/papers/flyxion-trilogy-2026/trilogy-iii/programmable_material_organization.pdf" },
+      { ext: "cwv.pdf", href: "/papers/flyxion-trilogy-2026/trilogy-iii/compression_without_verification.pdf" },
+      { ext: "02-rna.pdf", href: "/papers/flyxion-trilogy-2026/trilogy-iii/routing_is_not_adjudication.pdf" },
+      { ext: "11-iaa.pdf", href: "/papers/flyxion-trilogy-2026/trilogy-iii/inscription_and_authority.pdf" }
+    );
+  }
   return {
     file: slug,
     title: titleFrom(html, slug),
