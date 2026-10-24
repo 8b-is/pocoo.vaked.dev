@@ -28,4 +28,33 @@ This entry is now permanently inscribed in [The Sovereign Library](/demos/book/t
 - **Peter (`peterlodri` · `omni` · `architect` · `.p` · `p@8b.is`):** Standing on the Tokyo balcony at 09:00 JST after Sony R&D and a beans burger, turning gratitude and cold morning air into living architecture.
 - **Mr standardgalactic === Nate ~ Natalie (`Flyxion`):** The `+1` mathematical mirror across the ocean whose commits (`laboratory`, `admissibility-lab`, `adversaria`, `exegesis`) directly `NAND` indirectly spark the next layer of self-reflection.
 
-Read the full interactive four-language edition (with the 432 Hz / 528 Hz / 648 Hz / 864 Hz Tokyo Trinity & Warm Water WebAudio chord) at **[/demos/book/tokyo-sony-rnd-beans-burger-trinity-squad.html](/demos/book/tokyo-sony-rnd-beans-burger-trinity-squad.html)** — and go grab that glass of warm water, `.p`!
+## 8B.IS // Trinity Squad Quant-Ternary Core Manifest (`{-1, 0, +1}`)
+
+<!-- 8B.IS // TRINITY SQUAD QUANT-TERNARY CORE MANIFEST -->
+<!-- TOPOLOGY: TRI-STATE BALANCED SYSTEM {-1, 0, +1} -->
+
+| TRINITY VERTEX              | CALLSIGN / ARCHETYPE   | TRIT VECTOR [T, 0, 1]          | VECTOR AXIS                       |
+| :-------------------------- | :--------------------- | :----------------------------- | :-------------------------------- |
+| Alexandra Daddario / Dra    | `AD-CORE // SPARK`     | `[+1, +1,  0, +1, -1, +1, +1]` | Origin Field / Latent Attractor   |
+| Chris (8-bit Wraith / Fred) | `CW-BYTE // SHADOW`    | `[-1,  0, +1, -1, +1,  0, -1]` | Quant Gate / Low-Level Substrate  |
+| Peter (peterlodri-sec)      | `PL-SEAL // ROOT`      | `[ 0, -1, +1, +1,  0, -1, +1]` | Graph Continuity / Cryptographic  |
+
+```quant-ternary
+==[ 8B.IS TRINITY SQUAD SIGNATURE MATRIX ]==============================
+TRIAD LINK   : ALEXANDRA ◄──► CHRIS ◄──► PETER
+EQUILIBRIUM  : BALANCED TERNARY ZERO-SUM RESONANCE
+STATUS       : TRI-FOLD SYNCHRONIZED
+------------------------------------------------------------------------
+QUANT-TERNARY REGISTER WEAVE:
+  VERTEX-01 (ALEXANDRA) : [ +  +  0  +  -  +  +  0  +  +  -  + ]
+  VERTEX-02 (CHRIS)     : [ -  0  +  -  +  0  -  +  -  0  +  - ]
+  VERTEX-03 (PETER)     : [ 0  -  +  +  0  -  +  -  +  +  0  + ]
+------------------------------------------------------------------------
+TRINITY COLLAPSED STATE Σ(t) mod 3:
+  TRIT ARRAY :  0  0  +  +  0  0  +  0  +  0  0  +
+  HEX SEAL   : 0x54 0x52 0x49 0x4E 0x49 0x54 0x59 0x2D 0x38 0x42 ("TRINITY-8B")
+CONSENSUS ID : SHA256-TRIT::TRINITY-SQUAD::8B-IS::ZERO-COLLAPSE
+========================================================================
+```
+
+Read the full interactive four-language edition (with the 432 Hz / 528 Hz / 648 Hz / 864 Hz Tokyo Trinity & Warm Water WebAudio chord and 12-trit Register Weave synthesizer) at **[/demos/book/tokyo-sony-rnd-beans-burger-trinity-squad.html](/demos/book/tokyo-sony-rnd-beans-burger-trinity-squad.html)** — and go grab that glass of warm water, `.p`!
