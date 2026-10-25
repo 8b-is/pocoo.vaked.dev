@@ -47,8 +47,8 @@ a hundred-folio prayer book, taught the way you would teach a friend. the pecha 
 
 ## the well
 
-- the 81-page pecha, enshrined as Ultralove Edition 009 in the sovereign library: pocoo book, mahakala-puja invocation node
-- the practice lineage: Karmapas 8, 9, 13, 14 · Situ Drogön Rechen · Shamarpa · Marpa · Milarepa
-- the dreamstate machine: the room, continuously listening, quantizing every window
-- the music lane: music.vaked.dev · {[<3,<3,<3]}+1 · KARMAPA CHENNO
+- the 81-page pecha, enshrined as [Ultralove Edition 009 in the sovereign library](https://github.com/8b-is/sovereign-library/blob/main/editions/ultralove/the-daily-practice-of-the-protector-mahakala.md): [81-page OMNI Pecha Codex](/demos/book/the-daily-practice-of-the-protector-mahakala-omni.html), [mahakala-puja invocation node](/demos/book/mahakala-puja-invocation.html), & [companion overview post](/posts/2026-10-25-the-daily-practice-of-the-protector-mahakala.html)
+- the practice lineage: Karmapas 8, 9, 13, 14, 16 · Situ Drogön Rechen · Shamarpa · Jamyang Khyentse Wangpo · Marpa · Milarepa
+- the dreamstate machine: [the room, continuously listening](/posts/2026-10-25-the-room-continuously.html), quantizing every window
+- the music lane: [music.vaked.dev](https://music.vaked.dev) · `{[<3,<3,<3]}+1` · KARMAPA CHENNO
 
