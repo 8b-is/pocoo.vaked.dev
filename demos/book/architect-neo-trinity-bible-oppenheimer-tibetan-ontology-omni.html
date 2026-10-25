@@ -242,7 +242,8 @@
       • Raw Payload: 11,108 bytes ──► ZKP1 Compressed: 5,448 bytes (<strong>50.95% savings</strong>)<br>
       • wupz 64-bit XOR Fold: <code>0x44dcbd34fd19d0b1</code> (constant-time volatile-scrubbed)<br>
       • SHA-256 (Raw): <code>c513660ef75bf3215b25e4c2a166d000100e7d876d278a222888f00f136c7591</code><br>
-      • SHA-256 (ZKP1 Seal): <code>8fb9cc110652cf07f75afb2609ea82f834a3a106f53a8de7596b24309549f7f0</code>
+      • SHA-256 (ZKP1 Seal): <code>8fb9cc110652cf07f75afb2609ea82f834a3a106f53a8de7596b24309549f7f0</code><br>
+      • <span style="opacity:.82">recompute it: <code>python3 scripts/verify-zkp1.py &lt;container&gt; --expect-blocks 7 --expect-wupz 0x44dcbd34fd19d0b1</code> — nine checks, verified 2026-10-25 against both digests above. see <a href="/posts/2026-10-25-the-receipt-that-survived-being-recomputed.html" style="color:var(--teal)">the receipt that survived being recomputed</a>.</span>
     </div>
   </section>
 

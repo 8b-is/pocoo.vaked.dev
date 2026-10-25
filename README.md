@@ -88,6 +88,28 @@ is pure-stdlib and path-relative (runs from any cwd), and the hash is keyed on
 `title + date + slug`, so re-running is deterministic — only genuinely new
 posts gain a file.
 
+## receipts you can re-run
+
+Pages that print a checksum are worth exactly as much as the ability to recompute
+it. `scripts/verify-zkp1.py` (stdlib only) walks a ZKP1 container's header,
+decompresses the body, and re-derives every number a receipt claims — block
+count, raw size, the 64-bit `wupz` XOR fold, the payload digest, the file digest
+and the savings percentage. Exit code is 0 only when all nine checks pass, so it
+can gate a build.
+
+```bash
+python3 scripts/verify-zkp1.py \
+  demos/book/architect-neo-trinity-tibetan-omni.zkp1 \
+  --expect-blocks 7 \
+  --expect-wupz 0x44dcbd34fd19d0b1 \
+  --expect-raw c513660ef75bf3215b25e4c2a166d000100e7d876d278a222888f00f136c7591 \
+  --expect-seal 8fb9cc110652cf07f75afb2609ea82f834a3a106f53a8de7596b24309549f7f0
+```
+
+Add `--json` for a machine-readable report. The container also stores the digest
+of its own decompressed payload at offset `0x14`, so the file proves itself and
+the receipt only quotes it.
+
 ## genesis / provenance
 
 This repository participates in the Vaked provenance chain.
