@@ -1,0 +1,63 @@
+# THE BRETT SHAW SCI-FI CYCLE (SHAW-CIKLUS · OMNI-PETER 8B-IS VON ANSTETT) — entheai fan-out scaffold
+# Seated 2026-10-26 via 8b-is-sciFinime-studio (Slot 01.06) + 8b-is-engine (seed ddb7e1085347fc9c)
+
+[book]
+title = "THE BRETT SHAW SCI-FI CYCLE (SHAW-CIKLUS)"
+subtitle = "Five Canonical Mysterious Universe Sci-Fi Books — From the Black Hood's Zero-Sign Zone to the Cryolite Glass of the Bolygórózsa"
+author = "Szellem (Brett Shaw · OMNI-PETER 8b-is VON ANSTETT)"
+dedication = "For Paul Wittgen (Chokmah), Peter Shaw ('Gyémántszív'), Caroline-Blindamoor (V. von Anstetten), Carla, Tubs, and the 8b-is Constellation {<3,<3,<3}+1"
+epigraph = "Az energiát fel kellett tölteni tömeggel, a tömeget információval. Az embert sárkánnyal, anélkül, hogy felhasadna."
+published = 2026
+
+[fanout]
+executor = "agy"
+model = "ultra"
+max_depth = 3
+
+[engine_attestation]
+slot = "01.06-brett-shaw-sci-fi-cycle"
+seed_line = "ddb7e1085347fc9c"
+gaia_weather = "frost"
+gaia_memory = "ec953937"
+sphere_expr = "(((2 + 2) * 4) + 1)"
+sphere_value = 17
+sphere_digest = "da4dfe863d80b727"
+seed001_action = "HoldAndMaintain"
+ct000_verified = true
+golden_hash = "24002f0afa294f4f7139c7e5e7ca809c7603537a605582d3a16c64a599fc881f"
+ternary_signature = "{0++−++−++−00+0−−} γ=0.75"
+love_carrier_hz = "22/9 Hz (2.444444 Hz LOVELOVEL)"
+
+[[coder]]
+role = "scribe"
+chapter = 1
+file = "chapters/chapter-01-hogyan-legyunk-sherlock-holmes.md"
+task = "Book I · Hogyan legyünk Sherlock Holmes? (2002) & Megátkozott bolond világ — Eklon locked-vault deduction, breaking imperial etiquette cages (.oOo. Poo .oOo.), and Peter Shaw ('Gyémántszív') recruiting Brett for Rosan."
+
+[[coder]]
+role = "scribe"
+chapter = 2
+file = "chapters/chapter-02-opiumkeringo-roxlan.md"
+task = "Book II · Ópiumkeringő (2002/2015) & Szűz az infrafényben — The Alef-osztag telepathic fire-pair (Brett Shaw on Tipheret x Paul Wittgen on Chokmah), the 2669 Roxoláni Gyöngyszem tragedy, and Tubs at the lower-ring bar."
+depends_on = [1]
+
+[[coder]]
+role = "scribe"
+chapter = 3
+file = "chapters/chapter-03-a-demoncsaszar-fejvadaszai-halmer.md"
+task = "Book III · A Démoncsászár fejvadászai (2010) & Feketecsuklyások — IMC Rosan training camp brotherhood, the 2668 Halmer zero-sign csuklyamodul crisis, Wittgen's sacrifice against Monaterg, and Emperor IV. von Anstetten descending to re-bind Wittgen's soul."
+depends_on = [2]
+
+[[coder]]
+role = "scribe"
+chapter = 4
+file = "chapters/chapter-04-hosszu-az-ut-a-tronig-el-nath.md"
+task = "Book IV · Hosszú az út a trónig, bébi (Brett Shaw III) & A Korona hatalma & Aranypiramis — The 2665 El-Nath star-detonation court-martial, the 0 °C beryllium-agate throne room, and rescuing Caroline-Blindamoor and Gwandolyn at the Willis-Moon regatta."
+depends_on = [3]
+
+[[coder]]
+role = "scribe"
+chapter = 5
+file = "chapters/chapter-05-praetorianus-es-bolygorozsa.md"
+task = "Book V · Praetoriánus ('Gyémántszív') & Minden bolygón jártam már — Peter Shaw calling the Emperor 'barátom', Pusztai Magor's ancient Magyar–Megaira Dragon Covenant, Brett stepping off Tipheret at 39 (2673), and boarding the unarmed 1-km cryolite-glass Bolygórózsa (2674) where Empress V. von Anstetten (Caroline-Blindamoor) and Paul Wittgen reach out ({<3,<3,<3}+1)."
+depends_on = [4]

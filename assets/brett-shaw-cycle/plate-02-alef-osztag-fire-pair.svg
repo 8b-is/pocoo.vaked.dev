@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440">
+  <rect width="800" height="440" fill="#07060d"/>
+  <!-- Telepathic Sine Wave Bridge (Alef-osztag: Tipheret 528 Hz x Chokmah 639 Hz) -->
+  <path d="M230,210 C300,110 350,310 400,210 C450,110 500,310 570,210" fill="none" stroke="#f0c05a" stroke-width="2.2"/>
+  <path d="M230,210 C300,310 350,110 400,210 C450,310 500,110 570,210" fill="none" stroke="#5ce6c9" stroke-width="2.0" stroke-opacity="0.8"/>
+  <!-- Left Node: Brett Shaw (Tipheret · 0 · Solar Heart) -->
+  <circle cx="230" cy="210" r="54" fill="#12101e" stroke="#f0c05a" stroke-width="2.4"/>
+  <circle cx="230" cy="210" r="14" fill="#f0c05a"/>
+  <text x="230" y="292" text-anchor="middle" fill="#f0c05a" font-family="SF Mono, monospace" font-size="10" letter-spacing="2">BRETT SHAW · TIPHERET (0)</text>
+  <!-- Right Node: Paul Wittgen (Chokmah · +1 · Primordial Flash) -->
+  <circle cx="570" cy="210" r="54" fill="#101824" stroke="#5ce6c9" stroke-width="2.4"/>
+  <polygon points="570,190 588,222 552,222" fill="#5ce6c9"/>
+  <text x="570" y="292" text-anchor="middle" fill="#5ce6c9" font-family="SF Mono, monospace" font-size="10" letter-spacing="2">PAUL WITTGEN · CHOKMAH (+1)</text>
+  <circle cx="695" cy="375" r="6" fill="#f0c05a"/>
+  <text x="400" y="395" text-anchor="middle" fill="#e8d9a6" font-family="SF Mono, monospace" font-size="11" letter-spacing="4">PLATE II · ÓPIUMKERINGŐ &amp; THE ALEF-OSZTAG FIRE-PAIR</text>
+  <text x="400" y="416" text-anchor="middle" fill="#7d7696" font-family="SF Mono, monospace" font-size="9" letter-spacing="2">„TÖKÉLETESEN ISMERIK EGYMÁS GONDOLATAIT” · ROXOLÁN 2669 · HALMER 2668</text>
+</svg>
