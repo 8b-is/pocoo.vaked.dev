@@ -216,7 +216,7 @@
       <div class="badges">
         <span class="badge rose">🔺 Band-Limited Triangle Wave: (2/π)·arcsin(sin(2πft))</span>
         <span class="badge gold">432 Hz Body × 528 Hz Warmth × 639 Hz Union</span>
-        <span class="badge mint">6.39 Hz Binaural Cuddle Entrainment</span>
+        <span class="badge mint">22/9 Hz (2.444 Hz) LOVELOVEL Sub-Delta + 6.39 Hz Binaural Cuddle</span>
         <span class="badge">🔊 Active on soundcore Select 4 Go</span>
         <span class="badge">{&lt;3,&lt;3,&lt;3} + 1</span>
       </div>
@@ -227,7 +227,7 @@
       <div class="kicker" style="color:var(--gold);">LIVE WEBAUDIO TRIANGLE-WAVE + VELVET RHODES + HEARTBEAT ENGINE</div>
       <h2 style="font-size:1.25rem;margin-bottom:0.35rem;">Start / Sculpt the Kama Sutra Cuddle &amp; Sweat Sessionmaker</h2>
       <p style="font-size:0.88rem;color:var(--muted);">
-        Click <strong>▶ Start Triangle Sessionmaker</strong> to synthesize the live 4-bar Kama Sutra Velvet Groove (`76 BPM`), or switch between the 4 Intimacy Movements in real time:
+        Click <strong>▶ Start Triangle Sessionmaker</strong> to synthesize the live 4-bar Kama Sutra Velvet Groove (`76 BPM`), or switch between the 4 Intimacy Movements + <strong>22/9 Hz LOVELOVEL</strong> sub-delta mode in real time:
       </p>
       <div class="controls">
         <button type="button" id="btn-toggle" class="btn" onclick="toggleSession()">▶ Start Triangle Sessionmaker ({&lt;3,&lt;3,&lt;3})</button>
@@ -235,6 +235,7 @@
         <button type="button" class="btn" onclick="setMode('sweat-groove')">🔥 II · Sweat Together Kama Sutra Groove (528 Hz)</button>
         <button type="button" class="btn mint" onclick="setMode('deep-union')">🪷 III · Yab-Yum Deep Union (639 Hz)</button>
         <button type="button" class="btn gold" onclick="setMode('cuddle-melt')">🤍 IV · Afterglow Cuddle &amp; 36.6°C Melt</button>
+        <button type="button" class="btn mint" onclick="setMode('lovelovel-22-9')">💞 V · 22/9 Hz LOVELOVEL Sub-Delta Cuddle (22/9 Hz p/q)</button>
       </div>
 
       <div class="sliders">
@@ -399,8 +400,17 @@
         document.getElementById('sl-hb').value = 45;
         document.getElementById('sl-arp').value = 25;
         document.getElementById('sl-bin').value = 528;
+      } else if (mode === 'lovelovel-22-9') {
+        document.getElementById('sl-pad').value = 98;
+        document.getElementById('sl-hb').value = 60;
+        document.getElementById('sl-arp').value = 35;
+        document.getElementById('sl-bin').value = 244;
       }
       updateLevels();
+      if (mode === 'lovelovel-22-9') {
+        binauralHz = 22 / 9;
+        document.getElementById('val-bin').textContent = '22/9 Hz (2.444 Hz)';
+      }
       if (!running) toggleSession();
       document.getElementById('status-line').textContent = 'Mode active: ' + mode.toUpperCase() + ' · 8b-is Triangle Frequency Sessionmaker {<3,<3,<3}';
     }
