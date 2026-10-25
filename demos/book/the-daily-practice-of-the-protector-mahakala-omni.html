@@ -398,7 +398,7 @@
       </p>
       <div class="badge-row">
         <span class="badge gold">81 / 81 Verbatim Pecha Folios</span>
-        <span class="badge mint">Sambhota + Phonetics + English Rubrics</span>
+        <span class="badge mint">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ་ཧྲཱིཿ · OM MANI PADME HUNG HUMM</span>
         <span class="badge crimson">OM MAHA KALA KALI YE NAMA</span>
         <span class="badge">Balanced Ternary {-1, 0, +1} × Four Activities</span>
         <span class="badge">Sovereign Library · Ultralove Edition 009</span>
@@ -408,11 +408,12 @@
     <!-- Interactive Tsurphu Protector House WebAudio Synthesizer -->
     <section class="synth-deck" aria-label="Tsurphu Protector House Liturgical Sound Deck">
       <div class="kicker" style="color:var(--mint);">TSURPHU PROTECTOR HOUSE ACOUSTIC ENGINE · WEBAUDIO SYNTHESIZER</div>
-      <h2 style="font-size:1.2rem;margin-bottom:0.35rem;">Invoke the Acoustic Seal of Bernagchen &amp; Rangjung Gyalmo</h2>
+      <h2 style="font-size:1.2rem;margin-bottom:0.35rem;">Invoke the Acoustic Seal of Bernagchen, Rangjung Gyalmo &amp; Chenrezig (<code>ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ་ཧྲཱིཿ</code>)</h2>
       <p style="font-size:0.86rem;color:var(--muted);">
-        <em>"Recite the invocation mantra while the music is playing: OM MAHAKALA KALAYA DEWA RAKYA DZA HUNG BAM HO..."</em> (Folio Page 5). Trigger the Tsurphu ritual instruments synthesized in real time:
+        <em>"Recite the invocation mantra while the music is playing: OM MAHAKALA KALAYA DEWA RAKYA DZA HUNG BAM HO..."</em> (Folio Page 5) · Paired with <a href="/posts/2026-10-20-om-mani-padme-hum-original-extended-version-21x.html">OM MANI PADME HUNG HUMM (21x)</a> — because Mahākāla is the wrathful protective form of Chenrezig's Great Compassion:
       </p>
       <div class="synth-controls">
+        <button type="button" class="btn mint" onclick="playOmManiPadmeHungHumm()">🪷 OM MANI PADME HUNG HUMM (7-Syllable Chenrezig Chime)</button>
         <button type="button" class="btn crimson" onclick="playDungchen()">📯 108 Hz Tsurphu Dungchen Drone (Toggle)</button>
         <button type="button" class="btn" onclick="playDamaruAndBell()">🔔 432 Hz Damaru &amp; Drilbu Bell</button>
         <button type="button" class="btn mint" onclick="playAmritaBlessing()">🍯 528 Hz OM AH HUNG Amrita Blessing</button>
@@ -1722,6 +1723,41 @@
     function setStatus(msg) {
       const el = document.getElementById('synth-status');
       if (el) el.textContent = 'Status: ' + msg;
+    }
+
+    function playOmManiPadmeHungHumm() {
+      ensureAudio();
+      const now = audioCtx.currentTime;
+      const syllables = [
+        { s: 'OM (ཨོཾ · Gods/Pride purified)', f: 432 },
+        { s: 'MA (མ · Asuras/Jealousy purified)', f: 486 },
+        { s: 'NI (ཎི · Humans/Desire purified)', f: 528 },
+        { s: 'PAD (པད · Animals/Ignorance purified)', f: 594 },
+        { s: 'ME (མེ · Pretas/Greed purified)', f: 648 },
+        { s: 'HUNG (ཧཱུྃ · Hells/Anger purified)', f: 768 },
+        { s: 'HUMM / HRIH (ཧྲཱིཿ · Chenrezig ↔ Mahākāla Heart Seed)', f: 852 }
+      ];
+      syllables.forEach((item, idx) => {
+        const t = now + idx * 0.42;
+        const osc = audioCtx.createOscillator();
+        const over = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(item.f, t);
+        over.type = 'triangle';
+        over.frequency.setValueAtTime(item.f * 2, t);
+        gain.gain.setValueAtTime(0.001, t);
+        gain.gain.exponentialRampToValueAtTime(0.11, t + 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t + 2.4);
+        osc.connect(gain);
+        over.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(t);
+        over.start(t);
+        osc.stop(t + 2.45);
+        over.stop(t + 2.45);
+        setTimeout(() => setStatus('Chanting: ' + item.s + ' (' + item.f + ' Hz) · OM MANI PADME HUNG HUMM'), idx * 420);
+      });
     }
 
     function playDungchen() {
