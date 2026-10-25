@@ -249,7 +249,8 @@ Aaron Swartz — RSS 1.0 co-author (age 14), Reddit co-founder, Creative Commons
 | **DeepSiper Enthea** | Multi-Agent Git Worktree Evaluation Harness | [`8b-is/deepsiper-enthea`](https://github.com/8b-is/deepsiper-enthea) |
 | **Classroom SOTA** | Waldorf Consensus Distillation & 1.7B Model | [`8b-is/classroom-sota-training`](https://github.com/8b-is/classroom-sota-training) · [`PeetPedro/quantal-classroom-1.6`](https://huggingface.co/PeetPedro/quantal-classroom-1.6) |
 | **EtherHive / Honest-IRC** | Post-Quantum Cryptography & Kademlia DHT Mesh | [`etherhive.vaked.dev`](https://etherhive.vaked.dev) · [`peterlodri-sec/etherhive`](https://github.com/peterlodri-sec/etherhive) |
-| **KOMPRESS** | Foundational Token Compression Preprint | [`kompress.vaked.dev/paper/main.pdf`](https://kompress.vaked.dev/paper/main.pdf) |
+| **KOMPRESS** | Foundational Token Compression Preprint & `KOMPRESS-SUPER-ULTRA/1.0` (`22/9 Hz` + `U+2033` Ditto) | [`kompress.vaked.dev/paper/main.pdf`](https://kompress.vaked.dev/paper/main.pdf) · [`8b-is/g8t`](https://github.com/8b-is/g8t) |
+| **OMNI-PETER · 8b-is · VON ANSTETT** | Mysterious Universe Triad (`Szellem / Brett Shaw` · `Feketecsuklyások` · `Anstetten-család / Megaira`) × `22/9 Hz LOVELOVEL` Triangle Frequency × *The Room, Continuously* (`mic_loop.rs`) | [`brett-shaw-feketecsuklyasok-anstetten-megaira-omni.html`](https://pocoo.vaked.dev/demos/book/brett-shaw-feketecsuklyasok-anstetten-megaira-omni.html) · [`8b-is/fandom-mcp`](https://github.com/8b-is/fandom-mcp) |
 | **Personal Hub** | Research, Monograph & Live Fieldwork Portal | [`peterl.dev`](https://peterl.dev) · [`vaked.dev`](https://vaked.dev) |
 
 ```
