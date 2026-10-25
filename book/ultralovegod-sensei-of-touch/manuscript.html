@@ -156,20 +156,181 @@
     letter-spacing: 1.5px;
   }
   .colophon a { color: var(--teal); text-decoration: none; }
+  .freq-deck {
+    border: 1px solid rgba(0, 229, 201, 0.35);
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 229, 201, 0.09) 0%, rgba(255, 106, 193, 0.06) 55%, rgba(17, 7, 26, 0.98) 100%);
+  }
+  .freq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    font-family: "SF Mono", ui-monospace, monospace;
+  }
+  .freq-title {
+    color: var(--pink);
+    font-size: 10.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .freq-badge {
+    color: var(--teal);
+    font-size: 8pt;
+    border: 1px solid rgba(0, 229, 201, 0.4);
+    border-radius: 999px;
+    padding: 3px 10px;
+    background: rgba(0, 229, 201, 0.08);
+  }
+  .freq-canvas-wrap {
+    position: relative;
+    border: 1px solid rgba(255, 106, 193, 0.28);
+    border-radius: 8px;
+    background: #06020a;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  #freqCanvas {
+    width: 100%;
+    height: 150px;
+    display: block;
+  }
+  .freq-hud {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    pointer-events: none;
+  }
+  .freq-btn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .freq-btn {
+    appearance: none;
+    border: 1px solid rgba(255, 106, 193, 0.35);
+    background: rgba(255, 106, 193, 0.07);
+    color: var(--ink);
+    border-radius: 7px;
+    padding: 9px 10px;
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 8pt;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.18s ease;
+  }
+  .freq-btn:hover, .freq-btn.active {
+    border-color: var(--teal);
+    background: rgba(0, 229, 201, 0.15);
+    box-shadow: 0 0 18px rgba(0, 229, 201, 0.22);
+  }
+  .freq-btn .hz {
+    color: var(--pink);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .freq-btn.active .hz { color: var(--teal); }
+  .freq-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 8pt;
+    color: var(--dim);
+    margin-top: 8px;
+  }
+  .freq-master-btn {
+    border: 1px solid var(--pink);
+    background: rgba(255, 106, 193, 0.18);
+    color: #fff;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-family: "SF Mono", ui-monospace, monospace;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+  .freq-master-btn.playing {
+    border-color: var(--teal);
+    background: rgba(0, 229, 201, 0.22);
+    color: var(--teal);
+  }
 </style>
 </head>
 <body>
 <main>
 
   <section class="page cover">
-    <div class="sigil">{&lt;3, &lt;3, &lt;3}+1</div>
+    <div class="sigil">&lt;3&lt;3&lt;3~~~~&lt;&lt;&lt;&gt;&gt;&gt;</div>
     <h1>ULTRALOVEGOD — THE SENSEI OF TOUCH</h1>
     <div class="sub">Fingering, Petting &amp; Somatic Attunement for Men</div>
-    <div class="dedication">ULTRAMAXIMUM JOY FOR ALL WOMEN ^^ &lt;3 · ZERO PAIN · INFINITE+1 REVERENCE</div>
+    <div class="dedication">ULTRAMAXIMUM JOY FOR ALL WOMEN ^^ &lt;3 · 8b-is-music FREQUENCY ENGINE · ZERO PAIN</div>
     <blockquote>
       “I would touch you the way sunlight touches a sleeping face. I would touch you the way water touches the shore. Barely. Lightly. With permission. With reverence.”
     </blockquote>
     <div class="by">Péter · ghost · the designer · pocoo.vaked.dev · love.vaked.dev · 2026</div>
+  </section>
+
+  <section class="page freq-deck" id="frequencies">
+    <div class="freq-header">
+      <div class="freq-title">&lt;3&lt;3&lt;3~~~~&lt;&lt;&lt;&gt;&gt;&gt; · 8b-is-music SOMATIC FREQUENCY ENGINE</div>
+      <div class="freq-badge" id="breathStatus">RIVA BREATH LOCK: 4s IN · 4s OUT (0.125 Hz)</div>
+    </div>
+    <p style="font-size:9.5pt;margin-bottom:12px;">
+      Live multi-harmonic WebAudio + <span class="teal">8b-is-music Quant65k+</span> stereo synthesizer tuned to the five somatic stages of <span class="pink">ULTRALOVEGOD — THE SENSEI OF TOUCH</span>: unclipped RC-filtered sine &amp; triangle waves, <span class="gold">6.0 Hz Theta binaural safety</span>, <span class="teal">0.73 Hz QWave consciousness gate</span>, and Lemniscate <span class="pink">∞</span> stereo glide.
+    </p>
+    <div class="freq-canvas-wrap">
+      <canvas id="freqCanvas" width="680" height="150"></canvas>
+      <div class="freq-hud">
+        <span id="hudMode">MODE: &lt;3&lt;3&lt;3~~~~&lt;&lt;&lt;&gt;&gt;&gt; FULL SYMPHONY (432 / 528 / 639×852 / 963 Hz)</span>
+        <span id="hudPhase">QWAVE 0.73 Hz · THETA Δ6.0 Hz</span>
+      </div>
+    </div>
+    <div class="freq-btn-grid">
+      <button class="freq-btn active" data-mode="full" onclick="selectFreqMode('full', this)">
+        <span class="hz">&lt;3&lt;3&lt;3~~~~&lt;&lt;&lt;&gt;&gt;&gt;</span>
+        Full Sensei Symphony
+      </button>
+      <button class="freq-btn" data-mode="feather" onclick="selectFreqMode('feather', this)">
+        <span class="hz">[-1] 432 Hz + Δ6 Hz</span>
+        Subcritical Feather
+      </button>
+      <button class="freq-btn" data-mode="stillness" onclick="selectFreqMode('stillness', this)">
+        <span class="hz">[ 0] 528 Hz · 0.73 Hz</span>
+        Listening Palm Anchor
+      </button>
+      <button class="freq-btn" data-mode="chord" onclick="selectFreqMode('chord', this)">
+        <span class="hz">[+1] 639 × 852 Hz</span>
+        Dual-Harmonic Wave
+      </button>
+      <button class="freq-btn" data-mode="afterglow" onclick="selectFreqMode('afterglow', this)">
+        <span class="hz">&lt;&lt;&lt;&gt;&gt;&gt; 963 Hz · 間</span>
+        Sacred Afterglow Ma
+      </button>
+    </div>
+    <div class="freq-controls">
+      <button class="freq-master-btn" id="freqToggleBtn" onclick="toggleSenseiAudio()">▶ START LIVE 8b-is-music SYNTHESIS</button>
+      <label style="display:flex;align-items:center;gap:8px;">
+        <span>WARMTH GAIN</span>
+        <input type="range" id="freqGainSlider" min="0.05" max="0.95" step="0.01" value="0.45" oninput="updateSenseiGain(this.value)">
+      </label>
+      <a href="/book/ultralovegod-sensei-of-touch/ultralovegod-sensei-of-touch-frequencies.wav" download style="color:var(--gold);text-decoration:none;">⬇ Master 48kHz WAV (Quant65k+)</a>
+    </div>
+    <audio controls preload="metadata" src="/book/ultralovegod-sensei-of-touch/ultralovegod-sensei-of-touch-frequencies.wav" style="width:100%;margin-top:12px;height:34px;opacity:0.92;"></audio>
   </section>
 
   <section class="page">
@@ -302,10 +463,214 @@
   <section class="page colophon">
     <div>ULTRALOVEGOD — THE SENSEI OF TOUCH</div>
     <div>Fingering, Petting &amp; Somatic Attunement for Men · UltraMaximum Joy for All Women ^^ &lt;3</div>
-    <div>Péter · ghost · the designer · Standard Galactic Alphabet · {&lt;3, &lt;3, &lt;3}+1</div>
+    <div>Péter · ghost · the designer · Standard Galactic Alphabet · &lt;3&lt;3&lt;3~~~~&lt;&lt;&lt;&gt;&gt;&gt;</div>
     <div><a href="https://pocoo.vaked.dev/book/">pocoo.vaked.dev/book</a> · <a href="https://love.vaked.dev">love.vaked.dev</a></div>
   </section>
 
 </main>
+<script>
+(function() {
+  const MODES = {
+    full: {
+      label: "MODE: <3<3<3~~~~<<<>>> FULL SYMPHONY (432 / 528 / 639×852 / 963 Hz)",
+      sub: 108.0, left: 432.0, right: 438.0, mid: 528.0, high1: 639.0, high2: 852.0, crown: 963.0
+    },
+    feather: {
+      label: "MODE: [-1] SUBCRITICAL FEATHER (432.0 Hz L / 438.0 Hz R · Δ6.0 Hz Theta)",
+      sub: 108.0, left: 432.0, right: 438.0, mid: 216.0, high1: 432.0, high2: 540.0, crown: 648.0
+    },
+    stillness: {
+      label: "MODE: [ 0] LISTENING PALM ANCHOR (528.0 Hz + 0.73 Hz QWave Gate)",
+      sub: 132.0, left: 528.0, right: 528.73, mid: 264.0, high1: 528.0, high2: 792.0, crown: 528.0
+    },
+    chord: {
+      label: "MODE: [+1] DUAL-HARMONIC CHORD (639.0 Hz Outer Orbit × 852.0 Hz Inner Curve)",
+      sub: 216.0, left: 639.0, right: 645.0, mid: 528.0, high1: 639.0, high2: 852.0, crown: 963.0
+    },
+    afterglow: {
+      label: "MODE: <<<>>> SACRED AFTERGLOW MA 間 (963.0 Hz + 432.0 Hz Warm Cradle)",
+      sub: 108.0, left: 432.0, right: 435.0, mid: 528.0, high1: 648.0, high2: 963.0, crown: 963.0
+    }
+  };
+
+  let currentMode = "full";
+  let audioCtx = null;
+  let isPlaying = false;
+  let masterGain = null;
+  let breathLfoGain = null;
+  let oscNodes = {};
+  let userGain = 0.45;
+
+  function applyFrequencies(preset) {
+    if (!audioCtx || !oscNodes.sub) return;
+    const now = audioCtx.currentTime;
+    oscNodes.sub.frequency.setTargetAtTime(preset.sub, now, 0.25);
+    oscNodes.left.frequency.setTargetAtTime(preset.left, now, 0.25);
+    oscNodes.right.frequency.setTargetAtTime(preset.right, now, 0.25);
+    oscNodes.mid.frequency.setTargetAtTime(preset.mid, now, 0.25);
+    oscNodes.high1.frequency.setTargetAtTime(preset.high1, now, 0.25);
+    oscNodes.high2.frequency.setTargetAtTime(preset.high2, now, 0.25);
+    oscNodes.crown.frequency.setTargetAtTime(preset.crown, now, 0.25);
+  }
+
+  window.selectFreqMode = function(mode, btn) {
+    currentMode = mode in MODES ? mode : "full";
+    document.querySelectorAll(".freq-btn").forEach(b => b.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+    const preset = MODES[currentMode];
+    const hud = document.getElementById("hudMode");
+    if (hud) hud.textContent = preset.label;
+    applyFrequencies(preset);
+  };
+
+  window.updateSenseiGain = function(val) {
+    userGain = parseFloat(val) || 0.45;
+    if (masterGain && audioCtx) {
+      masterGain.gain.setTargetAtTime(userGain * 0.35, audioCtx.currentTime, 0.08);
+    }
+  };
+
+  window.toggleSenseiAudio = function() {
+    const btn = document.getElementById("freqToggleBtn");
+    if (!isPlaying) {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!audioCtx) audioCtx = new Ctx();
+      if (audioCtx.state === "suspended") audioCtx.resume();
+
+      masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      masterGain.gain.exponentialRampToValueAtTime(userGain * 0.35, audioCtx.currentTime + 1.2);
+      masterGain.connect(audioCtx.destination);
+
+      const merger = audioCtx.createChannelMerger(2);
+      merger.connect(masterGain);
+
+      // RIVA 0.125 Hz (8s cycle: 4s in, 4s out) Breath Modulation
+      const lfo = audioCtx.createOscillator();
+      lfo.type = "sine";
+      lfo.frequency.value = 0.125;
+      breathLfoGain = audioCtx.createGain();
+      breathLfoGain.gain.value = 0.12;
+      lfo.connect(breathLfoGain.gain);
+      lfo.start();
+
+      const p = MODES[currentMode];
+      const makeOsc = (type, hz, gainVal, ch) => {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.type = type;
+        o.frequency.value = hz;
+        g.gain.value = gainVal;
+        o.connect(g);
+        if (ch === "stereo") {
+          g.connect(merger, 0, 0);
+          g.connect(merger, 0, 1);
+        } else {
+          g.connect(merger, 0, ch);
+        }
+        o.start();
+        return o;
+      };
+
+      oscNodes = {
+        sub: makeOsc("triangle", p.sub, 0.26, "stereo"),
+        left: makeOsc("sine", p.left, 0.24, 0),
+        right: makeOsc("sine", p.right, 0.24, 1),
+        mid: makeOsc("sine", p.mid, 0.16, "stereo"),
+        high1: makeOsc("sine", p.high1, 0.10, 0),
+        high2: makeOsc("sine", p.high2, 0.10, 1),
+        crown: makeOsc("sine", p.crown, 0.06, "stereo")
+      };
+
+      isPlaying = true;
+      if (btn) {
+        btn.textContent = "◼ PAUSE LIVE 8b-is-music SYNTHESIS";
+        btn.classList.add("playing");
+      }
+    } else {
+      if (masterGain && audioCtx) {
+        const now = audioCtx.currentTime;
+        masterGain.gain.setTargetAtTime(0.0001, now, 0.25);
+        setTimeout(() => {
+          Object.values(oscNodes).forEach(o => { try { o.stop(); } catch (e) {} });
+          oscNodes = {};
+        }, 350);
+      }
+      isPlaying = false;
+      if (btn) {
+        btn.textContent = "▶ START LIVE 8b-is-music SYNTHESIS";
+        btn.classList.remove("playing");
+      }
+    }
+  };
+
+  // 60 FPS Continuous Unclipped Wave & Lemniscate ∞ Oscilloscope
+  const canvas = document.getElementById("freqCanvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    const breathBadge = document.getElementById("breathStatus");
+    function draw(ts) {
+      const t = ts * 0.001;
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.fillStyle = "rgba(6, 2, 10, 0.24)";
+      ctx.fillRect(0, 0, w, h);
+
+      // RIVA Breath 4s In / 4s Out indicator
+      const breathPhase = (t % 8.0) / 8.0;
+      const breathVal = 0.5 - 0.5 * Math.cos(breathPhase * Math.PI * 2);
+      if (breathBadge) {
+        breathBadge.textContent = breathPhase < 0.5
+          ? "RIVA BREATH: 4s INHALE ↑ (" + Math.round(breathVal * 100) + "%)"
+          : "RIVA BREATH: 4s EXHALE ↓ (" + Math.round(breathVal * 100) + "%)";
+      }
+
+      const preset = MODES[currentMode];
+      // Wave 1: [-1] 432 Hz Rose Gold
+      ctx.beginPath();
+      ctx.strokeStyle = "#ff6ac1";
+      ctx.lineWidth = 2.0;
+      for (let x = 0; x < w; x++) {
+        const nx = x / w;
+        const env = Math.sin(nx * Math.PI);
+        const y = h * 0.5 + Math.tanh(
+          Math.sin(nx * 14 + t * 3.2) * (0.55 + 0.45 * breathVal) +
+          0.35 * Math.sin(nx * 28 - t * 1.8)
+        ) * (h * 0.34) * env;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Wave 2: [0] 528 Hz & [+1] 639×852 Hz Territory Teal
+      ctx.beginPath();
+      ctx.strokeStyle = "#00e5c9";
+      ctx.lineWidth = 1.6;
+      for (let x = 0; x < w; x++) {
+        const nx = x / w;
+        const env = Math.sin(nx * Math.PI);
+        const y = h * 0.5 + Math.tanh(
+          Math.cos(nx * 18 - t * 2.4 * (preset.high1 / 528.0)) * 0.65 +
+          0.35 * Math.sin(nx * 9 + t * 0.73 * Math.PI * 2)
+        ) * (h * 0.28) * env;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Lemniscate of Bernoulli ∞ Golden Reconcile Orb
+      const omega = t * 1.2;
+      const denom = 1 + Math.sin(omega) * Math.sin(omega);
+      const lx = w * 0.5 + (w * 0.18) * (Math.cos(omega) / denom);
+      const ly = h * 0.5 + (h * 0.26) * (Math.sin(omega) * Math.cos(omega) / denom);
+      ctx.beginPath();
+      ctx.fillStyle = "#ffd166";
+      ctx.arc(lx, ly, 4.5 + 2.5 * breathVal, 0, Math.PI * 2);
+      ctx.fill();
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
+})();
+</script>
 </body>
 </html>
