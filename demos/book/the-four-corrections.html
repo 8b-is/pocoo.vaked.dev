@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>THE FOUR CORRECTIONS: four values that were never computed — pocoo-book · 0+1</title>
+<style>
+  @page { size: 5in 8in; margin: 0.6in 0.6in; @top-center { content: none }; @bottom-center { content: counter(page); font-family: "SF Mono", monospace; font-size: 7px; color: #24324a; } }
+  @page cover { margin: 0; @bottom-center { content: none } }
+  body { background: #05070c; color: #9fb4c8; font-family: "Georgia", serif; font-size: 10.5pt; line-height: 1.9; margin: 0; padding: 0; }
+  .cover { page: cover; break-after: page; text-align: center; background: radial-gradient(ellipse at 50% 40%, #0a1424 0%, #05070c 60%, #000 100%); height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .cover .mark { font-family: "SF Mono", monospace; font-size: 64px; color: #62e6c9; opacity: 0.30; line-height: 0.8; letter-spacing: 6px; }
+  .cover .disc { font-size: 34px; color: #b48bff; opacity: 0.55; margin-top: 0.1in; }
+  .cover h1 { font-family: "SF Mono", monospace; font-size: 13pt; color: #9fb4c8; letter-spacing: 4px; margin: 0.22in 0 0.06in; }
+  .cover .num { font-family: "SF Mono", monospace; font-size: 20pt; color: #62e6c9; letter-spacing: 2px; margin-top: 0.12in; }
+  .cover .sub { font-family: "Georgia", serif; font-size: 10.5pt; color: #5a7a9a; font-style: italic; letter-spacing: 1.5px; max-width: 3.2in; margin: 0.12in auto 0; }
+  .cover .by { font-size: 9.5pt; color: #4a5a6a; margin-top: 0.45in; letter-spacing: 3px; }
+  .cover .tag { margin-top: 0.35in; font-family: "SF Mono", monospace; font-size: 7.2pt; color: #4a6a8a; letter-spacing: 1px; opacity: 0.55; max-width: 3.4in; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  h1.chapter { font-family: "SF Mono", monospace; font-size: 11pt; color: #9fb4c8; font-weight: normal; letter-spacing: 4px; margin-top: 0.5in; margin-bottom: 0.3in; page-break-before: always; }
+  h1.chapter .num { font-size: 22pt; color: #24324a; display: block; line-height: 1; margin-bottom: 0.1in; }
+  p { margin: 0 0 0.8em 0; }
+  .term { font-family: "SF Mono", monospace; color: #62e6c9; }
+  .light { color: #b48bff; }
+  .dim { color: #4a5a6a; }
+  .fig { text-align: center; margin: 0.55in 0; break-inside: avoid; }
+  .fig svg { max-width: 100%; }
+  .fig .cap { font-family: "SF Mono", monospace; font-size: 8pt; color: #4a5a6a; letter-spacing: 1px; margin-top: 0.12in; }
+  .rule { font-family: "SF Mono", monospace; font-size: 8pt; color: #24324a; letter-spacing: 3px; text-align: center; margin: 0.5in 0; }
+  table { width: 100%; border-collapse: collapse; font-family: "SF Mono", monospace; font-size: 8pt; margin: 0.25in 0 0.4in; }
+  th, td { text-align: left; padding: 3px 4px; border-bottom: 1px solid #12202f; }
+  th { color: #4a6a8a; font-weight: normal; letter-spacing: 1px; }
+  td.ok { color: #62e6c9; }
+  td.bad { color: #c86a7a; }
+  blockquote { margin: 0.2in 0; padding-left: 0.16in; border-left: 2px solid #1b3348; color: #7f96ad; font-style: italic; }
+  code { font-family: "SF Mono", monospace; font-size: 8.5pt; color: #62e6c9; }
+  pre { font-family: "SF Mono", monospace; font-size: 7.6pt; color: #7f96ad; background: #070b12; border: 1px solid #12202f; padding: 8px 9px; line-height: 1.55; overflow-wrap: break-word; white-space: pre-wrap; }
+  .end { text-align: center; font-family: "SF Mono", monospace; font-size: 8pt; color: #4a5a6a; letter-spacing: 3px; margin-top: 0.6in; }
+</style>
+</head>
+<body>
+
+<!-- ── COVER ───────────────────────────────────────────── -->
+<div class="cover">
+  <div class="mark">+1</div>
+  <div class="disc">◯</div>
+  <h1>THE FOUR CORRECTIONS</h1>
+  <div class="num">4</div>
+  <div class="sub">four values that inherited authority they had not earned, and what happened when each was recomputed</div>
+  <div class="by">peterlodri · the constellation</div>
+  <div class="tag">{n+-1-&lt;△&gt;} · 0+1 · fine touch from within · vaked.dev</div>
+</div>
+
+<!-- ── I ───────────────────────────────────────────────── -->
+<h1 class="chapter"><span class="num">I</span>THE TRIT THAT WAS TYPED</h1>
+
+<p>A manifest printed three twelve-trit registers and a collapsed state
+<span class="term">Σ(t) mod 3</span>. Three principals, twelve columns, one
+claim: add the columns, reduce mod three, and this is what comes out.</p>
+
+<p>The rule is well formed, so the arithmetic is checkable, so it was checked.
+Ten of twelve columns reproduce. Two do not. And the two that fail are the same
+computation reported two different ways: both columns sum to
+<span class="term">2</span>, and one is printed as <span class="term">+</span>
+while the other is printed as <span class="term">0</span>. Under any single rule
+those two must come out identical, because their inputs are identical. Neither
+is what the rule yields. A rule cannot map the same input to two different
+outputs; a hand can.</p>
+
+<div class="fig">
+<svg viewBox="0 0 420 150" width="420" height="150" role="img" aria-label="twelve columns, ten matching, two mismatched">
+  <g font-family="SF Mono, monospace" font-size="9" fill="#4a6a8a" text-anchor="middle">
+    <text x="24" y="14">col</text>
+  </g>
+  <g font-family="SF Mono, monospace" font-size="10">
+    <g fill="#9fb4c8" text-anchor="middle">
+      <text x="40" y="40">1</text><text x="70" y="40">2</text><text x="100" y="40">3</text>
+      <text x="130" y="40">4</text><text x="160" y="40">5</text><text x="190" y="40">6</text>
+      <text x="220" y="40">7</text><text x="250" y="40">8</text><text x="280" y="40">9</text>
+      <text x="310" y="40">10</text><text x="340" y="40">11</text><text x="370" y="40">12</text>
+    </g>
+    <g text-anchor="middle" fill="#5a7a9a">
+      <text x="40" y="62">0</text><text x="70" y="62">0</text><text x="100" y="62">2</text>
+      <text x="130" y="62">1</text><text x="160" y="62">0</text><text x="190" y="62">0</text>
+      <text x="220" y="62">1</text><text x="250" y="62">0</text><text x="280" y="62">1</text>
+      <text x="310" y="62">2</text><text x="340" y="62">0</text><text x="370" y="62">1</text>
+    </g>
+    <g text-anchor="middle" fill="#62e6c9">
+      <text x="40" y="84">0</text><text x="70" y="84">0</text><text x="100" y="84">−</text>
+      <text x="130" y="84">+</text><text x="160" y="84">0</text><text x="190" y="84">0</text>
+      <text x="220" y="84">+</text><text x="250" y="84">0</text><text x="280" y="84">+</text>
+      <text x="310" y="84">−</text><text x="340" y="84">0</text><text x="370" y="84">+</text>
+    </g>
+    <g text-anchor="middle" fill="#c86a7a">
+      <text x="40" y="106">0</text><text x="70" y="106">0</text><text x="100" y="106">+</text>
+      <text x="130" y="106">+</text><text x="160" y="106">0</text><text x="190" y="106">0</text>
+      <text x="220" y="106">+</text><text x="250" y="106">0</text><text x="280" y="106">+</text>
+      <text x="310" y="106">0</text><text x="340" y="106">0</text><text x="370" y="106">+</text>
+    </g>
+  </g>
+  <g stroke="#12202f" stroke-width="1">
+    <line x1="20" y1="118" x2="400" y2="118"/>
+  </g>
+  <g font-family="SF Mono, monospace" font-size="8" fill="#4a5a6a">
+    <text x="24" y="132">sum</text><text x="78" y="132">balanced residue (computed)</text><text x="300" y="132">as published</text>
+  </g>
+  <g fill="none" stroke="#c86a7a" stroke-width="1" opacity="0.7">
+    <rect x="88" y="92" width="24" height="20" rx="2"/><rect x="298" y="92" width="24" height="20" rx="2"/>
+  </g>
+</svg>
+  <div class="cap">fig 1 · ten columns agree, two do not, and the two disagree with each other</div>
+</div>
+
+<p><span class="light">The correction:</span> the computed collapse is
+<span class="term">0 0 − + 0 0 + 0 + − 0 +</span>. It was published beside the
+original rather than over it, because the original is the evidence that the
+manifest was assembled by hand in the spirit of a rule rather than run through it.</p>
+
+<div class="rule">· · ·</div>
+
+<h1 class="chapter"><span class="num">II</span>THE SEAL THAT DECODED</h1>
+
+<p>The same page carried another seal. Ten bytes of hex, printed under a heading
+that promised nothing in particular:</p>
+
+<pre>0x54 0x52 0x49 0x4E 0x49 0x54 0x59 0x2D 0x38 0x42</pre>
+
+<p>Decoded, that is <code>TRINITY-8B</code>, exact to the byte. So the two seals
+on the page were not equally honest, and the difference was not visible in the
+typography: both were monospace, both were confident, both sat in the same table.
+One had been computed. The other had been written by feel.</p>
+
+<blockquote>The seal that could be computed was computed correctly. The seal that
+required arithmetic was written by feel. Both were published with equal
+confidence.</blockquote>
+
+<p><span class="light">The correction:</span> none was needed for the hex. The
+correction was to the reader's assumption — that a page which gets one seal
+exactly right has probably got the other one right too. It has not, and the
+assumption is the bug, not the arithmetic.</p>
+
+<div class="rule">· · ·</div>
+
+<h1 class="chapter"><span class="num">III</span>THE DIGEST THAT WALKED</h1>
+
+<p>A receipt for a compressed container printed two SHA-256 digests. A copy of
+that receipt, paraphrased, carried a different pair — and the same value twice,
+for two different byte strings, which is impossible for a real pair.</p>
+
+<p>The tell was a stride. Step through the pasted bytes and count the
+differences:</p>
+
+<table>
+  <tr><th>string</th><th>steps equal to +0x22</th></tr>
+  <tr><td>the pasted value</td><td class="bad">12 of 31</td></tr>
+  <tr><td>the real file digest</td><td class="ok">0 of 31</td></tr>
+</table>
+
+<p>A hash output is indistinguishable from noise, so a given stride appears about
+once in 256 steps by chance. Twelve is not chance. <em>A hash that walks in step
+was typed, not computed.</em></p>
+
+<p><span class="light">The correction:</span> the artifact was innocent. The
+container verified nine ways — magic, block count, raw size, the XOR fold, the
+payload digest, the file digest, the savings — and the container additionally
+stores the digest of its own decompressed payload, so the file proves itself and
+the receipt only quotes it. What failed was the <em>copy</em>: a regeneration of a
+receipt from a description of a receipt.</p>
+
+<div class="rule">· · ·</div>
+
+<h1 class="chapter"><span class="num">IV</span>THE MEASUREMENT THAT WAS TRUE</h1>
+
+<p>The first three corrections are the same species: a value that was never
+computed, dressed as one that was. The fourth is gentler and more common.</p>
+
+<p>A book about a training run states its parity tolerance, then reports the
+measurement underneath it:</p>
+
+<pre>Not approximately. 1e-5.
+prompt 1: max_abs 9.584e-05
+prompt 2: max_abs 9.918e-05
+Bit for bit.</pre>
+
+<p><span class="term">9.584e-05</span> is 9.6 times larger than
+<span class="term">1e-5</span>. <span class="term">9.918e-05</span> is 9.9 times
+larger. And a nonzero <span class="term">max_abs</span> is by definition the
+measurement of a difference, so it is not what <em>bit for bit</em> describes.</p>
+
+<div class="fig">
+<svg viewBox="0 0 420 96" width="420" height="96" role="img" aria-label="stated tolerance versus measured error">
+  <g font-family="SF Mono, monospace" font-size="8" fill="#4a6a8a">
+    <text x="8" y="16">stated 1e-5</text>
+    <text x="8" y="46">measured 9.584e-05</text>
+    <text x="8" y="76">measured 9.918e-05</text>
+  </g>
+  <g>
+    <rect x="150" y="8" width="26" height="10" fill="#b48bff" opacity="0.75"/>
+    <rect x="150" y="38" width="249" height="10" fill="#c86a7a" opacity="0.75"/>
+    <rect x="150" y="68" width="258" height="10" fill="#c86a7a" opacity="0.75"/>
+  </g>
+  <g font-family="SF Mono, monospace" font-size="8" fill="#62e6c9">
+    <text x="184" y="17">1×</text>
+    <text x="300" y="47">9.6×</text>
+    <text x="300" y="77">9.9×</text>
+  </g>
+</svg>
+  <div class="cap">fig 2 · the tolerance was the label; the measurement was the truth</div>
+</div>
+
+<p>What holds is the operational claim. Both prompts keep the same argmax, so the
+deployed body chooses what the trained mind chose. That is
+<em>argmax-for-argmax</em> parity at <span class="term">~1e-4</span>, which is a
+real result. The book oversold the label, not the work.</p>
+
+<p><span class="light">The correction:</span> a note under the original paragraph,
+keeping both the sentence and the measurement, and naming which one was wrong.</p>
+
+<div class="rule">· · ·</div>
+
+<h1 class="chapter"><span class="num">V</span>WHAT THE FOUR TEACH</h1>
+
+<p>Three of these were <strong>provenance</strong> failures: a value that was
+never computed inherited the authority of values that were. One was a
+<strong>labelling</strong> failure: a true number under a false word.</p>
+
+<p>Both are the same structural error, and it is the error the whole shelf is
+built against. A projection is substituted for the thing projected, and then the
+projection inherits the authority of the original. Compression does not preserve
+admissibility. A summary keeps the conclusion and drops the provenance. The
+conclusion then behaves like something that was measured.</p>
+
+<p>The defences are unglamorous, and each one is a sentence you can run:</p>
+
+<table>
+  <tr><th>defence</th><th>form</th></tr>
+  <tr><td>recompute, do not reprint</td><td><code>verify-zkp1.py &lt;container&gt; --expect-seal …</code></td></tr>
+  <tr><td>make the rule a type</td><td><code>python3 -m vakedc check --json …</code></td></tr>
+  <tr><td>keep the correction in place</td><td>the original paragraph, and the note under it</td></tr>
+  <tr><td>label the ladder</td><td><code>named</code> &lt; <code>verified</code>, in the file, not the prose</td></tr>
+</table>
+
+<p>And the rule that makes the rest usable:</p>
+
+<blockquote>A plausible branch may be ranked; only a verified branch may be bound.
+Replayable ⇒ admissible.</blockquote>
+
+<p>None of the four corrections deletes anything. The trit table still shows the
+published collapse next to the computed one. The Tokyo page still carries both
+seals. The OMNI receipt now carries the command that re-derives it. The eclipse
+book keeps the sentence that was wrong about its own tolerance, with the
+recomputation directly beneath it.</p>
+
+<p class="dim">That is the whole method, and it is a filing system rather than a
+virtue: keep the fracture visible, fill it, and make the next reader's check
+cheaper than your claim. A vault that treated the zero as nothing would have to
+hide its seams. This one files them.</p>
+
+<div class="rule">· · ·</div>
+
+<p>Four values, four checks, one sentence that survived all of them:</p>
+
+<p style="text-align:center; font-family:'SF Mono', monospace; color:#62e6c9; letter-spacing:3px; font-size:13pt; margin:0.35in 0;">{&lt;3,&lt;3,&lt;3}+1</p>
+
+<div class="end">pocoo sovereign library · 0 + 1 · fine touch from within · vaked.dev</div>
+
+</body>
+</html>
