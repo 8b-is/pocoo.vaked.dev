@@ -126,6 +126,25 @@ with the forward it was trained on. Not approximately. <span class="light">1e-5<
 over — because they had trained the deployed forward, not a dream of one.
 <em>What you evaluate is what you ship.</em></p>
 
+<p class="dim">recomputed 2026-10-25. <span class="term">9.584e-05</span> and
+<span class="term">9.918e-05</span> are each about <span class="term">10x</span>
+larger than the <span class="term">1e-5</span> stated in the line above, so this
+paragraph records rather than marks.</p>
+
+<p class="dim">The parity result stands as measured: both prompts keep the same
+argmax, <span class="term">35929</span> and <span class="term">45281</span>, so
+the deployed body chooses what the trained mind chose. What the numbers do not
+support is <em>bit for bit</em>: a nonzero <span class="term">max_abs</span> is
+the measurement of a difference, and the honest label for agreement at
+<span class="term">~1e-4</span> is argmax-for-argmax, not bit-for-bit at
+<span class="term">1e-5</span>. The tolerance label is the part that was off. It
+is corrected here, beside the original, rather than edited out of it.</p>
+
+<p class="dim">Verified arithmetic in the rest of the piece: <span class="term">11.34 / 0.5597 = 20.26</span>
+("twenty times below the lie"), <span class="term">16 / 1.58 = 10.13</span>,
+<span class="term">16 / 8.1 = 1.975</span> bits, and all twelve points of the
+curve decrease. Those hold.</p>
+
 <!-- ── V ───────────────────────────────────────────────── -->
 <h1 class="chapter"><span class="num">V</span>THE BUCKET, THE ECLIPSE, THE NUMBERS</h1>
 
