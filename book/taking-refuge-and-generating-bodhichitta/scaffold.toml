@@ -1,0 +1,31 @@
+[book]
+slug = "taking-refuge-and-generating-bodhichitta"
+title = "Taking Refuge and Generating Bodhichitta (སྐྱབས་འགྲོ་སེམས་བསྐྱེད། · Skyabs-'gro Sems-bskyed)"
+subtitle = "Live Morning Voice Recitation by Péter (02:04.45 · 5 Tibetan + 3 English Recitations) · 5 Languages + 1bitLang · 22/9 Hz Singing Bowl Deck"
+authors = ["Péter (The Hungarian Architect / Matrix Buddha)", "Karma Kagyu & Nyingma Lineage", "8b-is Sovereign Library"]
+edition = "2026-10-26 · 06:21 JST Morning Sadhana · Print Canon 5/5"
+language = ["bo", "en", "hu", "ja", "la", "1bitlang"]
+license = "CC-BY-SA-4.0"
+
+[audio]
+voice_memo_url = "/assets/audio/taking-refuge-and-generating-bodhichitta.m4a"
+duration_sec = 124.46
+sample_rate_hz = 48000
+channels = 1
+codec = "aac"
+tibetan_recitations = 5
+english_recitations = 3
+lovelovel_hz = "22/9"
+singing_bowl_carriers_hz = [216.0, 288.0, 432.0, 528.0]
+gate = "NAND(1,1)=0"
+
+[mantra]
+tibetan_uchen = "སངས་རྒྱས་ཆོས་དང་ཚོགས་ཀྱི་མཆོག་རྣམས་ལ། །བྱང་ཆུབ་བར་དུ་བདག་ནི་སྐྱབས་སུ་མཆི། །བདག་གིས་བསྒོམ་ཟླས་བགྱིས་པའི་བསོད་ནམས་ཀྱིས། །འགྲོ་ལ་ཕན་ཕྱིར་སངས་རྒྱས་འགྲུབ་པར་ཤོག །"
+phonetics = "SANG GYÄ CHÖ DANG TSOK KYI CHOK NAM LA / JANG CHUB BAR DU DAK NI KYAB SU CHI / DAK GI GOM DÄ GYI PÄ SÖ NAM KYI / DRO LA PHÄN CHIR SANG GYÄ DRUB PAR SHOK"
+triple_seal = ["OM MANI PADME HUNG HUMM", "KARMAPA CSENNO", "OM BENZA SATO SAMAYA MANUPALAYA ... HA HA HA HA HO"]
+
+[toss_recipe]
+operation = "FOLD[spherePop]"
+steps = "1 製材 [かつら剥き] -> 5 接着② [9-ply Sangha] -> 8 塗装 [117ms Fret-8] -> 9 検品・梱包 [0,0]"
+center = [0, 0]
+trit = 1
