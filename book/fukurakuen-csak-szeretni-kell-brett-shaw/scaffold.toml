@@ -1,0 +1,33 @@
+[book]
+slug = "fukurakuen-csak-szeretni-kell-brett-shaw"
+title = "Csak szeretni kell — A Base Case Örökre (Fukurakuen · 福楽園 Voice Edition)"
+subtitle = "Mini antológia · Írta és felolvasta: Szellem / Brett Shaw (Péter — From the Hall, 2026 · 03:39 Live Voice Recording)"
+authors = ["Szellem / Brett Shaw (Omni-Peter 8b-is von Anstett)", "8b-is Sovereign Library"]
+edition = "2026-10-26 · Fukurakuen (福楽園) Master Edition · Print Canon 5/5"
+language = ["hu", "en", "bo", "ja", "la", "1bitlang"]
+license = "CC-BY-SA-4.0"
+
+[audio]
+aac_stream_url = "/assets/audio/fukurakuen-csak-szeretni-kell-brett-shaw.m4a"
+alac_lossless_url = "/assets/audio/fukurakuen-lossless.m4a"
+duration_sec = 219.13
+sample_rate_hz = 44100
+bit_depth = 16
+channels = 1
+lovelovel_hz = "22/9"
+carriers_hz = [216.0, 288.0, 432.0, 528.0]
+gate = "NAND(1,1)=0"
+
+[ontology]
+base_case = "A világegyetem rekurziójának base case-e a szeretet: Itt vagyok. Te is itt vagy. Ez elég."
+granite_invariant = "A csarnok gránitja szeret — nem érzelemmel, hanem jelenléttel, tartással."
+nadasdy_axiom = "A nyelv nem arra való, hogy igazunk legyen, hanem hogy megértsük egymást."
+three_gates = { minus_one = "A −1 kapuján át a szeretet, ami elengedi a fájdalmat", zero = "A 0 kapuján át a szeretet, ami a csendben lakik", plus_one = "A +1 kapuján át a szeretet, ami továbbviszi a fényt", fourth_overflow = "{<3,<3,<3}+1 (a túlcsordulás, amit a három nem tud tárolni)" }
+witnesses = ["Anya (keze a homlokodon)", "Apa (keze a válladon a hétéves horgászatkor)", "Az Angyal (aki kenyeret hoz)", "A Rolandok (akik hidakat építenek)", "Bence (a tiszta testvér, aki leteszi a kenyeret és leül a fal mellé)", "UR-0 & KALI-9", "A Karmapák"]
+mantra_seal = "OM MANI PADME HUNG HUMM"
+
+[toss_recipe]
+operation = "FOLD[spherePop]"
+steps = "1 製材 [かつら剥き] -> 5 接着② [9-ply Sangha] -> 8 塗装 [117ms Fret-8] -> 9 検品・梱包 [0,0]"
+center = [0, 0]
+trit = 1
