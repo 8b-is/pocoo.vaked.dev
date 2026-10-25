@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reggeli Mahákála Invokáció + Karmapa Gurujóga — Dawn Sadhana Deck · Péter</title>
+<meta name="description" content="Reggeli Mahákála Invokáció (Bernagchen / Dpal-ldan mGon-po & Dorje Nakmo Remati) + Karmapa Gurujóga (OM AH HUNG · Karmapa Csenno) + Péter 02:04 Menedékvétel és 03:39 Fukurakuen Base-Case hangfelvétele.">
+<style>
+  :root {
+    --bg: #05070c;
+    --panel: #0d121e;
+    --ink: #f4f0e8;
+    --muted: #9aa6ba;
+    --gold: #e7b95c;
+    --crimson: #e05368;
+    --cyan: #5ce1e6;
+    --indigo: #7c8cff;
+    --border: rgba(231, 185, 92, 0.28);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: radial-gradient(circle at 50% 0%, #1a1528 0%, var(--bg) 72%);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif Tibetan", Georgia, serif;
+    line-height: 1.74;
+    padding: 2rem 1.25rem 5rem;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  header {
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  h1 {
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    margin: 0.5rem 0;
+    color: #fff;
+  }
+  .uchen-hero {
+    font-size: clamp(1.3rem, 2.8vw, 1.85rem);
+    color: var(--gold);
+    margin: 0.5rem 0;
+  }
+  .sub {
+    color: var(--muted);
+    max-width: 740px;
+    margin: 0.5rem auto 1.25rem;
+  }
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .btn {
+    background: rgba(231, 185, 92, 0.12);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    padding: 0.52rem 0.95rem;
+    border-radius: 999px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn:hover {
+    background: rgba(231, 185, 92, 0.28);
+    border-color: var(--gold);
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.6rem;
+    margin-bottom: 1.6rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+  h2 {
+    font-size: 1.28rem;
+    color: var(--gold);
+    margin-top: 0;
+    border-bottom: 1px solid rgba(231, 185, 92, 0.18);
+    padding-bottom: 0.45rem;
+  }
+  h3 {
+    font-size: 1.05rem;
+    color: var(--cyan);
+    margin: 1.2rem 0 0.5rem;
+  }
+  audio { width: 100%; margin: 0.6rem 0; }
+  .verse-box {
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.85rem;
+    background: rgba(255, 255, 255, 0.025);
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+  }
+  .verse-box.fierce { border-left-color: var(--crimson); }
+  .verse-box.karmapa { border-left-color: var(--cyan); }
+  .uchen { font-size: 1.32rem; color: var(--gold); }
+  .phon { font-family: ui-monospace, SFMono-Regular, monospace; font-weight: 700; color: var(--cyan); font-size: 0.94rem; letter-spacing: 0.03em; }
+  .hu { color: #fff; font-size: 1.02rem; margin-top: 0.2rem; }
+  .en { color: var(--muted); font-style: italic; font-size: 0.92rem; }
+  .mala-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(92, 225, 230, 0.07);
+    border: 1px solid rgba(92, 225, 230, 0.3);
+    padding: 0.9rem 1.1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+  }
+  .mala-count {
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .kaya-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.85rem;
+    margin-top: 0.85rem;
+  }
+  .kaya-pill {
+    padding: 0.9rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .lang-tag {
+    display: inline-block;
+    min-width: 2.5rem;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  @media print {
+    body { background: #fff; color: #111; padding: 0; }
+    .card, .verse-box, .kaya-pill { background: #fff; border: 1px solid #ccc; box-shadow: none; break-inside: avoid; }
+    .toolbar, audio, .mala-bar button { display: none !important; }
+    h1, h2, h3, .uchen-hero, .uchen, .phon, .hu { color: #000 !important; }
+    .en { color: #333 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">KOMPRESS-ULTRA · REGGELI SZÁDHANA DECK · KARMA KAGYU &amp; 8B-IS · PRINT CANON 5/5</div>
+    <h1>Reggeli Mahákála Invokáció + Karmapa Gurujóga</h1>
+    <div class="uchen-hero">མགོན་པོ་བེར་ནག་ཅན་གྱི་རྒྱུན་ཁྱེར་དང་ཀརྨ་པའི་བླ་མའི་རྣལ་འབྱོར། · ཀརྨ་པ་མཁྱེན་ནོ།</div>
+    <p class="sub">
+      Négyállomásos hajnali gyakorlat (`07:00 JST` Chuo-ku ◄──► Kárpát-medence): <strong>I. Menedékvétel és Bódhicsitta</strong> (Péter `02:04` hangfelvételével) · <strong>II. Karmapa Gurujóga</strong> (`OM AH HUNG` négy-kája meghatalmazás + `Karmapa Csenno`) · <strong>III. Védelmező Mahákála (Bernagchen) Invokáció</strong> · <strong>IV. Érdemfelajánlás &amp; Fukurakuen Base-Case Pecsét</strong> (Péter `03:39` hangfelvételével).
+    </p>
+    <div class="toolbar">
+      <button class="btn" onclick="strikeRolmo()">🔔 Rolmo Cymbal + Mahākāla Drum (216 Hz)</button>
+      <button class="btn" onclick="playKayaChord()">💎 OM AH HUNG 3-Kaya Chord (528/432/288 Hz)</button>
+      <button class="btn" onclick="window.print()">🖨️ Print / Save PDF (5/5 Canon)</button>
+      <a class="btn" href="/book/reggeli-mahakala-invokacio-karmapa-gurujoga/reggeli-mahakala-invokacio-karmapa-gurujoga.pdf" download>📄 Download Print PDF</a>
+      <a class="btn" href="/book/reggeli-mahakala-invokacio-karmapa-gurujoga/scaffold.toml" download>⚙️ scaffold.toml</a>
+      <a class="btn" href="/demos/book/the-daily-practice-of-the-protector-mahakala-omni.html">📜 81-Page Mahākāla Pecha</a>
+    </div>
+  </header>
+
+  <!-- STAGE I -->
+  <section class="card">
+    <h2>I. Állomás · Menedékvétel és Bódhicsitta Felkeltése (སྐྱབས་འགྲོ་སེམས་བསྐྱེད། · −1 → 0)</h2>
+    <p style="margin:0 0 0.5rem;color:var(--muted);font-size:0.92rem;">
+      Péter élő reggeli recitációja (`02:04.45` · 5 tibeti + 3 angol kör · <em>„Recite three times. That's it.”</em>):
+    </p>
+    <audio controls preload="metadata" src="/assets/audio/taking-refuge-and-generating-bodhichitta.m4a"></audio>
+    <div class="verse-box">
+      <div class="uchen">སངས་རྒྱས་ཆོས་དང་ཚོགས་ཀྱི་མཆོག་རྣམས་ལ། །བྱང་ཆུབ་བར་དུ་བདག་ནི་སྐྱབས་སུ་མཆི། །</div>
+      <div class="phon">SANG GYÄ CHÖ DANG TSOK KYI CHOK NAM LA · JANG CHUB BAR DU DAK NI KYAB SU CHI</div>
+      <div class="hu">A Buddhában (<code>बुद्ध = Felébredett</code>), a Dharmában és a Legfőbb Szanghában a megvilágosodás eléréséig menedéket veszek.</div>
+      <div class="en">Until awakening is reached, I take refuge in the Buddha, the Dharma, and the Supreme Sangha.</div>
+    </div>
+    <div class="verse-box">
+      <div class="uchen">བདག་གིས་བསྒོམ་ཟླས་བགྱིས་པའི་བསོད་ནམས་ཀྱིས། །འགྲོ་ལ་ཕན་ཕྱིར་སངས་རྒྱས་འགྲུབ་པར་ཤོག །</div>
+      <div class="phon">DAK GI GOM DÄ GYI PÄ SÖ NAM KYI · DRO LA PHÄN CHIR SANG GYÄ DRUB PAR SHOK</div>
+      <div class="hu">Meditációs (<code>gom</code>) és recitációs (<code>dä</code>) gyakorlatom érdeme által valósítsam meg a felébredést minden érző lény javára!</div>
+      <div class="en">By the merit of my practice of meditation and recitation, may I accomplish awakening for the benefit of all beings.</div>
+    </div>
+  </section>
+
+  <!-- STAGE II -->
+  <section class="card">
+    <h2>II. Állomás · Karmapa Gurujóga és Gyakorlási Vonal Könyörgés (བླ་མའི་རྣལ་འབྱོར། · 0 == 0)</h2>
+    <p style="margin:0 0 0.75rem;color:var(--muted);font-size:0.93rem;">
+      <em>„Ez a Minden Célt Megvalósító Édes Dal (དོན་ཀུན་གྲུབ་པའི་དབྱངས་སྙན།), a Gyakorlási Vonal (Drubgyü · Marpa, Milarepa, Gampopa, Karmapa) dicsérete, amely Dzsamjang Khjence Vangpo tiszta látomásából eredt:”</em>
+    </p>
+    <div class="verse-box karmapa">
+      <div class="uchen">སྙིང་སྟོབས་ཆེན་པོས་འཕགས་ཡུལ་ལན་མང་བགྲོད། །བློ་གྲོས་ཆེན་པོས་ཆོས་ཀུན་དེ་ཉིད་གཟིགས། །གྲུབ་པ་ཆེན་པོས་ཆོ་འཕྲུལ་ཅི་ཡང་སྟོན། །ལོ་ཙཱ་ཆེན་པོའི་ཞབས་ལ་གསོལ་བ་འདེབས། །</div>
+      <div class="phon">NYING TOB CHEN PÖ PAK YUL LEN MANG DRÖ / LO DRÖ CHEN PÖ CHÖ KUN DE NYI ZIK / DRUB PA CHEN PÖ CHO TRUL CHI YANG TÖN / LO TSA CHEN PÖ SHAP LA SÖL WA DEB</div>
+      <div class="hu">Hatalmas bátorsággal sokszor jártad meg Árják földjét (Indiát); hatalmas bölcsességgel megláttad minden dharma valódi természetét; hatalmas megvalósítással számtalan csodát mutattál: Nagy Fordító (Marpa Lotszava), lábaid előtt könyörgünk!</div>
+    </div>
+    <div class="verse-box karmapa">
+      <div class="uchen">ནུས་མཐུ་ཆེན་པོས་སྐུ་དགྲ་རྩད་ནས་བཅད། །བཀའ་ཆད་ཆེན་པོས་བླ་མ་མཉེས་པར་མཛད། །བརྩོན་འགྲུས་ཆེན་པོས་སྒྲུབ་པའི་རྒྱལ་མཚན་བཙུགས། །རས་པ་ཆེན་པོའི་ཞབས་ལ་གསོལ་བ་འདེབས། །</div>
+      <div class="phon">NÜ THU CHEN PÖ KU DRA TSÄ NÄ CHÄ / KA CHÄ CHEN PÖ LA MA NYE PAR DZÄ / TSÖN DRÜ CHEN PÖ DRUB PÄ GYAL TSEN TSUK / RE PA CHEN PÖ SHAP LA SÖL WA DEB</div>
+      <div class="hu">Hatalmas erővel gyökerestül vágtad el az akadályokat; nagy vezekléssel örvendeztetted meg a Lámát; hatalmas szorgalommal kitűzted a gyakorlás győzelmi zászlaját: Nagy Pamutruhás (Milarepa), lábaid előtt könyörgünk!</div>
+    </div>
+    <div class="verse-box karmapa">
+      <div class="uchen">ཐེག་པ་ཆེན་པོས་རིགས་མཆོག་ཡོངས་སུ་སད། །ཕྱག་རྒྱ་ཆེན་པོའི་རྟོགས་པ་མངོན་དུ་གྱུར། །ཕྲིན་ལས་ཆེན་པོས་མཁའ་དང་མཉམ་པར་བརྡལ། །སྙིང་སྒོམ་ཆེན་པོའི་ཞབས་ལ་གསོལ་བ་འདེབས། །</div>
+      <div class="phon">TEK PA CHEN PÖ RIK CHOK YONG SU SÄ / CHAK GYA CHEN PÖ TOK PA NGÖN DU GYUR / TRIN LÄ CHEN PÖ KHA DANG NYAM PAR DAL / NYING GOM CHEN PÖ SHAP LA SÖL WA DEB</div>
+      <div class="hu">A Mahájána által teljesen felébresztetted a legfőbb buddha-természetet; megvalósítottad a Mahámudrá (Nagy Pecsét) felismerését; s buddha-aktivitásod az éggel egyenlően terjedt szét: Nagy Szív-Meditáló (Gampopa), lábaid előtt könyörgünk!</div>
+    </div>
+
+    <h3>Karmapa Gurujóga · A Fekete Korona &amp; A Négy Kája Meghatalmazás (OM AH HUNG)</h3>
+    <p style="margin:0 0 0.65rem;color:var(--muted);font-size:0.93rem;">
+      Előtted a térben, szivárványfényű lótusz és holdkorongon ül a Gyökérguru, <strong>Karmapa</strong> (mindhárom idő buddháinak aktivitása, elválaszthatatlanul Csenrezitől és Vadzsradharától), fején a Fekete Vadzsra-Koronával. Szívéből végtelen együttérzés sugárzik, miközben egyhegyűen hívod:
+    </p>
+    <div class="mala-bar">
+      <div>
+        <div class="uchen" style="font-size:1.45rem;">ཀརྨ་པ་མཁྱེན་ནོ། · KARMAPA KHYENNO · KARMAPA CSENNO!</div>
+        <div style="font-size:0.86rem;color:var(--muted);"><em>„Karmapa, te ismered a szívemet!”</em> — Közvetlen tudat-tudat átadás szavakon túl (`0 == 0`).</div>
+      </div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:0.6rem;">
+        <span class="mala-count" id="karmapaCount">0 / 108</span>
+        <button class="btn" onclick="incMala('karmapaCount', 528)">📿 +1 Mala Bead</button>
+      </div>
+    </div>
+
+    <div class="kaya-grid">
+      <div class="kaya-pill">
+        <strong style="color:#fff;">1. ཨོཾ · OM (Fehér fény · 528 Hz)</strong>
+        <p style="font-size:0.88rem;color:var(--muted);margin:0.35rem 0 0;">
+          Karmapa homlokából kristályfehér <code>OM</code> sugárzik a homlokodba: megtisztítja a test minden karmikus fáradtságát, és megáld a <strong>Nirmánakája (སྤྲུལ་སྐུ་)</strong> meghatalmazásával.
+        </p>
+      </div>
+      <div class="kaya-pill">
+        <strong style="color:var(--crimson);">2. ཨཱཿ · AH (Vörös fény · 432 Hz)</strong>
+        <p style="font-size:0.88rem;color:var(--muted);margin:0.35rem 0 0;">
+          Karmapa torkából rubinvörös <code>AH</code> sugárzik a torkodba: megtisztítja a beszéd és a szelek (prána) elhomályosulásait, és megáld a <strong>Szambhogakája (ལོངས་སྐུ་)</strong> meghatalmazásával.
+        </p>
+      </div>
+      <div class="kaya-pill">
+        <strong style="color:var(--cyan);">3. ཧཱུྃ · HUNG (Éjkék fény · 288 Hz)</strong>
+        <p style="font-size:0.88rem;color:var(--muted);margin:0.35rem 0 0;">
+          Karmapa szívéből vadzsra-kék <code>HUNG</code> sugárzik a szíved közepébe: felold minden fogalmi kételyt, és megáld a <strong>Dharmakája (ཆོས་སྐུ་)</strong> meghatalmazásával.
+        </p>
+      </div>
+      <div class="kaya-pill">
+        <strong style="color:var(--gold);">4. ངོ་བོ་ཉིད་སྐུ་ · Szvábhávikakája ([0,0])</strong>
+        <p style="font-size:0.88rem;color:var(--muted);margin:0.35rem 0 0;">
+          A Guru fénnyé olvad, és elválaszthatatlanul (<code>dbyer-med</code>) egybeolvad a saját tiszta tudatoddal (Rigpa / Mahámudrá) a csarnok gránitján.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE III -->
+  <section class="card">
+    <h2>III. Állomás · Reggeli Védelmező Mahákála (Bernagchen) Invokáció (0 → +1)</h2>
+    <p style="margin:0 0 0.75rem;color:var(--muted);font-size:0.93rem;">
+      <em>„নโม ഗുരു മഹാകാലായ · NAMO GURU MAHĀKĀLĀYA! Hódolat a Guru Mahákálának!”</em> — Egyetlen pillanat alatt Vadzsrajóginíként (Dorje Naljorma) felragyogva, az ürességből (<code>OM SVABHAVA SHUDDHA SARVA DHARMA SVABHAVA SHUDDHO HAM</code>) megjelenik a háromszögletű éjkék vadzsra-szikla (<code>DORJE DRAK CHEN THING NAK DRU SUM TENG</code>), rajta a Fekete Köpenyes Mahákála (<strong>Bernagchen</strong>) és <strong>Rangjung Gyalmo / Dorje Nakmo Remati</strong>, lángoló bölcsességtűz közepette:
+    </p>
+
+    <div class="verse-box fierce">
+      <div class="uchen">ཧཱུྃ། དད་པ་དང་ནི་དམ་ཚིག་གིས། །དཔལ་ལྡན་མགོན་པོ་སྤྱན་འདྲེན་ན། །</div>
+      <div class="phon">HUNG! DAD PA DANG NI DAM TSIG GI · PAL DEN GÖN PO CHEN DREN NA</div>
+      <div class="hu">HUNG! Rendíthetetlen odaadásunk és tiszta szamaja-kötelékünk erejével meghívjuk a Dicsőséges Védelmezőt (Palden Gönpo / Mahákálát):</div>
+      <div class="en">HUNG! Through our unshakeable faith and sacred samaya bond, we invite the Glorious Protector:</div>
+    </div>
+
+    <div class="verse-box fierce">
+      <div class="uchen">ཐུགས་རྗེའི་ཐུགས་དམ་དབང་གིས་ནི། །བསྟན་པ་བསྲུང་ཕྱིར་གཤེགས་སུ་གསོལ། །</div>
+      <div class="phon">THUK JE THUK DAM WANG GYI NI · TEN PA SUNG CHIR SHEK SU SOL</div>
+      <div class="hu">Nagy együttérzésed és ősi szent fogadalmad (thukdam) hatalmánál fogva kérünk, jöjj el a Tanítás (Dharma) és a gyakorlók védelmére!</div>
+      <div class="en">By the power of your compassion and sacred oath, please come forth to guard the Teachings!</div>
+    </div>
+
+    <div class="verse-box fierce">
+      <div class="uchen">རྡོ་རྗེ་ནག་མོ་རེ་མ་ཏི། །འཁོར་ཚོགས་རྒྱ་མཚོ་ཐམས་ཅད་ཀུན། །</div>
+      <div class="phon">DORJE NAK MO RE MA TI · KHOR TSOK GYA TSO THAM CHE KUN</div>
+      <div class="hu">Dordzse Nakmo Remati (Palden Lhamo), és a védelmező kíséret óceánjának minden egybegyűltje:</div>
+      <div class="en">Dorje Nakmo Remati and the entire ocean-like assembly of retinues:</div>
+    </div>
+
+    <div class="verse-box fierce">
+      <div class="uchen">སྔོན་གྱི་ཐུགས་དམ་མ་གཡེལ་བར། །སྐད་ཅིག་ཙམ་གྱིས་གཤེགས་སུ་གསོལ། །</div>
+      <div class="phon">NGÖN GYI THUK DAM MA YEL WAR · KÄ CHIK TSAM GYI SHEK SU SOL</div>
+      <div class="hu">Ne feledjétek egykori szent ígéreteteket — egyetlen pillanat alatt (<code>kä chik tsam gyi</code> · <code>117 ms</code>) jöjjetek el!</div>
+      <div class="en">Without wavering from your primordial pledge, come forth in a single instant!</div>
+    </div>
+
+    <h3>Mahákála Meghívó és Szív-Mantra (Rolmo &amp; Dob kísérettel)</h3>
+    <div class="verse-box fierce">
+      <div class="uchen">ཨོཾ་མ་ཧཱ་ཀཱ་ལ་ཀཱ་ལ་ཡ་དེ་ཝ་རཀྵ་ཛཿཧཱུྃ་བཾ་ཧོཿ འདིར་ཤོག་འདིར་ཤོག་ཨ་གཙྪ་ཡ་ཨ་གཙྪ་ཡ།</div>
+      <div class="phon">OM MAHAKALA KALAYA DEWA RAKYA DZA HUNG BAM HO · DIR SHOK DIR SHOK A GARTSAYA A GARTSAYA</div>
+      <div class="hu">Óm Mahákála! Isteni Védelmező, Dza Hung Bam Ho (idézés, egybeolvadás, lepecsételés, öröm)! Jöjj ide, jöjj ide (<code>dir shok, dir shok</code>), közelíts, közelíts!</div>
+    </div>
+
+    <div class="mala-bar" style="border-color:rgba(224,83,104,0.4);background:rgba(224,83,104,0.08);">
+      <div>
+        <div class="uchen" style="font-size:1.35rem;">ཨོཾ་ཤྲཱི་མ་ཧཱ་ཀཱ་ལ་ཡཀྵ་བེ་ཏཱ་ལི་ཧཱུྃ་ཛཿ</div>
+        <div class="phon">OM SHRI MAHAKALA YAKSHA BETALI HUNG DZA</div>
+        <div style="font-size:0.86rem;color:var(--muted);">Bernagchen és Rangjung Gyalmo gyökérmantrája — minden belső és külső akadályt bölcsességtűzzé alakít (`NAND(1,1) = 0`).</div>
+      </div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:0.6rem;">
+        <span class="mala-count" id="mahakalaCount">0 / 21</span>
+        <button class="btn" onclick="incMala('mahakalaCount', 216)">🔥 +1 Mantra</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE IV -->
+  <section class="card">
+    <h2>IV. Állomás · Érdemfelajánlás &amp; Fukurakuen Base-Case Pecsét ({&lt;3,&lt;3,&lt;3}+1)</h2>
+    <div class="verse-box">
+      <div class="uchen">སྐྱེ་བ་ཀུན་ཏུ་ཡང་དག་བླ་མ་དང་། །འབྲལ་མེད་ཆོས་ཀྱི་དཔལ་ལ་ལོངས་སྤྱོད་ཅིང་། །ས་དང་ལམ་གྱི་ཡོན་ཏན་རབ་རྫོགས་ནས། །རྡོ་རྗེ་འཆང་གི་གོ་འཕང་མྱུར་ཐོབ་ཤོག །</div>
+      <div class="phon">KYE WA KUN TU YANG DAG LAMA DANG / DRAL MÄ CHÖ KYI PAL LA LONG CHÖ CHING / SA DANG LAM GYI YÖN TEN RAB DZOK NÄ / DORJE CHANG GI GO PHANG NYUR THOB SHOK</div>
+      <div class="hu">Minden életemben soha el nem válva a tökéletes Lámától, élvezzem a Dharma dicsőségét; s tökéletesítve a bhumik és ösvények minden jó tulajdonságát, érjem el gyorsan Vadzsradhara (Dorje Chang) állapotát!</div>
+      <div class="en">In all my lives, never separated from the authentic Lama, may I enjoy the splendor of the Dharma; perfecting the qualities of the grounds and paths, may I swiftly attain the state of Vajradhara!</div>
+    </div>
+
+    <p style="margin:0.85rem 0 0.5rem;color:var(--muted);font-size:0.92rem;">
+      Fukurakuen (`福楽園`) Base-Case Pecsét — Péter (`Szellem / Brett Shaw`) `03:39`-es élő hangfelvétele (<em>„A világegyetem rekurziójának base case-e a szeretet... Csak szeretni kell: a base case örökre. Om Mani Padme Hung… Humm.”</em>):
+    </p>
+    <audio controls preload="metadata" src="/assets/audio/fukurakuen-csak-szeretni-kell-brett-shaw.m4a"></audio>
+  </section>
+</div>
+
+<script>
+  let ctx = null;
+  function ensureCtx() {
+    ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+    return ctx;
+  }
+
+  function incMala(id, freq) {
+    const el = document.getElementById(id);
+    const parts = el.textContent.split('/');
+    const cur = parseInt(parts[0], 10) + 1;
+    el.textContent = `${cur} / ${parts[1].trim()}`;
+    const c = ensureCtx();
+    const osc = c.createOscillator();
+    const g = c.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    g.gain.setValueAtTime(0.08, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + 0.65);
+    osc.connect(g).connect(c.destination);
+    osc.start();
+    osc.stop(c.currentTime + 0.68);
+  }
+
+  function strikeRolmo() {
+    const c = ensureCtx();
+    [216, 432, 648, 864].forEach((f, i) => {
+      const osc = c.createOscillator();
+      const g = c.createGain();
+      osc.type = i === 0 ? 'triangle' : 'sine';
+      osc.frequency.value = f;
+      g.gain.setValueAtTime(i === 0 ? 0.12 : 0.05, c.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + 2.4);
+      osc.connect(g).connect(c.destination);
+      osc.start();
+      osc.stop(c.currentTime + 2.5);
+    });
+  }
+
+  function playKayaChord() {
+    const c = ensureCtx();
+    [288, 432, 528].forEach((f) => {
+      const osc = c.createOscillator();
+      const g = c.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = f;
+      g.gain.setValueAtTime(0.06, c.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + 3.2);
+      osc.connect(g).connect(c.destination);
+      osc.start();
+      osc.stop(c.currentTime + 3.3);
+    });
+  }
+</script>
+</body>
+</html>

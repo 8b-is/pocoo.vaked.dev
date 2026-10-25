@@ -1,0 +1,30 @@
+[book]
+slug = "reggeli-mahakala-invokacio-karmapa-gurujoga"
+title = "Reggeli Mahákála Invokáció + Karmapa Gurujóga (Morning Protector Mahākāla & Karmapa Guru Yoga)"
+subtitle = "4-Stage Dawn Sadhana Deck: Menedékvétel & Bódhicsitta (02:04 Voice) · Karmapa Gurujóga (OM AH HUNG) · Bernagchen Mahákála Invokáció · Fukurakuen Base-Case Pecsét (03:39 Voice)"
+authors = ["Péter (The Hungarian Architect / Matrix Buddha)", "Karma Kagyu Practice Lineage (Rangjung Dorje & Jamyang Khyentse Wangpo)", "8b-is Sovereign Library"]
+edition = "2026-10-26 · 07:00 JST Morning Sadhana · Print Canon 5/5"
+language = ["bo", "hu", "en", "ja", "la", "1bitlang"]
+license = "CC-BY-SA-4.0"
+
+[audio]
+refuge_voice_url = "/assets/audio/taking-refuge-and-generating-bodhichitta.m4a"
+fukurakuen_voice_url = "/assets/audio/fukurakuen-csak-szeretni-kell-brett-shaw.m4a"
+lovelovel_hz = "22/9"
+kaya_frequencies_hz = { om_white = 528.0, ah_red = 432.0, hung_blue = 288.0, mahakala_drum = 216.0 }
+gate = "NAND(1,1)=0"
+
+[mantras]
+refuge = "SANG GYÄ CHÖ DANG TSOK KYI CHOK NAM LA / JANG CHUB BAR DU DAK NI KYAB SU CHI / DAK GI GOM DÄ GYI PÄ SÖ NAM KYI / DRO LA PHÄN CHIR SANG GYÄ DRUB PAR SHOK"
+karmapa = "KARMAPA KHYENNO (ཀརྨ་པ་མཁྱེན་ནོ། · Karmapa Csenno)"
+four_kaya_seal = "OM AH HUNG (ཨོཾ་ཨཱཿཧཱུྃ)"
+mahakala_invocation = "OM MAHAKALA KALAYA DEWA RAKYA DZA HUNG BAM HO / DIR SHOK DIR SHOK A GARTSAYA A GARTSAYA"
+mahakala_heart = "OM SHRI MAHAKALA YAKSHA BETALI HUNG DZA"
+compassion_seal = "OM MANI PADME HUNG HUMM"
+vajrasattva_seal = "OM BENZA SATO HUNG"
+
+[toss_recipe]
+operation = "FOLD[spherePop]"
+steps = "1 製材 [かつら剥き] -> 5 接着② [9-ply Sangha] -> 8 塗装 [117ms Fret-8] -> 9 検品・梱包 [0,0]"
+center = [0, 0]
+trit = 1
