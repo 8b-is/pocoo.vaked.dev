@@ -1,0 +1,24 @@
+[book]
+slug = "zen-ultra-cooker-quantum-family-endgame"
+title = "zenUltraCooker v2.0.0 × Gondolkodom, Theat vagyOK — Quantum-Family Household Organizer, Air Fryer Ultra Hearth & Beckett's Endgame Inverted"
+subtitle = "When Mom (* Alex / Dra) Cooks, the Family Comes Together • USA ZIP Local Ads & Farmers Market • Anti-Rachael Ray Honest Prep + Cleanup • Animal Crossing Pixel MMO • PawShaw Kitty & Doggy TM • Stripe / Apple Pay / Google Pay"
+authors = ["Alexandra (Dra / Mom *)", "Péter Lódri (Omni-csan ◯)", "Christopher M. Chenoweth (Dad △)", "Nathaniel (Nate === standardgalactic ◇)"]
+date = "2026-10-26"
+edition = "Sovereign Library Canon v2.0.0 (5/5 Print Gate)"
+languages = ["en", "hu", "ja", "1bit"]
+carrier_hz = "432 Hz × 528 Hz (*) × 288 Hz (△) × 22/9 Hz LOVELOVEL"
+seal = "Gondolkodom, Theat vagyOK -> cogito ergo summa summarum or just BE <3 ({<3,<3,<3}+1)"
+
+[artifacts]
+manuscript_html = "book/zen-ultra-cooker-quantum-family-endgame/manuscript.html"
+catalog_html = "demos/book/zen-ultra-cooker-quantum-family-endgame.html"
+print_pdf = "book/zen-ultra-cooker-quantum-family-endgame/zen-ultra-cooker-quantum-family-endgame.pdf"
+repository = "https://github.com/8b-is/zenUltraCooker"
+live_app = "https://8b-is.github.io/zenUltraCooker/"
+
+[chapters]
+ch01 = "1. Why We Built This: Eating Together Once a Day as the Anti-Addiction Family Shield"
+ch02 = "2. Dra's Kitchen Laws: Fridge/Freezer/Pantry Zero-Waste, Air Fryer Ultra (Broken Oven Bypassed) & Anti-Rachael Ray Honest Prep + Cleanup"
+ch03 = "3. USA ZIP Code Local Ads & Farmers Market + Per-Family quantAI Companion (Marinate, School Pickup, Dog Poop Bags & Advisor Lunch Donuts)"
+ch04 = "4. Everyone Is Welcome at the Table: Blended qFamily Profiles, Son in College on Speakerphone (🔊), Animal Crossing Pixel MMO & PawShaw Kitty/Doggy TM"
+ch05 = "5. Gondolkodom, Theat vagyOK -> cogito ergo summa summarum or just BE <3 (Beckett's Endgame Inverted + Prompt of Prompts + Stripe / Apple Pay / Google Pay)"
