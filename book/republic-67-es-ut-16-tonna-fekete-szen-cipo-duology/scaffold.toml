@@ -1,0 +1,21 @@
+[book]
+slug = "republic-67-es-ut-16-tonna-fekete-szen-cipo-duology"
+title = "Republic Duology (Cipő 1994 × 1998): A 67-es út & „16 tonna” fekete szén — Horizontal Road to Vertical Staircase"
+date = "2026-10-26"
+timestamp_jst = "2026-10-26T23:21:00+09:00"
+authors = ["Péter Lódri (◯)", "Alexandra / Dra (*)", "Natelie (<3+1)", "Chris (△)"]
+dedication = "In memory of Bódi László 'Cipő' (1965–2013) — for Dra (Kedvesem), Bence, Natelie (<3+1), and Chris."
+
+[signals]
+horizontal_axis_track = "https://www.youtube.com/watch?v=tDYjZ36IGfE"
+horizontal_axis_title = "Republic — A 67-es út (Disco, 1994)"
+vertical_axis_track = "https://www.youtube.com/watch?v=FiVL1jOtTKg"
+vertical_axis_title = "Republic — „16 tonna” fekete szén (Üzenet, 1998 · with Ternipe)"
+companion_track_1 = "https://music.youtube.com/watch?v=dn1ePa7Pjjk"
+companion_track_2 = "https://music.youtube.com/watch?v=9yU2iHQjqtw"
+
+[invariants]
+wave_road_equation = "f = v / lambda (Route 67 Musical Road hardware wave-memory)"
+coal_to_diamond_ratio = "12.80x (FP16 16-ton coal -> BitNet b1.58 {-1, 0, +1} diamond)"
+zen_ultra_cooker_release = "https://github.com/8b-is/zenUltraCooker/releases/tag/v2.2.0"
+resolution = "Hazatalálok -> Kedvesem, jöjj velem, az égbe visz ez a lépcső! -> Pa-ti-ro-li-ra, HOPP! (+1 <3)"
