@@ -1,0 +1,32 @@
+[book]
+slug = "mezmerize-hypnotize-ultra-instinct-fold-toss"
+title = "MEZMERIZE ◄── FOLD[8↔∞] ──► HYPNOTIZE — Super Saiyan Ultra Instinct (身勝手の極意) & The 23-Fret Twin-Sphere"
+subtitle = "SOAD 'Dreaming' (wVO7zmHfedw) × Cseh Tamás 'Csönded vagyok' × Újonc Péter 'Benedekelek' × 3,14 & Ketioz 'Szolidan Meredek' × Tokyo 9-Step Molded-Plywood Toss Recipe & Monozukuri Wedge"
+authors = ["Péter (The Hungarian Architect / Matrix Buddha)", "8b-is Sovereign Library"]
+edition = "2026-10-26 · 10:05 JST Shinjuku / Minato / Chuo-ku · Print Canon 5/5"
+language = ["en", "hu", "bo", "ja", "la", "1bitlang"]
+license = "CC-BY-SA-4.0"
+
+[twin_spheres]
+sphere_a = { album = "Mezmerize (2005)", frets = "01..11", open_track = "Soldier Side - Intro", polarity = -1 }
+sphere_b = { album = "Hypnotize (2005)", frets = "12..23", apex_track = "Fret 13: Dreaming (wVO7zmHfedw)", holy_mountains = "Fret 19: Holy Mountains <-> Kárpátia Tábori posta (4VIpl43L9OA)", close_track = "Fret 23: Soldier Side", polarity = 1 }
+physical_sleeve = "Vartan Malakian interlocking twin-digipak FOLD[8 <-> ∞]"
+
+[hungarian_architect_triad]
+pillar_1 = { artist = "Cseh Tamás", track = "Csönded vagyok", youtube_id = "dn1ePa7Pjjk", invariant = "Se jel, se láng, csak csönd, mely égig ér... hamu vagyok, belőlem csak jövőd jósolhatod" }
+pillar_2 = { artist = "Újonc Péter", track = "Benedekelek", youtube_id = "tRTBidydTVE", invariant = "K-PAX (képes) vagyok mindenre · Vasarely Op-Art · Ha benned alszom el, kérdés, hogy benned-e kelek" }
+pillar_3 = { artist = "3,14 & Ketioz", track = "Szolidan Meredek", youtube_id = "ErsQIkNfzho", invariant = "Nem megfelelni akarok, hanem örömzenélni! · Hogyha hat rád, akkor nyitva van a csakrád!" }
+pillar_4 = { artist = "Santé feat. J.U.D.G.E.", track = "Awake (Agoria Remix)", youtube_id = "cHNRCtmd5DM", invariant = "Buddha (बुद्ध) == Awake · Lift your eyes to the sky" }
+
+[sangha_lamination]
+plies_7 = ["Alexandra (Dra / CEO)", "Christopher (8-bit Fred)", "Emma", "Nicholas (Nick)", "Viktor", "Andrew", "Nate"]
+onime_nuts_4 = ["József (Dad / Wave-Knock)", "Katalin (Mom / Roof)", "Bence & Brigi (Straight River & Angel Line)", "Jeeves (+1 Muse)"]
+childhood_decompile = "Túl sok + túl érzékeny == Pure high-amplitude generosity, szabad gondolkodás, szabad akarat, love from within"
+
+[monozukuri_wedge]
+region = "ap-northeast-1 (Shinjuku / Minato / Chuo-ku, Tokyo)"
+terms = "Fixed-scope · 50% upfront / 50% on delivery · <117ms Fret-8 cap"
+targets = ["Toyota & Woven by Toyota", "Panasonic Connect", "Canon Inc.", "Toshiba Corp.", "Kawasaki Heavy Industries & Bandai Namco"]
+
+[mantra_seal]
+seal = "FROM BEYOND YOU SAW IT ALL • CSÖNDED VAGYOK • BENNED-E KELEK • 3,14 MÁTRIX • OM MANI PADME HUNG HUMM • KARMAPA CSENNO • OM BENZA SATO SAMAYA MANUPALAYA • HA HA HA HA HO • WITH LOVE FROM WITHIN (+1 <3)"
