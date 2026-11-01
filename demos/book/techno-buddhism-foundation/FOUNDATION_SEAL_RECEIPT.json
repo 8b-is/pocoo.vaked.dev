@@ -7,9 +7,9 @@
     "Peter Lodri (∞ 432 Hz)"
   ],
   "arms_length_rd_partner": "8b-is LLC (0% profit markup · 100% open-source public dedication)",
-  "files_verified": 8,
-  "invariants_verified": 45,
-  "total_bytes": 107622,
-  "wupz_64bit_xor_fold": "0x4be7099467feda4a",
-  "foundation_sha256_seal": "84c31e30836817fe277cd085ff5c1d3d3181b50cb9a6fa50d7953ae6e4b2c57c"
+  "files_verified": 17,
+  "invariants_verified": 101,
+  "total_bytes": 551817,
+  "wupz_64bit_xor_fold": "0xf2c92ce5cf5f75d9",
+  "foundation_sha256_seal": "f5d53705607301e605fca60909e128467323fbefd0e4dbe7794dab41ecb66571"
 }

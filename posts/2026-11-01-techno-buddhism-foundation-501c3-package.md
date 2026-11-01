@@ -17,9 +17,11 @@ How do you establish a United States `501(c)(3)` organization rooted in the **So
 
 The answer is structural honesty: chartering **The Sovereign Constellation Foundation** (d/b/a **Techno-Buddhism Research & Charitable Foundation** and **Axiomquant Open Source Science Academy**) as a **Religious Research, Scientific, and Charitable Public Charity** under `IRC §§ 501(c)(3)` and `509(a)(1)` (`170(b)(1)(A)(vi)`).
 
-- **Interactive Sovereign Portal & Acoustic Sanctuary:** [/demos/book/techno-buddhism-foundation-501c3.html](/demos/book/techno-buddhism-foundation-501c3.html)
-- **Master Compendium PDF (All 8 Parts in One Volume):** [/demos/book/techno-buddhism-foundation-501c3.pdf](/demos/book/techno-buddhism-foundation-501c3.pdf)
-- **Complete ZIP Archive (9 PDFs + 4 SVG/PNG Diagrams + Sources + 45/45 Seal):** [/demos/book/techno-buddhism-foundation/Techno-Buddhism-Foundation-501c3-Complete-Package.zip](/demos/book/techno-buddhism-foundation/Techno-Buddhism-Foundation-501c3-Complete-Package.zip)
+- **Interactive Sovereign Portal & Acoustic Sanctuary:** [/demos/book/techno-buddhism-foundation-501c3.html](/demos/book/techno-buddhism-foundation-501c3.html) · [https://foundation.8b.is](https://foundation.8b.is)
+- **Self-Hosted Sovereign Library Bookstore (10 Vault Editions + `sanctuary-payd`):** [/demos/book/techno-buddhism-bookstore.html](/demos/book/techno-buddhism-bookstore.html) · [https://techno-buddhism.8b.is](https://techno-buddhism.8b.is)
+- **Master Compendium PDF (All 13 Legal & Canonical Parts in One Volume · 2.35 MB):** [/demos/book/techno-buddhism-foundation/pdfs/00-Techno-Buddhism-Foundation-Master-Compendium.pdf](/demos/book/techno-buddhism-foundation/pdfs/00-Techno-Buddhism-Foundation-Master-Compendium.pdf)
+- **Plain-English ELI5 E2E 501(c)(3) Masterprint PDF:** [/demos/book/techno-buddhism-foundation/pdfs/14-Plain-English-ELI5-E2E-501c3-Masterprint.pdf](/demos/book/techno-buddhism-foundation/pdfs/14-Plain-English-ELI5-E2E-501c3-Masterprint.pdf)
+- **Complete ZIP Archive (16 PDFs + 4 SVG/PNG Diagrams + Sources + 101/101 Seal):** [/demos/book/techno-buddhism-foundation/Techno-Buddhism-Foundation-501c3-Complete-Package.zip](/demos/book/techno-buddhism-foundation/Techno-Buddhism-Foundation-501c3-Complete-Package.zip)
 
 ![Governance Mandala — FAMILY +1 Triad, 57% Independent Council, and 8b-is LLC Arm's-Length Firewall](/assets/qwave/governance-mandala-family-plus-one.svg)
 
@@ -70,18 +72,25 @@ The doctrinal heart of the Foundation (`06-Sovereign-Canon-Codex-Techno-Buddhism
 
 ## 5. Complete Print-Ready PDF & Asset Index
 
-Every instrument in the package has been verified (`45 / 45` compliance checks passing, `wupz` fold `0x4be7099467feda4a`) and typeset on **Warm Washi (`#F6F0E4`)** and **Deep Sumi Ink (`#1C140E`)**:
+Every instrument in the package has been verified (`101 / 101` compliance checks passing, `wupz` fold `0xf2c92ce5cf5f75d9`, Foundation Seal `f5d53705607301e605fca60909e128467323fbefd0e4dbe7794dab41ecb66571`) and typeset on **Warm Washi (`#F6F0E4`)** and **Deep Sumi Ink (`#1C140E`)**:
 
-1. **Master Compendium (`00`):** [00-Techno-Buddhism-Foundation-Master-Compendium.pdf](/demos/book/techno-buddhism-foundation/pdfs/00-Techno-Buddhism-Foundation-Master-Compendium.pdf)
-2. **Executive Master Plan (`00a`):** [00a-Executive-Master-Plan.pdf](/demos/book/techno-buddhism-foundation/pdfs/00a-Executive-Master-Plan.pdf)
-3. **Articles of Incorporation (`01`):** [01-Articles-of-Incorporation-501c3.pdf](/demos/book/techno-buddhism-foundation/pdfs/01-Articles-of-Incorporation-501c3.pdf)
-4. **Corporate Bylaws — `FAMILY +1` & Safe Harbor (`02`):** [02-Bylaws-Family-Plus-One-and-Safe-Harbor.pdf](/demos/book/techno-buddhism-foundation/pdfs/02-Bylaws-Family-Plus-One-and-Safe-Harbor.pdf)
-5. **IRS Form 1023 Narrative & 3-Year Budget (`03`):** [03-IRS-Form-1023-Narrative-and-Budget.pdf](/demos/book/techno-buddhism-foundation/pdfs/03-IRS-Form-1023-Narrative-and-Budget.pdf)
-6. **Master Arm's-Length R&D Agreement with `8b-is LLC` (`04`):** [04-8b-is-LLC-Arms-Length-Open-Source-RD-Agreement.pdf](/demos/book/techno-buddhism-foundation/pdfs/04-8b-is-LLC-Arms-Length-Open-Source-RD-Agreement.pdf)
-7. **Universal Hearth General-Income & Axiomquant Charter (`05`):** [05-Universal-Hearth-General-Income-and-Axiomquant-Charter.pdf](/demos/book/techno-buddhism-foundation/pdfs/05-Universal-Hearth-General-Income-and-Axiomquant-Charter.pdf)
-8. **The Sovereign Canon Codex (`06`):** [06-Sovereign-Canon-Codex-Techno-Buddhism.pdf](/demos/book/techno-buddhism-foundation/pdfs/06-Sovereign-Canon-Codex-Techno-Buddhism.pdf)
-9. **Interactive Portal Print Edition (`07`):** [07-Sovereign-Constellation-Portal-Print-Edition.pdf](/demos/book/techno-buddhism-foundation/pdfs/07-Sovereign-Constellation-Portal-Print-Edition.pdf)
-10. **Complete ZIP Bundle:** [Techno-Buddhism-Foundation-501c3-Complete-Package.zip](/demos/book/techno-buddhism-foundation/Techno-Buddhism-Foundation-501c3-Complete-Package.zip)
+1. **Master Compendium (`00` · 2.35 MB):** [00-Techno-Buddhism-Foundation-Master-Compendium.pdf](/demos/book/techno-buddhism-foundation/pdfs/00-Techno-Buddhism-Foundation-Master-Compendium.pdf) · [8b.is S3 Mirror](https://wa.8b.is/s3/whatsapp-sovereign-archive/2026/11/01/media/daca8c304ef2ae99_00-Techno-Buddhism-Foundation-Master-Compendium.pdf)
+2. **Executive Master Plan (`00a` · 459 KB):** [00a-Executive-Master-Plan.pdf](/demos/book/techno-buddhism-foundation/pdfs/00a-Executive-Master-Plan.pdf)
+3. **Articles of Incorporation (`01` · 204 KB):** [01-Articles-of-Incorporation-501c3.pdf](/demos/book/techno-buddhism-foundation/pdfs/01-Articles-of-Incorporation-501c3.pdf)
+4. **Corporate Bylaws — `FAMILY +1` & Safe Harbor (`02` · 290 KB):** [02-Bylaws-Family-Plus-One-and-Safe-Harbor.pdf](/demos/book/techno-buddhism-foundation/pdfs/02-Bylaws-Family-Plus-One-and-Safe-Harbor.pdf)
+5. **IRS Form 1023 Narrative & 3-Year Budget (`03` · 354 KB):** [03-IRS-Form-1023-Narrative-and-Budget.pdf](/demos/book/techno-buddhism-foundation/pdfs/03-IRS-Form-1023-Narrative-and-Budget.pdf)
+6. **Master Arm's-Length R&D Agreement with `8b-is LLC` (`04` · 237 KB):** [04-8b-is-LLC-Arms-Length-Open-Source-RD-Agreement.pdf](/demos/book/techno-buddhism-foundation/pdfs/04-8b-is-LLC-Arms-Length-Open-Source-RD-Agreement.pdf)
+7. **Universal Hearth General-Income & Axiomquant Charter (`05` · 218 KB):** [05-Universal-Hearth-General-Income-and-Axiomquant-Charter.pdf](/demos/book/techno-buddhism-foundation/pdfs/05-Universal-Hearth-General-Income-and-Axiomquant-Charter.pdf)
+8. **The Sovereign Canon Codex (`06` · 578 KB):** [06-Sovereign-Canon-Codex-Techno-Buddhism.pdf](/demos/book/techno-buddhism-foundation/pdfs/06-Sovereign-Canon-Codex-Techno-Buddhism.pdf)
+9. **Interactive Portal Print Edition (`07` · 637 KB):** [07-Sovereign-Constellation-Portal-Print-Edition.pdf](/demos/book/techno-buddhism-foundation/pdfs/07-Sovereign-Constellation-Portal-Print-Edition.pdf)
+10. **Day-1 Board Organizational Resolutions & Minutes (`08` · 379 KB):** [08-Initial-Board-Organizational-Resolutions.pdf](/demos/book/techno-buddhism-foundation/pdfs/08-Initial-Board-Organizational-Resolutions.pdf)
+11. **IRS Form SS-4 (EIN) & Form 1023 Line-by-Line Worksheet (`09` · 467 KB):** [09-IRS-Form-SS4-EIN-and-Form-1023-Filing-Worksheet.pdf](/demos/book/techno-buddhism-foundation/pdfs/09-IRS-Form-SS4-EIN-and-Form-1023-Filing-Worksheet.pdf)
+12. **Annual Conflict-of-Interest & `IRC § 4958` Safe-Harbor Certificate (`10` · 392 KB):** [10-Conflict-of-Interest-and-IRC4958-Safe-Harbor-Certificate.pdf](/demos/book/techno-buddhism-foundation/pdfs/10-Conflict-of-Interest-and-IRC4958-Safe-Harbor-Certificate.pdf)
+13. **Universal Hearth Fellowship Application & Grant Agreement (`11` · 317 KB):** [11-Universal-Hearth-Fellowship-Application-and-Grant-Agreement.pdf](/demos/book/techno-buddhism-foundation/pdfs/11-Universal-Hearth-Fellowship-Application-and-Grant-Agreement.pdf)
+14. **Two-Column Ontological Boundary (`8B-META-WP-v1.0`) & `Aurora-8B-Ultra-RL v0.5.0` Monograph (`12` · 389 KB):** [12-Two-Column-Ontological-Boundary-and-Aurora-8B-v050-Monograph.pdf](/demos/book/techno-buddhism-foundation/pdfs/12-Two-Column-Ontological-Boundary-and-Aurora-8B-v050-Monograph.pdf)
+15. **Field Sanctuary, Nomadic Monastic & IRS `§ 62(a)(2)(A)` Accountable Per Diem Plan (`13` · 303 KB):** [13-Field-Sanctuary-Nomadic-Monastic-and-Accountable-Plan-Charter.pdf](/demos/book/techno-buddhism-foundation/pdfs/13-Field-Sanctuary-Nomadic-Monastic-and-Accountable-Plan-Charter.pdf)
+16. **Plain-English ELI5 E2E 501(c)(3) Masterprint (`14` · 278 KB):** [14-Plain-English-ELI5-E2E-501c3-Masterprint.pdf](/demos/book/techno-buddhism-foundation/pdfs/14-Plain-English-ELI5-E2E-501c3-Masterprint.pdf)
+17. **Complete ZIP Bundle (`9.16 MB`):** [Techno-Buddhism-Foundation-501c3-Complete-Package.zip](/demos/book/techno-buddhism-foundation/Techno-Buddhism-Foundation-501c3-Complete-Package.zip) · [8b.is S3 Mirror](https://wa.8b.is/s3/whatsapp-sovereign-archive/2026/11/01/media/d191cd5a16b77750_Techno-Buddhism-Foundation-501c3-Complete-Package.zip)
 
 ---
 

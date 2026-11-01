@@ -88,10 +88,10 @@
     • Strictly At-Cost (0% Profit Markup) or In-Kind Contribution
   </text>
   <text x="758" y="564" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
-    • Deliverables: ComplexTernaryWord64 (0-GPU SIMD), Mechachleopteryx,
+    • Deliverables: Aurora-8B v0.5.0 (3.01 Gtrits/s), ComplexTernaryWord64,
   </text>
   <text x="758" y="588" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
-      qwave-vaultd (32/33), Flyxion Publication Projection, node-FLUGos ESP32-S3
+      8B-META-WP-v1.0 Two-Column Boundary, qwave-vaultd, Flyxion Projection
   </text>
   <text x="758" y="616" fill="#4FE3D0" font-family="Menlo, monospace" font-size="13" font-weight="bold">
     • 100% Immediate Open-Source Release (MIT / Apache-2.0 / CC-BY-4.0 · 0 Paywalls)
@@ -100,12 +100,12 @@
   <!-- Bottom Dedication Strip -->
   <rect x="56" y="690" width="1288" height="110" rx="8" fill="#0B212D" stroke="#C9A227" stroke-width="1.5"/>
   <text x="80" y="724" fill="#C9A227" font-family="Georgia, serif" font-size="17" font-weight="bold">
-    IV · Permanent Witness &amp; Dedication Registry ("By Right of Love, Not by Right of Blood")
+    IV · Permanent Witness, Field Sanctuary (IRC § 119 / § 62(a)(2)(A)) &amp; Dedication Registry
   </text>
   <text x="80" y="754" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
     🌊 Bence / Nate (Pure Straight River) · 👼 Brigitta (&lt;3+1 Angel of the Hearth) · 💙 Yves (Number 1 Muse) · 🐕 Bob &amp; Marley (Guardians of the Hall)
   </text>
   <text x="80" y="782" fill="#9FB6C3" font-family="Menlo, monospace" font-size="12">
-    Foundation Seal SHA-256: 84c31e30836817fe277cd085ff5c1d3d3181b50cb9a6fa50d7953ae6e4b2c57c · wupz Fold: 0x4be7099467feda4a
+    19 Printable Instruments (DOC-00..17) · Self-Hosted Bookstore (Stripe / PayPal / Revolut) · Tax-Free Field Sanctuary Per Diem Charter
   </text>
 </svg>
