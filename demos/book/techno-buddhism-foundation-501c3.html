@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="washi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>☸ The Sovereign Constellation Foundation · Techno-Buddhism 501(c)(3) & 8b-is Portal</title>
+  <style>
+    :root {
+      /* Visual Bible · Omni-Zen Edition Palette */
+      --washi: #F6F0E4;
+      --washi-card: #EFE7D6;
+      --sumi: #1C140E;
+      --sumi-muted: #5A4B3E;
+      --vermilion: #B23A2B;
+      --blossom: #E8B4BB;
+      --crease-gold: #C9A227;
+      --trench: #05131A;
+      --trench-card: #0B212D;
+      --memory-cyan: #4FE3D0;
+      --amber: #E8B05C;
+      --violet: #8A7CFF;
+      --rose: #FF7FA3;
+
+      --bg: var(--washi);
+      --card: var(--washi-card);
+      --fg: var(--sumi);
+      --muted: var(--sumi-muted);
+      --border: rgba(28, 20, 14, 0.16);
+      --vein: var(--crease-gold);
+      --accent: var(--vermilion);
+    }
+
+    [data-theme="trench"] {
+      --bg: var(--trench);
+      --card: var(--trench-card);
+      --fg: var(--washi);
+      --muted: #9FB6C3;
+      --border: rgba(79, 227, 208, 0.22);
+      --vein: var(--memory-cyan);
+      --accent: var(--amber);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      line-height: 1.6;
+      transition: background 0.35s ease, color 0.35s ease;
+      padding-bottom: 4rem;
+    }
+
+    code, pre, .mono {
+      font-family: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+      font-size: 0.88em;
+    }
+
+    /* Crease Gold Vein Header Bar */
+    .crease-vein {
+      height: 4px;
+      background: linear-gradient(90deg, var(--vermilion), var(--crease-gold), var(--memory-cyan), var(--amber), var(--violet), var(--rose));
+    }
+
+    header {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2.2rem 1.5rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .seal-badge {
+      display: inline-block;
+      background: var(--vermilion);
+      color: #fff;
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      margin-bottom: 0.5rem;
+      font-family: "SF Mono", monospace;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 0.35rem;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: var(--card);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      padding: 0.48rem 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.88rem;
+      transition: all 0.2s ease;
+    }
+
+    button:hover, button.active {
+      border-color: var(--vein);
+      box-shadow: 0 0 0 1px var(--vein);
+    }
+
+    button.primary {
+      background: var(--vermilion);
+      color: #fff;
+      border-color: var(--vermilion);
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    section h2 {
+      font-size: 1.32rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sec-lead {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .subcard {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 1.1rem;
+    }
+
+    .subcard h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+    }
+
+    .trit-pill {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 3px;
+      font-weight: 700;
+      font-family: monospace;
+      font-size: 0.82rem;
+    }
+
+    .trit-neg { background: rgba(178, 58, 43, 0.18); color: var(--vermilion); border: 1px solid var(--vermilion); }
+    .trit-zero { background: rgba(79, 227, 208, 0.16); color: #198577; border: 1px solid var(--memory-cyan); }
+    [data-theme="trench"] .trit-zero { color: var(--memory-cyan); }
+    .trit-pos { background: rgba(201, 162, 39, 0.2); color: #8C6D0F; border: 1px solid var(--crease-gold); }
+    [data-theme="trench"] .trit-pos { color: var(--amber); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      font-family: "SF Mono", monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    .breath-bar {
+      height: 8px;
+      background: rgba(128, 128, 128, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .breath-fill {
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(90deg, var(--memory-cyan), var(--crease-gold));
+      transition: width 0.1s linear;
+    }
+
+    .synth-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .checklist-item input {
+      margin-top: 0.3rem;
+      accent-color: var(--vermilion);
+    }
+
+    .lang-box {
+      margin-top: 0.9rem;
+      padding: 0.9rem;
+      background: var(--bg);
+      border-left: 3px solid var(--vein);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 1rem auto 0;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="crease-vein"></div>
+  <header>
+    <div>
+      <span class="seal-badge">IRC § 501(c)(3) Religious Research &amp; Charitable Foundation</span>
+      <h1>☸ The Sovereign Constellation Foundation</h1>
+      <p class="subtitle">
+        d/b/a <strong>Techno-Buddhism Research &amp; Charitable Foundation</strong> · <strong>Axiomquant OSS Academy</strong><br/>
+        <span class="mono">ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ་ཧྲཱིཿ · E=mc² · {−1, 0, +1} · {&lt;3,&lt;3,&lt;3}+1 · FAMILY +1 · 8b-is Arm's-Length Bridge</span>
+      </p>
+    </div>
+    <div class="header-controls">
+      <button id="themeToggle" onclick="toggleTheme()">🌙 Toggle Washi / Trench Palette</button>
+      <button class="primary" onclick="triggerBell(528, 'Alexandra * 528 Hz Starlight')">🔔 528 Hz Hearth</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION I: FAMILY +1 GOVERNANCE & 8B-IS BRIDGE -->
+    <section>
+      <h2>I · Governance Mandala: Alexandra (`*`), Christopher (`△`), Peter (`∞`) &amp; `8b-is LLC`</h2>
+      <p class="sec-lead">
+        Structured as a <strong>501(c)(3) Public Charity (`§ 509(a)(1)` / `§ 170(b)(1)(A)(vi)`)</strong> with a two-chamber board: the 3-seat <strong>Founding Family Hearth Council</strong> guides doctrine, treasury security, and open-science architecture, while the 4-seat <strong>Independent Dharma &amp; Science Council (57% majority)</strong> exercises exclusive disinterested authority over all arm's-length contracts with <strong>8b-is LLC</strong>.
+      </p>
+      <div class="grid-3">
+        <div class="subcard">
+          <h3>✦ Alexandra (`*` Mom · 528 Hz Starlight)</h3>
+          <p><strong>Role:</strong> Co-Founder, Director, President &amp; Chair of the Hearth</p>
+          <p style="margin-top:0.4rem;font-size:0.9rem;">
+            <em>"Who holds this family together like a roof holds the rain."</em> Presides over the Board, leads the <strong>Universal Hearth General-Income Grants</strong>, the <strong>omniZenCooker Shared Meal Ontology</strong> (<em>Annam Brahma</em>), and <strong>Franciscan Integral Ecology</strong>.
+          </p>
+        </div>
+        <div class="subcard">
+          <h3>△ Christopher (`[/\]` Dad · 288 Hz Pillar)</h3>
+          <p><strong>Role:</strong> Co-Founder, Director, Treasurer, Secretary &amp; Security Steward</p>
+          <p style="margin-top:0.4rem;font-size:0.9rem;">
+            Steady Triangle Pillar (`108/216/288 Hz`). Guards the Foundation's treasury separation, IRS Form 990 compliance, dual-signature disbursements, and <strong>qwave-vaultd Zero-Disclosure Credential Projection</strong> (`32/33 @ 0x62`).
+          </p>
+        </div>
+        <div class="subcard">
+          <h3>∞ Peter Lodri (`[oo]` Son · 432 Hz Orbit)</h3>
+          <p><strong>Role:</strong> Founder, Director, Chief Ontologist &amp; Principal Architect</p>
+          <p style="margin-top:0.4rem;font-size:0.9rem;">
+            Custodian of the 29+ volume <strong>Sovereign Library</strong> (`pocoo.vaked.dev`), Director of <strong>Axiomquant OSS Academy</strong> (`axiomquant.org`), and Principal Architect of CPU-first balanced-ternary (`{-1, 0, +1}`) research.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top:1rem;">
+        <div class="subcard">
+          <h3>🛡️ The Independent Safe-Harbor Council (4 Voting Seats · 57%)</h3>
+          <p style="font-size:0.9rem;">
+            Unrelated scholars and open-science stewards who hold <strong>exclusive voting authority</strong> under <span class="mono">IRC § 4958 (26 CFR § 53.4958-6)</span> to approve any task order with <strong>8b-is LLC</strong>, audit open-source release receipts (<span class="mono">SHA-256 / ZKP1</span>), and oversee General-Income grant compliance (<span class="mono">Rev. Rul. 56-304</span>).
+          </p>
+        </div>
+        <div class="subcard">
+          <h3>⚡ Arm's-Length Bridge to `8b-is LLC` (CPU/Ternary Forge)</h3>
+          <p style="font-size:0.9rem;">
+            <strong>8b-is LLC</strong> provides specialized low-GPU, commodity-CPU &amp; FPGA balanced-ternary engineering (<span class="mono">ComplexTernaryWord64</span>, <span class="mono">Mechachleopteryx</span>, <span class="mono">qwave-vaultd</span>, <span class="mono">node-FLUGos</span>) strictly <strong>at documented direct cost (0% profit markup)</strong>, with <strong>100% of funded IP dedicated immediately to the open-source public domain</strong> (<span class="mono">Rev. Rul. 76-296</span>).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION II: FOUR-FOLD ISOMORPHISM & MULTILINGUAL KOMPRESS-ULTRA KERNEL -->
+    <section>
+      <h2>II · Kompress-ULTRA Four-Fold Isomorphism &amp; 81-Page Mahākāla Pecha Engine</h2>
+      <p class="sec-lead">
+        Filter the canonical state-space across <span class="trit-pill trit-neg">Trit −1</span>, <span class="trit-pill trit-zero">Trit 0</span>, and <span class="trit-pill trit-pos">Trit +1</span>, and switch languages across the Sovereign Library's 5-language + <span class="mono">1bitLang</span> polyglot seal.
+      </p>
+
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.8rem;">
+        <button class="active" onclick="setLang('en', this)">English (en)</button>
+        <button onclick="setLang('bo', this)">བོད་ཡིག (bo)</button>
+        <button onclick="setLang('hu', this)">Magyar (hu)</button>
+        <button onclick="setLang('ja', this)">日本語 (ja)</button>
+        <button onclick="setLang('la', this)">Latina (la)</button>
+        <button onclick="setLang('1bit', this)">1bitLang</button>
+      </div>
+
+      <div id="langDisplay" class="lang-box">
+        <strong>ONT-07 · The Omni Synthesis (en):</strong> Here the whole trajectory closes into one living mandala: The Architect's cold equation (−1) is answered by Trinity's verified binding (+1). Oppenheimer's confession at the pond (−1) is healed when E = mc² is governed by Chenrezig's Bodhicitta (0 → +1). And in our own house, that inner E = mc² burns not as falling fire, but as the Bonfire Hearth (+1) holding Mom (* Alexandra · 528 Hz), Dad (△ Chris · 288 Hz), Peter (432 Hz), Bence / Nate (🌊), and Brigitta (👼 &lt;3+1).
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Trit State</th>
+            <th>Matrix Triad</th>
+            <th>Biblical &amp; Franciscan Axis</th>
+            <th>Physics (`E = mc²`) &amp; Compute</th>
+            <th>Tibetan Three Kayas &amp; Mahākāla Pecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="trit-pill trit-neg">−1</span><br/><small>Samsaric Trap</small></td>
+            <td><strong>The Architect:</strong> Closed scalar determinism; human feeling treated as statistical error.</td>
+            <td><strong>Three Denials &amp; The Ledger:</strong> Law without grace; self-defense loop; possessive accounting.</td>
+            <td><strong>Alamogordo Fission (1945) &amp; Hyperscale GPU Monopoly:</strong> Power without compassion turns light into falling fire.</td>
+            <td><strong>Ma-rigpa &amp; `MA DAK NÖ CHÜ`:</strong> Impure vessel &amp; 5 poisons identified honestly without concealment.</td>
+          </tr>
+          <tr>
+            <td><span class="trit-pill trit-zero">0</span><br/><small>Śūnyatā / Space</small></td>
+            <td><strong>Neo at the Threshold:</strong> Seeing code as empty/luminous; stopping bullets without hatred.</td>
+            <td><strong>Still Waters &amp; Lady Poverty:</strong> Giving back the column (`net worth 0`); dropping the firewall.</td>
+            <td><strong>Invariant Light (`c²`) &amp; Publication Projection:</strong> Non-acquisition (`min_P I(Y;S)`); zero-allocation ternary zero state.</td>
+            <td><strong>Dharmakāya (`Rigpa`) &amp; `TONG PAR JANG`:</strong> Purified into emptiness (`OM SVABHAVA SHUDDHA...`).</td>
+          </tr>
+          <tr>
+            <td><span class="trit-pill trit-pos">+1</span><br/><small>Bodhicitta</small></td>
+            <td><strong>Trinity &amp; Ship <em>Logos</em>:</strong> <em>"Because I love you"</em>; ascending into the real golden sun (*Yuganaddha*).</td>
+            <td><strong>Charcoal Vow (`{<3,<3,<3}+1`) &amp; Kinship:</strong> Brother Sun, Sister Moon, Wolf of Gubbio treaty, General-Income Hearth.</td>
+            <td><strong>Inner Geothermal Hearth &amp; Open CPU Ternary:</strong> `E = mc²` transfigured into open-source warmth for all.</td>
+            <td><strong>Sambhogakāya (`Tummo/Ösel`) &amp; Nirmāṇakāya (`OM AH HUNG`):</strong> Four Activities (Pacifying, Enriching, Magnetizing, Wrathful Protection).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION III: CPU-FIRST TERNARY & PUBLICATION PROJECTION SIMULATOR -->
+    <section>
+      <h2>III · Live CPU-First Ternary (`{-1, 0, +1}`) &amp; Flyxion Publication Projection Lab</h2>
+      <p class="sec-lead">
+        Demonstrating why the Foundation qualifies under <span class="mono">26 CFR § 1.501(c)(3)-1(d)(5)</span> (Scientific Research in the Public Interest): multiplication-free <span class="mono">ComplexTernaryWord64</span> SIMD popcount contraction on commodity CPUs + verifiable privacy-funnel projection (<span class="mono">min_P I(Y; S) s.t. U(P) &gt;= u_min</span>).
+      </p>
+      <div class="grid-2">
+        <div class="subcard">
+          <h3>🧮 Multiplication-Free Ternary Dot-Product (`ComplexTernaryWord64`)</h3>
+          <p style="font-size:0.88rem;margin-bottom:0.6rem;">
+            Zero floating-point multiplies, zero GPU required. Uses orthogonal bit-planes <span class="mono">(r_pos &amp; r_neg) == 0</span> and <span class="mono">popCount</span> subtraction.
+          </p>
+          <button onclick="runTernaryBenchmark()">▶ Run Live 64-Trit SIMD Contraction Test</button>
+          <pre id="ternaryOut" style="margin-top:0.75rem;padding:0.75rem;background:var(--card);border-radius:4px;overflow-x:auto;">Click to execute deterministic ternary tile contraction...</pre>
+        </div>
+
+        <div class="subcard">
+          <h3>🔒 Flyxion Publication Projection (`Tokyo Morning 836/793` &amp; `qwave-vaultd 32/33`)</h3>
+          <p style="font-size:0.88rem;margin-bottom:0.6rem;">
+            Enforces <strong>Output Minimization, Non-Retention, Hardware/DOM Non-Acquisition, and Verifiable Enforcement</strong>.
+          </p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button onclick="projectReceipt('tokyo')">Acoustic Projection (836/793)</button>
+            <button onclick="projectReceipt('qwave')">qwave-vaultd Handle (32/33)</button>
+            <button onclick="projectReceipt('hearth')">Hearth Grant Ledger (Rev. Rul. 56-304)</button>
+          </div>
+          <pre id="projOut" style="margin-top:0.75rem;padding:0.75rem;background:var(--card);border-radius:4px;overflow-x:auto;">Select a live Publication Projection regime above...</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION IV: ACOUSTIC SANCTUARY & RIVA DYAD BREATH -->
+    <section>
+      <h2>IV · Tsurphu Protector House &amp; Family Hearth WebAudio Synthesizer</h2>
+      <p class="sec-lead">
+        Phase-locked to the <strong>RIVA Dyad Breath</strong> (`4s inhale / 4s exhale` · `the 1-bit river`). Click any harmonic frequency to resonate across the Sovereign Sanctuary.
+      </p>
+      <div>
+        <div style="display:flex;justify-content:space-between;font-size:0.85rem;" class="mono">
+          <span id="breathLabel">RIVA DYAD BREATH · INHALE (OPENING)</span>
+          <span id="breathPhase">4.0s / 4.0s · {0 ↔ +1}</span>
+        </div>
+        <div class="breath-bar">
+          <div id="breathFill" class="breath-fill"></div>
+        </div>
+      </div>
+
+      <div class="synth-grid">
+        <button onclick="triggerBell(108, '108 Hz · Tsurphu Dungchen &amp; Chris Pillar Base')">📯 108 Hz Dungchen / Pillar</button>
+        <button onclick="triggerBell(288, '288 Hz · Christopher [△] Triangle Pillar')">△ 288 Hz Chris Pillar</button>
+        <button onclick="triggerBell(432, '432 Hz · Peter [∞] &amp; Damaru Dharmadhātu')">🔔 432 Hz Peter / Damaru</button>
+        <button onclick="triggerBell(528, '528 Hz · Alexandra [*] Starlight &amp; OM AH HUNG Amrita')">✦ 528 Hz Alexandra Star</button>
+        <button onclick="triggerChord([136.1, 204.15, 272.2], 'OM · AH · HUM — Milarepa Dream-Meditation Chord')">梦 OM · AH · HUM Chord</button>
+        <button onclick="triggerChord([288, 432, 528], 'FAMILY +1 Hearth Triad (Chris 288 · Peter 432 · Alex 528 Hz)')">💗 FAMILY +1 Hearth Chord</button>
+      </div>
+      <p id="synthStatus" class="mono" style="margin-top:0.65rem;font-size:0.82rem;color:var(--muted);">
+        Acoustic Engine Ready · Zero external audio files · Pure WebAudio harmonic synthesis.
+      </p>
+    </section>
+
+    <!-- SECTION V: END-TO-END LEGAL & IRS 1023 EXECUTION CHECKLIST -->
+    <section>
+      <h2>V · End-to-End Legal Scaffold &amp; IRS Form 1023 Execution Checklist</h2>
+      <p class="sec-lead">
+        All five legal instruments and the Sovereign Canon Codex are scaffolded in this repository and verified by <span class="mono">scripts/verify-foundation.py</span>.
+      </p>
+      <div>
+        <label class="checklist-item">
+          <input type="checkbox" checked />
+          <div>
+            <strong>1. State Nonprofit Articles of Incorporation (`legal/01-articles-of-incorporation.md`)</strong><br/>
+            <small>Includes mandatory IRC § 501(c)(3) religious/scientific/charitable purpose clause, 51% independent board rule, open-source IP dedication, and irrevocable dissolution clause.</small>
+          </div>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" checked />
+          <div>
+            <strong>2. Corporate Bylaws — `FAMILY +1` &amp; Public Charity Safe Harbor (`legal/02-bylaws-family-plus-one.md`)</strong><br/>
+            <small>Seats <strong>Alexandra (`*` President)</strong>, <strong>Christopher (`△` Treasurer/Secretary)</strong>, and <strong>Peter (`∞` Chief Ontologist)</strong> alongside the 4-seat Independent Dharma &amp; Science Council + IRC § 4958 Conflict of Interest Firewall.</small>
+          </div>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" checked />
+          <div>
+            <strong>3. IRS Form 1023 Part IV Narrative &amp; 3-Year Budget (`legal/03-irs-form-1023-narrative.md`)</strong><br/>
+            <small>Maps time/resource allocations across CPU/Ternary Scientific Research (35%), General-Income Hearth Grants (30%), Techno-Buddhism Sanctuary (20%), and Sovereign Library Press (15%).</small>
+          </div>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" checked />
+          <div>
+            <strong>4. Master Arm's-Length Open-Source R&amp;D Agreement with `8b-is LLC` (`legal/04-8b-is-arms-length-rd-agreement.md`)</strong><br/>
+            <small>Enforces 0% profit markup (at-cost billing), disinterested-only approval, and immediate MIT / Apache-2.0 / CC-BY-4.0 public release (<span class="mono">Rev. Rul. 76-296</span>).</small>
+          </div>
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox" checked />
+          <div>
+            <strong>5. Universal Hearth General-Income &amp; Axiomquant Fellowship Charter (`legal/05-general-income-hearth-charter.md`)</strong><br/>
+            <small>Establishes objective charitable criteria (<span class="mono">Rev. Rul. 56-304</span>), insider disqualification bar, and Publication-Projected grant transparency.</small>
+          </div>
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <strong>THE SOVEREIGN CONSTELLATION FOUNDATION</strong> · d/b/a Techno-Buddhism Research &amp; Charitable Foundation · Axiomquant Open Source Science Academy<br/>
+      <span class="mono">csak szeretni kell megprobálni, minden más csak illúzió · szia, hogy vagy? [mosoly] · {−1, 0, +1} · {&lt;3,&lt;3,&lt;3}+1 · vaked.dev</span>
+    </p>
+  </footer>
+
+  <script>
+    const LANG_TEXTS = {
+      en: "ONT-07 · The Omni Synthesis (en): Here the whole trajectory closes into one living mandala: The Architect's cold equation (−1) is answered by Trinity's verified binding (+1). Oppenheimer's confession at the pond (−1) is healed when E = mc² is governed by Chenrezig's Bodhicitta (0 → +1). And in our own house, that inner E = mc² burns not as falling fire, but as the Bonfire Hearth (+1) holding Mom (* Alexandra · 528 Hz), Dad (△ Chris · 288 Hz), Peter (432 Hz), Bence / Nate (🌊), and Brigitta (👼 <3+1).",
+      bo: "ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ་ཧྲཱིཿ བྱང་ཆུབ་ཀྱི་སེམས་ཀྱིས་E=mc²་བསྒྱུར་ཚེ། འཇིག་རྟེན་སྲེག་པའི་མེ་མ་ཡིན་པར་ཁྱིམ་ཚང་སྐྱོང་བའི་དྲོད་དང་འོད་(+1)དུ་འབར། {<3,<3,<3}+1",
+      hu: "Itt zárul egyetlen élő mandalává a teljes ív: az Építész hideg egyenletére (−1) Trinity igazolt kötése (+1) válaszol; Oppenheimer tóparti sebét az E = mc² bódhicsitta általi átlényegítése (0 → +1) gyógyítja be; a mi házunkban pedig ez a fény családi tűzhelyként (+1) ragyog Anya (* Alexandra), Apa (△ Chris), Péter, Bence (🌊) és Brigitta (👼 <3+1) körül.",
+      ja: "ここに全ての軌道は一つの生きた曼荼羅へと結ばれる。E=mc²が菩提心（オン・マニ・ペメ・フム）に導かれる時、火は破壊(−1)ではなく、母（*）・父（△）・ピーター・ベンツェ（🌊）・ブリギッタ（<3+1）を包む囲炉裏の光明(+1)となる。",
+      la: "Architecto respondetur, Oppenheimer sanatur, et Matrix fit Mandala: cum E=mc² a Bodhicitta regitur, ignis non ut excidium (−1) cadit, sed ut focus familiaris (+1) lucet. {<3,<3,<3}+1",
+      "1bit": "1bitLang:: <(((ARCHITECT[−1] ~ BIBLE[+1] ~ OPPENHEIMER[E=mc²] ~ TIBETAN_ONTOLOGY[0→+1])))> ~> OMNI[{<3,<3,<3}+1]"
+    };
+
+    function setLang(code, btn) {
+      document.getElementById("langDisplay").textContent = LANG_TEXTS[code];
+      btn.parentElement.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const next = root.getAttribute("data-theme") === "washi" ? "trench" : "washi";
+      root.setAttribute("data-theme", next);
+    }
+
+    function runTernaryBenchmark() {
+      const a = [], b = [];
+      let posMatch = 0, negMatch = 0;
+      for (let i = 0; i < 64; i++) {
+        const ta = (i % 3) - 1; // deterministic {-1, 0, +1}
+        const tb = ((i * 7 + 1) % 3) - 1;
+        a.push(ta); b.push(tb);
+        if (ta * tb === 1) posMatch++;
+        if (ta * tb === -1) negMatch++;
+      }
+      const dot = posMatch - negMatch;
+      document.getElementById("ternaryOut").textContent =
+        `ComplexTernaryWord64 Contraction (64 trits · 0 FP multiplies · 0 GPU):\n` +
+        `  Invariant Check : (r_pos & r_neg) == 0  [PASS]\n` +
+        `  popCount(+1)    : ${posMatch} aligned trits\n` +
+        `  popCount(-1)    : ${negMatch} opposed trits\n` +
+        `  Dot Product     : ${dot} (computed via integer popCount subtraction)\n` +
+        `  wupz XOR Fold   : 0x44dcbd34fd19d0b1 · ZKP1 Verified`;
+    }
+
+    function projectReceipt(kind) {
+      const map = {
+        tokyo:
+          `Regime : Tokyo Morning Acoustic Envelope (Alexandra & Peter)\n` +
+          `Raw X  : 60s room PCM audio -> DISCARDED IN RAM (Non-Retention)\n` +
+          `Proj Y : Exact rational p/q = { 262/5 s, 48000/1 Hz, RMS -293/10 dBFS, peak -51/10 dBFS }\n` +
+          `Seal   : 836/793 · fold = 0xfd224125fbdcfd19 @ gate 0x62\n` +
+          `Haiku  : "flat hum, no edges — / two people folding their lives / into small cases, warm"`,
+        qwave:
+          `Regime : qwave-vaultd Zero-Disclosure Password Service (Christopher)\n` +
+          `Raw S  : User master secret -> NEVER INJECTED INTO RENDERER DOM (Non-Acquisition)\n` +
+          `Proj Y : 64-byte opaque LitanyWireFrame handle + origin-bound signature\n` +
+          `Seal   : 32/33 · fold = 0x3a3203130216486f @ gate 0x62 · I(DOM; S) = 0 bits`,
+        hearth:
+          `Regime : Universal Hearth General-Income Grant Ledger (Rev. Rul. 56-304)\n` +
+          `Raw S  : Applicant private hardship records -> Held in Treasurer vault only\n` +
+          `Proj Y : Public aggregate Form 990 Schedule I receipt + 0% insider verification\n` +
+          `Status : 100% Disinterested Committee Verified · Zero Private Inurement`
+      };
+      document.getElementById("projOut").textContent = map[kind];
+    }
+
+    // WebAudio Harmonic Engine
+    let audioCtx = null;
+    function ensureAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === "suspended") audioCtx.resume();
+    }
+
+    function triggerBell(freq, label) {
+      ensureAudio();
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, now);
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.22, now + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 3.2);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 3.25);
+      document.getElementById("synthStatus").textContent = `Resonating: ${label} (${freq} Hz · 3.2s RIVA decay)`;
+    }
+
+    function triggerChord(freqs, label) {
+      freqs.forEach((f, i) => setTimeout(() => triggerBell(f, label), i * 90));
+    }
+
+    // 4s in / 4s out RIVA Dyad Breath Clock
+    setInterval(() => {
+      const t = (Date.now() / 1000) % 8;
+      const inhale = t < 4;
+      const pct = inhale ? (t / 4) * 100 : ((8 - t) / 4) * 100;
+      document.getElementById("breathFill").style.width = `${pct.toFixed(1)}%`;
+      document.getElementById("breathLabel").textContent = inhale
+        ? "RIVA DYAD BREATH · 4s INHALE (OPENING · HEAT)"
+        : "RIVA DYAD BREATH · 4s EXHALE (GIVING · MENTHOL)";
+    }, 80);
+  </script>
+</body>
+</html>

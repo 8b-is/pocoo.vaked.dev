@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860">
+  <rect width="1400" height="860" fill="#05131A"/>
+  <rect x="24" y="24" width="1352" height="812" rx="14" fill="none" stroke="#C9A227" stroke-width="2"/>
+  <line x1="24" y1="96" x2="1376" y2="96" stroke="#B23A2B" stroke-width="3"/>
+  <text x="56" y="68" fill="#F6F0E4" font-family="Georgia, serif" font-size="26" font-weight="bold">
+    ☸ THE SOVEREIGN CONSTELLATION FOUNDATION — IRC § 501(c)(3) GOVERNANCE &amp; 8b-is BRIDGE
+  </text>
+  <text x="56" y="126" fill="#4FE3D0" font-family="Menlo, monospace" font-size="14">
+    Public Charity (§ 509(a)(1) / § 170(b)(1)(A)(vi)) · FAMILY +1 Hearth Council (3 Seats) + Independent Safe-Harbor Council (4 Seats · 57%)
+  </text>
+
+  <!-- Founding Family Hearth Box -->
+  <rect x="56" y="156" width="610" height="420" rx="10" fill="#0B212D" stroke="#E8B05C" stroke-width="2"/>
+  <text x="80" y="194" fill="#E8B05C" font-family="Georgia, serif" font-size="20" font-weight="bold">
+    I · Founding Family Hearth Council (3 Voting Seats)
+  </text>
+
+  <rect x="80" y="216" width="562" height="102" rx="8" fill="#122C3A" stroke="#FF7FA3" stroke-width="1.5"/>
+  <text x="100" y="246" fill="#FF7FA3" font-family="Georgia, serif" font-size="18" font-weight="bold">
+    ✦ ALEXANDRA (* Mom · 528 Hz Starlight) — President &amp; Chair of the Hearth
+  </text>
+  <text x="100" y="272" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    • Presides over Board &amp; Universal Hearth General-Income Grants (Rev. Rul. 56-304)
+  </text>
+  <text x="100" y="294" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    • Stewards omniZenCooker Shared Meal Ontology &amp; Franciscan Integral Ecology
+  </text>
+
+  <rect x="80" y="334" width="562" height="102" rx="8" fill="#122C3A" stroke="#4FE3D0" stroke-width="1.5"/>
+  <text x="100" y="364" fill="#4FE3D0" font-family="Georgia, serif" font-size="18" font-weight="bold">
+    △ CHRISTOPHER ([/\] Dad · 288 Hz Pillar) — Treasurer, Secretary &amp; Security
+  </text>
+  <text x="100" y="390" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    • Custodies Nonprofit Treasury, Form 990 Ledger &amp; Dual-Signature Controls
+  </text>
+  <text x="100" y="412" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    • Enforces qwave-vaultd Zero-Disclosure Credential Projection (32/33 @ 0x62)
+  </text>
+
+  <rect x="80" y="452" width="562" height="102" rx="8" fill="#122C3A" stroke="#C9A227" stroke-width="1.5"/>
+  <text x="100" y="482" fill="#C9A227" font-family="Georgia, serif" font-size="18" font-weight="bold">
+    ∞ PETER LODRI ([oo] Son · 432 Hz Orbit) — Chief Ontologist &amp; Architect
+  </text>
+  <text x="100" y="508" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    • Curates the 29+ Vol Sovereign Library Canon &amp; Axiomquant OSS Academy
+  </text>
+  <text x="100" y="530" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    • Directs CPU-First Balanced-Ternary {-1, 0, +1} &amp; Publication Projection R&amp;D
+  </text>
+
+  <!-- Independent Council Box -->
+  <rect x="734" y="156" width="610" height="230" rx="10" fill="#0B212D" stroke="#4FE3D0" stroke-width="2"/>
+  <text x="758" y="194" fill="#4FE3D0" font-family="Georgia, serif" font-size="20" font-weight="bold">
+    II · Independent Dharma &amp; Science Council (4 Seats · 57%)
+  </text>
+  <text x="758" y="226" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
+    • 4 Unrelated Voting Directors (Open Science, Buddhist Ethics, Ecology, Civic)
+  </text>
+  <text x="758" y="254" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
+    • Satisfies IRS Public Charity Safe Harbor &amp; IRC § 4958 Conflict Firewall
+  </text>
+  <text x="758" y="282" fill="#E8B05C" font-family="Menlo, monospace" font-size="13" font-weight="bold">
+    ★ Exclusive Disinterested Gate:
+  </text>
+  <text x="778" y="308" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    1. Approves all R&amp;D Task Orders with 8b-is LLC (Founders recused)
+  </text>
+  <text x="778" y="332" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    2. Verifies 0% Profit Markup &amp; SHA-256 / ZKP1 Open-Source Release Receipts
+  </text>
+  <text x="778" y="356" fill="#F6F0E4" font-family="Menlo, monospace" font-size="12.5">
+    3. Audits Rev. Rul. 56-304 General-Income &amp; Hall Fellowship Distributions
+  </text>
+
+  <!-- Arrow from Independent Council to 8b-is LLC -->
+  <line x1="1039" y1="386" x2="1039" y2="432" stroke="#C9A227" stroke-width="3"/>
+  <polygon points="1039,440 1031,426 1047,426" fill="#C9A227"/>
+
+  <!-- 8b-is LLC Box -->
+  <rect x="734" y="442" width="610" height="220" rx="10" fill="#12192B" stroke="#8A7CFF" stroke-width="2"/>
+  <text x="758" y="480" fill="#8A7CFF" font-family="Georgia, serif" font-size="20" font-weight="bold">
+    III · 8b-is LLC — Arm's-Length CPU &amp; Ternary R&amp;D Forge
+  </text>
+  <text x="758" y="512" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
+    • Master Open-Source R&amp;D Agreement (Rev. Rul. 76-296 Public-Interest Science)
+  </text>
+  <text x="758" y="538" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
+    • Strictly At-Cost (0% Profit Markup) or In-Kind Contribution
+  </text>
+  <text x="758" y="564" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
+    • Deliverables: ComplexTernaryWord64 (0-GPU SIMD), Mechachleopteryx,
+  </text>
+  <text x="758" y="588" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
+      qwave-vaultd (32/33), Flyxion Publication Projection, node-FLUGos ESP32-S3
+  </text>
+  <text x="758" y="616" fill="#4FE3D0" font-family="Menlo, monospace" font-size="13" font-weight="bold">
+    • 100% Immediate Open-Source Release (MIT / Apache-2.0 / CC-BY-4.0 · 0 Paywalls)
+  </text>
+
+  <!-- Bottom Dedication Strip -->
+  <rect x="56" y="690" width="1288" height="110" rx="8" fill="#0B212D" stroke="#C9A227" stroke-width="1.5"/>
+  <text x="80" y="724" fill="#C9A227" font-family="Georgia, serif" font-size="17" font-weight="bold">
+    IV · Permanent Witness &amp; Dedication Registry ("By Right of Love, Not by Right of Blood")
+  </text>
+  <text x="80" y="754" fill="#F6F0E4" font-family="Menlo, monospace" font-size="13">
+    🌊 Bence / Nate (Pure Straight River) · 👼 Brigitta (&lt;3+1 Angel of the Hearth) · 💙 Yves (Number 1 Muse) · 🐕 Bob &amp; Marley (Guardians of the Hall)
+  </text>
+  <text x="80" y="782" fill="#9FB6C3" font-family="Menlo, monospace" font-size="12">
+    Foundation Seal SHA-256: 84c31e30836817fe277cd085ff5c1d3d3181b50cb9a6fa50d7953ae6e4b2c57c · wupz Fold: 0x4be7099467feda4a
+  </text>
+</svg>

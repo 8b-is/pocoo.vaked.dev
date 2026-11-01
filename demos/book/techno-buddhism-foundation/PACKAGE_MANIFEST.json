@@ -1,0 +1,91 @@
+{
+  "master_pdf": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/00-Techno-Buddhism-Foundation-Master-Compendium.pdf",
+  "pdfs": [
+    {
+      "name": "00-Techno-Buddhism-Foundation-Master-Compendium.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/00-Techno-Buddhism-Foundation-Master-Compendium.pdf",
+      "bytes": 1265256,
+      "sha256": "a007f9f3aed2a4758670588a26dcf4eeb3f0f3df631dda5a7dd3c37bc1b67880"
+    },
+    {
+      "name": "00a-Executive-Master-Plan.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/00a-Executive-Master-Plan.pdf",
+      "bytes": 382718,
+      "sha256": "11f73e6a8f5cce24fa7159f437dd31964bc74263fcab4a5f8ce16ba43c44405c"
+    },
+    {
+      "name": "01-Articles-of-Incorporation-501c3.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/01-Articles-of-Incorporation-501c3.pdf",
+      "bytes": 204129,
+      "sha256": "1ddd41d8ef53b64768779d6f7bfdbfbb9a502bdf9caff9442c215c0d02d130d3"
+    },
+    {
+      "name": "02-Bylaws-Family-Plus-One-and-Safe-Harbor.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/02-Bylaws-Family-Plus-One-and-Safe-Harbor.pdf",
+      "bytes": 289865,
+      "sha256": "01fca2325103e76d933585230f1649b9f4f647e3f6cd1d7479e791349ff37df1"
+    },
+    {
+      "name": "03-IRS-Form-1023-Narrative-and-Budget.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/03-IRS-Form-1023-Narrative-and-Budget.pdf",
+      "bytes": 353648,
+      "sha256": "5aada178f92b3024064e3e4125e99a568d374f4a24f1c2e6c1c758644d06623f"
+    },
+    {
+      "name": "04-8b-is-LLC-Arms-Length-Open-Source-RD-Agreement.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/04-8b-is-LLC-Arms-Length-Open-Source-RD-Agreement.pdf",
+      "bytes": 237309,
+      "sha256": "afffb83735ad7ab10baab5ffffd4ffcc37fa054b912ec82bf42fa946a02a16c7"
+    },
+    {
+      "name": "05-Universal-Hearth-General-Income-and-Axiomquant-Charter.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/05-Universal-Hearth-General-Income-and-Axiomquant-Charter.pdf",
+      "bytes": 218089,
+      "sha256": "b07d43b38334b73f34273fb332f5d814c464def949c2bda3138ff4596d8eb95b"
+    },
+    {
+      "name": "06-Sovereign-Canon-Codex-Techno-Buddhism.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/06-Sovereign-Canon-Codex-Techno-Buddhism.pdf",
+      "bytes": 578212,
+      "sha256": "aab06693e9e1538fda4d3ce4287864f5edfb5e1e5b38d2d2a6993875d969eefd"
+    },
+    {
+      "name": "07-Sovereign-Constellation-Portal-Print-Edition.pdf",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/pdfs/07-Sovereign-Constellation-Portal-Print-Edition.pdf",
+      "bytes": 636680,
+      "sha256": "19f0a9018119589c07db7e6036358b82c3b1db6f5bdb1e6387fa9bef5970f123"
+    }
+  ],
+  "assets": [
+    {
+      "name": "governance-mandala-family-plus-one.svg",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/assets/governance-mandala-family-plus-one.svg",
+      "bytes": 6756,
+      "sha256": "1895121cad0f753438e109b23de15ee809e70d4edb7999247601ea192c6281de"
+    },
+    {
+      "name": "governance-mandala-family-plus-one.png",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/assets/governance-mandala-family-plus-one.png",
+      "bytes": 250101,
+      "sha256": "1738e42bc7683d2a9d05653ac4d7712cacac7e3591ae069680eb0203f2d2f522"
+    },
+    {
+      "name": "four-fold-isomorphism-trit-matrix.svg",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/assets/four-fold-isomorphism-trit-matrix.svg",
+      "bytes": 6045,
+      "sha256": "dea107e6356e07f152d83a0ba066465da61210c5e522ab42b91c845ae43a74d8"
+    },
+    {
+      "name": "four-fold-isomorphism-trit-matrix.png",
+      "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/assets/four-fold-isomorphism-trit-matrix.png",
+      "bytes": 228358,
+      "sha256": "c4dddd5b820f665e2250baa27d35db3b91aa75e5ca5717fdf2565f7d2dfab9e3"
+    }
+  ],
+  "zip_bundle": {
+    "name": "Techno-Buddhism-Foundation-501c3-Complete-Package.zip",
+    "path": "/Users/wraith/workspace/peterlodri-sec/techno-buddhism-foundation/package/Techno-Buddhism-Foundation-501c3-Complete-Package.zip",
+    "bytes": 3618429,
+    "sha256": "16380eff51d48b2537fed8c247daeb410a038ebad47cdab8e7aa4d734ff4ab5f"
+  }
+}
