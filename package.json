@@ -10,7 +10,7 @@
     "build": "python3 scripts/generate_og_images.py && node scripts/gen-book-index.mjs && node build.mjs"
   },
   "dependencies": {
-    "markdown-it": "^15.0.2",
+    "markdown-it": "^15.0.3",
     "markdown-it-mathjax3": "^4.3.2"
   }
 }
